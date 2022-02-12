@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>电路 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/%E7%94%B5%E8%B7%AF/</link>
+        <description>电路 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 18 May 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E7%94%B5%E8%B7%AF/" rel="self" type="application/rss+xml" /><item>
+    <title>小电路多学问</title>
+    <link>https://o2ospring.github.io/20220518/</link>
+    <pubDate>Wed, 18 May 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220518/</guid>
+    <description><![CDATA[前言 一些小电路对于硬件工程师来说实在太简单了，闭着眼睛都可以把它画出来。正是因为简单而不过脑子，往往忽略了细节设计，造成一些隐患，严重时会烧]]></description>
+</item></channel>
+</rss>

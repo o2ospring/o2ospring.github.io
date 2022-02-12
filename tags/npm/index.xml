@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>npm - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/npm/</link>
+        <description>npm - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Jan 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/npm/" rel="self" type="application/rss+xml" /><item>
+    <title>网站 node 包管理器 npm</title>
+    <link>https://o2ospring.github.io/20220123/</link>
+    <pubDate>Sun, 23 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220123/</guid>
+    <description><![CDATA[NPM 的简介 npm（Node Package Manager）是 node 的包管理器，随同 NodeJS 一起安装的包管理和分发工具，它很方便让 JavaScript 开发者下载、安装、上传以及管理已经安]]></description>
+</item></channel>
+</rss>

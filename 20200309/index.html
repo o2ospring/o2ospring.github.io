@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>json 基本语法介绍 - o2ospring</title><meta name="Description" content="介绍 json 基本语法"><meta property="og:title" content="json 基本语法介绍" />
+<meta property="og:description" content="介绍 json 基本语法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20200309/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-09T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-02-22T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="json 基本语法介绍"/>
+<meta name="twitter:description" content="介绍 json 基本语法"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20200309/" /><link rel="prev" href="https://o2ospring.github.io/20200305/" /><link rel="next" href="https://o2ospring.github.io/20200802/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "json 基本语法介绍",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20200309\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "json","wordcount":  832 ,
+        "url": "https:\/\/o2ospring.github.io\/20200309\/","datePublished": "2020-03-09T21:33:41+08:00","dateModified": "2022-02-22T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "介绍 json 基本语法"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">json 基本语法介绍</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-09">2020-03-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 832 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/20200309/" class="leancloud_visitors" data-flag-title="json 基本语法介绍">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一前言">一、前言</a></li>
+        <li><a href="#二语法">二、语法</a></li>
+        <li><a href="#三例子">三、例子</a></li>
+        <li><a href="#四工具">四、工具</a></li>
+        <li><a href="#五资料">五、资料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
+<blockquote>
+<p>JSON 指的是 JavaScript 对象表示法（<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation）。<br>
+JSON 是轻量级的<span style="color: #FF0000;"><strong>文本</strong></span>数据交换格式，目前大部分智能家居系统数据交换都使用了 Json 格式。</p>
+</blockquote>
+<h3 id="二语法">二、语法</h3>
+<blockquote>
+<p>JSON 数据的书写格式是：<code>key : value</code>，即： <code>键 : 键值</code>，也就是：<code>名称 : 数值</code>。</p>
+</blockquote>
+<details close=""><summary><strong>数组</strong>："名称" : [ 组员 , 组员 , ……组员], </summary>  
+<ul>
+<li><strong>组员</strong>：为 <strong>无名数组</strong>、<strong>无名对象</strong>、<strong>无名数值</strong></li>
+<li><span style="color: #808080;"><strong>说明</strong>：“无名”表示没有名称的一个对象体/数组体/数值</li>
+</ul>
+</details>  
+<details close=""><summary><strong>对象</strong>："名称" : { 成员 , 成员 , ……成员}, </summary>  
+<ul>
+<li><strong>成员</strong>：为 <strong>有名数组</strong>、<strong>有名对象</strong>、<strong>有名成员</strong></li>
+</ul>
+</details>  
+<details close=""><summary><strong>成员</strong>："名称" : "数值", </summary>  
+<ul>
+<li><strong>数值</strong>：任意字符；如果 <strong>数值</strong> 没有双引号，只能<code>数字、ture、false、null</code></li>
+</ul>
+</details>  
+<details close=""><summary><strong>要点</strong>：整个Json数据需要 { } 括号括住，<u> } 或 ] </u>前面不能有<u>逗号</u>。</summary>  
+</details>  
+<h3 id="三例子">三、例子</h3>
+<details close=""><summary>点击展开内容</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+	<span class="nt">&#34;web-app&#34;</span><span class="p">:</span>
+	<span class="p">{</span>
+		<span class="nt">&#34;servlet&#34;</span><span class="p">:</span> 
+		<span class="p">[</span>
+			<span class="p">{</span>
+				<span class="nt">&#34;servlet-name&#34;</span><span class="p">:</span> <span class="s2">&#34;cofaxCDS&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;servlet-class&#34;</span><span class="p">:</span> <span class="s2">&#34;org.cofax.cds.CDSServlet&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;init-param&#34;</span><span class="p">:</span>
+				<span class="p">{</span>
+					<span class="nt">&#34;useDataStore&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+					<span class="nt">&#34;useJSP&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+					<span class="nt">&#34;xxx&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+					<span class="nt">&#34;dataStoreMaxConns&#34;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+					<span class="nt">&#34;maxUrlLength&#34;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+					<span class="nt">&#34;dataStoreLogLevel&#34;</span><span class="p">:</span> <span class="s2">&#34;debug&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;configGlossary:adminEmail&#34;</span><span class="p">:</span> <span class="s2">&#34;ksm@pobox.com&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;configGlossary:poweredByIcon&#34;</span><span class="p">:</span> <span class="s2">&#34;/images/cofax.gif&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;configGlossary:staticPath&#34;</span><span class="p">:</span> <span class="s2">&#34;/content/static&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;jspListTemplate&#34;</span><span class="p">:</span> <span class="s2">&#34;listTemplate.jsp&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;searchEngineFileTemplate&#34;</span><span class="p">:</span> <span class="s2">&#34;forSearchEngines.htm&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;searchEngineRobotsDb&#34;</span><span class="p">:</span> <span class="s2">&#34;WEB-INF/robots.db&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;dataStoreClass&#34;</span><span class="p">:</span> <span class="s2">&#34;org.cofax.SqlDataStore&#34;</span>
+				<span class="p">}</span>
+			<span class="p">},</span>
+			<span class="p">{</span>
+				<span class="nt">&#34;servlet-name&#34;</span><span class="p">:</span> <span class="s2">&#34;cofaxEmail&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;servlet-class&#34;</span><span class="p">:</span> <span class="s2">&#34;org.cofax.cds.EmailServlet&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;init-param&#34;</span><span class="p">:</span>
+				<span class="p">{</span>
+					<span class="nt">&#34;mailHost&#34;</span><span class="p">:</span> <span class="s2">&#34;mail1&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;mailHostOverride&#34;</span><span class="p">:</span> <span class="s2">&#34;mail2&#34;</span>
+				<span class="p">}</span>
+			<span class="p">},</span>
+			<span class="p">{</span>
+				<span class="nt">&#34;servlet-name&#34;</span><span class="p">:</span> <span class="s2">&#34;cofaxAdmin&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;servlet-class&#34;</span><span class="p">:</span> <span class="s2">&#34;org.cofax.cds.AdminServlet&#34;</span>
+			<span class="p">},</span>
+			<span class="p">{</span>
+				<span class="nt">&#34;servlet-name&#34;</span><span class="p">:</span> <span class="s2">&#34;fileServlet&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;servlet-class&#34;</span><span class="p">:</span> <span class="s2">&#34;org.cofax.cds.FileServlet&#34;</span>
+			<span class="p">},</span>
+			<span class="p">{</span>
+				<span class="nt">&#34;servlet-name&#34;</span><span class="p">:</span> <span class="s2">&#34;cofaxTools&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;servlet-class&#34;</span><span class="p">:</span> <span class="s2">&#34;org.cofax.cms.CofaxToolsServlet&#34;</span><span class="p">,</span>
+				<span class="nt">&#34;init-param&#34;</span><span class="p">:</span>
+				<span class="p">{</span>
+					<span class="nt">&#34;templatePath&#34;</span><span class="p">:</span> <span class="s2">&#34;toolstemplates/&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;log&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+					<span class="nt">&#34;logLocation&#34;</span><span class="p">:</span> <span class="s2">&#34;/usr/local/tomcat/logs/CofaxTools.log&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;logMaxSize&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+					<span class="nt">&#34;dataLog&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+					<span class="nt">&#34;betaServer&#34;</span><span class="p">:</span> <span class="kc">true</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">],</span>
+		<span class="nt">&#34;servlet-mapping&#34;</span><span class="p">:</span>
+		<span class="p">{</span>
+			<span class="nt">&#34;cofaxCDS&#34;</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;cofaxEmail&#34;</span><span class="p">:</span> <span class="s2">&#34;/cofaxutil/aemail/*&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;cofaxAdmin&#34;</span><span class="p">:</span> <span class="s2">&#34;/admin/*&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;fileServlet&#34;</span><span class="p">:</span> <span class="s2">&#34;/static/*&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;cofaxTools&#34;</span><span class="p">:</span> <span class="s2">&#34;/tools/*&#34;</span>
+		<span class="p">},</span>
+		<span class="nt">&#34;taglib&#34;</span><span class="p">:</span>
+		<span class="p">{</span>
+			<span class="nt">&#34;taglib-uri&#34;</span><span class="p">:</span> <span class="s2">&#34;cofax.tld&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;taglib-location&#34;</span><span class="p">:</span> <span class="s2">&#34;/WEB-INF/tlds/cofax.tld&#34;</span>
+		<span class="p">},</span>
+		<span class="nt">&#34;oil-price&#34;</span><span class="p">:</span>
+		<span class="p">{</span>
+			<span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;ok&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;全国各省份汽柴油价格信息&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;update&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-07-21 11:00&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;data&#34;</span><span class="p">:</span>
+			<span class="p">[</span>
+				<span class="p">[</span><span class="s2">&#34;地区&#34;</span><span class="p">,</span> <span class="s2">&#34;92号汽油&#34;</span><span class="p">,</span> <span class="s2">&#34;95号汽油&#34;</span><span class="p">,</span> <span class="s2">&#34;98号汽油&#34;</span><span class="p">,</span> <span class="s2">&#34;0号柴油&#34;</span><span class="p">],</span> 
+				<span class="s2">&#34;直辖市：&#34;</span><span class="p">,</span>
+				<span class="p">[</span><span class="s2">&#34;北京&#34;</span><span class="p">,</span> <span class="s2">&#34;6.78&#34;</span><span class="p">,</span> <span class="s2">&#34;7.21&#34;</span><span class="p">,</span> <span class="s2">&#34;8.19&#34;</span><span class="p">,</span> <span class="s2">&#34;6.45&#34;</span><span class="p">],</span> 
+				<span class="p">[</span><span class="s2">&#34;上海&#34;</span><span class="p">,</span> <span class="s2">&#34;6.74&#34;</span><span class="p">,</span> <span class="s2">&#34;7.17&#34;</span><span class="p">,</span> <span class="s2">&#34;7.87&#34;</span><span class="p">,</span> <span class="s2">&#34;6.39&#34;</span><span class="p">],</span> 
+				<span class="p">[</span><span class="s2">&#34;重庆&#34;</span><span class="p">,</span> <span class="s2">&#34;6.75&#34;</span><span class="p">,</span> <span class="s2">&#34;7.18&#34;</span><span class="p">,</span> <span class="s2">&#34;8.06&#34;</span><span class="p">,</span> <span class="s2">&#34;6.37&#34;</span><span class="p">],</span> 
+				<span class="s2">&#34;省份：&#34;</span><span class="p">,</span>
+				<span class="p">[</span><span class="s2">&#34;广东&#34;</span><span class="p">,</span> <span class="s2">&#34;6.77&#34;</span><span class="p">,</span> <span class="s2">&#34;7.15&#34;</span><span class="p">,</span> <span class="s2">&#34;8.07&#34;</span><span class="p">,</span> <span class="s2">&#34;6.41&#34;</span><span class="p">]</span>
+			<span class="p">],</span>
+			<span class="nt">&#34;About&#34;</span><span class="p">:</span> <span class="s2">&#34;xiaomin&#34;</span><span class="p">,</span>
+			<span class="nt">&#34;Blog&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;www.xxxxx1.com&#34;</span><span class="p">,</span> <span class="s2">&#34;www.xxxxx2.com&#34;</span><span class="p">]</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="四工具">四、工具</h3>
+<details close=""><summary>点击展开内容</summary>  
+<p><a href="http://tomeko.net/software/JSONedit/" target="_blank" rel="noopener noreffer">JSONedit-格式化与语法检测工具下载</a><br>
+<a href="http://www.json.org.cn/tools/JSONEditorOnline/index.htm" target="_blank" rel="noopener noreffer">JSONEditorOnline-在线格式化与语法检测工具</a><br>
+<a href="https://c.runoob.com/front-end/53" target="_blank" rel="noopener noreffer">菜鸟工具JSON在线解析-在线格式化与语法检测工具</a></p>
+</details>  
+<h3 id="五资料">五、资料</h3>
+<details close=""><summary>点击展开内容</summary>  
+<p><a href="http://www.json.org" title="网页最下面有各种编程语言的Json编解码引擎" target="_blank" rel="noopener noreffer">官网</a>、<a href="http://www.json.org.cn/index.htm" target="_blank" rel="noopener noreffer">Json中国</a></p>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-02-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20200309/" data-title="json 基本语法介绍" data-hashtags="json"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20200309/" data-hashtag="json"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20200309/" data-title="json 基本语法介绍"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20200309/" data-title="json 基本语法介绍"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20200309/" data-title="json 基本语法介绍"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/json/">json</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20200305/" class="prev" rel="prev" title="linux 学习索引"><i class="fas fa-angle-left fa-fw"></i>linux 学习索引</a>
+            <a href="/20200802/" class="next" rel="next" title="Ubuntu 系统与工具">Ubuntu 系统与工具<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

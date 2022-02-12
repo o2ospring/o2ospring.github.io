@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CmBacktrace - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/cmbacktrace/</link>
+        <description>CmBacktrace - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 26 May 2021 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/cmbacktrace/" rel="self" type="application/rss+xml" /><item>
+    <title>ARM-Cortex-M 系列 MCU 错误追踪库-CmBacktrace</title>
+    <link>https://o2ospring.github.io/20210526/</link>
+    <pubDate>Wed, 26 May 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210526/</guid>
+    <description><![CDATA[前言 ● 对于 &ldquo;hard falut&rdquo; 死机，是玩 ARM Cortex-M 系列 MCU 工程师望而生畏的错误，虽然大多数情况下都是内存溢出引起，但想定位出错误代码位置，那可是一件不容易的事。 ● 对]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>面向对象 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+        <description>面向对象 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Sep 2020 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>面向对象的 C 语言实现方法</title>
+    <link>https://o2ospring.github.io/20200913/</link>
+    <pubDate>Sun, 13 Sep 2020 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20200913/</guid>
+    <description><![CDATA[一、前言 面向对象编程，也就是大家说的 OOP（Object Oriented Programming）。面向对象的三个基本特征：封装、继承、多态。 封装：根据职责]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>vi/vim - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/vi/vim/</link>
+        <description>vi/vim - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://o2ospring.github.io/tags/vi/vim/" rel="self" type="application/rss+xml" /><item>
+    <title>linux 纯文本编辑器 vi</title>
+    <link>https://o2ospring.github.io/20210616/</link>
+    <pubDate>Wed, 16 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210616/</guid>
+    <description><![CDATA[前言 vi 编辑器是所有 Unix 及 Linux 系统下标准的文本编辑器，相当于 windows 系统中的记事本一样，它是我们使用 Linux 系统不能缺少的工具。而 vim 视为 vi 的升级版本，基础功能]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>本人 C 语言编程规范 - o2ospring</title><meta name="Description" content="本人 C 语言编程规范介绍"><meta property="og:title" content="本人 C 语言编程规范" />
+<meta property="og:description" content="本人 C 语言编程规范介绍" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20210609/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-09T21:33:41+08:00" />
+<meta property="article:modified_time" content="2021-06-09T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="本人 C 语言编程规范"/>
+<meta name="twitter:description" content="本人 C 语言编程规范介绍"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20210609/" /><link rel="prev" href="https://o2ospring.github.io/20210606/" /><link rel="next" href="https://o2ospring.github.io/20210613/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "本人 C 语言编程规范",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20210609\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "C, 编程规范","wordcount":  2770 ,
+        "url": "https:\/\/o2ospring.github.io\/20210609\/","datePublished": "2021-06-09T21:33:41+08:00","dateModified": "2021-06-09T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "本人 C 语言编程规范介绍"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">本人 C 语言编程规范</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-09">2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2770 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20210609/" class="leancloud_visitors" data-flag-title="本人 C 语言编程规范">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#总体规范">总体规范</a></li>
+        <li><a href="#头部规范">头部规范</a></li>
+        <li><a href="#代码规范">代码规范</a></li>
+        <li><a href="#单词缩写">单词缩写</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="前言">前言</h3>
+<blockquote>
+<p>代码编写规则应该在建立一个工程项目之前，应该贯穿整个项目的始终，以保证代码的一致性。采用标准的代码编写惯例，可以大大简化项目的维护负担。采用一种好的风格，以达到以下目的：可移植性、连贯、整洁、易于维护、易于理解、简洁。关于本人 C 语言编程规范，以简单实用为主，不会设置过多规则。写这篇文章目的是为以后介绍我开发的一些模块，其按规范编写以保持统一风格方便大家阅读代码。</p>
+</blockquote>
+<h3 id="总体规范">总体规范</h3>
+<details close=""><summary>1、源文件命名规范</summary>  
+<blockquote>
+<ol>
+<li>使用全小写形式，单词与单词之间使用<code>_</code>连接；</li>
+<li>为了避免文件（夹）重名，一般在名称前面加入前缀标识；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">o2o_eeprom</span><span class="p">.</span><span class="n">c</span>
+<span class="n">o2o_eeprom</span><span class="p">.</span><span class="n">h</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、头文件总体规范</summary>  
+<blockquote>
+<ol>
+<li>使用统一的头部声明；</li>
+<li>此头文件包含重映射；</li>
+<li>一些依赖头文件包含；</li>
+<li>加入防重复包含的宏；</li>
+<li>加入C++的兼容语句；</li>
+<li>参数配置；</li>
+<li>数据类型；</li>
+<li>操作函数；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
+</span><span class="cm">  * @file  o2o_eeprom.h
+</span><span class="cm">  * @brief EEPROM存储器操作对象模块
+</span><span class="cm">  * COPYRIGHT (C) 2021, 一春又一春设计部
+</span><span class="cm">  * Change Logs:
+</span><span class="cm">  * Date           Author       Notes
+</span><span class="cm">  * 2021-05-30     o2ospring    原始版本
+</span><span class="cm">  */</span>
+<span class="cp">#ifndef O2O_EEPROM_H__
+</span><span class="cp">#define O2O_EEPROM_H__
+</span><span class="cp"></span>
+<span class="c1">//########################################################################################################
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;app_cfg.h&#34; /////////////////////// &lt;- 很多工程都会有专管理应用模块的头文件★★★★★★★★★★##</span><span class="cp">
+</span><span class="cp">#ifdef __O2O_EEPROM_REMAP_H </span><span class="c1">//////////////// &lt;- 如果在[app_cfg.h]定义此宏，则启动头文件重映射功能！     ##
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom_remap.h&#34; ////////////// &lt;- 当启动重映射,则当前头文件包含映射到[o2o_eeprom_remap.h] ##</span><span class="cp">
+</span><span class="cp">#else </span><span class="c1">//##################################################################################################
+</span><span class="c1"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt; //////////////////////// &lt;-使用的数据定义，如: int8_t, uint32_t 等</span><span class="cp">
+</span><span class="cp"></span>
+<span class="cp">#ifdef __cplusplus
+</span><span class="cp"></span><span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="p">{</span>
+<span class="cp">#endif
+</span><span class="cp"></span>
+<span class="cm">/********************************************************************************************************/</span>
+<span class="cm">/*++++++++++++++++++++++++++++++++++++++++++++++ 参数配置 ++++++++++++++++++++++++++++++++++++++++++++++*/</span>
+<span class="cm">/********************************************************************************************************/</span>
+
+<span class="cm">/********************************************************************************************************/</span>
+<span class="cm">/*++++++++++++++++++++++++++++++++++++++++++++++ 数据类型 ++++++++++++++++++++++++++++++++++++++++++++++*/</span>
+<span class="cm">/********************************************************************************************************/</span>
+
+<span class="cm">/********************************************************************************************************/</span>
+<span class="cm">/*++++++++++++++++++++++++++++++++++++++++++++++ 操作函数 ++++++++++++++++++++++++++++++++++++++++++++++*/</span>
+<span class="cm">/********************************************************************************************************/</span>
+
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">);</span>
+
+<span class="cp">#ifdef __cplusplus
+</span><span class="cp"></span>	<span class="p">}</span>
+<span class="cp">#endif
+</span><span class="cp"></span>
+<span class="cp">#endif  </span><span class="c1">//#ifdef __O2O_EEPROM_REMAP_H
+</span><span class="c1"></span><span class="cp">#endif  </span><span class="c1">//#ifndef O2O_EEPROM_H__
+</span></code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>3、源文件总体规范</summary>  
+<blockquote>
+<ol>
+<li>头部声明；</li>
+<li>模块开关；</li>
+<li>全局变量；</li>
+<li>函数声明；</li>
+<li>函数实现；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
+</span><span class="cm">  * @file  o2o_eeprom.c
+</span><span class="cm">  * @brief EEPROM存储器操作对象模块
+</span><span class="cm">  * COPYRIGHT (C) 2021, 一春又一春设计部
+</span><span class="cm">  * Change Logs:
+</span><span class="cm">  * Date           Author       Notes
+</span><span class="cm">  * 2021-05-30     o2ospring    原始版本
+</span><span class="cm">  */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp">#define O2O_EEPROM_C__
+</span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom.h&#34;</span><span class="cp">
+</span><span class="cp">#if (defined(APP_O2O_EEPROM_EN) &amp;&amp; (APP_O2O_EEPROM_EN == DEF_ENABLED))
+</span><span class="cp">#ifdef  O2O_EEPROM_X__    </span><span class="c1">//再次调用头文件,用于增加存在交叉关系的内容!
+</span><span class="c1"></span><span class="cp">#undef  O2O_EEPROM_H__
+</span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom.h&#34;</span><span class="cp">
+</span><span class="cp">#endif
+</span><span class="cp"></span>
+<span class="c1">//全局变量
+</span><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">o2o_g_eeprom_flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">//函数声明
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">o2o_eeprom_read</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pbf</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">);</span>
+
+<span class="cm">/**
+</span><span class="cm">  * @brief  EEPROM对象写操作
+</span><span class="cm">  * @param  *pob            要操作的EEPROM对象
+</span><span class="cm">  * @param  addr            要写入位置
+</span><span class="cm">  * @param  *pda            要写入的数据源
+</span><span class="cm">  * @param  len             要写入的数据长度
+</span><span class="cm">  * @return ＞0:操作成功
+</span><span class="cm">  */</span>
+<span class="kt">int</span> <span class="nf">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="cp">#endif  </span><span class="c1">//#if (APP_O2O_EEPROM_EN == DEF_ENABLED)
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="头部规范">头部规范</h3>
+<details close=""><summary>1、文件头格式规范</summary>  
+<blockquote>
+<ol>
+<li>文件名称；</li>
+<li>模块摘要；</li>
+<li>版权声明；</li>
+<li>修改记录；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
+</span><span class="cm">  * @file  o2o_eeprom.c
+</span><span class="cm">  * @brief EEPROM存储器操作对象模块
+</span><span class="cm">  * COPYRIGHT (C) 2021, 一春又一春设计部
+</span><span class="cm">  * Change Logs:
+</span><span class="cm">  * Date           Author       Notes
+</span><span class="cm">  * 2021-05-30     o2ospring    原始版本
+</span><span class="cm">  */</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、函数头格式规范</summary>  
+<blockquote>
+<ol>
+<li>函数摘要；</li>
+<li>入口参数；</li>
+<li>出口参数；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
+</span><span class="cm">  * @brief  主函数
+</span><span class="cm">  * @param  argc            输入选项/参数的个数
+</span><span class="cm">  * @param  *argv[]         全部选项/参数内容
+</span><span class="cm">  * @return 返回参数
+</span><span class="cm">  */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="代码规范">代码规范</h3>
+<details close=""><summary>1、宏定义名称书写规范</summary>  
+<blockquote>
+<ol>
+<li>使用全大写形式，单词与单词之间使用<code>_</code>连接；</li>
+<li>为了防止与其它模块重名，建议宏名称加入前缀；</li>
+<li>宏的每个参数都要使用<code>()</code>括住；</li>
+<li>只代表数值的宏，不需要使用<code>()</code>作为结尾；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">#define O2O_EEPROM_SIZE    (32UL * 1024UL)
+</span><span class="cp">#define O2O_MAX(a, b)      (((a) &gt; (b)) ? (a) : (b))
+</span></code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、自定义类型书写规范</summary>  
+<blockquote>
+<ol>
+<li>使用全小写形式，单词与单词之间使用<code>_</code>连接；</li>
+<li>新定义数据类型名称以<code>_t</code>结尾；</li>
+<li>对于结构体名称以<code>_</code>结尾；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span>  <span class="kt">uint8_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">signed</span>   <span class="kt">char</span>  <span class="kt">int8_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="nf">int</span> <span class="p">(</span><span class="o">*</span><span class="n">o2o_pfunc_t</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">o2o_limit_motor_</span>
+<span class="p">{</span>
+	<span class="kt">uint8_t</span>  <span class="n">action</span><span class="p">;</span>
+	<span class="kt">uint8_t</span>  <span class="n">load_act</span><span class="p">;</span>
+	<span class="kt">uint16_t</span> <span class="n">load_val</span><span class="p">;</span>
+
+<span class="p">}</span><span class="n">o2o_limit_motor_t</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">union</span> <span class="n">o2o_motor_</span>
+<span class="p">{</span>
+	<span class="kt">uint8_t</span>  <span class="n">load_act</span><span class="p">;</span>
+	<span class="kt">uint16_t</span> <span class="n">load_val</span><span class="p">;</span>
+
+<span class="p">}</span><span class="n">o2o_motor_t</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>3、变量书写规划</summary>  
+<blockquote>
+<ol>
+<li>使用全小写形式，单词与单词之间使用<code>_</code>连接；</li>
+<li>为了防止与其它模块重名，建议全局变量加入前缀；</li>
+<li>如果变量对属性或类型敏感，则可以加入组合标识；<br>
+g+ 表示属性为全局变量；<br>
+s+ 表示属性为静态变量；<br>
+c+ 表示属性为只读变量；<br>
+p+ 表示属性为指针；<br>
+vo_ 表示空数据类型；（只针对空指针）<br>
+xx_ 表示可变动类型；（根据应用场合可设定数据类型，例如外置存储器大小）<br>
+un_ 表示共用体类型；<br>
+ob_ 表示结构体类型；<br>
+sc_、ss_、sl_ 分别为 1、2、4 字节有符号数类型；<br>
+uc_、us_、ul_ 分别为 1、2、4 字节无符号数类型；</li>
+<li>完整变量命名：前缀 + 属性&amp;类型 + 描述</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int8_t</span>             <span class="n">o2o_gsc_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: sc_delay
+</span><span class="c1"></span><span class="kt">int16_t</span>            <span class="n">o2o_gss_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: ss_delay
+</span><span class="c1"></span><span class="kt">int32_t</span>            <span class="n">o2o_gsl_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: sl_delay
+</span><span class="c1"></span><span class="kt">uint8_t</span>            <span class="n">o2o_guc_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: uc_delay
+</span><span class="c1"></span><span class="kt">uint16_t</span>           <span class="n">o2o_gus_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: us_delay
+</span><span class="c1"></span><span class="kt">uint32_t</span>           <span class="n">o2o_gul_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: ul_delay
+</span><span class="c1"></span><span class="kt">uint32_t</span>          <span class="o">*</span><span class="n">o2o_pul_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: pul_delay (实际写法一般为 pul)
+</span><span class="c1"></span><span class="kt">void</span>              <span class="o">*</span><span class="n">o2o_pvo_delay</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: pvo_delay (实际写法一般为 pvo)
+</span><span class="c1"></span><span class="k">const</span> <span class="kt">int8_t</span>       <span class="n">o2o_csc_delay</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">uint8_t</span>     <span class="n">o2o_suc_delay</span><span class="p">;</span>
+<span class="n">o2o_limit_motor_t</span>  <span class="n">o2o_gob_motor</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: ob_motor
+</span><span class="c1"></span><span class="n">o2o_limit_motor_t</span> <span class="o">*</span><span class="n">o2o_pob_motor</span><span class="p">;</span>  <span class="c1">//如果局部变量则写法: pob_motor (可以简写为 p_motor)
+</span></code></pre></td></tr></table>
+</div>
+</div><p>对于平常时的使用，很少指出变量的类型，因为编程的重点在代码的业务逻辑及架构上。例如上面的变量统一写法为：<code>delay</code> <code>motor</code> <code>g_delay</code> <code>g_motor</code> <code>p_delay</code> <code>p_motor</code>即可。</p>
+</details>  
+<details close=""><summary>4、代码书写规划</summary>  
+<blockquote>
+<ol>
+<li>关键字与其它语句使用空格隔开，但<code>else{}</code>空置语句除外；</li>
+<li>所有运算符都需要使用空格隔开；但<code>for()</code>条件判断除外；</li>
+</ol>
+</blockquote>
+<p>示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
+</span><span class="cm">  * @brief  EEPROM对象写操作
+</span><span class="cm">  * @param  *pob            要操作的EEPROM对象
+</span><span class="cm">  * @param  addr            要写入位置
+</span><span class="cm">  * @param  *pda            要写入的数据源
+</span><span class="cm">  * @param  len             要写入的数据长度
+</span><span class="cm">  * @return ＞0:操作成功
+</span><span class="cm">  */</span>
+<span class="kt">int</span> <span class="nf">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">pda</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">pob</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;=</span> <span class="n">O2O_EEPROM_SIZE</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">((</span><span class="n">pob</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="o">&amp;&amp;</span>  <span class="p">(</span><span class="n">pda</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span><span class="p">{}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">pob</span><span class="o">-&gt;</span><span class="n">cnt_h</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="n">i</span><span class="o">++</span><span class="p">;</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">do</span>
+	<span class="p">{</span>
+		<span class="n">pda</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+
+	<span class="k">switch</span> <span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+
+			<span class="k">break</span><span class="p">;</span>
+		<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+
+			<span class="k">break</span><span class="p">;</span>
+		<span class="k">default</span><span class="o">:</span>
+
+			<span class="k">break</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="单词缩写">单词缩写</h3>
+<details close=""><summary>1、单词缩写字典</summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字母</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">缩写词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">Average</td>
+<td style="text-align:left">Avg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Addition</td>
+<td style="text-align:left">Add</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Accumulator</td>
+<td style="text-align:left">Acc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Address</td>
+<td style="text-align:left">Addr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Action</td>
+<td style="text-align:left">Act</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Active</td>
+<td style="text-align:left">Act</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Amplitude</td>
+<td style="text-align:left">Amp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Analog Input</td>
+<td style="text-align:left">AI</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Anolog I/O</td>
+<td style="text-align:left">AIO</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">All</td>
+<td style="text-align:left">All</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Alarm</td>
+<td style="text-align:left">Alm</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Allocate</td>
+<td style="text-align:left">Alloc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Analog Output</td>
+<td style="text-align:left">AO</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Apparent</td>
+<td style="text-align:left">App</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Argument</td>
+<td style="text-align:left">Arg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Arrange</td>
+<td style="text-align:left">Arrng</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">Array</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Assemble</td>
+<td style="text-align:left">Asm</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Attribute</td>
+<td style="text-align:left">Attrib</td>
+</tr>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">Back</td>
+<td style="text-align:left">Bk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Background</td>
+<td style="text-align:left">Bg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Break</td>
+<td style="text-align:left">Brk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Bar</td>
+<td style="text-align:left">Bar</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Bit</td>
+<td style="text-align:left">Bit</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Block</td>
+<td style="text-align:left">Blk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Buffer</td>
+<td style="text-align:left">Buf</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Button</td>
+<td style="text-align:left">Btn</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Bypass</td>
+<td style="text-align:left">Bypass</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Calibration</td>
+<td style="text-align:left">Cal</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Calculate</td>
+<td style="text-align:left">Calc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Configuration</td>
+<td style="text-align:left">Cfg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Channel</td>
+<td style="text-align:left">Ch</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Change</td>
+<td style="text-align:left">Chg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Check</td>
+<td style="text-align:left">Chk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Clock</td>
+<td style="text-align:left">Clk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Clear</td>
+<td style="text-align:left">Clr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Clear Screen</td>
+<td style="text-align:left">Cls</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Command</td>
+<td style="text-align:left">Cmd</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Compare</td>
+<td style="text-align:left">Cmp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Complete</td>
+<td style="text-align:left">Comp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Count</td>
+<td style="text-align:left">Cnt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Counter</td>
+<td style="text-align:left">Ctr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Column</td>
+<td style="text-align:left">Col</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Communication</td>
+<td style="text-align:left">Comm</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Connect</td>
+<td style="text-align:left">Con</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Construct</td>
+<td style="text-align:left">Cons</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Control</td>
+<td style="text-align:left">Ctrl</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Context</td>
+<td style="text-align:left">Ctx</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Convert</td>
+<td style="text-align:left">Conv</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Copy</td>
+<td style="text-align:left">Cp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Current</td>
+<td style="text-align:left">Cur</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Cursor</td>
+<td style="text-align:left">Csr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Control Word</td>
+<td style="text-align:left">CW</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Color</td>
+<td style="text-align:left">Cr(clr)</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left">Dat</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">Date</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Day</td>
+<td style="text-align:left">Day</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Day-of-week</td>
+<td style="text-align:left">DOW</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Delay</td>
+<td style="text-align:left">Dly</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Debounce</td>
+<td style="text-align:left">Debounce</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Decrease</td>
+<td style="text-align:left">Dec</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Decimal</td>
+<td style="text-align:left">Dec</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Decode</td>
+<td style="text-align:left">Decode</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Define</td>
+<td style="text-align:left">Def</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Degree</td>
+<td style="text-align:left">Deg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Delete</td>
+<td style="text-align:left">Del</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Destination</td>
+<td style="text-align:left">Dst</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Descriptor</td>
+<td style="text-align:left">Desc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Device</td>
+<td style="text-align:left">Dev</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Discrete Input</td>
+<td style="text-align:left">DI</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Digit</td>
+<td style="text-align:left">Dig</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Discrete I/O</td>
+<td style="text-align:left">DIO</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Discrete Output(s)</td>
+<td style="text-align:left">DO</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Disable</td>
+<td style="text-align:left">Dis</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Display</td>
+<td style="text-align:left">Disp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Discovery</td>
+<td style="text-align:left">Disc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Division</td>
+<td style="text-align:left">Div</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Divisor/Division</td>
+<td style="text-align:left">Div</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Document</td>
+<td style="text-align:left">Doc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Down</td>
+<td style="text-align:left">Down</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Dummy</td>
+<td style="text-align:left">Dummy</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Dynamic</td>
+<td style="text-align:left">Dyn</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">Edge</td>
+<td style="text-align:left">Edge</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Edit</td>
+<td style="text-align:left">Edt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Effective</td>
+<td style="text-align:left">Eff</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Electric</td>
+<td style="text-align:left">Elec</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Empty</td>
+<td style="text-align:left">Empty</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Enable</td>
+<td style="text-align:left">En</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Engine</td>
+<td style="text-align:left">Eng</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Enter</td>
+<td style="text-align:left">Enter</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Entries</td>
+<td style="text-align:left">Entries</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Equivalent</td>
+<td style="text-align:left">Equiv</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Error(s)</td>
+<td style="text-align:left">Err</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Ethernet</td>
+<td style="text-align:left">Eth</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Engineering Units</td>
+<td style="text-align:left">EU</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Event(s)</td>
+<td style="text-align:left">Event</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Extension</td>
+<td style="text-align:left">Ext</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Exit</td>
+<td style="text-align:left">Exit</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Exception</td>
+<td style="text-align:left">Exc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Expiration</td>
+<td style="text-align:left">Exp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Exponent</td>
+<td style="text-align:left">Exp</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Field</td>
+<td style="text-align:left">Fld</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Flag</td>
+<td style="text-align:left">Flg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Flush</td>
+<td style="text-align:left">Flush</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Function(s)</td>
+<td style="text-align:left">Fnct</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Format</td>
+<td style="text-align:left">Frm</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Fraction</td>
+<td style="text-align:left">Fract</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Free</td>
+<td style="text-align:left">Free</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Frequency</td>
+<td style="text-align:left">Freq</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Full</td>
+<td style="text-align:left">Full</td>
+</tr>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Grid</td>
+<td style="text-align:left">Grd</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Gain</td>
+<td style="text-align:left">Gain</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Get</td>
+<td style="text-align:left">Get</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Generate</td>
+<td style="text-align:left">Gen</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Group(s)</td>
+<td style="text-align:left">Grp</td>
+</tr>
+<tr>
+<td style="text-align:left">H</td>
+<td style="text-align:left">Handler</td>
+<td style="text-align:left">Handler</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Harmonic</td>
+<td style="text-align:left">Harm</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Hexadecimal</td>
+<td style="text-align:left">Hex</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">High</td>
+<td style="text-align:left">Hi</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">History</td>
+<td style="text-align:left">Hist</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Hit</td>
+<td style="text-align:left">Hit</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">High Priority Task</td>
+<td style="text-align:left">HPT</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Hour(s)</td>
+<td style="text-align:left">Hr</td>
+</tr>
+<tr>
+<td style="text-align:left">I</td>
+<td style="text-align:left">I.D.</td>
+<td style="text-align:left">Id</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Idle</td>
+<td style="text-align:left">Idle</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Impulse</td>
+<td style="text-align:left">Imp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Image</td>
+<td style="text-align:left">Img</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Increment</td>
+<td style="text-align:left">Inc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Information</td>
+<td style="text-align:left">Info</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Initial</td>
+<td style="text-align:left">Init</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Insert</td>
+<td style="text-align:left">Ins</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Input(s)</td>
+<td style="text-align:left">In</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Initialization</td>
+<td style="text-align:left">Init</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Initialize</td>
+<td style="text-align:left">Init</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Instruction</td>
+<td style="text-align:left">Instr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Interrupt</td>
+<td style="text-align:left">Int</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Invert</td>
+<td style="text-align:left">Inv</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Interrupt Service Routine</td>
+<td style="text-align:left">ISR</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Index</td>
+<td style="text-align:left">Ix</td>
+</tr>
+<tr>
+<td style="text-align:left">K</td>
+<td style="text-align:left">Key</td>
+<td style="text-align:left">Key</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Keyboard</td>
+<td style="text-align:left">Key</td>
+</tr>
+<tr>
+<td style="text-align:left">L</td>
+<td style="text-align:left">Label</td>
+<td style="text-align:left">Lab</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Length</td>
+<td style="text-align:left">Len</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">List</td>
+<td style="text-align:left">Lst(Ls)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Library</td>
+<td style="text-align:left">Lib</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Limit</td>
+<td style="text-align:left">Lim</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Low</td>
+<td style="text-align:left">Lo</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Lower</td>
+<td style="text-align:left">Le</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Lowest</td>
+<td style="text-align:left">Lo</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Lock</td>
+<td style="text-align:left">Lock</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Low Priority Task</td>
+<td style="text-align:left">LTP</td>
+</tr>
+<tr>
+<td style="text-align:left">M</td>
+<td style="text-align:left">Manager</td>
+<td style="text-align:left">Mngr(mgr)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Magnitude</td>
+<td style="text-align:left">Mag</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Mantissa</td>
+<td style="text-align:left">Man</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Manual</td>
+<td style="text-align:left">Man</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Manufacture</td>
+<td style="text-align:left">Mfg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Maximum</td>
+<td style="text-align:left">Max</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Mailbox</td>
+<td style="text-align:left">Mbox</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Minimum</td>
+<td style="text-align:left">Min</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Mode</td>
+<td style="text-align:left">Mode</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Month</td>
+<td style="text-align:left">Month</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Move</td>
+<td style="text-align:left">Mov</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Message</td>
+<td style="text-align:left">Msg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Measure</td>
+<td style="text-align:left">Meas</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Mask</td>
+<td style="text-align:left">Msk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Multiplication</td>
+<td style="text-align:left">Mul</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Multiplex</td>
+<td style="text-align:left">Mux</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Make</td>
+<td style="text-align:left">Mk</td>
+</tr>
+<tr>
+<td style="text-align:left">N</td>
+<td style="text-align:left">Negative</td>
+<td style="text-align:left">Neg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Number of</td>
+<td style="text-align:left">Num</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Nesting</td>
+<td style="text-align:left">Nesting</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Neutral</td>
+<td style="text-align:left">Neut</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">New</td>
+<td style="text-align:left">New</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Next</td>
+<td style="text-align:left">Next</td>
+</tr>
+<tr>
+<td style="text-align:left">O</td>
+<td style="text-align:left">Offset</td>
+<td style="text-align:left">Offset</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Old</td>
+<td style="text-align:left">Old</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Operation System</td>
+<td style="text-align:left">OS</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Optimize</td>
+<td style="text-align:left">Opt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Original</td>
+<td style="text-align:left">Orig</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Output</td>
+<td style="text-align:left">Out</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Overflow</td>
+<td style="text-align:left">Ovf</td>
+</tr>
+<tr>
+<td style="text-align:left">P</td>
+<td style="text-align:left">Password</td>
+<td style="text-align:left">Pwd</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Picture</td>
+<td style="text-align:left">Pic</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Point</td>
+<td style="text-align:left">Pt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Print</td>
+<td style="text-align:left">Prn</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Program</td>
+<td style="text-align:left">Prg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Package</td>
+<td style="text-align:left">Pkg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Parameter</td>
+<td style="text-align:left">Param</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Pass</td>
+<td style="text-align:left">Pass</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Performance</td>
+<td style="text-align:left">Perf</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Period</td>
+<td style="text-align:left">Per</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Phase</td>
+<td style="text-align:left">Ph</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Port</td>
+<td style="text-align:left">Port</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Position</td>
+<td style="text-align:left">Pos</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Positive</td>
+<td style="text-align:left">Pos</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Power</td>
+<td style="text-align:left">Pwr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Previous</td>
+<td style="text-align:left">Prev</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Priority</td>
+<td style="text-align:left">Prio</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Printer</td>
+<td style="text-align:left">Prt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">process</td>
+<td style="text-align:left">Proc</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Product</td>
+<td style="text-align:left">Prod</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Protocol</td>
+<td style="text-align:left">Prot</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Pointer</td>
+<td style="text-align:left">Ptr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Put</td>
+<td style="text-align:left">Put</td>
+</tr>
+<tr>
+<td style="text-align:left">Q</td>
+<td style="text-align:left">Queue</td>
+<td style="text-align:left">Q</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Quality</td>
+<td style="text-align:left">Qlty</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Quarter</td>
+<td style="text-align:left">Quar</td>
+</tr>
+<tr>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Raw</td>
+<td style="text-align:left">Raw</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Reactive</td>
+<td style="text-align:left">React</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Recall</td>
+<td style="text-align:left">Rcl</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Rectangle</td>
+<td style="text-align:left">Rect</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Read</td>
+<td style="text-align:left">Rd</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Ready</td>
+<td style="text-align:left">Rdy</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Reference</td>
+<td style="text-align:left">Ref</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Register</td>
+<td style="text-align:left">Reg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Request</td>
+<td style="text-align:left">Req</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Reset</td>
+<td style="text-align:left">Reset</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Reserve</td>
+<td style="text-align:left">Resv</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Resume</td>
+<td style="text-align:left">Resume</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Response</td>
+<td style="text-align:left">Resp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Return</td>
+<td style="text-align:left">Rtn</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Reverse</td>
+<td style="text-align:left">Revs</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Ring</td>
+<td style="text-align:left">Ring</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Row</td>
+<td style="text-align:left">Row</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Repeat</td>
+<td style="text-align:left">Rpt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Real-Time</td>
+<td style="text-align:left">RT</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Running</td>
+<td style="text-align:left">Running</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Receive</td>
+<td style="text-align:left">Rx</td>
+</tr>
+<tr>
+<td style="text-align:left">S</td>
+<td style="text-align:left">Server</td>
+<td style="text-align:left">Srv</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Source</td>
+<td style="text-align:left">Src</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Statistic</td>
+<td style="text-align:left">Stat</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">Str</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Sybase</td>
+<td style="text-align:left">Syb</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Sample</td>
+<td style="text-align:left">Smp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Scale</td>
+<td style="text-align:left">Scale</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Scale Factor</td>
+<td style="text-align:left">SF</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Scaling</td>
+<td style="text-align:left">Scaling</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Scan</td>
+<td style="text-align:left">Scan</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Schedule</td>
+<td style="text-align:left">Sched</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Scheduler</td>
+<td style="text-align:left">Sched</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Screen</td>
+<td style="text-align:left">Scr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Second(s)</td>
+<td style="text-align:left">Sec</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Segment(s)</td>
+<td style="text-align:left">Seg</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Select</td>
+<td style="text-align:left">Sel</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Semaphore</td>
+<td style="text-align:left">Sem</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Sequence</td>
+<td style="text-align:left">Seq</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Server</td>
+<td style="text-align:left">Svr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Set</td>
+<td style="text-align:left">Set</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Setting</td>
+<td style="text-align:left">Setting</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Signal</td>
+<td style="text-align:left">Sig</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Size</td>
+<td style="text-align:left">Size</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Seven-segments</td>
+<td style="text-align:left">SS</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Sourse</td>
+<td style="text-align:left">Src</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Start</td>
+<td style="text-align:left">Start</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Statistic(s)</td>
+<td style="text-align:left">Stat</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Status</td>
+<td style="text-align:left">Stat</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Stack</td>
+<td style="text-align:left">Stk</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Standard</td>
+<td style="text-align:left">Std</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Stop</td>
+<td style="text-align:left">Stop</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">Str</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Subtraction</td>
+<td style="text-align:left">Sub</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Suspend</td>
+<td style="text-align:left">Suspend</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Switch</td>
+<td style="text-align:left">Sw</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Synchronize</td>
+<td style="text-align:left">Synch</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">System</td>
+<td style="text-align:left">Syst</td>
+</tr>
+<tr>
+<td style="text-align:left">T</td>
+<td style="text-align:left">Temp</td>
+<td style="text-align:left">Tmp</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Text</td>
+<td style="text-align:left">Txt</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Task</td>
+<td style="text-align:left">Task</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Table</td>
+<td style="text-align:left">Tbl</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Threshold</td>
+<td style="text-align:left">Th</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Tick</td>
+<td style="text-align:left">Tick</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Time</td>
+<td style="text-align:left">Time</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Timer</td>
+<td style="text-align:left">Tmr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Toggle</td>
+<td style="text-align:left">Tgl</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Total</td>
+<td style="text-align:left">Tot</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Trigger</td>
+<td style="text-align:left">Trig</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Time-stamp</td>
+<td style="text-align:left">TS</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Timeout</td>
+<td style="text-align:left">TO</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Unlock</td>
+<td style="text-align:left">Unlock</td>
+</tr>
+<tr>
+<td style="text-align:left">U</td>
+<td style="text-align:left">User</td>
+<td style="text-align:left">Usr</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Up</td>
+<td style="text-align:left">Up</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Update</td>
+<td style="text-align:left">Update</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Utility</td>
+<td style="text-align:left">Util</td>
+</tr>
+<tr>
+<td style="text-align:left">V</td>
+<td style="text-align:left">Value</td>
+<td style="text-align:left">Val</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Vector</td>
+<td style="text-align:left">Vect</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Version</td>
+<td style="text-align:left">Ver</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Variable</td>
+<td style="text-align:left">Var</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Visible</td>
+<td style="text-align:left">Vis</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Voltage</td>
+<td style="text-align:left">Vol</td>
+</tr>
+<tr>
+<td style="text-align:left">W</td>
+<td style="text-align:left">Watchdog</td>
+<td style="text-align:left">Wdog</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Window</td>
+<td style="text-align:left">Wnd(win)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Write</td>
+<td style="text-align:left">Wr</td>
+</tr>
+<tr>
+<td style="text-align:left">Y</td>
+<td style="text-align:left">Year</td>
+<td style="text-align:left">Year</td>
+</tr>
+</tbody>
+</table>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-06-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20210609/" data-title="本人 C 语言编程规范" data-hashtags="C,编程规范"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20210609/" data-hashtag="C"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20210609/" data-title="本人 C 语言编程规范"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20210609/" data-title="本人 C 语言编程规范"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20210609/" data-title="本人 C 语言编程规范"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c/">C</a>,&nbsp;<a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/">编程规范</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20210606/" class="prev" rel="prev" title="STM32CubeMX 基本使用"><i class="fas fa-angle-left fa-fw"></i>STM32CubeMX 基本使用</a>
+            <a href="/20210613/" class="next" rel="next" title="linux 基本命令使用">linux 基本命令使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

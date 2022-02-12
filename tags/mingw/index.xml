@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MinGW - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/mingw/</link>
+        <description>MinGW - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 28 Apr 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/mingw/" rel="self" type="application/rss+xml" /><item>
+    <title>MinGW-w64 编译套件(GNU 工具集)</title>
+    <link>https://o2ospring.github.io/20220428/</link>
+    <pubDate>Thu, 28 Apr 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220428/</guid>
+    <description><![CDATA[前言 MinGW/MinGW-w64（Minimalist GNU for Windows）是为 windows 系统打造的编译器套件，其主要是把 GNU 的 gcc、make 等编译]]></description>
+</item></channel>
+</rss>

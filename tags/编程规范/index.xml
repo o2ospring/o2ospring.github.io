@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>编程规范 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</link>
+        <description>编程规范 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 09 Jun 2021 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" rel="self" type="application/rss+xml" /><item>
+    <title>本人 C 语言编程规范</title>
+    <link>https://o2ospring.github.io/20210609/</link>
+    <pubDate>Wed, 09 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210609/</guid>
+    <description><![CDATA[前言 代码编写规则应该在建立一个工程项目之前，应该贯穿整个项目的始终，以保证代码的一致性。采用标准的代码编写惯例，可以大大简化项目的维护负担。]]></description>
+</item></channel>
+</rss>

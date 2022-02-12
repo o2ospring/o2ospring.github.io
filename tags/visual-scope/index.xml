@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Visual Scope - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/visual-scope/</link>
+        <description>Visual Scope - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 02 Jun 2021 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/visual-scope/" rel="self" type="application/rss+xml" /><item>
+    <title>Visual Scope 串口虚拟示波器工具</title>
+    <link>https://o2ospring.github.io/20210602/</link>
+    <pubDate>Wed, 02 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210602/</guid>
+    <description><![CDATA[前言 我们做项目时，往往需要查看数据曲线。例如：查看单片机使用率的曲线、查看 AD 读出温度值的曲线、查看电机转速的曲线…… 那么有没有像示波器一样显]]></description>
+</item></channel>
+</rss>

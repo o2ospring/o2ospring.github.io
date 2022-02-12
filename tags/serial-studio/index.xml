@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Serial Studio - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/serial-studio/</link>
+        <description>Serial Studio - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 15 May 2021 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/serial-studio/" rel="self" type="application/rss+xml" /><item>
+    <title>Serial Studio 数据可视化工具</title>
+    <link>https://o2ospring.github.io/20210515/</link>
+    <pubDate>Sat, 15 May 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210515/</guid>
+    <description><![CDATA[一、简介 Serial Studio（/&lsquo;sɪəriəl /&lsquo;stjuːdiəʊ/） 是一个多平台、多用途的串行数据可视化应用软件。此]]></description>
+</item></channel>
+</rss>
