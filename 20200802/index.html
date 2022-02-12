@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Ubuntu 系统与工具 - o2ospring</title><meta name="Description" content="介绍 Ubuntu 系统及工具的安装"><meta property="og:title" content="Ubuntu 系统与工具" />
+<meta property="og:description" content="介绍 Ubuntu 系统及工具的安装" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20200802/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-02T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-03-24T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Ubuntu 系统与工具"/>
+<meta name="twitter:description" content="介绍 Ubuntu 系统及工具的安装"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20200802/" /><link rel="prev" href="https://o2ospring.github.io/20200309/" /><link rel="next" href="https://o2ospring.github.io/20200803/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Ubuntu 系统与工具",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20200802\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  3843 ,
+        "url": "https:\/\/o2ospring.github.io\/20200802\/","datePublished": "2020-08-02T21:33:41+08:00","dateModified": "2022-03-24T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "介绍 Ubuntu 系统及工具的安装"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu 系统与工具</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3843 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20200802/" class="leancloud_visitors" data-flag-title="Ubuntu 系统与工具">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一系统篇">一、系统篇</a></li>
+        <li><a href="#二工具篇">二、工具篇</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一系统篇">一、系统篇</h3>
+<details close=""><summary>1. <strong>Ubuntu 系统下载</strong></summary>  
+<blockquote>
+<p><em>虚拟机版本：VMware-Workstation-10.0.7</em><br>
+<em>系统的版本：<a href="http://mirrors.163.com/ubuntu-releases/16.04.7/ubuntu-16.04.7-desktop-amd64.iso" target="_blank" rel="noopener noreffer">Ubuntu-16.04.7</a>、<a href="http://mirrors.163.com/ubuntu-releases/" target="_blank" rel="noopener noreffer">【网易镜像】</a></em><br>
+<em>官方网下载：<a href="http://releases.ubuntu.com/xenial" target="_blank" rel="noopener noreffer">http://releases.ubuntu.com/xenial</a></em><br>
+<a href="https://forum.ubuntu.org.cn/index.php" target="_blank" rel="noopener noreffer">Ubuntu 中文论坛</a></p>
+</blockquote>
+</details>  
+<details close=""><summary>2. <strong>Ubuntu 版本说明</strong></summary>  
+<blockquote>
+<p>Ubuntu 系统是一个以桌面应用为主的 Linux 操作系统，Ubuntu 基于 Debian 发行版和 GNOME 桌面环境。Ubuntu 的目标在于为一般用户提供一个最新的、同时又相当稳定的主要由自由软件构建而成的操作系统，它可免费使用，并带有社团及专业的支持。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">别名（codename）</th>
+<th style="text-align:left">发布日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">4.10</td>
+<td style="text-align:left">Warty Warthog(长疣的疣猪)</td>
+<td style="text-align:left">2004年10月20日</td>
+</tr>
+<tr>
+<td style="text-align:left">5.04</td>
+<td style="text-align:left">Hoary Hedgehog(灰白的刺猬)</td>
+<td style="text-align:left">2005年4月8日</td>
+</tr>
+<tr>
+<td style="text-align:left">5.10</td>
+<td style="text-align:left">Breezy Badger(活泼的獾)</td>
+<td style="text-align:left">2005年10月13日</td>
+</tr>
+<tr>
+<td style="text-align:left">6.06</td>
+<td style="text-align:left">Dapper Drake(整洁的公鸭)</td>
+<td style="text-align:left">2006年6月1日(LTS)</td>
+</tr>
+<tr>
+<td style="text-align:left">6.10</td>
+<td style="text-align:left">Edgy Eft(急躁的水蜥)</td>
+<td style="text-align:left">2006年10月6日</td>
+</tr>
+<tr>
+<td style="text-align:left">7.04</td>
+<td style="text-align:left">Feisty Fawn(坏脾气的小鹿)</td>
+<td style="text-align:left">2007年4月19日</td>
+</tr>
+<tr>
+<td style="text-align:left">7.10</td>
+<td style="text-align:left">Gutsy Gibbon(勇敢的长臂猿)</td>
+<td style="text-align:left">2007年10月18日</td>
+</tr>
+<tr>
+<td style="text-align:left">8.04</td>
+<td style="text-align:left">Hardy Heron(耐寒的苍鹭)</td>
+<td style="text-align:left">2008年4月24日(LTS)</td>
+</tr>
+<tr>
+<td style="text-align:left">8.10</td>
+<td style="text-align:left">Intrepid Ibex (勇敢的野山羊)</td>
+<td style="text-align:left">2008年10月30日</td>
+</tr>
+<tr>
+<td style="text-align:left">9.04</td>
+<td style="text-align:left">Jaunty Jackalope(得意洋洋的怀俄明野兔)</td>
+<td style="text-align:left">2009年4月23日</td>
+</tr>
+<tr>
+<td style="text-align:left">9.10</td>
+<td style="text-align:left">Karmic Koala(幸运的考拉)</td>
+<td style="text-align:left">2009年10月29日</td>
+</tr>
+<tr>
+<td style="text-align:left">10.04</td>
+<td style="text-align:left">Lucid Lynx(清醒的猞猁)</td>
+<td style="text-align:left">2010年4月29日</td>
+</tr>
+<tr>
+<td style="text-align:left">11.10</td>
+<td style="text-align:left">Oneiric Ocelot(梦幻的豹猫)</td>
+<td style="text-align:left">2010年10月13日</td>
+</tr>
+<tr>
+<td style="text-align:left">11.04</td>
+<td style="text-align:left">Natty Narwhal(敏捷的独角鲸)</td>
+<td style="text-align:left">2011年4月28日</td>
+</tr>
+<tr>
+<td style="text-align:left">12.04</td>
+<td style="text-align:left">Precise Pangolin(精准的穿山甲)</td>
+<td style="text-align:left">2012年的4月26日(LTS)</td>
+</tr>
+<tr>
+<td style="text-align:left">12.10</td>
+<td style="text-align:left">Quantal Quetzal(量子的绿咬鹃)</td>
+<td style="text-align:left">2012年的10月20日</td>
+</tr>
+<tr>
+<td style="text-align:left">13.04</td>
+<td style="text-align:left">Raring Ringtail(铆足了劲的猫熊)</td>
+<td style="text-align:left">2013年4月25日</td>
+</tr>
+<tr>
+<td style="text-align:left">13.10</td>
+<td style="text-align:left">Saucy Salamander(活泼的蝾螈)</td>
+<td style="text-align:left">2013年10月17日</td>
+</tr>
+<tr>
+<td style="text-align:left">14.04</td>
+<td style="text-align:left">Trusty Tahr (可靠的塔尔羊)</td>
+<td style="text-align:left">2014年4月18日 (LTS)</td>
+</tr>
+<tr>
+<td style="text-align:left">14.10</td>
+<td style="text-align:left">Utopic Unicorn(乌托邦独角兽)</td>
+<td style="text-align:left">2014年10月23日</td>
+</tr>
+<tr>
+<td style="text-align:left">15.04</td>
+<td style="text-align:left">Vivid Vervet (活泼的小猴)</td>
+<td style="text-align:left">2015年4月</td>
+</tr>
+<tr>
+<td style="text-align:left">15.10</td>
+<td style="text-align:left">Wily Werewolf (狡猾的狼人)</td>
+<td style="text-align:left">2015年10月</td>
+</tr>
+<tr>
+<td style="text-align:left">16.04</td>
+<td style="text-align:left">Xenial Xerus (好客的非洲地松鼠)</td>
+<td style="text-align:left">2016年4月 （LTS）</td>
+</tr>
+<tr>
+<td style="text-align:left">16.10</td>
+<td style="text-align:left">Yakkety Yak（牦牛）</td>
+<td style="text-align:left">2016年10月</td>
+</tr>
+<tr>
+<td style="text-align:left">17.04</td>
+<td style="text-align:left">Zesty Zapus(开心的跳鼠)</td>
+<td style="text-align:left">2017年4月</td>
+</tr>
+<tr>
+<td style="text-align:left">17.10</td>
+<td style="text-align:left">Artful Aardvark(机灵的土豚)</td>
+<td style="text-align:left">2017年10月</td>
+</tr>
+<tr>
+<td style="text-align:left">18.04</td>
+<td style="text-align:left">Bionic Beaver（仿生海狸）</td>
+<td style="text-align:left">2018年4月(LTS)</td>
+</tr>
+</tbody>
+</table>
+<p>备注：LTS 表示长期支持版本！</p>
+</details>  
+<details close=""><summary>3. <strong>Ubuntu 安装步骤</strong></summary>  
+<details close=""><summary>3.1. Ubuntu 在 VM 虚拟机上的安装过程</summary>  
+<blockquote>
+<p>安装一般分为典型安装和自定义安装，本文为了更深入了解虚拟机相关知识而选择了自定义安装。</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_01.jpg"
+        data-srcset="../img/20200802_1_01_01.jpg, ../img/20200802_1_01_01.jpg 1.5x, ../img/20200802_1_01_01.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_01.jpg"
+        title="步骤a" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_02.jpg"
+        data-srcset="../img/20200802_1_01_02.jpg, ../img/20200802_1_01_02.jpg 1.5x, ../img/20200802_1_01_02.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_02.jpg"
+        title="步骤b" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_03.jpg"
+        data-srcset="../img/20200802_1_01_03.jpg, ../img/20200802_1_01_03.jpg 1.5x, ../img/20200802_1_01_03.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_03.jpg"
+        title="步骤c" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_04.jpg"
+        data-srcset="../img/20200802_1_01_04.jpg, ../img/20200802_1_01_04.jpg 1.5x, ../img/20200802_1_01_04.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_04.jpg"
+        title="步骤d" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_05.jpg"
+        data-srcset="../img/20200802_1_01_05.jpg, ../img/20200802_1_01_05.jpg 1.5x, ../img/20200802_1_01_05.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_05.jpg"
+        title="步骤e" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_06.jpg"
+        data-srcset="../img/20200802_1_01_06.jpg, ../img/20200802_1_01_06.jpg 1.5x, ../img/20200802_1_01_06.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_06.jpg"
+        title="步骤f" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_01_07.jpg"
+        data-srcset="../img/20200802_1_01_07.jpg, ../img/20200802_1_01_07.jpg 1.5x, ../img/20200802_1_01_07.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_01_07.jpg"
+        title="步骤g" /><br>
+<a href="https://blog.csdn.net/davidhzq/article/details/102575343" target="_blank" rel="noopener noreffer">网友更详尽安装说明</a><br>
+<a href="https://blog.csdn.net/davidhzq/article/details/102539914" target="_blank" rel="noopener noreffer">网友介绍NAT模式和桥接模式文章</a></p>
+</details>  
+<details close=""><summary>3.2. 如何在 VM 虚拟机打开 Ubuntu 系统</summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_02_01.jpg"
+        data-srcset="../img/20200802_1_02_01.jpg, ../img/20200802_1_02_01.jpg 1.5x, ../img/20200802_1_02_01.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_02_01.jpg"
+        title="步骤a" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_02_02.jpg"
+        data-srcset="../img/20200802_1_02_02.jpg, ../img/20200802_1_02_02.jpg 1.5x, ../img/20200802_1_02_02.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_02_02.jpg"
+        title="步骤b" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200802_1_02_03.jpg"
+        data-srcset="../img/20200802_1_02_03.jpg, ../img/20200802_1_02_03.jpg 1.5x, ../img/20200802_1_02_03.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200802_1_02_03.jpg"
+        title="步骤c" /></p>
+</details>  
+</details>  
+<details close=""><summary>4. <strong>Ubuntu 操作界面基础</strong></summary>  
+<blockquote>
+<p>Ubuntu 拥有多个操作终端（使用<code>Ctrl+Alt+F1~F7</code>切换），<code>F7</code>为系统默认启动系统默认加载的操作终端是图形界面，其余都是为命令行界面终端。</p>
+</blockquote>
+<ul>
+<li>Ctrl+Alt+F1：切换到命令行界面终端。</li>
+<li>Ctrl+Alt+F7：切换到图形界面终端。</li>
+<li>Ctrl+Alt+t： 在<strong>图形界面</strong>下打开命令行终端机。</li>
+<li><code>$</code>命令行前字符，表示用户权限操作。</li>
+<li><code>#</code>命令行首字符，表示管理员权限操作。（root权限）</li>
+</ul>
+<blockquote>
+<p>为 Ubuntu 增加<code>显示桌面</code>快捷键：System setting / Keyboard / Navigation / Hide all normal windows 设置即可。<br>
+为 Ubuntu 加<code>显示桌面</code>到启动器：System setting / Appearance / Behavior / Add show desktop icon to the launcher 勾选上即可。</p>
+</blockquote>
+</details>  
+<details close=""><summary>5. <strong>Ubuntu 版本查看命令</strong></summary>  
+<ul>
+<li><code>ctrl + alt + t</code>快捷键打开终端机</li>
+<li><code>uname -a</code>内核</li>
+<li><code>cat /proc/version</code>具体</li>
+<li><code>cat /etc/lsb-release</code>具体</li>
+<li><code>cat /etc/issue</code>简单</li>
+</ul>
+</details>  
+<details close=""><summary>6. <strong>Ubuntu 网络基本配置</strong></summary>  
+<blockquote>
+<p>介绍：在 Ubuntu 系统上安装软件，多数情况下都是使用<code>apt-get</code>指令在线安装。如果网络没有配置好（一般情况下系统默认配置为 DHCP），则造成软件（工具）无法安装，相关工作将无法开展。</p>
+</blockquote>
+<ul>
+<li><code>ctrl + alt + t</code>快捷键打开终端机（注：以后不再提及需要打开终端）</li>
+<li><code>sudo gedit /etc/network/interfaces</code>编辑网络参数</li>
+<li><code>sudo /etc/init.d/networking restart</code>重启网络</li>
+</ul>
+<p>某些情况需要静态ip：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">auto lo
+iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 192.168.1.28
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 8.8.8.8
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>7. <strong>Ubuntu 磁盘扩容方法</strong></summary>  
+<blockquote>
+<p>在 VMware 安装 Ubuntu 时磁盘容量分配过小，或者是用了一段时间后 Ubuntu 的磁盘容量不足时，那我们就需要对 Ubuntu 磁盘进行扩容。备注：在命令窗口输入命令<code>df -h</code>查看硬盘容量使用情况。<strong>分两大步：一、在 VMware 设置菜单调整磁盘容量；二、在 Ubuntu 系统里面调整分区大小。</strong></p>
+</blockquote>
+<ol>
+<li>修改磁盘总容量大小：VMware/虚拟机/设置/硬盘/实用工具/扩展。</li>
+<li>通过命令安装 Gparted：sudo apt-get install gparted。</li>
+<li>打开 Gparted 软件（<a href="../img/20200802_1_07_03.jpg" rel="">图示</a>），在可视界面上操作，<strong>总体操作为 删除扩展分区（以及交换分区）→ 调整主分区大小 → 创建扩展分区（以及交换分区）</strong>。</li>
+<li>使用右键 Delete 菜单依次删除 linux-swap 交换分区、extended 扩展分区，若 Delete 选项灰色不可用，则先点击 SwapOff（<a href="../img/20200802_1_07_04.jpg" rel="">图示</a>）。</li>
+<li>使用右键 Resize/Move 菜单调整 /dev/sda1 主分区大小，在里面调整主分区大小，但必须留大约 2G 给扩展分区使用。</li>
+<li>使用右键 New 菜单对 unallocated 未分配空间进行分配，在里面创建为 Extended Partition 扩展分区。</li>
+<li>使用右键 New 菜单对 extended 扩展分区进行分配，在里面创建为 linux-swap 交换分区（<a href="../img/20200802_1_07_07.jpg" rel="">图示</a>）。</li>
+<li>然后点击主界面的打勾按钮确认并执行操作。</li>
+<li>使用右键 SwapOn 菜单激活 linux-swap 交换分区。</li>
+<li>使用右键 Information 菜单查看 linux-swap 交换分区的 UUID。</li>
+<li>将新建的 linux-swap 中的 UUID 值更新到<code>/etc/fstab</code>文件中，打开文件的命令：sudo gedit /etc/fstab</li>
+</ol>
+<p>具体请参考网文：《<a href="https://www.cnblogs.com/yongdaimi/p/9050155.html" target="_blank" rel="noopener noreffer">VMware 下对 Ubuntu 进行扩充磁盘大小</a>》、《<a href="https://blog.csdn.net/m0_43403238/article/details/85480314" target="_blank" rel="noopener noreffer">查看最后一节：更换 UUID</a>》、《<a href="https://www.cnblogs.com/arnoldlu/p/11613842.html" target="_blank" rel="noopener noreffer">fstab 是什么？被谁用？怎么写？</a>》</p>
+</details>  
+<details close=""><summary>8. <strong>解决系统之间复制粘贴问题</strong></summary>  
+<blockquote>
+<p>介绍：解决 ubuntu16.04 和 windows 电脑之间无法复制粘贴问题。</p>
+</blockquote>
+<ol>
+<li><code>sudo apt-get autoremove open-vm-tools</code>移除系统原来的虚拟工具条</li>
+<li><code>sudo apt-get install open-vm-tools</code>安装开源工具包</li>
+<li><code>sudo apt-get install open-vm-tools-desktop</code>安装桌面版的虚拟工具条</li>
+<li>安装过程中，yes 或者 y 一路通过。</li>
+<li>重启 Ubuntu 即可。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open-vm-tools</td>
+<td>虚拟机显示驱动，屏幕可以自适应大小</td>
+</tr>
+<tr>
+<td>open-vm-tools-desktop</td>
+<td>实现主机和虚拟机之间的文件复制粘贴</td>
+</tr>
+<tr>
+<td>open-vm-tools-dkms</td>
+<td>实现文件夹共享。在 VMware 虚拟机菜单依次点击→虚拟机→设置→选项→共享文件夹→总是启用→添加目录即可，在 Unbuntu 系统的访问的共享文件夹在<code>/mnt/hgfs</code>对应目录</td>
+</tr>
+</tbody>
+</table>
+<!--  
+https://blog.csdn.net/weixin_50603017/article/details/122309067  
+https://blog.51cto.com/u_15061930/4284241  
+-->  
+</details>  
+<details close=""><summary>9. <strong>解决系统分辨率自适应问题</strong></summary>  
+<blockquote>
+<p>介绍：相信很多人在装虚拟机的时候，遇到了窗口过小不能自适应的问题。我在网上查了好多资料，有说安装 Vmware Tools 解决，也有说修改分辨率解决。但 Vmware Tools 工具官方已经不建议，更提倡开源的 open-vm-tools。</p>
+</blockquote>
+<ol>
+<li><code>sudo apt-get install open-vm-tools</code>安装开源工具包；</li>
+<li><code>sudo apt-get install open-vm*</code>安装一些依赖包；</li>
+<li><code>shutdown -r now</code>重启，完美解决窗口自适应问题。</li>
+<li>还有在 VMware 勾选：查看/自动调节大小/自动适应客户机 和 自动适应窗口。（<a href="../img/20200802_1_05_04.jpg" rel="">如图</a>）</li>
+</ol>
+</details>  
+<details close=""><summary>10. <strong>解决打开文本文件乱码问题</strong></summary>  
+<blockquote>
+<p>介绍：对于我们程序员，几乎的工作就是编译源代码，如果代码中有中文，则在 Unbuntu 中显示往往是乱码。因为在 windows 下编写的源码默认编码为 ANSI，而在 Unbuntu 下面默认是 UTF-8 编码，所以使用 gedit 打开文件是乱码。要正常显示文件，则需要我们修改系统默认编码，方法如下：</p>
+</blockquote>
+<ol>
+<li><del>export LANG=zh_CN.UTF-8  #临时修改默认编码（重启后将失效）</del></li>
+<li><del>locale                   #查看全部编码配置（参考此列表修改或增加配置）</del></li>
+<li><del>sudo gedit /etc/profile  #在环境变量下修改（根据上面列表增加编码机制即可）</del></li>
+<li><del>vi /etc/default/locale   #打开配置文件修改（此方法不行,要在环境变量修改）</del></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><del>zh</del></td>
+<td style="text-align:left"><del>语言（中文。 en 英文）</del></td>
+</tr>
+<tr>
+<td style="text-align:left"><del>_CN</del></td>
+<td style="text-align:left"><del>国家（中国。_US 美国）</del></td>
+</tr>
+<tr>
+<td style="text-align:left"><del>.UTF-8</del></td>
+<td style="text-align:left"><del>编码方式（UTF-8）</del></td>
+</tr>
+<tr>
+<td style="text-align:left"><del>LANG=</del></td>
+<td style="text-align:left"><del>没设置编码的系统模块，都默认为此全局编码</del></td>
+</tr>
+<tr>
+<td style="text-align:left"><del>LANGUAGE=</del></td>
+<td style="text-align:left"><del>没设置编码的应用程序，则默认为此全局编码</del></td>
+</tr>
+<tr>
+<td style="text-align:left"><del>LC_XXXXX=</del></td>
+<td style="text-align:left"><del>系统具体应用模块的编码</del></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>上面的方法只能临时修改相关就编码，其中第<code>3、4</code>点更不推荐。缘由：因不知道操作了什么后，gedit 文本编辑软件不能自动识别文件编码（显示乱码），解决方法如下：<br>
+1、<code>sudo apt-get install dconf-tools</code> 安装 dconf-tools 工具；<br>
+2、Alt + F2 打开搜索，输入 dconf Editor，在搜索结果打开此工具；<br>
+3、org → gnome → gedit → preferences → encodings 展开后选择右面窗口的 candidate-encodings, 点击 Set to Default。</p>
+</blockquote>
+</details>  
+<details close=""><summary>11. <strong>安装中文输入法</strong></summary>  
+<p>请阅读：《<a href="../20210617" rel="">中文输入工具 wubi</a>》</p>
+</details>  
+<!--  
+配置环境前先坐下普及：  
+Ubuntu 不同目录下 profile 与 bashrc 的区别  
+  
+/etc/profile  此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行，并从/etc/profile.d目录的配置文件中搜集shell的设置。  
+  
+/etc/bash.bashrc  为每一个运行bash shell的用户执行此文件，当bash shell被打开时,该文件被读取。  
+  
+~/.bash_profile  每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次，默认情况下,他设置一些环境变量,执行用户的.bashrc文件。  
+  
+~/.bashrc  该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该文件被读取。  
+  
+~/.bash_logout  当每次退出系统(退出bash shell)时,执行该文件。  
+  
+另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承/etc/profile中的变量,他们是"父子"关系。  
+  
+~/.bash_profile  是交互式、login 方式进入 bash 运行的。  
+  
+~/.bashrc  是交互式 non-login 方式进入 bash 运行的。  
+  
+通常二者设置大致相同，所以通常前者会调用后者。  
+-->  
+<h3 id="二工具篇">二、工具篇</h3>
+<details close=""><summary><span id="2_01">1. <strong>Ubuntu 上安装 JDK 教程</strong></span></summary>  
+<p>请阅读：《<a href="../20200803" rel="">linux JAVA 开发环境 JDK</a>》</p>
+</details>  
+<details close=""><summary><span id="2_02">2. <strong>Ubuntu 上安装 Eclipse 教程</strong></span></summary>  
+<p>请阅读：《<a href="../20200804" rel="">linux 开发工具 Eclipse</a>》</p>
+</details>  
+<details close=""><summary><span id="2_03">3. <strong>Ubuntu 上更新 Firefox 教程</strong></span></summary>  
+<p>1、下载：直接在官网《<a href="https://www.mozilla.org/zh-CN/firefox/download/thanks/" target="_blank" rel="noopener noreffer">下载</a>》<br>
+2、更新：请参考官网《<a href="https://support.mozilla.org/zh-CN/kb/linux-firefox" target="_blank" rel="noopener noreffer">在 Linux 中安装 Firefox</a>》</p>
+<p><strong>备注</strong>：我的系统是 Ubuntu（注：命令操作需要权限时要加<code>sudo</code>），因为只是增加 Firefox-98 新版本，没有删除旧版本，所以做法有少许不一样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">###[不同对照表]###</span>
+<span class="c1"># ln -s /opt/firefox/firefox /usr/local/bin/firefox --命令改为--&gt; sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox98</span>
+<span class="c1"># /usr/local/share/applications ----------------------路径改为--&gt; /usr/share/applications</span>
+<span class="c1"># firefox.desktop               ----------------------名称改为--&gt; firefox98.desktop</span>
+<span class="c1"># Name=Firefox Web Browser      ----------------------参数改为--&gt; Name=Firefox98 Web Browser</span>
+<span class="c1"># Exec=firefox %u               ----------------------参数改为--&gt; Exec=/opt/firefox/firefox %u</span>
+
+<span class="c1">###[具体操作]####</span>
+<span class="nb">cd</span> ~/Downloads                                           <span class="c1"># 进入文件包下载到的目录</span>
+tar xjf firefox-98.0.2.tar.bz2                           <span class="c1"># 解压下载的软件包</span>
+sudo mv firefox /opt                                     <span class="c1"># 将刚解压的软件包移到/opt目录下</span>
+sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox98 <span class="c1"># 创建软件快捷启动方式</span>
+touch firefox98.desktop                                  <span class="c1"># 创建桌面快捷启动方式，使用文本工具编辑其内容（具体请复制[firefox98.desktop文件内容]）</span>
+sudo chmod <span class="m">777</span> firefox98.desktop                         <span class="c1"># 修改桌面快捷启动方式权限</span>
+sudo mv firefox98.desktop /usr/share/applications        <span class="c1"># 将桌面快捷启动方式移到应用启动图标管理文件夹</span>
+
+<span class="c1">######[firefox98.desktop文件内容]######</span>
+<span class="c1">######[备注]：凡是脚本,行尾不应有多余的空格</span>
+<span class="o">[</span>Desktop Entry<span class="o">]</span>
+<span class="nv">Version</span><span class="o">=</span>1.0
+<span class="nv">Name</span><span class="o">=</span>Firefox98 Web Browser
+<span class="nv">Comment</span><span class="o">=</span>Browse the World Wide Web
+<span class="nv">GenericName</span><span class="o">=</span>Web Browser
+<span class="nv">Keywords</span><span class="o">=</span>Internet<span class="p">;</span>WWW<span class="p">;</span>Browser<span class="p">;</span>Web<span class="p">;</span>Explorer
+<span class="nv">Exec</span><span class="o">=</span>/opt/firefox/firefox %u
+<span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span>
+X-MultipleArgs<span class="o">=</span><span class="nb">false</span>
+<span class="nv">Type</span><span class="o">=</span>Application
+<span class="nv">Icon</span><span class="o">=</span>/opt/firefox/browser/chrome/icons/default/default128.png
+<span class="nv">Categories</span><span class="o">=</span>GNOME<span class="p">;</span>GTK<span class="p">;</span>Network<span class="p">;</span>WebBrowser<span class="p">;</span>
+<span class="nv">MimeType</span><span class="o">=</span>text/html<span class="p">;</span>text/xml<span class="p">;</span>application/xhtml+xml<span class="p">;</span>application/xml<span class="p">;</span>application/rss+xml<span class="p">;</span>application/rdf+xml<span class="p">;</span>image/gif<span class="p">;</span>image/jpeg<span class="p">;</span>image/png<span class="p">;</span>x-scheme-handler/http<span class="p">;</span>x-scheme-handler/https<span class="p">;</span>x-scheme-handler/ftp<span class="p">;</span>x-scheme-handler/chrome<span class="p">;</span>video/webm<span class="p">;</span>application/x-xpinstall<span class="p">;</span>
+<span class="nv">StartupNotify</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3、最后：在可视窗口里进入 /usr/share/applications 文件夹，点右键菜单复制 Firefox98 Web Browser 桌面快捷启动图标，然后到桌面点右键菜单粘贴，最后点击图标即可在桌面启动 Firefox98 浏览器。</p>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-03-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20200802/" data-title="Ubuntu 系统与工具" data-hashtags="Ubuntu,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20200802/" data-hashtag="Ubuntu"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20200802/" data-title="Ubuntu 系统与工具"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20200802/" data-title="Ubuntu 系统与工具"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20200802/" data-title="Ubuntu 系统与工具"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20200309/" class="prev" rel="prev" title="json 基本语法介绍"><i class="fas fa-angle-left fa-fw"></i>json 基本语法介绍</a>
+            <a href="/20200803/" class="next" rel="next" title="linux JAVA 开发环境 JDK">linux JAVA 开发环境 JDK<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>命令 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/%E5%91%BD%E4%BB%A4/</link>
+        <description>命令 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Jun 2021 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E5%91%BD%E4%BB%A4/" rel="self" type="application/rss+xml" /><item>
+    <title>linux 基本命令使用</title>
+    <link>https://o2ospring.github.io/20210613/</link>
+    <pubDate>Sun, 13 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210613/</guid>
+    <description><![CDATA[一、认识linux linux发行版本 deb派系--桌面版系统 1、Debian（读音：&lsquo;debeen 待宾） 2、Ubuntu（读音：]]></description>
+</item></channel>
+</rss>

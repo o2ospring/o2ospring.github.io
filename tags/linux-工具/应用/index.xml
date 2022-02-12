@@ -1,0 +1,77 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux 工具/应用 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/</link>
+        <description>linux 工具/应用 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>网站 PPT 生成工具 Slidev</title>
+    <link>https://o2ospring.github.io/20220316/</link>
+    <pubDate>Wed, 16 Mar 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220316/</guid>
+    <description><![CDATA[Slidev 的简介 Slidev /slʌɪdɪv/ 基于 Node.js、Vue.js 开发，利用它我们可以使用 Markdown 及扩展语法编写 PPT，它支持各种好看的主题、代码高亮、]]></description>
+</item><item>
+    <title>cygwin 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20220227/</link>
+    <pubDate>Sun, 27 Feb 2022 15:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220227/</guid>
+    <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具）帮忙我们在 windows 系统上完成某项工作（尤其是使用 gnu 工具集在 windows 上进行嵌入式系统开发是非]]></description>
+</item><item>
+    <title>博客生成工具 Hugo</title>
+    <link>https://o2ospring.github.io/20220126/</link>
+    <pubDate>Wed, 26 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220126/</guid>
+    <description><![CDATA[Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司]]></description>
+</item><item>
+    <title>博客生成工具 Hexo</title>
+    <link>https://o2ospring.github.io/20220125/</link>
+    <pubDate>Tue, 25 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220125/</guid>
+    <description><![CDATA[Hexo 的简介 Hexo /'heksoʊ/ 是一个基于 Node.js 的命令行工具。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎]]></description>
+</item><item>
+    <title>电子书制作工具 GitBook</title>
+    <link>https://o2ospring.github.io/20220124/</link>
+    <pubDate>Mon, 24 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220124/</guid>
+    <description><![CDATA[GitBook 的简介 GitBook /ɡɪt/bʊk/ 是一个基于 Node.js 的命令行工具，可使用 Github/Git 和 Markdown 来制作精美的电子书（例如：IT 行业技术说明书）。前提需要安装 npm（注：N]]></description>
+</item><item>
+    <title>网站 node 包管理器 npm</title>
+    <link>https://o2ospring.github.io/20220123/</link>
+    <pubDate>Sun, 23 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220123/</guid>
+    <description><![CDATA[NPM 的简介 npm（Node Package Manager）是 node 的包管理器，随同 NodeJS 一起安装的包管理和分发工具，它很方便让 JavaScript 开发者下载、安装、上传以及管理已经安]]></description>
+</item><item>
+    <title>lua 脚本基本语法</title>
+    <link>https://o2ospring.github.io/20211221/</link>
+    <pubDate>Tue, 21 Dec 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20211221/</guid>
+    <description><![CDATA[前言 Lua /'luːə/ 是一个小巧且速度极快的脚本语言，由标准 C 编写而成，几乎在所有操作系统和平台上都可以编译运行，是作为嵌入式脚本的最佳选择。]]></description>
+</item><item>
+    <title>linux 中文输入工具</title>
+    <link>https://o2ospring.github.io/20210617/</link>
+    <pubDate>Thu, 17 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210617/</guid>
+    <description><![CDATA[输入法简介 在 linux 系统下，我们必然要进行文本编辑，必然要输入中文，必然使用到输入法，中国常用的输入法有五笔和拼音。linux 系统文字输入包含两部]]></description>
+</item><item>
+    <title>linux 网络文件系统 nfs</title>
+    <link>https://o2ospring.github.io/20210620/</link>
+    <pubDate>Thu, 17 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210620/</guid>
+    <description><![CDATA[NFS 的简介 NFS 就是 Network File System 的缩写，即网络文件系统，它最大的功能就是可以通过网络，让不同的机器、不同的操作系统可以共享彼此的文件。nfs 服务端相当于]]></description>
+</item><item>
+    <title>linux 网络终端工具 ssh</title>
+    <link>https://o2ospring.github.io/20210619/</link>
+    <pubDate>Thu, 17 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210619/</guid>
+    <description><![CDATA[SSH 的简介 SSH 为 Secure Shell 的缩写，由 IETF 的网络工作小组（Network Working Group）所制定。SSH 为建立在应用层和传输层基础上的安全协议，而传统的网络服]]></description>
+</item></channel>
+</rss>

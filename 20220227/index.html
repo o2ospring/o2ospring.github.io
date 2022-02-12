@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>cygwin 之 unix 模拟环境 - o2ospring</title><meta name="Description" content="简单介绍 cygwin 的安装及使用"><meta property="og:title" content="cygwin 之 unix 模拟环境" />
+<meta property="og:description" content="简单介绍 cygwin 的安装及使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220227/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-27T15:00:00+08:00" />
+<meta property="article:modified_time" content="2022-02-27T15:00:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="cygwin 之 unix 模拟环境"/>
+<meta name="twitter:description" content="简单介绍 cygwin 的安装及使用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220227/" /><link rel="prev" href="https://o2ospring.github.io/20220126/" /><link rel="next" href="https://o2ospring.github.io/20220315/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "cygwin 之 unix 模拟环境",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220227\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Cygwin, linux 工具\/应用","wordcount":  2308 ,
+        "url": "https:\/\/o2ospring.github.io\/20220227\/","datePublished": "2022-02-27T15:00:00+08:00","dateModified": "2022-02-27T15:00:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "简单介绍 cygwin 的安装及使用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">cygwin 之 unix 模拟环境</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-27">2022-02-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2308 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/20220227/" class="leancloud_visitors" data-flag-title="cygwin 之 unix 模拟环境">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#使用">使用</a></li>
+        <li><a href="#扩展">扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="前言">前言</h3>
+<blockquote>
+<p>有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具）帮忙我们在 windows 系统上完成某项工作（尤其是使用 gnu 工具集在 windows 上进行嵌入式系统开发是非常有用的!）。使用 <a href="http://www.cygwin.com/" target="_blank" rel="noopener noreffer">Cygwin</a> 是非常好的选择，它由 cygnus solutions 公司开发的自由软件，其集成绝大部分的 linux 软件包，只需使用 Cygwin 安装程序（实则是资源管理器）安装（添加）对应软件包即可。</p>
+</blockquote>
+<h3 id="安装">安装</h3>
+<details close=""><summary>1、到 Cygwin 官网下载：</summary>  
+<blockquote>
+<p>● <strong>软件简介</strong>：<br>
+<a href="http://www.cygwin.com/" target="_blank" rel="noopener noreffer">Cygwin</a> 是一个在 windows 平台上运行的类 unix 模拟环境，是一个 <strong>windows 软件</strong>；在其编译及运行的软件也是<code>.exe</code>的 <strong>windows 软件</strong>，而非 linux 软件（例如：<code>gcc</code>是<code>gcc.exe</code>的 windows 软件!）；甚至对系统的操作也是对 windows 操作（例如：<code>reboot</code>命令，是重启 windwons 系统!）。简单说：包括 cygwin 以及在其里面运行的软件都是 windows 软件，它只是模拟在 linux 中运行。<br>
+● <strong>特别说明</strong> ：<br>
+1、注意：<a href="http://www.cygwin.com" target="_blank" rel="noopener noreffer">Cygwin</a> 环境中编译构建的软件在运行时必须依赖<code>cygwin1.dll</code>，如果制作独立软件建议用 <a href="https://www.mingw-w64.org" target="_blank" rel="noopener noreffer">MinGW-w64</a>/<a href="http://tdm-gcc.tdragon.net" target="_blank" rel="noopener noreffer">TDM-GCC</a> 工具链来编译构建软件；<br>
+2、关于：<a href="http://www.cygwin.com" target="_blank" rel="noopener noreffer">Cygwin</a> 和 <a href="http://www.mingw.org" target="_blank" rel="noopener noreffer">MinGW</a> 都是为用户提供在 windows 操作系统使用 GNU 工具的方法，使得原是 linux 写的 c 源代码可以在 windows 上编译及运行（exe 执行文件）。Cygwin 大而全面，提供完整的类 Unix 环境；而 MinGW 小而高效，其主要是编译器，一般只支持编译使用 C/C++ 标准库的程序。<br>
+3、补充：<a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener noreffer">UnxUtils</a> 也是 Windows 下的 Unix Linux 工具集，其集成了 Unix 系统的很多命令，下载解压并把它 usr/local/wbin 文件夹的绝对路径加到 windows 环境变量即可使用。<br>
+● <strong>下载网址</strong> ：<br>
+Cygwin 官网下载：<a href="http://www.cygwin.com" target="_blank" rel="noopener noreffer">http://www.cygwin.com</a></p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_01_11.jpg"
+        data-srcset="../img/20220227_01_11.jpg, ../img/20220227_01_11.jpg 1.5x, ../img/20220227_01_11.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_01_11.jpg"
+        title="官网下载" /></p>
+</details>  
+<details close=""><summary>2、点安装程序直接安装：</summary>  
+<blockquote>
+<p>关于 Cygwin 安装程序（setup-x86_64.exe），更准确说是 Cygwin 软件资源管理器，其主要工作是安装/删除/升级相关软件包。例如：发现<code>wget</code>不存在，按照初次在线安装一样的流程安装，当到软件包安装界面时，选择<code>full</code>全列表并在搜索框输入<code>wget</code>选择对应软件包进行安装。</p>
+<ul>
+<li><strong>安装工作分两部分</strong>：<br>
+1、安装 Cygwin 程序（设置安装路径）；<br>
+2、下载+安装软件包（设置下载缓存路径）。</li>
+<li><strong>安装方式则分三种</strong>：<br>
+1、在线安装（实质就是 2 和 3）。<br>
+2、下载离线软件包，<br>
+3、安装离线软件包。</li>
+</ul>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_01_21.jpg"
+        data-srcset="../img/20220227_01_21.jpg, ../img/20220227_01_21.jpg 1.5x, ../img/20220227_01_21.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_01_21.jpg"
+        title="安装过程-1" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_01_22.jpg"
+        data-srcset="../img/20220227_01_22.jpg, ../img/20220227_01_22.jpg 1.5x, ../img/20220227_01_22.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_01_22.jpg"
+        title="安装过程-2" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_01_23.jpg"
+        data-srcset="../img/20220227_01_23.jpg, ../img/20220227_01_23.jpg 1.5x, ../img/20220227_01_23.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_01_23.jpg"
+        title="安装过程-3" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_01_24.jpg"
+        data-srcset="../img/20220227_01_24.jpg, ../img/20220227_01_24.jpg 1.5x, ../img/20220227_01_24.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_01_24.jpg"
+        title="安装过程-4" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_01_25.jpg"
+        data-srcset="../img/20220227_01_25.jpg, ../img/20220227_01_25.jpg 1.5x, ../img/20220227_01_25.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_01_25.jpg"
+        title="安装过程-5" /></p>
+<!--  
+# 彻底删除Cygwin  
+# 将该段代码写成一个bat文件，其中“d:\cygwin64"为需要删除的cygwin目录  
+SET DIRECTORY_NAME="D:\cygwin64"  
+C:\windows\system32\TAKEOWN /f %DIRECTORY_NAME% /r /d y  
+C:\windows\system32\ICACLS %DIRECTORY_NAME% /grant administrators:F /t  
+PAUSE  
+-->  
+</details>  
+<details close=""><summary>3、常用工具所需软件包：</summary>  
+<blockquote>
+<p>下面列出一些常用的工具软件包，可以在软件包安装界面进行勾选安装。当需要安装很多软件包时，手工勾选显得繁琐且低效，这时我们可以使用<code>apt-cyg</code>命令工具来安装（后面章节会介绍这个命令安装及使用）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:48px">软件/工具</div></th>
+<th style="text-align:left">所需软件包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>常用</code></td>
+<td style="text-align:left">wget, curl, gawk, openssh, nc, bzip2, xz, tar, unzip, lua, dos2unix</td>
+</tr>
+<tr>
+<td style="text-align:left">gcc</td>
+<td style="text-align:left">gcc-core, gcc-g++, binutils, gdb, make, cmake, libgccpp1</td>
+</tr>
+<tr>
+<td style="text-align:left">待续…</td>
+<td style="text-align:left">待续……</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<h3 id="使用">使用</h3>
+<details close=""><summary>1、Cygwin 里查看系统信息：</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看系统信息、软件包</span>
+cygcheck -h        <span class="c1">#帮助</span>
+cygcheck -s        <span class="c1">#查看系统信息(包括已装软件包等)</span>
+cygcheck -l        <span class="c1">#列出[已装软件包]所有文件路径</span>
+cygcheck -c        <span class="c1">#列出[已装软件包]版本信息</span>
+cygcheck -c cygwin <span class="c1">#查看[cygwin]版本信息</span>
+cygcheck -p vim    <span class="c1">#从[cygwin.com]网上查询[vim]软件包</span>
+cygcheck /bin/gcc  <span class="c1">#检查[gcc]可执行文件依赖于哪些库（相当于Linux下的ldd命令）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、Cygwin 里安装 hugo 案例：</summary>  
+<blockquote>
+<p><strong>Hugo</strong> 是一个博客生成工具，本节以安装 Hugo 作为示例，介绍 Cygwin 的基础操作（可同时打开《<a href="../20220126" rel="">博客生成工具 Hugo</a>》的『<strong>Hugo 的安装</strong>』章节对比一下两者的区别）。Hugo 官方为我们编译好各种平台二进制文件，安装时不需要安装任何依赖软件，直接下载使用即可。<strong>特别说明：我们要下载的 hugo 是 windows 版本，非 linux 版本，文件为<code>hugo_0.92.2_Windows-64bit.zip</code></strong>。在 windows 的桌面双击<code>Cygwin64 Terminal</code>运行 Cygwin 的 unix 模拟环境的终端机，之后与 linux 环境下一样使用命令进行相关操作：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/gohugoio/hugo/releases/download/v0.92.2/hugo_0.92.2_Windows-64bit.zip <span class="c1">#在命令窗口直接下载hugo(下载建议的extended版本)</span>
+unzip -q hugo_0.92.2_Windows-64bit.zip <span class="c1">#解压到当前文件夹</span>
+mv hugo.exe /usr/local/bin/  <span class="c1">#将hugo移到本地应用程序目录</span>
+vi /etc/profile              <span class="c1">#编辑系统环境变量,在文件最后加入内容：export PATH=$PATH:/usr/local/bin (备注:实际是系统默认路径,可以不加)</span>
+hugo version                 <span class="c1">#查看版本,验证安装是否成功（建议重新打开 Cygwin 再运行命令查看）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_02_01.jpg"
+        data-srcset="../img/20220227_02_01.jpg, ../img/20220227_02_01.jpg 1.5x, ../img/20220227_02_01.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_02_01.jpg"
+        title="查看版本" /></p>
+</details>  
+<h3 id="扩展">扩展</h3>
+<details close=""><summary>1、apt-cyg 工具安装以及使用：</summary>  
+<blockquote>
+<p>用惯 Ubuntu 就知道，使用<code>apt-get install/remove</code>命令非常方便安装/卸载软件（常用于批量操作），那么 Cygwin 是否有类似命令？当然有的，那就是<code>apt-cyg</code>第三方工具，需要手工安装，以及事前须要安装依赖包：<code>bash</code> <code>wget</code> <code>tar</code> <code>gawk</code> <code>bzip2</code> <code>xz</code>。其中 bash、tar、gawk 属于 Base 类，在安装最小系统时已包含；而 wget、bzip2、xz 属于 Archive 类，需要通过 Cygwin 安装程序先装上，确保后续运行 apt-cyg 不出错。</p>
+</blockquote>
+<p><strong>1.1、安装依赖包<code>wget</code> <code>tar</code> <code>gawk</code> <code>bzip2</code>：</strong><br>
+这些依赖包的安装方法按照前面的【安装】章节操作即可，或者说在前面【安装】章节已把这些依赖软件包安装了。</p>
+<p><strong>1.2、下载 <a href="https://github.com/transcode-open/apt-cyg" target="_blank" rel="noopener noreffer">apt-cyg</a> 并且添加到 Cygwin：</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_03_01.jpg"
+        data-srcset="../img/20220227_03_01.jpg, ../img/20220227_03_01.jpg 1.5x, ../img/20220227_03_01.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_03_01.jpg"
+        title="下载 apt-cyg" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_03_02.jpg"
+        data-srcset="../img/20220227_03_02.jpg, ../img/20220227_03_02.jpg 1.5x, ../img/20220227_03_02.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_03_02.jpg"
+        title="安装 apt-cyg" /></p>
+<p><strong>1.3、验证<code>apt-cyg</code>安装是否成功有效：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">apt-cyg install vim  <span class="c1">#在 Cygwin 中使用`apt-cyg`命令安装 vim，用于验证`apt-cyg`是否安装成功</span>
+
+<span class="c1">#【补充一】可能用到的命令：</span>
+apt-cyg --help       <span class="c1">#查看帮忙</span>
+apt-cyg mirror       <span class="c1">#查看镜像源地址</span>
+apt-cyg mirror http://mirrors.163.com/cygwin  <span class="c1">#设置(修改)镜像源地址</span>
+
+<span class="c1">#【补充二】使用 apt-cyg 安装常用工具：</span>
+apt-cyg install python python-crypto <span class="c1">#安装python环境</span>
+apt-cyg install util-linux           <span class="c1">#安装util-linux包（包含more/col/whereis等命令）:</span>
+apt-cyg install inetutils            <span class="c1">#安装telnet/ftp工具</span>
+apt-cyg install man cygwin-doc
+apt-cyg install vim screen wget subversion <span class="se">\
+</span><span class="se"></span>        openssh pwgen gzip bzip2 curl rsync <span class="se">\
+</span><span class="se"></span>        bash-completion lftp nc tree p7zip <span class="se">\
+</span><span class="se"></span>        connect-proxy util-linux bind-utils inetutils
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_03_03.jpg"
+        data-srcset="../img/20220227_03_03.jpg, ../img/20220227_03_03.jpg 1.5x, ../img/20220227_03_03.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_03_03.jpg"
+        title="验证 apt-cyg" /></p>
+</details>  
+<details close=""><summary>2、windows 调用 Cygwin 工具：</summary>  
+<blockquote>
+<p>其实 windows 的 cmd 命令窗口可以直接使用 Cygwin 相关软件包工具，方法很简单：只需把软件包所在路径加入系统环境变量里即可。<em>这里不得不说一下 Windows 下的 Unix Linux 工具集 <a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener noreffer">UnxUtils</a>，其集成了 Unix 系统的很多命令，下载解压并把它 usr/local/wbin 文件夹的绝对路径加到 windows 环境变量即可使用</em>。</p>
+</blockquote>
+<p><strong>2.1、添加 windows 系统环境变量：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 共加三个路径到 windows 环境变量，</span>
+<span class="c1"># D:\cygwin64\bin</span>
+<span class="c1"># D:\cygwin64\sbin</span>
+<span class="c1"># D:\cygwin64\usr\local\bin</span>
+<span class="c1"># 要求使用 ; 分隔各个变量，具体如下：</span>
+<span class="p">;</span>D:<span class="se">\c</span>ygwin64<span class="se">\b</span>in<span class="p">;</span>D:<span class="se">\c</span>ygwin64<span class="se">\s</span>bin<span class="p">;</span>D:<span class="se">\c</span>ygwin64<span class="se">\u</span>sr<span class="se">\l</span>ocal<span class="se">\b</span>in
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_03_04.jpg"
+        data-srcset="../img/20220227_03_04.jpg, ../img/20220227_03_04.jpg 1.5x, ../img/20220227_03_04.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_03_04.jpg"
+        title="验证 apt-cyg" /></p>
+<p><strong>2.2、验证 cmd 命令窗调用 linux 命令：</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220227_03_05.jpg"
+        data-srcset="../img/20220227_03_05.jpg, ../img/20220227_03_05.jpg 1.5x, ../img/20220227_03_05.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220227_03_05.jpg"
+        title="验证 apt-cyg" /></p>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-02-27</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220227/" data-title="cygwin 之 unix 模拟环境" data-hashtags="Cygwin,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220227/" data-hashtag="Cygwin"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220227/" data-title="cygwin 之 unix 模拟环境"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220227/" data-title="cygwin 之 unix 模拟环境"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220227/" data-title="cygwin 之 unix 模拟环境"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/cygwin/">Cygwin</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220126/" class="prev" rel="prev" title="博客生成工具 Hugo"><i class="fas fa-angle-left fa-fw"></i>博客生成工具 Hugo</a>
+            <a href="/20220315/" class="next" rel="next" title="ACM32F403RE 国产 MCU 试用笔记">ACM32F403RE 国产 MCU 试用笔记<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

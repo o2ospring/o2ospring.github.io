@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>博客生成工具 Hugo - o2ospring</title><meta name="Description" content="Hugo 应用笔记，记录使用 Hugo 搭建个人博客的过程"><meta property="og:title" content="博客生成工具 Hugo" />
+<meta property="og:description" content="Hugo 应用笔记，记录使用 Hugo 搭建个人博客的过程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220126/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-26T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-06-07T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="博客生成工具 Hugo"/>
+<meta name="twitter:description" content="Hugo 应用笔记，记录使用 Hugo 搭建个人博客的过程"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220126/" /><link rel="prev" href="https://o2ospring.github.io/20220125/" /><link rel="next" href="https://o2ospring.github.io/20220227/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "博客生成工具 Hugo",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220126\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "hugo, LoveIt, linux 工具\/应用","wordcount":  5091 ,
+        "url": "https:\/\/o2ospring.github.io\/20220126\/","datePublished": "2022-01-26T21:33:41+08:00","dateModified": "2022-06-07T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "Hugo 应用笔记，记录使用 Hugo 搭建个人博客的过程"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">博客生成工具 Hugo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/blog/"><i class="far fa-folder fa-fw"></i>blog</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-26">2022-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5091 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/20220126/" class="leancloud_visitors" data-flag-title="博客生成工具 Hugo">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#hugo-的简介">Hugo 的简介</a></li>
+        <li><a href="#ubuntu-平台">Ubuntu 平台</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="hugo-的简介">Hugo 的简介</h3>
+<blockquote>
+<p>Hugo <code>/'hjuːgəʊ/</code> 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司站点构建。Hugo 的特点：简单、易用、高效、易扩展、快速部署，其中最大的优点就是超级快！<br>
+<a href="https://www.gohugo.org/" target="_blank" rel="noopener noreffer">中文官网</a><br>
+<a href="https://gohugo.io/" target="_blank" rel="noopener noreffer">英文官网</a></p>
+</blockquote>
+<h3 id="ubuntu-平台">Ubuntu 平台</h3>
+<details close=""><summary><strong>1、Hugo 的安装</strong></summary>  
+<blockquote>
+<p>Hugo 官方为我们编译好各种平台<a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">二进制文件</a>，安装时不需要安装任何依赖软件，直接下载使用即可。建议安装最新版本的 Hugo，因为你可以直接在官网下载最新主题，快速熟悉 Hugo 的基本使用（搭建本地的博客先能跑起来），之后再找一个中文主题，有中文说明，方便我们更深入了解 Hugo 使用与配置。<br>
+在您的电脑上安装<code>Hugo</code>执行文件，更详尽可参考 <a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener noreffer">Hugo</a> 官方的部署文档；<br>
+在您的电脑上安装<code>Git</code>执行文件，更详尽可参考 <a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener noreffer">Git</a> 官方的部署文档；<br>
+<a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">Hugo全部版本下载</a><br>
+<a href="https://www.gohugo.org/doc/" target="_blank" rel="noopener noreffer">Hugo中文官方文档</a><br>
+<a href="https://gohugo.io/documentation/" target="_blank" rel="noopener noreffer">Hugo英文官方文档</a><br>
+<a href="https://go.dev/dl/" target="_blank" rel="noopener noreffer">go全部版本下载</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/gohugoio/hugo/releases/download/v0.92.0/hugo_extended_0.92.0_Linux-64bit.tar.gz  <span class="c1">#在命令窗口直接下载hugo(下载建议的extended版本)  </span>
+tar -xzvf hugo_extended_0.92.0_Linux-64bit.tar.gz  <span class="c1">#解压到当前文件夹</span>
+sudo mv hugo /usr/local/bin/ <span class="c1">#将hugo移到本地应用程序目录  </span>
+sudo gedit /etc/profile      <span class="c1">#编辑系统环境变量,在文件最后加入内容：export PATH=$PATH:/usr/local/bin (备注:实际是系统默认路径,可以不加) </span>
+<span class="nb">source</span> /etc/profile          <span class="c1">#使能系统环境变量。  </span>
+hugo version                 <span class="c1">#查看版本,验证安装是否成功  </span>
+  
+<span class="c1">#不需要安装go,忽略下面两行内容</span>
+<span class="c1">#sudo apt install golang-go  #安装go  </span>
+<span class="c1">#go version                  #查看版本,验证安装是否成功  </span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>2、Hugo 的使用</strong></summary>  
+<blockquote>
+<p>操作<code>hugo</code>命令时，必须在网站根目录里操作。在官网挑选一个最新主题（例如：<a href="https://github.com/vjeantet/hugo-theme-casper" target="_blank" rel="noopener noreffer">casper</a> 主题），确保与最新 Hugo 相匹配，避免因版本出现各种兼容问题。当使用官方最新主题搭建本地的博客能顺利跑起来后，再使用 <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank" rel="noopener noreffer">中文主题-Maupassant</a> 编译制作，因为其有中文说明而且超简洁，方便我们快速了解 Hugo 配置。<br>
+<a href="https://themes.gohugo.io/" target="_blank" rel="noopener noreffer">官方主题下载</a><br>
+<a href="https://www.gohugo.org/doc/" target="_blank" rel="noopener noreffer">中文官方文档</a><br>
+<a href="https://gohugo.io/documentation/" target="_blank" rel="noopener noreffer">英文官方文档</a><br>
+<a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank" rel="noopener noreffer">中文主题-Maupassant</a> → <a href="https://www.flysnow.org/2018/07/29/from-hexo-to-hugo.html" target="_blank" rel="noopener noreffer">基本使用（最简单最容易入门的一款主题）</a><br>
+<a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreffer">中文主题-Bootstrap</a> → <a href="https://hbs-cn.razonyang.com/zh-cn/docs/getting-started/" target="_blank" rel="noopener noreffer">快速入门（可进一步了解使用 Hugo 建站）</a><br>
+<a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer">中文主题-LoveIt</a> → <a href="https://hugoloveit.com/zh-cn/theme-documentation-basics/" target="_blank" rel="noopener noreffer">基本概念（我选用的主题，外观-功能-性能综合不错）</a><br>
+<a href="https://github.com/elkan1788/hugo-theme-next" target="_blank" rel="noopener noreffer">中文主题-NexT</a> → <a href="https://lisenhui.cn/2021/07/09/make-next-theme-pithy2.html" target="_blank" rel="noopener noreffer">优化 Hugo Next主题（另一款不错的主题）</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########建网站########</span>
+hugo new site mysite        <span class="c1">#新建名为“mysite”的网站  </span>
+<span class="nb">cd</span> mysite                   <span class="c1">#进入网站“mysite”根目录  </span>
+                            <span class="c1">#下载官方(Casper)主题到./themes/，并且重命名为:casper  </span>
+git clone https://github.com/vjeantet/hugo-theme-casper.git themes/casper  
+
+<span class="c1">########加博文########</span>
+hugo new post/first.md      <span class="c1">#新建一篇文章（实际目录在:./content/post/）  </span>
+                            <span class="c1">#使用Markdown语法随便添加几行内容（用于展示）  </span>
+
+hugo server -t casper -D    <span class="c1">#指定主题“casper”编译并启动服务器（-t 因为配置文件没绑定主题,所以这里需要指定）（-D 表示草稿也编译）  </span>
+                            <span class="c1">#根据提示用浏览器打开网址预览网站：http://localhost:1313/  </span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>3、LoveIt 主题</strong></summary>  
+<blockquote>
+<p>第一步：先把(LoveIt)主题示范网站运行起来</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#########建站#########</span>
+hugo new site mywebsite     <span class="c1">#新建网站:“mywebsite”</span>
+<span class="nb">cd</span> mywebsite                <span class="c1">#进入网站根目录</span>
+git init                    <span class="c1">#初始化网站根仓库。把主题(LoveIt)(v0.2.10)添加到子仓库：</span>
+git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+
+<span class="c1">#########配置##########</span>
+<span class="c1">#(1)                        #复制作者提供的示例：将 mywebsite/themes/LoveIt/exampleSite/ 里面的文件(夹)全复制到 mywebsite/ 根目录下</span>
+<span class="c1">#(2)                        #删除编译异常文件夹：删 mywebsite/content/posts/theme-documentation-built-in-shortcodes 文件夹；</span>
+<span class="c1">#(3)                        #再执行下面相关指令：</span>
+gedit ./config.toml         <span class="c1">#打开文件编辑，将里面的 themesDir = &#34;../..&#34; 修改为 themesDir = &#34;themes/&#34;</span>
+                            <span class="c1">#　　　　　　　　　以及 enableGitInfo = true  改为 enableGitInfo = false</span>
+hugo server                 <span class="c1">#编译并启动服务器（如果要在本地使能评论系统则修改代码和改用下行命令───────┐</span>
+<span class="c1">#hugo serve -e production   #编译并启动服务器←(先参考:https://lewky.cn/posts/hugo-4.html/)────┘）</span>
+
+<span class="c1">#########补充##########</span>
+<span class="c1">#取消多国语言只保留中文：</span>
+<span class="c1">#(1)                        #修改配置：</span>
+gedit ./config.toml         <span class="c1">#打开文件编辑，将里面的 defaultContentLanguage = &#34;en&#34; 修改为 defaultContentLanguage = &#34;zh-cn&#34;</span>
+                            <span class="c1">#　　　　　　　以及屏蔽 [languages.en] 和 [languages.fr] 各约200行的非中文语言菜单配置</span>
+<span class="c1">#(2)                        #屏蔽文件：</span>
+                            <span class="c1">#将 mywebsite/content 目录下所有文件名为 index.en.md 改为 #index.en.md （注：实际是要删除文件(夹)的，只因为目前还需要作为参考之用）</span>
+                            <span class="c1">#将 mywebsite/content 目录下所有文件名为 index.fr.md 改为 #index.fr.md （注：实际是要删除文件(夹)的，只因为目前还需要作为参考之用）</span>
+<span class="c1">#(3)                        #重新编译：</span>
+hugo server                 <span class="c1">#重新编译并启动服务器</span>
+                            <span class="c1">#此时即可根据提示用浏览器打开网址预览网站：http://localhost:1313/</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>第二步：在(LoveIt)主题示范网站加网页文章</p>
+</blockquote>
+<ol>
+<li>添加博文：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########加博文########</span>
+mkdir content/posts/test                   <span class="c1">#创建博文专题文件夹（必须含有主页《例如中文为:index.zh-cn.md》，否则不支持文章封面）</span>
+hugo new content/posts/test/index.zh-cn.md <span class="c1">#在网站根目录运行命令添加博文主页（主页文件名称须固定,不能其它，否则不支持文章封面）</span>
+                                           <span class="c1">#也可不用建文件夹直接在 content/posts/ 目录下创建博文(如：xxxx.zh-cn.md 文件)，但不支持多语言及文章封面</span>
+                                           <span class="c1">#实际上直接创建md文件并编写即可，无须`hugo new`命令创建，文件头信息则要按标准写。</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>编写博文：</li>
+</ol>
+<ul>
+<li>文章头部是博文相关参数及信息（具体参考 <a href="https://hugoloveit.com/zh-cn/theme-documentation-content/" target="_blank" rel="noopener noreffer">2 前置参数</a>）；</li>
+<li>后面是使用 Markdown 编写的博文。</li>
+<li>示范博文如下：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">---
+weight: 1
+hiddenFromHomePage: false
+title: &#34;第一篇文章主题&#34;
+date: 2020-03-06T21:40:32+08:00
+lastmod: 2020-03-06T21:40:32+08:00
+draft: false
+author: &#34;文章作者&#34;
+authorLink: &#34;https://o2ospring.github.io&#34;
+description: &#34;文章封面描述&#34;
+resources:
+<span class="k">-</span> name: &#34;文章封面名称&#34;
+  src: &#34;featured-image.jpg&#34;
+
+tags: [&#34;文章标签/关键词-1&#34;, &#34;文章标签/关键词-2&#34;]
+categories: [&#34;文章分类-1&#34;, &#34;文章分类-2(可关联多个分类)&#34;]
+
+lightgallery: true
+
+toc:
+  auto: false
+---
+
+<span class="gu">### markdown 章节 1
+</span><span class="gu"></span>
+<span class="k">*</span> <span class="sb">`weight`</span>后面的编号表示专题主页在博客首页的排序编号
+<span class="k">*</span> <span class="sb">`hiddenFromHomePage`</span>如果设为`true`，这篇文章将不会显示到博客首页上
+<span class="k">*</span> <span class="sb">`date`</span>和`lastmod`为文章创建及修改时间
+<span class="k">*</span> <span class="sb">`authorLink`</span>文章作者主页链接
+<span class="k">*</span> <span class="sb">`draft`</span>表示草稿，发布文章必定是设置为`false`
+<span class="k">*</span> <span class="sb">`src`</span>为主题主页封面图片，在自己文件夹下且名称为`featured-image.xxx`，可以是`jpg`、`png`等图片格式
+<span class="k">*</span> <span class="sb">`lightgallery`</span>如果设为`true`，点击文章中的图片将可以按照画廊形式呈现，前提：图片在自己专题文件夹里
+
+<span class="gu">### markdown 章节 2
+</span><span class="gu"></span>
+<span class="k">*</span> markdown 选项 2-1
+<span class="k">*</span> markdown 选项 2-2
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>第三步：开启及绑定(Valine)评论系统</p>
+</blockquote>
+<ol>
+<li>关于 <a href="https://www.leancloud.cn/" target="_blank" rel="noopener noreffer">Valine</a>：是一款快速、简洁且高效的无后端评论系统（<a href="https://valine.js.org" target="_blank" rel="noopener noreffer">Valine 更多知识</a>）。</li>
+<li>到 <a href="https://console.leancloud.cn/login" target="_blank" rel="noopener noreffer">Valine</a> 注册并登录。具体请看【<a href="../img/20220126_02_03_32.jpg" rel="">图示</a>】</li>
+<li>配置<code>config.toml</code>文件和 Valine 评论系统，并绑定两者。具体请看【<a href="../img/20220126_02_03_32.jpg" rel="">图示</a>】</li>
+</ol>
+<blockquote>
+<p>第四步：开启及配置搜索引擎</p>
+</blockquote>
+<ol>
+<li>关于<code>lunr</code>与<code>algolia</code>区别：<br>
+a) <code>lunr</code>为动态引擎，耗资源，速度慢，但配置极其简单；<br>
+b) <code>algolia</code>静态引擎，速度快，配置复杂，并且每次更新博文都需要把新搜索索引文件托管 algolia 服务器上；</li>
+<li>搜索引擎二选一之<code>lunr</code>：<br>
+直接配置<code>config.toml</code>文件即可，具体请看【<a href="../img/20220126_02_03_41.jpg" rel="">图示</a>】</li>
+<li>搜索引擎二选一之<code>algolia</code>：<br>
+a) 首先到 <a href="https://www.algolia.com" target="_blank" rel="noopener noreffer">algolia</a> 官网注册并登录，具体请看【<a href="../img/20220126_02_03_42.jpg" rel="">图示</a>】<br>
+b) 然后在自己的账号里创建<code>应用</code>，具体请看【<a href="../img/20220126_02_03_43.jpg" rel="">图示</a>】<br>
+c) 接着在应用里创建及上传<code>索引</code>，具体请看【<a href="../img/20220126_02_03_44.jpg" rel="">图示</a>】<br>
+d) 最后要配置<code>config.toml</code>文件，具体请看【<a href="../img/20220126_02_03_45.jpg" rel="">图示</a>】<br>
+e) 创建自动上传索引文件命令（避免手工上传重复劳动）：</li>
+</ol>
+<ul>
+<li>e1) 安装<code>atomic-algolia</code>包（前提：需要安装 npm 工具，具体请参考笔记《<a href="../20220123" rel="">网站 node 包管理器 npm</a>》）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install atomic-algolia --save
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>e2) 根目录下创建<code>package.json</code>文件，内容如下：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;algolia&#34;</span><span class="p">:</span> <span class="s2">&#34;atomic-algolia&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>e3) 根目录下新建<code>.env</code>文件，内容如下（具体【<a href="../img/20220126_02_03_46.jpg" rel="">图示</a>】）：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">ALGOLIA_APP_ID</span><span class="o">=</span>你的应用ID
+<span class="nv">ALGOLIA_INDEX_NAME</span><span class="o">=</span>你的索引名称
+<span class="nv">ALGOLIA_INDEX_FILE</span><span class="o">=</span>public/index.json
+<span class="nv">ALGOLIA_ADMIN_KEY</span><span class="o">=</span>你的索引主键
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>e4) 根目录下执行<code>npm run algolia</code>测试上传索引的命令：<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220126_02_03_47.jpg"
+        data-srcset="../img/20220126_02_03_47.jpg, ../img/20220126_02_03_47.jpg 1.5x, ../img/20220126_02_03_47.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220126_02_03_47.jpg"
+        title="../img/20220126_02_03_47.jpg" /></p>
+</li>
+<li>
+<p>e5) 编写脚本文件自动上传索引+发布博文，具体命令如下：</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo                         <span class="c1">#【构建】HTML 静态网页，文件保存在&#34;public&#34;目录中</span>
+npm run algolia              <span class="c1">#【上传】索引文件（public/index.json）</span>
+<span class="nb">cd</span> public                    <span class="c1">#【进入】&#34;public&#34;目录。</span>
+git add --all                <span class="c1">#【添加】工作区所有文件到【暂存区】</span>
+git commit --amend --no-edit <span class="c1">#【提交】暂存区所有文件到【本地库】（更新博客且不用版本管理）</span>
+git push -f origin master    <span class="c1">#【推送】本地仓库到【远程仓库】（强制推送，因为版本没有更新）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>4、Hugo 的发布</strong></summary>  
+<blockquote>
+<p>将基于 <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer">LoveIt</a> 主题（我使用的主题）制作的博客，发布到 <a href="https://pages.github.com" target="_blank" rel="noopener noreffer">Github Pages</a> 上。关于 Github Pages，是 <a href="https://github.com" target="_blank" rel="noopener noreffer">GitHub</a> 的一个功能，其允许用户在 GitHub 仓库托管你的个人、组织或项目的静态页面（自动识别 html、css、javascript），也就是专门为个人或组织提供静态站点托管服务(器)。<br>
+<strong>前提：</strong><br>
+<strong>1</strong>、注册一个 <a href="https://github.com" target="_blank" rel="noopener noreffer">GitHub</a> 账号。如果你已有账号，直接登录。如果你没有账号，注册并登录。<br>
+<strong>2</strong>、新建一个 GitHub repository（仓库），库名为 username.github.io，<code>username</code>即你的 GitHub 账号，同时还要把仓库设置为 Pages（静态网页）模式。具体请看【<a href="../img/20220126_02_04_02.jpg" rel="">图示</a>】<br>
+<strong>3</strong>、由于 LoveIt 主题示例使用了自己特有 Markdown 语法，但 GitHub 不支持且 build 出错。</p>
+<blockquote>
+<p>【解决方法一】：在<code>config.toml</code>配置文件里面屏蔽 Markdown 输出（推荐方法，因为浏览网页没必要查看文章 Markdown 源码），具体请看【<a href="../img/20220126_02_04_04.jpg" rel="">图示</a>】。<br>
+【解决方法二】：在 Markdown 文档中不使用 LoveIt 主题特有语法。因为 LoveIt 示例中含有大量的特有语法，所以需要删除示例网页（路径：根目录/content/posts/ 下相关文件夹）：<code>basic-markdown-syntax</code>,<code>emoji-support</code>,<code>theme-documentation-basics</code>,<code>theme-documentation-built-in-shortcodes</code>,<code>theme-documentation-content</code>,<code>theme-documentation-extended-shortcodes</code>；以及修改 根目录/content/about/ 下的 md 文件内容，把除两个<code>---</code>之间的文件头内容外的其它内容全部删除。具体请看【<a href="../img/20220126_02_04_03.jpg" rel="">图示</a>】。</p>
+</blockquote>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">######初次发布######</span>
+gedit ./config.toml          <span class="c1">#【修改博客网址】打开文件编辑，将里面的 baseURL = &#34;https://example.com&#34; 改为你的博客网址 baseURL = &#34;https://o2ospring.github.io&#34;</span>
+hugo                         <span class="c1">#【构建】HTML 静态网页，文件保存在&#34;public&#34;目录中（强烈建议：删除除了仓库[.git、.gitignore、README.md]外的所有文件，再运行构建）</span>
+<span class="nb">cd</span> public                    <span class="c1">#【进入】&#34;public&#34;目录，为建git本地仓库准备</span>
+git init                     <span class="c1">#【创建+初始化】Git本地仓库</span>
+git add .                    <span class="c1">#【添加】工作区所有文件到【暂存区】</span>
+git commit -m <span class="s2">&#34;first commit&#34;</span> <span class="c1">#【提交】暂存区所有文件到【本地库】</span>
+                             <span class="c1">#【关联】github远程仓库(使用HTTP协议方式)(使用仓库默认名称:origin)</span>
+git remote add origin https://github.com/o2ospring/o2ospring.github.io.git
+git push -u origin master    <span class="c1">#【推送】本地仓库到【远程仓库】(仓库默认名称:origin)（之后提示输入仓库托管网站账号和token密码）</span>
+                             <span class="c1"># -u 刚创建这个远程仓库时首次push才加此选项。</span>
+<span class="c1">######之后发布######</span>
+hugo                         <span class="c1">#【构建】HTML 静态网页，文件保存在&#34;public&#34;目录中（强烈建议：删除除了仓库[.git、.gitignore、README.md]外的所有文件，再运行构建，</span>
+<span class="nb">cd</span> public                    <span class="c1">#【进入】&#34;public&#34;目录。                           因为构建只会增加覆盖文件，之前的垃圾文件不会删除，发布会多出一些未知文件或文章）</span>
+git add .                    <span class="c1">#【添加】工作区所有文件到【暂存区】</span>
+git commit --amend --no-edit <span class="c1">#【提交】暂存区所有文件到【本地库】（更新博客且不用版本管理）</span>
+git push -f origin master    <span class="c1">#【推送】本地仓库到【远程仓库】（强制推送，因为版本没有更新）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在可以打开 <a href="https://o2ospring.github.io" target="_blank" rel="noopener noreffer">https://o2ospring.github.io</a> 网址浏览我的博客了。</p>
+</details>  
+<details close=""><summary><strong>5、使用时踩坑记</strong></summary>  
+<p>1、使用 LoveIt 主题执行<code>hugo server</code>编译出错，具体请看【<a href="../img/20220126_02_05_01.jpg" rel="">图示</a>】<br>
+2、修改 LoveIt 主题为单中文界面后出现错乱问题，具体请看【<a href="../img/20220126_02_05_02.jpg" rel="">图示</a>】<br>
+3、使用 github 发布 LoveIt 主题示例后 build 出错，打开主页显示 404，具体请看【<a href="../img/20220126_02_05_03.jpg" rel="">图示</a>】<br>
+4、使用 algolia 搜索引擎无响应（algolia 官网上参数都已配置好），具体请看【<a href="../img/20220126_02_05_04.jpg" rel="">图示</a>】<br>
+5、发现 LoveIt 主题网页打开慢且图片无法装载出来（2022 年 5 月底开始），经查是 CDN 出了问题，临时解决【<a href="../img/20220126_02_05_05.jpg" rel="">图示</a>】<br>
+6、发现 Valine 评论系统要求绑定的个人域名要备案（2022 年 5 月底开始），否则评论及阅读计数用不了，先要有国内服务商的个人域名，再以身份证所在省份进行备案。</p>
+</details>  
+<details close=""><summary><strong>6、相关参考网文</strong></summary>  
+<p><a href="https://zhuanlan.zhihu.com/p/57361697" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/57361697</a><br>
+<a href="https://www.modb.pro/db/247070" target="_blank" rel="noopener noreffer">https://www.modb.pro/db/247070</a><br>
+<a href="https://blog.csdn.net/azl397985856/article/details/110848517" target="_blank" rel="noopener noreffer">https://blog.csdn.net/azl397985856/article/details/110848517</a><br>
+<a href="https://blog.csdn.net/qq_39132095/article/details/117122170" target="_blank" rel="noopener noreffer">https://blog.csdn.net/qq_39132095/article/details/117122170</a><br>
+<a href="https://blog.csdn.net/weixin_42636127/article/details/122311429" target="_blank" rel="noopener noreffer">https://blog.csdn.net/weixin_42636127/article/details/122311429</a><br>
+<a href="https://lewky.cn/posts/hugo-3.2.html" target="_blank" rel="noopener noreffer">https://lewky.cn/posts/hugo-3.2.html</a><br>
+<a href="https://hugoloveit.com/zh-cn" target="_blank" rel="noopener noreffer">https://hugoloveit.com/zh-cn</a><br>
+<a href="https://www.nashome.cn/posts" target="_blank" rel="noopener noreffer">https://www.nashome.cn/posts</a><br>
+<a href="http://www.itshares.cn/posts/" target="_blank" rel="noopener noreffer">http://www.itshares.cn/posts/</a><br>
+<a href="https://yqqy.top/posts/" target="_blank" rel="noopener noreffer">https://yqqy.top/posts/</a><br>
+<a href="https://hbs-cn.razonyang.com/zh-cn" target="_blank" rel="noopener noreffer">https://hbs-cn.razonyang.com/zh-cn</a><br>
+<a href="https://juejin.cn/post/6871101738431021064" target="_blank" rel="noopener noreffer">https://juejin.cn/post/6871101738431021064</a></p>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-06-07</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220126/" data-title="博客生成工具 Hugo" data-hashtags="hugo,LoveIt,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220126/" data-hashtag="hugo"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220126/" data-title="博客生成工具 Hugo"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220126/" data-title="博客生成工具 Hugo"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220126/" data-title="博客生成工具 Hugo"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">hugo</a>,&nbsp;<a href="/tags/loveit/">LoveIt</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220125/" class="prev" rel="prev" title="博客生成工具 Hexo"><i class="fas fa-angle-left fa-fw"></i>博客生成工具 Hexo</a>
+            <a href="/20220227/" class="next" rel="next" title="cygwin 之 unix 模拟环境">cygwin 之 unix 模拟环境<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

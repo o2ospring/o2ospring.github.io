@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/linux/</link>
+        <description>linux - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 05 Mar 2020 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>【linux 专题文章索引】</title>
+    <link>https://o2ospring.github.io/linux/</link>
+    <pubDate>Sun, 05 Aug 2018 20:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/linux/</guid>
+    <description><![CDATA[前言 记录我学习 linux 基础知识、终端命令的使用、编程编译环境的应用，以及在 linux（Ubuntu）操作系统环境下各类工具软件的安装、配置、使用！]]></description>
+</item><item>
+    <title>linux 学习索引</title>
+    <link>https://o2ospring.github.io/20200305/</link>
+    <pubDate>Thu, 05 Mar 2020 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20200305/</guid>
+    <description><![CDATA[一、前言 当我们做一件事时，方向很重要，如果方向错了，之前的努力会白白浪费掉，再努力也不会成功！学习 linux 也一样，一、首先需要了解它有哪些知识点，]]></description>
+</item></channel>
+</rss>

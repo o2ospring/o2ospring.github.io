@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>linux 基本命令使用 - o2ospring</title><meta name="Description" content="linux 基本知识及基本命令使用"><meta property="og:title" content="linux 基本命令使用" />
+<meta property="og:description" content="linux 基本知识及基本命令使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20210613/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-13T21:33:41+08:00" />
+<meta property="article:modified_time" content="2021-06-13T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="linux 基本命令使用"/>
+<meta name="twitter:description" content="linux 基本知识及基本命令使用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20210613/" /><link rel="prev" href="https://o2ospring.github.io/20210609/" /><link rel="next" href="https://o2ospring.github.io/20210615/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "linux 基本命令使用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20210613\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  14198 ,
+        "url": "https:\/\/o2ospring.github.io\/20210613\/","datePublished": "2021-06-13T21:33:41+08:00","dateModified": "2021-06-13T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "linux 基本知识及基本命令使用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux 基本命令使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14198 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 29 分钟&nbsp;<span id="/20210613/" class="leancloud_visitors" data-flag-title="linux 基本命令使用">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一认识linux">一、认识linux</a></li>
+        <li><a href="#二基本命令">二、基本命令</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一认识linux">一、认识linux</h3>
+<details close=""><summary><strong>linux发行版本</strong></summary>  
+<details close=""><summary><u>deb派系--桌面版系统</u></summary>  
+<blockquote>
+<p>1、<a href="http://www.debian.org" title="Debian 是一个自由的纯粹的操作系统，它还附带了一系列基本程序和实用工具" target="_blank" rel="noopener noreffer">Debian</a>（读音：&lsquo;debeen 待宾）<br>
+2、<a href="http://www.ubuntu.com" title="乌班图操作系统，是一个以桌面应用为主的Linux操作系统，Ubuntu基于Debian发行版和GNOME桌面环境" target="_blank" rel="noopener noreffer">Ubuntu</a>（读音：u&rsquo;bʌntu 乌班图）<br>
+3、<a href="https://www.deepin.org" title="深度操作系统，由武汉深之度科技有限公司开发的Linux发行版" target="_blank" rel="noopener noreffer">Deepin</a>（读音：diːpin 低评）<br>
+<strong>……</strong></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#〖安装本地软件包方法〗</span>
+sudo dpkg -i xxxx.deb     <span class="c1">#安装【本地软件包】</span>
+sudo dpkg -r xxxx         <span class="c1">#卸载【本地软件包】（保留配置）（不保留配置使用 -P 选项）</span>
+sudo dpkg -l xxxx         <span class="c1">#显示软件的版本</span>
+
+<span class="c1">#【安装远程软件包方法】</span>
+sudo apt-get install xxxx <span class="c1">#安装软件包的最新版本</span>
+sudo apt-get remove  xxxx <span class="c1">#从系统中删除指定的软件包</span>
+sudo apt-get update       <span class="c1">#检测已安装软件包是否有更新（如果指定软件名则表示指定软件包是否有更新）</span>
+sudo apt-get upgrade xxxx <span class="c1">#升级指定的软件包(前提：先运行 update 检测)(而使用 dist-upgrade 则以更聪明的方式来解决更新过程中出现的软件依赖问题)</span>
+sudo apt-cache  list xxxx <span class="c1">#从资源库中查询可用的软件包</span>
+sudo apt-cache search g++ <span class="c1">#搜索单词为g++的软件包</span>
+sudo apt-cache show   g++ <span class="c1">#显示g++软件包详细信息</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><u>rpm派系--服务器系统</u></summary>  
+<blockquote>
+<p>1、<a href="http://www.redhat.com" title="RedHat 现在主要做服务器版的Linux开发，在版本上注重了性能和稳定性以及对硬件的支持" target="_blank" rel="noopener noreffer">RedHat</a>（读音：&lsquo;redhæt [红帽]）<br>
+2、<a href="http://www.centos.org" title="CentOS 是一个基于 Red Hat Linux 提供的可自由使用源代码的企业级Linux发行版本" target="_blank" rel="noopener noreffer">CentOS</a>（读音：sen&rsquo;tus 圣斗士）<br>
+3、<a href="http://fedoraproject.org" title="Fedora 由 Fedora Project 社区开发、红帽公司赞助，目标是创建一套新颖、多功能并且自由(开放源代码)的操作系统。Fedora 就是RedHat发行Red Hat企业版Linux的一个实验版本，以用户做测试，为RedHat企业版发布奠定基础" target="_blank" rel="noopener noreffer">Fedora</a>（读音：fɪ&rsquo;dɔːrə 费多拉帽）<br>
+<strong>……</strong></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#〖安装本地软件包方法〗</span>
+sudo rpm -ivh xxxx.rpm    <span class="c1">#安装【本地软件包】（其中 v 显示详细信息，h 显示安装进度）</span>
+sudo rpm -e   xxxx        <span class="c1">#卸载【本地软件包】</span>
+sudo rpm -Uvh xxxx.rpm    <span class="c1">#升级软件　　　　　（其中 v 显示详细信息，h 显示安装进度）</span>
+
+<span class="c1">#【安装远程软件包方法】</span>
+sudo yum install xxxx     <span class="c1">#安装软件包的最新版本</span>
+sudo yum remove  xxxx     <span class="c1">#从系统中删除指定的软件包</span>
+sudo yum update  xxxx     <span class="c1">#升级指定的软件包</span>
+sudo yum list             <span class="c1">#列出所有可安装的软件包（如果指定软件名则表示列出指定可安装的软件包）</span>
+sudo yum list installed   <span class="c1">#列出已安装的软件包</span>
+sudo yum list updates     <span class="c1">#列出所有可更新的软件包</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+</details>  
+<details close=""><summary><strong>linux在线源码</strong></summary>  
+<blockquote>
+<p>如果想了解 <a href="https://github.com/torvalds/linux" target="_blank" rel="noopener noreffer">linux 内核源代码</a>，强烈推荐在 <a href="https://elixir.bootlin.com/linux/latest/source" target="_blank" rel="noopener noreffer">Bootlin</a> 上阅读。<br>
+<a href="https://www.linux.org/" target="_blank" rel="noopener noreffer">Linux</a> 全称 GNU/Linux，是一种免费使用和自由传播的类 UNIX 操作系统，其内核由 Linus Benedict Torvalds（林纳斯·本纳第克特·托瓦兹）于 1991 年 10 月 5 日首次发布，它主要受到 Minix 和 Unix 思想的启发，是一个基于 POSIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。它能运行主要的 Unix 工具软件、应用程序和网络协议。它支持 32 位和 64 位硬件。Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux 有上百种不同的发行版，如基于社区开发的 debian、archlinux，和基于商业开发的 Red Hat Enterprise Linux、SUSE、Oracle Linux 等。</p>
+</blockquote>
+</details>  
+<details close=""><summary><strong>linux核心思想</strong></summary>  
+<blockquote>
+<p>● <strong>linux 核心思想</strong><br>
+首先记住这个：Linux 的核心思想即一切皆是文件，设备是文件，系统是文件。比如在我们插入一个 USB 设备，/etc 的目录下多一个 USB 设备的文件夹。而对 USB 所有的操作都是通过读写这个文件进行。脚本（<em>Script</em> <code>/skrɪpt/</code>）是存储在文件中的命令的集合，命令（<em>Command</em> <code>/kə'mɑːnd/</code>）是针对计算机的指令，终端/控制台（<em>tty,Termial</em> <code>/'tɜːmɪnl/</code>/<em>console</em> <code>/kən'səʊl/</code>）是命令行接口，壳（<em>Shell</em> <code>/ʃel/</code>）是一个命令行解释器，内核（<em>Kernel</em> <code>/'kɜːnl/</code>）是 Linux 操作系统的核心。</p>
+<hr>
+<p>● <strong>linux 脚本解释器</strong><br>
+<em>Bash</em> <code>/bæʃ/</code>是大多数 Linux 系统默认的 shell 脚本解释器（注：我们平时说 Linux 中有多少种 shell 其实指的就是其中存在几种 shell 脚本解释器），可以使用命令<code>cat /etc/shells</code>打开文件查看到系统可用的 shell 。在脚本文件中，我们常看到第一行内容为<code>#!/bin/bash</code>，表示告知系统使用哪个脚本解释器来执行脚本文件，即使用哪一种 shell 。（补充：<em>Bourne Again shell</em> <code>/bʊən/ə'ɡen/ʃel/</code>（简写为 Bash）（标记为<code>#!/bin/bash</code>）是 Bourne shell（标记为<code>#!/bin/sh</code>） 的扩展，与 Bourne shell 完全向后兼容，并且在 Bourne shell 的基础上增加、增强了很多特性。<strong>特别说明</strong>：<code>#!/bin/bash</code>这些信息在首行且必须使用<code>\n</code>来换行，不能是<code>\r\n</code>之类的来换行，否则会提示 ^M 错误!!!</p>
+<hr>
+<p>● <strong>linux 环境变量</strong><br>
+shell 中变量分三种：内部变量、环境变量、用户变量。<br>
+内部变量：系统提供，不用定义，不可修改；（<code>$$ $? $0 $# $* $@ $1 … $SHELL(当前使用的shell(路径)) $HOME(家目录)</code>）<br>
+环境变量：系统提供，不用定义，可以修改，利用<code>export</code>将用户变量转为环境变量；<br>
+用户变量：用户定义，可以修改；<br>
+环境变量（environment variables /ɪn&rsquo;vaɪrənmənt/&lsquo;veəriəbls/）一般是指在操作系统中用来指定操作系统运行环境的一些参数，其中一个目的是告诉系统知道应用程序所在哪个路径下，让系统可直接运行应用程序（如果应用程序已在系统标准位置下，则不需要增加环境变量。linux系统几个标准位置：/bin、/sbin、/usr/bin、/usr/sbin、/usr/local/bin 等）（Windown 系统使用分号分隔，而 linux 系统使用冒号分隔）。环境变量包括：系统环境变量和用户环境变量。环境变量配置推荐：如果要修改所有用户环境配置的话修改<code>/etc/profile</code>，修改单个用户的话修改<code>~/.bashrc</code>（如：开发板的 /root/.bashrc）。<br>
+1.1、<code>export</code>显示包括利用 export 将用户变量转为环境变量的 shell 变量。<br>
+1.2、<code>echo $PATH</code>命令为输出当前的 PATH 环境变量的值（以冒号分割不同路径）<br>
+1.3、<code>export PATH=$PATH:/home/abc/mysql/bin</code>可临时/永久配置环境变量（例子）。<br>
+2.1、<code>/etc/environment</code>整个系统环境变量，不能使用 export PATH，不建议改！<br>
+2.2、<code>/etc/profile</code>所有用户环境变量，只在用户登录的时候读取一次。<br>
+2.3、<code>/etc/bash.bashrc</code>所有用户环境变量，每次运行 Shell 就会读取一次，影响效率。<br>
+2.4、<code>~/.profile</code>只针对当前用户，只在用户登录的时候读取一次（不同系统可能是：~/.bash_profile、~/.bash_login、~/.profile）<br>
+2.5、<code>~/.bashrc</code>只针对当前用户，每次运行 Shell 就会读取一次。<br>
+2.6、<code>source xxxxxx</code>手动生效上面脚本文件（如：source /etc/profile）。</p>
+</blockquote>
+</details>  
+<details close=""><summary><strong>linux软件安装</strong></summary>  
+<blockquote>
+<p>所谓命令，其实就是在终端机下调用某个软件（工具）运行。这些软件大部分是系统自带的，但有些需要我们去安装，安装的方式有在线安装、离线安装（离线软件包括：解压版、源码版、安装版）。<br>
+解压版：直接解压即可使用；（推荐方式）<br>
+源码版：需要交叉编译器源代码，再复制到目标板运行；<br>
+安装版：执行后按照提示安装；<br>
+【补充：通常还需要配置环境变量！】</p>
+</blockquote>
+<p>● <strong>解压版</strong>-安装示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 <span class="c1"># 下载交叉编译器压缩包</span>
+sudo tar -xjvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /usr/lib/gcc <span class="c1"># 将交叉编译器压缩包解压到：/usr/lib/gcc</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin</span>
+<span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
+sudo apt-get install lsb-core        <span class="c1"># 64位操作系统需要安装32位依赖库：lsb-core     （arm-none-eabi-gcc 用到）</span>
+sudo apt-get install lib32ncurses5   <span class="c1"># 64位操作系统需要安装32位依赖库：lib32ncurses5（arm-none-eabi-gdb 用到）</span>
+arm-none-eabi-gcc -v                 <span class="c1"># 查看版本(验证是否安装成功)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>● <strong>源码版</strong>-安装示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://cgdb.me/files/cgdb-0.8.0.tar.gz  <span class="c1"># 下载软件源码</span>
+<span class="nb">cd</span> cgdb                              <span class="c1"># 进入文件夹</span>
+./autogen.sh                         <span class="c1"># 生成配置文件（前提需要安装依赖：sudo apt-get install autoconf automake libtool-bin）</span>
+./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 配置，并设置安装目录</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
+<span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
+make                                 <span class="c1"># 编译CGDB软件，</span>
+sudo make install                    <span class="c1"># 安装CGDB软件。</span>
+cgdb --version                       <span class="c1"># 查看CGDB版本（验证是否安装成功）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>● <strong>安装多个版本软件处理方法</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 例如系统自带了【gcc-5.4】版，现在又要安装【gcc-9】版。  扩展：【apt命令Linux发行商都在推荐】（网文`apt`对比`apt-get`：https://www.sysgeek.cn/apt-vs-apt-get/）</span>
+sudo apt install software-properties-common         <span class="c1"># 安装`PPA`仓库工具（只需要安装一次）</span>
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test <span class="c1"># 加入`PPA`仓库　　（gcc 新版本仓库）</span>
+sudo apt update                                     <span class="c1"># 更新`PPA`仓库信息</span>
+sudo apt install gcc-9 g++-9                        <span class="c1"># 安装`GCC`和`G++`（安装 gcc g++ 9）</span>
+                                                    <span class="c1"># ●同一软件安装多个版本处理方法●：（alternative /ɔːl&#39;tɜːnətɪv/ 可选）</span>
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">90</span>  --slave /usr/bin/g++ g++ /usr/bin/g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 <span class="m">999</span> --slave /usr/bin/g++ g++ /usr/bin/g++-5
+sudo update-alternatives --config gcc               <span class="c1"># 配置gcc默认版本，根据界面提示输入对应数字+回车选择</span>
+                                                    <span class="c1"># ■原理只是快捷方式链接不同对象■</span>
+<span class="c1">#####移除PPA仓库方法#####</span>
+sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
+
+<span class="c1">#####移除gcc版本优先级###</span>
+sudo update-alternatives --remove gcc /usr/bin/gcc-9 <span class="c1">#移除 gcc 9 的优先级（将从优先级列表中移除）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>linux命令常识</strong></summary>  
+<blockquote>
+<p>●【<strong>命令的基本格式</strong>】：<br>
+<code>command [options] [arguments]</code>选项（<code>options</code>/&lsquo;ɒpʃnz/）是命令行为开关，分为短选项和长选项，短选项-例如：<code>-l -a</code>，某些可组合-例如<code>-la</code>，其带子参数为<code>-p 1234</code>（通常中间使用空格），长选项-例如：<code>--help</code>，其带子参数为<code>--size=1G</code>（通常中间使用=）。补充：选项一般在命令右边及作用对象的左边。参数（<code>arguments</code>/&lsquo;ɑːgjʊmənts/）是命令的作用对象，例如：<code>cat 123.txt</code>表示查看 123.txt 文件内容。</p>
+<hr>
+<p>●【<strong>多条命令方式</strong>】：<br>
+<code>command_1; command_2; command_3</code>表示如果一件事情需要多行命令就算期间不成功也往下一条指令执行，免去等待时间；<br>
+<code>command_1 &amp;&amp; command_2</code>表示如果一件事情需要多行命令并确保命令成功才往下一条指令执行，例如：一些编译命令；<br>
+<code>command_1 || command_2</code>表示如果一件事情需要多行命令并确保命令失败才往下一条指令执行；<br>
+<code>command_1 &amp; command_2</code>表示两行命令同时执行（补充：实际优先执行前行命令）</p>
+<hr>
+<p>●【<strong>在 bash 中的 命令、选项、参数 处理方式</strong>】：<a href="https://www.linuxidc.com/Linux/2018-07/153121.htm" target="_blank" rel="noopener noreffer">网文</a><br>
+<code>直接</code>来处理，依次对 <code>$1, $2, ..., $n</code> 进行解析。<br>
+<code>getopts</code>来处理，只能处理单个字符选项的情况（如：-n 10 -f file.txt等）。<br>
+<code>getopt</code>来处理，既可处理单个字符选项，也可处理长选项（如：&ndash;prefix=/home等）。</p>
+<hr>
+<p>●【<strong>. .. / $ % = - &ndash; | &gt; &raquo; ~ # 常识</strong>】<a href="https://mp.weixin.qq.com/s/2z0tm6tepsrTsVjzcjXhlg" target="_blank" rel="noopener noreffer">网文</a><br>
+<code>.</code> 一般表示当前位置<br>
+<code>..</code> 一般表示上一级位置<br>
+<code>/</code> 一般表示文件夹或路径<br>
+<code>$</code> 一般表示变量/参数/最尾部<br>
+<code>%</code> 一般表示通配符/所有<br>
+<code>=</code> 一般表示赋值<br>
+<code>-</code> 一般表示短选项<br>
+<code>--</code> 一般表示长选项<br>
+<code>|</code> 一般表示管道命令<br>
+<code>&gt;</code> 一般表示以覆盖方式输出保存至某文件<br>
+<code>&gt;&gt;</code> 一般表示以追加方式输出保存至某文件<br>
+<code>~</code> 一般表示用户 home 目录<br>
+<code>#</code> 一般表示注释（在脚本中）</p>
+<hr>
+<p>●【<strong>-a -l -n -t -r -f -i -v -u -p 常用选项</strong>】<br>
+<code>-a</code> 一般表示全部<br>
+<code>-l</code> 一般表示列表<br>
+<code>-n</code> 一般表示行/行号<br>
+<code>-t</code> 一般表示类型<br>
+<code>-r</code> 一般表示递归/文件夹/重启<br>
+<code>-f</code> 一般表示强制/文件<br>
+<code>-i</code> 一般表示互动/输入/不区分大小写<br>
+<code>-v</code> 一般表示详情<br>
+<code>-u</code> 一般表示用户/差异<br>
+<code>-p</code> 一般表示密码/进程号</p>
+</blockquote>
+</details>  
+<details close=""><summary><strong>linux命令资料</strong></summary>  
+<ol>
+<li><a href="https://mp.weixin.qq.com/s/CfN9Rm6rubI9fHQICnZT2Q" target="_blank" rel="noopener noreffer">Linux 的一些基础命令汇总</a></li>
+<li><a href="https://github.com/Nick233333/phper-linux-gitbook" target="_blank" rel="noopener noreffer">必知必会的 Linux 命令</a></li>
+<li><a href="http://linux.vbird.org/linux_basic/" target="_blank" rel="noopener noreffer">鸟哥的 Linux 私房菜 - 基础学习篇</a></li>
+<li><a href="https://www.cnblogs.com/deppwang/p/11593158.html" target="_blank" rel="noopener noreffer">Linux 笔记：核心思想、常用命令以及脚本语法</a></li>
+<li><a href="https://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener noreffer">菜鸟教程-shell</a></li>
+<li><a href="http://www.linuxidc.com/Linux/2016-09/135476.htm" target="_blank" rel="noopener noreffer">Ubuntu系统环境变量详解</a></li>
+<li><a href="https://mp.weixin.qq.com/s/Mcg3Ax7-C9x4uT8Z_nllxQ" target="_blank" rel="noopener noreffer">Linux 环境变量配置汇总</a></li>
+<li><a href="https://blog.csdn.net/qq_33912215/article/details/94436836" target="_blank" rel="noopener noreffer">Linux export、set、env和source作用详解</a></li>
+<li><a href="https://www.zhihu.com/question/407140230/answer/1341055445" target="_blank" rel="noopener noreffer">常见编程语言选择</a></li>
+<li><a href="https://www.zhihu.com/question/22867411" target="_blank" rel="noopener noreffer">作为程序员的你，常用的工具软件有哪些？</a></li>
+<li><a href="https://unbug.github.io/codelf/" target="_blank" rel="noopener noreffer">Codelf 帮开发者命名变量的开源搜索服务</a></li>
+</ol>
+</details>  
+<h3 id="二基本命令">二、基本命令</h3>
+<details close=""><summary><strong>1、常用的快速键</strong></summary>  
+<blockquote>
+<p>Ubuntu 拥有多个操作终端（使用<code>Ctrl+Alt+F1~F7</code>切换），<code>F7</code>为系统默认启动&amp;加载的图形操作终端，其余都是为纯命令行界面终端。</p>
+</blockquote>
+<ul>
+<li><code>Ctrl+Alt+F1</code>切换到命令行界面终端。</li>
+<li><code>Ctrl+Alt+F7</code>切换到图形界面终端。</li>
+<li><code>Ctrl+Alt+t</code>在<strong>图形界面</strong>下打开命令行终端机。</li>
+<li><code>Ctrl+D</code>关闭当前命令行终端机（纯终端则重启）。</li>
+<li><code>Ctrl+C</code>强制退出在当前命令行终端机的程序。</li>
+<li><code>Ctrl+Insert</code>复制选择的文本内容。</li>
+<li><code>Shift+Insert</code>粘贴缓存的文本内容。</li>
+<li><code>Ctrl+A 或 Home</code>转到行的开头。</li>
+<li><code>Ctrl+E 或 End</code>转到行的结尾。</li>
+<li><code>Ctrl+L</code>输入行移到页面顶部（相当清屏）。</li>
+<li><code>↑ 和 ↓</code>方向键调取之前执行过的 Linux 命令。</li>
+<li><code>Tab</code> 自动补全命令，提高输入速度及精准度。</li>
+<li><code>$</code> 命令行前面显示此字符，表示以用户权限操作。</li>
+<li><code>#</code> 命令行前面显示此字符，表示管理员权限操作。（root 权限）</li>
+</ul>
+</details>  
+<details close=""><summary><strong>2、系统权限操作</strong></summary>  
+<blockquote>
+<p><code>sudo</code> <code>su</code> <code>chmod</code> <code>chown</code> <code>chgrp</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo su                             <span class="c1"># su 仅仅取得 root 权限，工作环境不变。</span>
+su root                             <span class="c1"># 切换到root</span>
+<span class="nb">exit</span>                                <span class="c1"># 退出root(前提已进入root)</span>
+                                    <span class="c1"># 【关于提示符】: </span>
+                                    <span class="c1"># ~$ 表示处于普通用户权限</span>
+                                    <span class="c1"># ~# 表示处于 root 权限</span>
+sudo passwd                         <span class="c1"># 设置root的密码 (根据提示输入:一般先要经过输入当前用户密码验证,再输入两次设置root新密码)</span>
+                                    <span class="c1"># 【扩展说明】: </span>
+                                    <span class="c1"># [su   ] 向当前用户授权管理员权限级别许可,但工作环境没有任何变动</span>
+                                    <span class="c1"># [sudo ] 以管理员身份操作(只在操作过程中变成管理员工作环境,平常还是当前用户工作环境)</span>
+                                    <span class="c1"># [chmod] 修改文件(夹)操作权限,特别是从Windows拷贝到linux时,经常要改权限,否则不能执行</span>
+sudo chmod <span class="m">777</span> /srv/ftp/upload      <span class="c1"># 对目录[/srv/ftp/upload]拥有者rwx,用户组rwx,其它用户rwx</span>
+sudo chmod <span class="m">751</span> /srv/ftp/download    <span class="c1"># 对目录[/srv/ftp/upload]拥有者rwx,用户组r-x,其它用户--x</span>
+sudo chmod ug+rw /srv/ftp/upload    <span class="c1"># 对目录[/srv/ftp/upload]拥有者u和用户组g[增加]读r和写w权限</span>
+sudo chmod ug-rw /srv/ftp/upload    <span class="c1"># 对目录[/srv/ftp/upload]拥有者u和用户组g[移除]读r和写w权限</span>
+sudo chmod <span class="nv">ug</span><span class="o">=</span>rw /srv/ftp/upload    <span class="c1"># 对目录[/srv/ftp/upload]拥有者u和用户组g[设为]读r和写w权限</span>
+                                    <span class="c1"># 【扩展说明】: </span>
+                                    <span class="c1"># [u] 表文件拥有者  |  [+] 添加某个权限  |  [r] 可读</span>
+                                    <span class="c1"># [g] 表示同组用户  |  [-] 取消某个权限  |  [w] 可写 </span>
+                                    <span class="c1"># [o] 表示其它用户  |  [=] 重设 rwx权限  |  [x] 可执行</span>
+                                    <span class="c1"># [a] 表示全部用户  |                    |           </span>
+sudo chown root /var/run/httpd.pid  <span class="c1"># 改变 /var/run/httpd.pid 文件的拥有者为 root</span>
+sudo chown runoob:runoobgroup f.txt <span class="c1"># 改变 f.txt   文件的拥有者为 runoob，群体的使用者为 runoobgroup </span>
+sudo chown xiaomin 123.txt          <span class="c1"># 改变 123.txt 文件的拥有者为 xiaomin</span>
+sudo chown -R xiaomin /home/abc/    <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的拥有者为 xiaomin（拥有者owner /&#39;əʊnə(r)/）</span>
+sudo chgrp -R xiaomin /home/abc/    <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的用户组为 xiaomin（用户组group /ɡruːp/）</span>
+                                    <span class="c1"># 【权限总结】：</span>
+                                    <span class="c1"># 1.文件(夹)的拥有者（用户/用户组）</span>
+                                    <span class="c1"># 2.拥有者的操作权限（读/写/执行）</span>
+ifconfig                            <span class="c1"># 查看网络</span>
+ifconfig eth0 192.168.2.10          <span class="c1"># 临时配置IP地址(是临时配置,没保存!)</span>
+ifconfig eth0 192.168.2.10 netmask 255.255.255.0
+ifconfig eth0 192.168.2.10 netmask 255.255.255.0 broadcast 192.168.2.255
+sudo /etc/init.d/networking restart <span class="c1"># 重启网络</span>
+sudo gedit /etc/network/interfaces  <span class="c1"># 编辑网络 (不用 gedit 时也可以用 vi 编辑)</span>
+                                    <span class="c1"># 网络配置最基本内容:</span>
+                                    <span class="c1"># # The loopback network interface</span>
+                                    <span class="c1"># auto lo</span>
+                                    <span class="c1"># iface lo inet loopback</span>
+                                    <span class="c1"># </span>
+                                    <span class="c1"># # The primary network interface</span>
+                                    <span class="c1"># auto eth0</span>
+                                    <span class="c1"># iface eth0 inet static</span>
+                                    <span class="c1">#         address 192.168.0.42</span>
+                                    <span class="c1">#         netmask 255.255.255.0</span>
+                                    <span class="c1">#         gateway 192.168.0.1</span>
+                                    <span class="c1">#         network 192.168.0.0</span>
+                                    <span class="c1">#         broadcast 192.168.0.255</span>
+                                    <span class="c1">#         dns-nameservers 114.114.114.114 8.8.8.8</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>3、根与目录操作</strong></summary>  
+<blockquote>
+<p><code>cd</code> <code>./</code> <code>../</code> <code>pwd</code> <code>ls</code> <code>ll</code> <code>!!</code> <code>tree</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ..                               <span class="c1"># 退回上一级目录</span>
+<span class="nb">cd</span> ../..                            <span class="c1"># 退回上两级目录</span>
+<span class="nb">cd</span> ftp/upload                       <span class="c1"># 进入当前子目录</span>
+<span class="nb">cd</span> ./ftp/upload                     <span class="c1"># 进入当前子目录(同上)(平常可以省略[./])</span>
+<span class="nb">cd</span> /usr/local                       <span class="c1"># 进入  绝对目录</span>
+                                    <span class="c1"># [../] 表示相对路径(上级目录)</span>
+                                    <span class="c1"># [./]  表示相对路径(下级目录)</span>
+                                    <span class="c1"># [/]   表示绝对路径</span>
+<span class="nb">cd</span> -                                <span class="c1"># 回到之前所在的目录</span>
+<span class="nb">cd</span> ~                                <span class="c1"># 进入当前用户的家目录( ~ 表示家目录)</span>
+<span class="nb">pwd</span>                                 <span class="c1"># 显示当前工作目录的全路径 (print working directory)</span>
+!!                                  <span class="c1"># 显示上一条命令及上一条命令的结果</span>
+./qt-creator-linux-x86.run          <span class="c1"># [./]符表示运行[qt-creator-linux-x86.run]此文件</span>
+ls                                  <span class="c1"># 查看当前目录下文件</span>
+ls upload                           <span class="c1"># 查看当前目录下[upload]目录下文件</span>
+ls *.o                              <span class="c1"># 查看当前目录下扩展名为[*.o]的相关文件</span>
+ls -l &gt; lsoutput.txt                <span class="c1"># 以长格式显示文件的详细信息, 直接将打印内容保存到当前目录下lsoutput.txt(创建覆盖内容)</span>
+ls -l &gt;&gt; lsoutput.txt               <span class="c1"># 以长格式显示文件的详细信息, 直接将打印内容保存到当前目录下lsoutput.txt(尾部插入内容)</span>
+ls -R                               <span class="c1"># 连同子目录的内容一起列出（递归列出）</span>
+ls -a                               <span class="c1"># 显示所有文件（包含以点(.)开头的隐藏文件）</span>
+ls -l                               <span class="c1"># 以长格式显示文件的详细信息，可以查看文件权限，所属用户，日期等</span>
+ll                                  <span class="c1"># 同 ls -l（其它选项：-t 按修改时间列出，-s 显示出大小）</span>
+ls -l libmad.so.0                   <span class="c1"># 以长格式显示文件的详细信息查看 libmad.so.0 文件</span>
+ls -l <span class="p">|</span> grep rwxrwxr-               <span class="c1"># 列出当前目录文件(夹),但只显示经过[grep]筛选含有[rwxrwxr-]的内容(grep是独立命令,|是管道命令)</span>
+                                    <span class="c1"># 【扩展说明】: </span>
+                                    <span class="c1"># 文件属性第一个字符表示是什么? 如: -rwxrwxrwx, drwxrwxrwx, ……</span>
+                                    <span class="c1"># [-] 正规文档(regular file): 纯文本文档(ASCII),二进制文件(binary),数据格式文件(data)</span>
+                                    <span class="c1"># [d] 目录(directory)</span>
+                                    <span class="c1"># [l] 连接文件(link),就是类似 Windows 系统底下的快捷方式</span>
+                                    <span class="c1"># [b] 区块(block)设备文件</span>
+                                    <span class="c1"># [c] 字符(character)设备文件</span>
+                                    <span class="c1"># [s] 资料接口文件(sockets)</span>
+                                    <span class="c1"># [p] 数据输送文件(FIFO, pipe)</span>
+tree                                <span class="c1"># 列出指定目录下的所有文件(夹)，包括子目录里的文件(夹)</span>
+tree -L <span class="m">1</span>                           <span class="c1"># 显示一级目录和文件</span>
+tree -L <span class="m">1</span> -d                        <span class="c1"># 显示一级目录</span>
+                                    
+                                    <span class="c1"># 【目录结构】：</span>
+                                    <span class="c1"># /bin:  常用命令(二进制执行文件)</span>
+                                    <span class="c1"># /sbin: 系统命令(二进制执行文件)</span>
+                                    <span class="c1"># /dev:  设备文件目录(设备以档案形态存于本目录)</span>
+                                    <span class="c1"># /media:可移动媒体设备挂载目录(与/mnt无本质区别)</span>
+                                    <span class="c1"># /mnt:  存储设备挂载目录(一般为挂载临时的安装目录)</span>
+                                    <span class="c1"># /etc:  系统配置文件目录</span>
+                                    <span class="c1"># /home: 用户主目录</span>
+                                    <span class="c1"># /root: 管理员主目录</span>
+                                    <span class="c1"># /opt:  可选的附加应用程序(第三方协力软件)</span>
+                                    <span class="c1"># /boot: 系统内核文件和引导装载程序文件</span>
+                                    <span class="c1"># /lib:  存放系统的库文件</span>
+                                    <span class="c1"># /proc: 虚拟机系统，记录进程，网络信息等</span>
+                                    <span class="c1"># /sys:  虚拟文件系统，记录内核数据</span>
+                                    <span class="c1"># /var:  系统运行产生的文件</span>
+                                    <span class="c1"># /usr:  用户程序目录(Unix Software Resource)</span>
+                                    
+                                    <span class="c1"># /usr/bin       — 众多的应用程序（是对/bin、/sbin的一个补充）</span>
+                                    <span class="c1"># /usr/sbin      — 超级用户的一些管理程序（是对/bin、/sbin的一个补充）</span>
+                                    <span class="c1"># /usr/doc       — linux文档</span>
+                                    <span class="c1"># /usr/include   — linux下开发和编译应用程序所需要的头文件</span>
+                                    <span class="c1"># /usr/lib       — 常用的动态链接库和软件包的配置文件</span>
+                                    <span class="c1"># /usr/man       — 帮助文档--linux在线使用手册</span>
+                                    <span class="c1"># /usr/src       — 源代码，linux内核的源代码就放在/usr/src/linux里</span>
+                                    <span class="c1"># /usr/local/bin — 本地的程序一般安装在此，这样可以在升级新版本时无须重新安装全部程序</span>
+                                    <span class="c1"># /usr/local/lib — 本地增加的库</span>
+                                    <span class="c1"># /usr/local/etc — 本地配置文件和目录</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>4、文件(夹) 操作</strong></summary>  
+<blockquote>
+<p><code>mkdir</code> <code>touch</code> <code>cp</code> <code>mv</code> <code>rm</code> <code>find</code> <code>locate</code> <code>ln</code> <code>zip</code> <code>unzip</code> <code>tar</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir linuxeye                      <span class="c1"># 在当前目录创建[一层目录]:linuxeye</span>
+mkdir -p /opt/smart210/linux        <span class="c1"># 在指定目录创建[多层目录](注:如果此目录已存在则不受影响)</span>
+touch a.txt                         <span class="c1"># 新建[a.txt]文件</span>
+
+cp /home/tslib.tar.gz /usr/local/   <span class="c1"># 绝对路径      /home/tslib.tar.gz 复制到 /usr/local</span>
+cp upload/tslib.tar.gz /srv/ftp/    <span class="c1"># 当前目录下的 upload/tslib.tar.gz 复制到 /srv/ftp</span>
+cp -r <span class="nb">test</span> /mnt                     <span class="c1"># 当前目录下的 【文件夹】     test 复制到 /mnt (-r表示目录拷贝(递归复制))</span>
+cp -ra <span class="nb">test</span> /mnt                    <span class="c1"># 当前目录下的 【文件夹】     test 复制到 /mnt (包括修改时间、权限、链接等所有属性也拷贝)</span>
+cp -rp <span class="nb">test</span> /mnt                    <span class="c1"># 当前目录下的 【文件夹】     test 复制到 /mnt (还把其修改时间和访问权限也复制到新文件中)</span>
+cp -s 123.txt 321.txt               <span class="c1"># 创建软链接(具体请查看 ln -s)</span>
+cp -l 123.txt 321.txt               <span class="c1"># 创建硬链接(具体请查看 ln   )</span>
+mv linux linuxeye                   <span class="c1"># 将linux文件(夹)重命名为linuxeye (相同路径就是改名)</span>
+mv vhost.sh upload/                 <span class="c1"># 将vhost.sh移动到upload目录下    (不同路径就是剪切)</span>
+rm init.sh                          <span class="c1"># 删除[init.sh]文件（只能删除文件,不能删除目录）</span>
+rm -r upload/                       <span class="c1"># 删除[upload ]目录（删除目录及其里面所有文件(夹)）</span>
+rm -i 123.txt                       <span class="c1"># 询问是否删除文件(夹)</span>
+rm -rf upload                       <span class="c1"># 递归强制删除文件或目录 (慎用!!!!!!!!!!!!)(f:force/fɔːs/强制)</span>
+                                    <span class="c1"># [-v] 详情。显示操作详情。</span>
+                                    <span class="c1"># [-i] 互动。提示用户确认操作(删除/覆盖)。覆盖:就是复制或移动时覆盖目标文件(夹)</span>
+                                    <span class="c1"># [-f] 强制。不提示并强制操作(删除/覆盖)。加[-i]选项也没用,所以要谨慎使用!!!!!!</span>
+                                    <span class="c1"># [-r] 递归。对文件夹递归操作(删除/复制)。也说是操作对象为文件夹，而非文件!!!!!</span>
+                                    <span class="c1"># [-u] 差异。有文件差异才操作(覆盖)。复制:目标文件与源文件有差异时才会复制；移动:源文件比目标文件新才会覆盖。</span>
+find /home -name readme.txt         <span class="c1"># 从 /home 目录开始搜索文件 readme.txt</span>
+find /home -user xiaomin            <span class="c1"># 从 /home 目录开始搜索属于 xiaomin 用户的文件(夹)</span>
+find /usr/bin -type f -atime +100   <span class="c1"># 搜索【超过100天】未被使用过的【执行文件】</span>
+find /usr/bin -type f -mtime -10    <span class="c1"># 搜索【 10天以内】被创建或者修改过的文件</span>
+locate readme.txt　                 <span class="c1"># 快速查找 readme.txt 文件(最新变动文件可能搜索不到,用 updatedb 命令更新数据库(索引))</span>
+
+ln -s /usr/local/lib/libmad.so.0 /usr/lib/libmad.so.0 <span class="c1"># 软链接：相当于一个文件增加多个快捷方式(它实际上是一个特殊的文件)</span>
+ln /bin/readme.txt /usr/local/bin/readme.txt          <span class="c1"># 硬链接：相当于一个文件有多个路径及名称(目录不能建立硬链接)</span>
+                                    <span class="c1"># 1.软链接是可以跨分区的，但是硬链接只能在同一分区内。</span>
+                                    <span class="c1"># 2.目录不能建立硬链接，但可以建立软链接。</span>
+                                    <span class="c1"># 3.硬链接可以很好防止“误删”，因为删除操作只删除索引(类似C语言指针)；只有最后一个连接被删除，文件内容才会被释放(删除)。</span>
+                                    <span class="c1"># [ln    源文件 新文件] 等效于 [cp -l 源文件 新文件] </span>
+                                    <span class="c1"># [ln -s 源文件 新文件] 等效于 [cp -s 源文件 新文件] </span>
+
+zip -r file.zip ./tmp               <span class="c1"># 压缩[zip    ]文件（-r 递归处理,即所有子目录一并处理）</span>
+unzip -q file.zip                   <span class="c1"># 解压[zip    ]文件（-q 执行时不显示任何信息）</span>
+tar -czvf file.tar.gz ./tmp/abc     <span class="c1"># 压缩[tar.gz ]文件</span>
+tar -xzvf /tmp/a.tar.gz -C /home/ab <span class="c1"># 解压[tar.gz ]文件,指定目录文件到指定目录</span>
+tar -xzvf /tmp/a.tar.gz             <span class="c1"># 解压[tar.gz ]文件,指定目录文件到当前目录</span>
+tar -xjvf php-5.tar.bz2             <span class="c1"># 解压[tar.bz2]文件到当前文件夹</span>
+                                    <span class="c1"># c 压缩</span>
+                                    <span class="c1"># x 解缩</span>
+                                    <span class="c1"># z 使用 gzip  压缩解压缩。后缀为[.tar.gz ]</span>
+                                    <span class="c1"># j 使用 bzip2 压缩解压缩。后缀为[.tar.bz2]</span>
+                                    <span class="c1"># v 显示过程信息</span>
+                                    <span class="c1"># f 基于文件</span>
+                                    <span class="c1"># z在前面必须加-,即-zxvf。要加f参数必须在最后。</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>5、文件内容操作</strong></summary>  
+<blockquote>
+<p><code>cat</code> <code>head</code> <code>tail</code> <code>more</code> <code>grep</code> <code>echo</code> <code>gedit</code> <code>vi</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cat  -n /home/md.c                  <span class="c1"># 查看 md.c 文件内容  （同时显示行号）</span>
+cat /home/md.c                      <span class="c1"># 查看 md.c 文件内容  （连续方式显示）(cat 为 concatenate /kən&#39;kætɪneɪt/ 连续)</span>
+head -n  <span class="m">2</span> desc.txt                 <span class="c1"># 查看desc.txt的头两行（连续方式显示）(/hed/ 头部)</span>
+tail -n  <span class="m">2</span> desc.txt                 <span class="c1"># 查看desc.txt的尾两行（连续方式显示）(/teɪl/ 尾巴)</span>
+tail -n +2 desc.txt                 <span class="c1"># 查看desc.txt的第2行到最尾行内容</span>
+cat md.c <span class="p">|</span> head -n <span class="m">30</span> <span class="p">|</span> tail -n +10 <span class="c1"># 查看 md.c   的第10~30行内容（共21行）(操作原理:先截取前部分内容,再截取后部分内容)</span>
+cat md.c <span class="p">|</span> tail -n +30 <span class="p">|</span> head -n <span class="m">10</span> <span class="c1"># 查看 md.c   的第30~39行内容（共10行）(操作原理:先截取后部分内容,再截取前部分内容)</span>
+sed <span class="s1">&#39;s/aa/bb/g&#39;</span> md.c                <span class="c1"># 查看 md.c 文件内容,并已将字符[aa]替换为[bb]（只是查看,并没有修改文件）</span>
+more md.c                           <span class="c1"># 查看 md.c 文件内容  （分页方式显示）</span>
+grep <span class="s2">&#34;abc&#34;</span> /home/readme.txt         <span class="c1"># 在文件中搜索符合要求的文本内容[abc],并把匹配的行打印出来</span>
+grep -i <span class="s2">&#34;abc&#34;</span> readme.txt            <span class="c1"># 在文件中不区分大小搜索文本内容[abc],并把匹配的行打印出来</span>
+ls -l <span class="p">|</span> grep rwxrwxr-               <span class="c1"># 列出当前目录文件(夹),但只显示经过[grep]筛选含有[rwxrwxr-]的内容(grep是独立命令,|是管道命令)</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># [-i] 筛选不区分大小写</span>
+                                    <span class="c1"># [-n] 在每一行首加多显示行号</span>
+                                    <span class="c1"># [-c] 显示相匹配文本的行总数目(如:20表示有20行内容相匹配)</span>
+<span class="nb">echo</span> <span class="nv">$PATH</span>                          <span class="c1"># 输出当前环境变量的内容</span>
+
+sudo gedit /home/root/read.txt      <span class="c1"># 使用 gedit 编辑 read.txt 文档</span>
+sudo vi /home/root/read.txt         <span class="c1"># 使用    vi 编辑 read.txt 文档</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># </span>
+                                    <span class="c1">#【命令模式】--------------------------------------</span>
+                                    <span class="c1">#『光标』+++++++</span>
+                                    <span class="c1"># [h  ] 光标左移</span>
+                                    <span class="c1"># [j  ] 光标下移</span>
+                                    <span class="c1"># [k  ] 光标上移</span>
+                                    <span class="c1"># [l  ] 光标右移</span>
+                                    <span class="c1"># [^  ] 光标移到行首</span>
+                                    <span class="c1"># [$  ] 光标移到行尾</span>
+                                    <span class="c1"># [5- ] 光标向上移动5行</span>
+                                    <span class="c1"># [5+ ] 光标向下移动5行</span>
+                                    <span class="c1"># [5G ] 光标移动到第5行</span>
+                                    <span class="c1">#『插入』+++++++</span>
+                                    <span class="c1"># [i  ] 在光标前面插入【进入插入模式】</span>
+                                    <span class="c1"># [I  ] 所在行最前插入【进入插入模式】</span>
+                                    <span class="c1"># [a  ] 在光标后面插入【进入插入模式】</span>
+                                    <span class="c1"># [A  ] 所在行最后插入【进入插入模式】</span>
+                                    <span class="c1">#『删除』+++++++</span>
+                                    <span class="c1"># [x  ] 删除光标后[一个字符]</span>
+                                    <span class="c1"># [X  ] 删除光标前[一个字符]</span>
+                                    <span class="c1"># [6x ] 删除光标后[六个字符]</span>
+                                    <span class="c1"># [8X ] 删除光标前[八个字符]</span>
+                                    <span class="c1"># [dd ] 删除光标所在的[一行]</span>
+                                    <span class="c1"># [9dd] 删除光标所在行开始的[九行]</span>
+                                    <span class="c1">#『复制』+++++++</span>
+                                    <span class="c1"># [yw ] 复制光标后[一段字段] (以空格或符号分隔开的字段!!)</span>
+                                    <span class="c1"># [yy ] 复制光标所在的[一行]</span>
+                                    <span class="c1"># [5yw] 复制光标后[五段字段] (以空格或符号分隔开的字段!!)</span>
+                                    <span class="c1"># [9yy] 复制光标所在行开始的[九行]</span>
+                                    <span class="c1">#『粘贴』+++++++</span>
+                                    <span class="c1"># [p  ] 粘贴</span>
+                                    <span class="c1">#『撤消』+++++++</span>
+                                    <span class="c1"># [u  ] 最后一次修改[撤消&amp;重做]</span>
+                                    <span class="c1"># [Ctrl + r]  可多次[撤消]</span>
+                                    <span class="c1"># </span>
+                                    <span class="c1">#【底行模式】--------------------------------------</span>
+                                    <span class="c1">#『光标』+++++++</span>
+                                    <span class="c1"># [:5       ] 光标移动到第5行(要按回车执行,下面操作都一样)</span>
+                                    <span class="c1"># [:set nu  ] 显示行号</span>
+                                    <span class="c1"># [:set nonu] 不显示行号</span>
+                                    <span class="c1">#『查找』+++++++</span>
+                                    <span class="c1"># [/ab] 向下查找&#34;ab&#34;字符串，[n]继续查找下一个</span>
+                                    <span class="c1"># [?ab] 向上查找&#34;ab&#34;字符串，[n]继续查找上一个</span>
+                                    <span class="c1">#『替换』+++++++</span>
+                                    <span class="c1"># [:      s/str1/str2/g] 所在行中所有 str1 字符串替换为 str2</span>
+                                    <span class="c1"># [:%     s/str1/str2/g] 从[首行]到[最尾]行中所有&#34;str1&#34;字符串替换为&#34;str2&#34;</span>
+                                    <span class="c1"># [:1,$   s/str1/str2/g] 第[01]行到[最尾]行中所有&#34;str1&#34;字符串替换为&#34;str2&#34;</span>
+                                    <span class="c1"># [:6,20  s/str1/str2/g] 第[06]行到第[20]行中所有&#34;str1&#34;字符串替换为&#34;str2&#34;</span>
+                                    <span class="c1"># [:.,20  s/str1/str2/g] [光标]行到第[20]行中所有&#34;str1&#34;字符串替换为&#34;str2&#34;</span>
+                                    <span class="c1"># [:.,$-5 s/str1/str2/g] [光标]行到尾[05]行中所有&#34;str1&#34;字符串替换为&#34;str2&#34;</span>
+                                    <span class="c1">#『退出』+++++++      └→g表示整行内容</span>
+                                    <span class="c1"># [:q!] 不保存退出</span>
+                                    <span class="c1"># [:wq] 保存退出</span>
+                                    <span class="c1"># [:w ] 保存文档(但不退出)</span>
+                                    <span class="c1"># [:w filename] 另存为叫filename的文件(但不退出)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>6、远程文件操作</strong></summary>  
+<blockquote>
+<p><code>wget</code> <code>ftpget</code> <code>ftpput</code> <code>tftp</code> <code>ftp</code> <code>nfs</code> <code>telnet</code> <code>ssh</code> <code>sftp</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget http://www.baidu.com                             <span class="c1"># 直接使用wget命令下载，默认是不开启断点续传功能的（超详细网文 https://blog.csdn.net/weixin_42915431/article/details/122339184）</span>
+wget -c http://www.baidu.com                          <span class="c1"># 直接使用wget命令下载，[-c]表示开启断点续传功能的</span>
+wget -O /home/tmp http://www.baidu.com                <span class="c1"># 直接使用wget命令下载，[-O]指定存放目录并改文件名,本例/home/tmp(改文件名为tmp)</span>
+wget -r -l1 -np http://192.168.3.222/D/img/           <span class="c1"># 下载文件夹(但附加有一些参数文件)，[-r]递归下载文件夹,[-l1]只递归一层(即不下载其目录子文件夹),[-np]不下载父目录中的文件。其它参数：[-nd]不复制服务器目录路径,[-p]下载网页所需的所有文件,[-k]将绝对链接转为相对链接方便下载整个站点后脱机浏览网页,[-L]递归时不进入其它主机</span>
+wget --ftp-user<span class="o">=</span>liao --ftp-password<span class="o">=</span><span class="m">1234</span> ftp://10.205.1.18/123.txt
+                                                      <span class="c1"># 使用wget进行FTP下载, FTP用户:liao, FTP密码:1234, 下载:123.txt文件</span>
+curl -O http://www.linux.com/hello.sh                 <span class="c1"># 下载HTTP文件，[-O]表示下载文件，Ubuntu系统默认没安装，在线安装命令：sudo apt install curl，网文：https://www.jianshu.com/p/6049f23ee204</span>
+													  <span class="c1">#                                                                                  curl和wget比较：https://baijiahao.baidu.com/s?id=1684301142094029552&amp;wfr=spider&amp;for=pc</span>
+sudo ftpget -u liao -p <span class="m">1234</span> 192.168.1.20 abcd.txt     <span class="c1"># 登录远程FTP服务器&#34;192.168.1.20&#34;, 下载&#34;abcd.txt&#34;到当前目录下(可指定目标路径)</span>
+sudo ftpput -u liao -p <span class="m">1234</span> 192.168.1.20 abcd.txt     <span class="c1"># 登录远程FTP服务器&#34;192.168.1.20&#34;, 上传&#34;abcd.txt&#34;到当前FTP根目录上</span>
+                                                      <span class="c1"># [-u] FTP用户; [-p] FTP密码</span>
+
+tftp -g -r 123.txt 192.168.1.2                        <span class="c1"># 从远程TFTP主机 192.168.1.2 下载 123.txt (●TFTP主机PC软件:Cisco TFTP Server●)</span>
+tftp -p -l 123.txt 192.168.1.2                        <span class="c1"># 向远程TFTP主机 192.168.1.2 上传 123.txt (●TFTP主机PC软件:Cisco TFTP Server●)</span>
+                                                      <span class="c1"># [-g] 表示下载文件 (get) </span>
+                                                      <span class="c1"># [-p] 表示上传文件 (put) </span>
+                                                      <span class="c1"># [-l] 表示本地文件名 (local file) </span>
+                                                      <span class="c1"># [-r] 表示远程主机的文件名 (remote file) </span>
+
+ftp 192.168.1.20                                      <span class="c1"># vsftpd服务:登录远程FTP服务器&#34;192.168.1.20&#34;, 接着按提示输入用户和密码</span>
+                                                      <span class="c1"># [ls  ]列出目录</span>
+                                                      <span class="c1"># [cd  ]进入目录</span>
+                                                      <span class="c1"># [get ]下载文件</span>
+                                                      <span class="c1"># [put ]上传单个文件</span>
+                                                      <span class="c1"># [mput]上传多个文件</span>
+                                                      <span class="c1"># [exit]退出FTP</span>
+                                                      <span class="c1"># [quit]退出FTP</span>
+
+
+mount -t nfs -o nolock 192.168.2.3:/home/abc /mnt/nfs <span class="c1"># 将另一台机的/home/abc目录挂载到本机/mnt/nfs目录下(例如：开发板目录挂接到电脑)</span>
+umount /mnt/nfs                                       <span class="c1"># 挂载到本机/mnt/nfs目录卸载之</span>
+                                                      <span class="c1"># 如果本机IP就是192.168.2.28,那就是自己挂接自己了</span>
+                                                      <span class="c1"># [-t nfs   ] UNIX(LINUX) 文件网络共享。</span>
+                                                      <span class="c1"># [-o nolock] 不使用NFS文件锁(原因:很多嵌入式设备的根文件系统中不带portmap)</span>
+
+telnet 192.168.1.20                                   <span class="c1"># 使用telnet远程登录.</span>
+
+ssh root@192.168.1.20                                 <span class="c1"># 使用SSH远程登录,[root]为用户名, [@]的后面为远程主机IP，登录后就可以像本地操作shell一样操作</span>
+sftp -oPort<span class="o">=</span><span class="m">22</span> xiaomin@192.168.1.20                   <span class="c1"># sftp客户端登录服务端（端口:22, 账号:xiaomin, IP:192.168.1.20），登录后可用 put、get、ls、lls、cd、lcd 等基本命令操作</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>7、磁盘硬盘操作</strong></summary>  
+<blockquote>
+<p><code>fdisk</code> <code>mount</code> <code>umount</code> <code>cfdisk</code> <code>dd</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">df -h                               <span class="c1"># 查看硬盘容量使用情况</span>
+sudo fdisk -l                       <span class="c1"># 查看硬盘及分区信息(一般显示 /dev/sda  /dev/sdb …)</span>
+                                    <span class="c1"># 【硬盘】</span>
+                                    <span class="c1"># /dev/hdb  是指第二个IDE硬盘(如:机械硬盘)</span>
+                                    <span class="c1"># /dev/sda  是指第一个SCSI硬盘(如:U盘)</span>
+                                    <span class="c1"># 【分区】</span>
+                                    <span class="c1"># /dev/hda1 是指第一个IDE硬盘上的第一个分区,IDE硬盘可以最多创建63个分区</span>
+                                    <span class="c1"># /dev/sdb1 是指第二个SCSI硬盘上的第一个分区,SCSI可以创建15个</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># /dev/hd[a-h] 指IDE硬盘， /dev/sd[a-p]指SCSI硬盘(如:U盘),</span>
+                                    <span class="c1"># /dev/ed[a-d] 指ESDI硬盘，/dev/xd[a-b]指XT硬盘。</span>
+sudo mkdir -p /mnt/usb              <span class="c1"># 先创建目录用作挂接点(mount point)，为硬盘挂接过来准备；</span>
+sudo mount -t vfat /dev/sda1 /mnt/usb <span class="c1"># 再将SCSI硬盘(如:U盘)挂接到刚才建的文件夹；(-t vfat 指定文件系统的类型，通常不必指定。mount 会自动选择正确的类型)</span>
+sudo umount /mnt/usb                <span class="c1"># 最后退盘前的卸载操作。(卸载前我们可以对此盘像平常操作文件(夹)一样操作即可)</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># [-t iso9660] 光盘或光盘镜像；</span>
+                                    <span class="c1"># [-t msdos  ] DOS fat16文件系统；</span>
+                                    <span class="c1"># [-t vfat   ] Windows 9x fat32文件系统；</span>
+                                    <span class="c1"># [-t ntfs   ] Windows NT ntfs文件系统；</span>
+                                    <span class="c1"># [-t smbfs  ] Mount Windows文件网络共享；</span>
+                                    <span class="c1"># [-t nfs    ] UNIX(LINUX) 文件网络共享。</span>
+sudo cfdisk                         <span class="c1"># 使用cfdisk工具对磁盘硬盘操作(有操作界面,根据其菜单操作即可)</span>
+
+sudo dd <span class="k">if</span><span class="o">=</span>/dev/hdb <span class="nv">of</span><span class="o">=</span>/dev/hdd                       <span class="c1"># 将/dev/hdb整盘备份(恢复)到/dev/hdd</span>
+sudo dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/swapfile <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span> <span class="nv">count</span><span class="o">=</span><span class="m">32768</span> <span class="c1"># 创建一个大小为32M的文件(数据初化值全为0x00)(/dev/zero空设备)</span>
+sudo dd <span class="k">if</span><span class="o">=</span>/dev/hda <span class="nv">of</span><span class="o">=</span>/dev/hda                       <span class="c1"># 修复硬盘</span>
+sudo dd <span class="k">if</span><span class="o">=</span>/dev/urandom <span class="nv">of</span><span class="o">=</span>/dev/hda1                  <span class="c1"># 销毁磁盘数据(/dev/urandom随机设备)</span>
+sudo dd <span class="k">if</span><span class="o">=</span>/dev/mem <span class="nv">of</span><span class="o">=</span>/root/mem.bin <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span>          <span class="c1"># 拷贝内存内容到硬盘(指定块大小为1k)(/dev/mem内存)</span>
+                                    <span class="c1"># 【关于cp与dd的区别】:</span>
+                                    <span class="c1"># [操作对象] dd 是对块进行操作的，cp 是对文件操作的。</span>
+                                    <span class="c1"># [操作动作] dd 相当于克隆＋覆盖，cp 则是复制＋合并。</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># [if=   ] {输入}文件，缺省为标准输入。</span>
+                                    <span class="c1"># [of=   ] {输出}文件，缺省为标准输出。</span>
+                                    <span class="c1"># [ibs=  ] 指定{输入}一个块大小为多少字节。</span>
+                                    <span class="c1"># [obs=  ] 指定{输出}一个块大小为多少字节。</span>
+                                    <span class="c1"># [bs=   ] 同时指定{输入和输出}一个块大小为多少字节。</span>
+                                    <span class="c1"># [count=] 要操作多少块。</span>
+                                    <span class="c1"># [skip= ] 从{输入}文件开头跳过多少个块后再开始复制。</span>
+                                    <span class="c1"># [seek= ] 从{输出}文件开头跳过多少个块后再开始复制。</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>8、系统相关操作</strong></summary>  
+<blockquote>
+<p><code>man</code> <code>cat</code> <code>free</code> <code>top</code> <code>ps</code> <code>kill</code> <code>killall</code> <code>logout</code> <code>reboot</code> <code>shutdown</code> <code>set</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install xxxx           <span class="c1"># 安装软件包的最新版本</span>
+sudo apt-get remove  xxxx           <span class="c1"># 从系统中删除指定的软件包</span>
+sudo apt-get update                 <span class="c1"># 检测已安装软件包是否有更新（如果指定软件名则表示指定软件包是否有更新）</span>
+sudo apt-get upgrade xxxx           <span class="c1"># 升级指定的软件包(前提：先运行 update 检测)(而使用 dist-upgrade 则以更聪明的方式来解决更新过程中出现的软件依赖问题)</span>
+sudo apt-cache  list xxxx           <span class="c1"># 从资源库中查询可用的软件包</span>
+sudo apt-cache search g++           <span class="c1"># 搜索单词为g++的软件包</span>
+sudo apt-cache show   g++           <span class="c1"># 显示g++软件包详细信息</span>
+
+uname -a                            <span class="c1"># 查看内核基本信息（内核+系统的版本信息）</span>
+lsb_release -a                      <span class="c1"># 查看系统基本信息（主要为系统信息）</span>
+cat /etc/lsb-release                <span class="c1"># 查看系统基本信息（主要为系统信息）</span>
+cat /proc/version                   <span class="c1"># 查看内核基本信息（内核+编译+系统的版本信息）</span>
+cat /etc/issue                      <span class="c1"># 查看系统版本信息（系统的版本）</span>
+
+man ls                              <span class="c1"># ls命令帮助(查看ls相关的用法)（manual /&#39;mænjuəl/ 说明书）</span>
+du -h /opt/test                     <span class="c1"># 查看/opt/test目录的磁盘使用情况</span>
+file 123.txt                        <span class="c1"># 文件的类型(因为在Linux下文件的类型并不是以后缀为分的)</span>
+cat /proc/cpuinfo                   <span class="c1"># 显示CPU信息 (cat 为 concatenate /kən&#39;kætɪneɪt/ 连续)</span>
+cat /proc/meminfo                   <span class="c1"># 显示内存信息</span>
+free                                <span class="c1"># 显示内存使用状况</span>
+top                                 <span class="c1"># 显示所有用户进程信息，并实时更新</span>
+top -u liao                         <span class="c1"># 显示liao用户进程信息，并实时更新</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># [-u] 指定用户名显示</span>
+                                    <span class="c1"># [-p] 指定进程号显示</span>
+                                    <span class="c1"># [-n] 循环显示多少次</span>
+                                    <span class="c1"># --------------------------------------------------</span>
+                                    <span class="c1">#『交互命令』(在打印信息界面中,直接按下面按键)</span>
+                                    <span class="c1"># h 显示帮助画面</span>
+                                    <span class="c1"># s 改变两次刷新之间的延迟时间(单位:秒),可有小数点，默认值是5秒</span>
+                                    <span class="c1"># q 退出程序</span>
+                                    <span class="c1"># k 终止一个进程。</span>
+                                    <span class="c1"># r 重新安排一个进程的优先级别</span>
+                                    <span class="c1"># c 切换显示命令名称和完整命令行</span>
+                                    <span class="c1"># i 忽略闲置和僵死进程。这是一个开关式命令。</span>
+                                    <span class="c1"># P 根据CPU使用百分比大小进行排序</span>
+                                    <span class="c1"># S 切换到累计模式</span>
+                                    <span class="c1"># f或者F 从当前显示中添加或者删除项目</span>
+                                    <span class="c1"># o或者O 改变显示项目的顺序</span>
+                                    <span class="c1"># l 切换显示平均负载和启动时间信息</span>
+                                    <span class="c1"># m 切换显示内存信息</span>
+                                    <span class="c1"># t 切换显示进程和CPU状态信息</span>
+                                    <span class="c1"># M 根据驻留内存大小进行排序</span>
+                                    <span class="c1"># T 根据时间/累计时间进行排序</span>
+                                    <span class="c1"># W 将当前设置写入~/.toprc文件中 </span>
+ps                                  <span class="c1"># 显示当前shell下的进程</span>
+ps -l -u liao                       <span class="c1"># 显示用户liao的进程</span>
+ps aux                              <span class="c1"># 显示所有进程</span>
+ps aux <span class="p">|</span> more                       <span class="c1"># 显示所有进程及其用户+分页方式显示</span>
+                                    <span class="c1"># 【扩展说明】:</span>
+                                    <span class="c1"># [-l] 详细显示PID</span>
+                                    <span class="c1"># [-u] 指定用户显示</span>
+                                    <span class="c1"># [-A] 显示所有进程</span>
+                                    <span class="c1"># [a ] 显示{有连接终端机}的所有进程</span>
+                                    <span class="c1"># [x ] 显示{没连接终端机}的所有进程</span>
+                                    <span class="c1"># [u ] 显示{用户名、启动时间等}列项信息</span>
+                                    <span class="c1"># --------------------------------------------------</span>
+                                    <span class="c1">#『信息解释』</span>
+                                    <span class="c1"># USER    哪个用户启动了这个命令</span>
+                                    <span class="c1"># PID     进程ID</span>
+                                    <span class="c1"># CPU     CPU占用率</span>
+                                    <span class="c1"># MEM     内存使用量</span>
+                                    <span class="c1"># VSZ     如果一个程序完全驻留在内存的话需要占用多少内存空间</span>
+                                    <span class="c1"># RSS     当前实际占用了多少内存</span>
+                                    <span class="c1"># TTY     终端的次要装置号码 (minor device number of tty)</span>
+                                    <span class="c1"># STAT    进程当前的状态(S:睡眠(sleeping);D:不可被中断的休眠(uninterruptible sleep);R:运行(runnable);T:停止(traced or stopped);Z:僵死(a defunct zombie process)</span>
+                                    <span class="c1"># START   启动命令的时间点</span>
+                                    <span class="c1"># TIME    进程执行起到现在总的CPU占用时间</span>
+                                    <span class="c1"># COMMAND 启动这个进程的命令</span>
+                                    
+<span class="nb">kill</span> PID                            <span class="c1"># 杀死PID进程 (PID 为 Process ID)</span>
+killall test_app1 test_app2         <span class="c1"># 杀死test_app1和test_app2两个进程</span>
+                                    
+<span class="nb">logout</span>                              <span class="c1"># 注销</span>
+reboot                              <span class="c1"># 重启</span>
+shutdown -r now                     <span class="c1"># 重启（r:reboot）</span>
+shutdown -h now                     <span class="c1"># 关闭系统（h:halt /hɔːlt/）</span>
+shutdown -h <span class="m">30</span>                      <span class="c1"># 将在30分钟后关闭系统</span>
+shutdown -h 15:30                   <span class="c1"># 按照预定时间关闭系统</span>
+shutdown -c                         <span class="c1"># 取消按预定时间关闭系统（c:cancel）</span>
+
+<span class="nb">set</span> -v on                           <span class="c1"># 开启同时打印shell脚本中执行命令本身（平常只打印命令执行结果）</span>
+<span class="nb">set</span> -e 　                           <span class="c1"># 在shell脚本中如果执行命令传回值不等于0，则立即退出shell。</span>
+                                    <span class="c1"># 更多参数请参考网文：https://blog.csdn.net/baiduwenku112/article/details/109811755</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-06-13</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20210613/" data-title="linux 基本命令使用" data-hashtags="命令,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20210613/" data-hashtag="命令"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20210613/" data-title="linux 基本命令使用"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20210613/" data-title="linux 基本命令使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20210613/" data-title="linux 基本命令使用"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E5%91%BD%E4%BB%A4/">命令</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20210609/" class="prev" rel="prev" title="本人 C 语言编程规范"><i class="fas fa-angle-left fa-fw"></i>本人 C 语言编程规范</a>
+            <a href="/20210615/" class="next" rel="next" title="FreeRTOS 实时操作系统应用笔记">FreeRTOS 实时操作系统应用笔记<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GDB - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/gdb/</link>
+        <description>GDB - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/gdb/" rel="self" type="application/rss+xml" /><item>
+    <title>linux-STM32F开发㈢-在线调试工具CGDB</title>
+    <link>https://o2ospring.github.io/20220916/</link>
+    <pubDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220916/</guid>
+    <description><![CDATA[一、前言 GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不]]></description>
+</item></channel>
+</rss>

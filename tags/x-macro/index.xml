@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>X-MACRO - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/x-macro/</link>
+        <description>X-MACRO - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 24 Dec 2020 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/x-macro/" rel="self" type="application/rss+xml" /><item>
+    <title>X-MACRO 数据与代码序列化</title>
+    <link>https://o2ospring.github.io/20201224/</link>
+    <pubDate>Thu, 24 Dec 2020 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20201224/</guid>
+    <description><![CDATA[概述 X-MACRO（X-宏）是一种可靠的维护代码或数据的并行列表技术，其保证这些并行列表以相同（匹配）顺序出现。它可应用于数组、枚举、结构体]]></description>
+</item></channel>
+</rss>

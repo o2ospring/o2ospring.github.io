@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>attribute-section 编译属性-数据拼接 - o2ospring</title><meta name="Description" content="介绍 attribute-section 编译属性的使用"><meta property="og:title" content="attribute-section 编译属性-数据拼接" />
+<meta property="og:description" content="介绍 attribute-section 编译属性的使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20210622/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-22T21:33:41+08:00" />
+<meta property="article:modified_time" content="2021-06-22T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="attribute-section 编译属性-数据拼接"/>
+<meta name="twitter:description" content="介绍 attribute-section 编译属性的使用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20210622/" /><link rel="prev" href="https://o2ospring.github.io/20210617/" /><link rel="next" href="https://o2ospring.github.io/20210623/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "attribute-section 编译属性-数据拼接",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20210622\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "attribute","wordcount":  2408 ,
+        "url": "https:\/\/o2ospring.github.io\/20210622\/","datePublished": "2021-06-22T21:33:41+08:00","dateModified": "2021-06-22T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "介绍 attribute-section 编译属性的使用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">attribute-section 编译属性-数据拼接</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-22">2021-06-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2408 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/20210622/" class="leancloud_visitors" data-flag-title="attribute-section 编译属性-数据拼接">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#用途">用途</a></li>
+        <li><a href="#扩展">扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="简介">简介</h3>
+<p>数据拼接就是把分散的数据（全局/只读），通过编译器的编译链接把它们拼接起来放到一段连续的空间内，本人简称为“串表”。如果这些分散的数据都是同一类型，则这段数据就是数组，程序可实现快速访问。对于这类需求，GCC 的编译属性<code>__attribute__((section(&quot;name&quot;))</code>为我们提供了解决方案。<br>
+<strong>更多的 attribute 编译属性</strong>：<br>
+《<a href="../20210622" rel="">attribute-section 编译属性-数据拼接</a>》<br>
+《<a href="../20210623" rel="">attribute-aligned 编译属性-地址对齐</a>》<br>
+《<a href="../20210624" rel="">attribute-packed 编译属性-字节对齐</a>》<br>
+《<a href="../20210625" rel="">attribute-weak 编译属性-弱符号</a>》<br>
+《<a href="../20210626" rel="">attribute-un/used 编译属性-未用警告</a>》<br>
+《<a href="../20210627" rel="">attribute-at 编译属性-地址指定</a>》</p>
+<!--  
+[网文](https://blog.csdn.net/qq_42370291/article/details/103639349)  
+-->  
+<h3 id="用途">用途</h3>
+<p>数据拼接常用于设备启动时初始化各个模块，其中 linux 的 initcall 机制就是基于此原理实现的。下面对比介绍上电初始化的几种方式：调用方式、列表方式、串表方式。</p>
+<details close=""><summary><strong>1、调用方式</strong></summary>  
+<blockquote>
+<p>在<code>main()</code>函数最前在分别调用这些初始化函数，当新增一模块就必须在<code>main()</code>增加代码 ，这种方式与<code>main()</code>过于耦合。试想一下 linux 系统，少则几百多则上千上万个初始化函数放在一起，那是多么恐怖的事，而且 linux 核心源文件是不给程序员随便改动的，否则会影响系统稳定性。也就是说对于中大型工程这种方式不可取。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">//每当增加模块初始化，都需在这里增加初始化函数
+</span><span class="c1"></span>	<span class="n">init_a</span><span class="p">();</span>
+	<span class="n">init_b</span><span class="p">();</span>
+	<span class="n">init_c</span><span class="p">();</span>
+
+	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="p">...</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>2、列表方式</strong></summary>  
+<blockquote>
+<p>做一个数组列表，在列表加入这些初始化函数，<code>main()</code>的上电初始化时用<code>for</code>循环统一初始化，当新增一模块无须动代码，只需要在数组列表增加内容即可，这种方式比调用方式简洁方便很多。而且这个表格可以独立放到一个文件里，不但集中管理调用初始化函数，还有效阻隔核心代码不被程序员改动。由于集中管理，会存在一定可能性的误操作（如：误删别的模块初始化操作），与独立模块还存在一定的耦合性。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func_t</span><span class="p">)(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">func_t</span> <span class="n">func_tab</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="n">init_a</span><span class="p">,</span> 
+	<span class="n">init_b</span><span class="p">,</span> 
+	<span class="n">init_c</span>
+<span class="p">};</span> <span class="c1">//平时只需维护此列表
+</span><span class="c1"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">func_tab</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">func_tab</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">func_tab</span><span class="p">[</span><span class="n">i</span><span class="p">]))();</span>
+	<span class="p">}</span>
+
+	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="p">...</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>3、串表方式</strong></summary>  
+<blockquote>
+<p>在<code>main()</code>的上电初始化时使用<code>for</code>循环调用事先已预设好的串表，串表内容（组员）分散在各种模块中，依靠编译器的编译链接把它们存到这个串表里（无需人工添加）。<br>
+关键字-属性<code>__attribute__</code> /ə’trɪbjuːt/<br>
+关键字-分段<code>section</code> /’sekʃn/<br>
+<strong>语法</strong>：<code>__attribute__((used, section(&quot;.name.&quot; &quot;tail&quot;)))</code><br>
+<code>.name.</code> 为分段名称，<strong>同名</strong>分段数据存放到同一段连接的空间内。<br>
+<code>tail</code>   为分段名称后缀，先由它决定数据先后顺序，再由代码编译先后顺序决定。<br>
+<code>used</code>   向编译器说明这段代码即使没使用也不能优化掉，不能产生警告；<br>
+<code>而 unused</code> 则是表示该函数或变量可能不使用，编译器不要产生警告信息。</p>
+</blockquote>
+<p>主程序：<code>main.h</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//---定义串表---
+</span><span class="c1"></span><span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">p_init_fun_t</span><span class="p">)(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">struct</span> <span class="n">init_fun_tab</span>
+<span class="p">{</span>
+	<span class="n">p_init_func_t</span>  <span class="n">pfun</span><span class="p">;</span>          <span class="c1">//初始函数(指针)
+</span><span class="c1"></span>	<span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>          <span class="c1">//函数名称(指针)
+</span><span class="c1"></span><span class="p">};</span>
+                                  <span class="c1">//    属性关键字          分段关键字   分段名称    分段名称后缀
+</span><span class="c1"></span>                                  <span class="c1">//  +-----+-----+        +----+----+  +---+---+  +-+-+
+</span><span class="c1"></span><span class="cp">#define INITSECTION(level)            __attribute__((used, __section__(&#34;.init_fn.&#34; level))) 
+</span><span class="cp"></span>
+<span class="cp">#define INIT_FRONT_EXPORT(func,name)  INITSECTION(&#34;0.front&#34;) const struct init_fun_tab init_fn_##func = {func, name} </span><span class="c1">//串表头
+</span><span class="c1"></span><span class="cp">#define INIT_TABLE_EXPORT(func,name)  INITSECTION(&#34;1&#34;      ) const struct init_fun_tab init_fn_##func = {func, name}
+</span><span class="cp">#define INIT_LIMIT_EXPORT(func,name)  INITSECTION(&#34;1.limit&#34;) const struct init_fun_tab init_fn_##func = {func, name} </span><span class="c1">//串表尾
+</span><span class="c1"></span>                                  <span class="c1">//  +---------+-------+  +----------------------------+------------------------+
+</span><span class="c1"></span>                                  <span class="c1">//         串表宏                           一个表员(结构体)数据
+</span></code></pre></td></tr></table>
+</div>
+</div><p>主程序：<code>main.c</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//---调用串表---
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">tab_front</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{}</span>
+<span class="n">INIT_FRONT_EXPORT</span><span class="p">(</span><span class="n">tab_front</span><span class="p">,</span> <span class="s">&#34;tab_front()&#34;</span><span class="p">);</span> <span class="c1">//串表头
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">tab_limit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{}</span>
+<span class="n">INIT_LIMIT_EXPORT</span><span class="p">(</span><span class="n">tab_limit</span><span class="p">,</span> <span class="s">&#34;tab_limit()&#34;</span><span class="p">);</span> <span class="c1">//串表尾
+</span><span class="c1"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">const</span> <span class="k">struct</span> <span class="n">init_fun_tab</span> <span class="o">*</span><span class="n">p_init</span><span class="p">;</span>
+
+	<span class="c1">//执行串表（由编译器维护列表内容）
+</span><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="n">p_init</span><span class="o">=&amp;</span><span class="n">init_fn_tab_front</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">p_init</span><span class="o">&lt;&amp;</span><span class="n">init_fn_tab_limit</span><span class="p">;</span> <span class="n">p_init</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;run:%s</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">p_init</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+		<span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p_init</span><span class="o">-&gt;</span><span class="n">pfun</span><span class="p">))();</span>
+	<span class="p">}</span>
+
+	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="p">...</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>模块a：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//---加入串表---
+</span><span class="c1"></span><span class="n">include</span> <span class="s">&#34;main.h&#34;</span>
+<span class="kt">void</span> <span class="n">init_a</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;init_a code</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+<span class="p">}</span><span class="c1">//加入串表
+</span><span class="c1"></span><span class="n">INIT_TABLE_EXPORT</span><span class="p">(</span><span class="n">init_a</span><span class="p">,</span> <span class="s">&#34;init_a()&#34;</span><span class="p">);</span> <span class="c1">//告知编译器将函数地址加入到串表
+</span></code></pre></td></tr></table>
+</div>
+</div><p>模块b：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//---加入串表---
+</span><span class="c1"></span><span class="n">include</span> <span class="s">&#34;main.h&#34;</span>
+<span class="kt">void</span> <span class="n">init_b</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;init_b code</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">);</span>
+<span class="p">}</span><span class="c1">//加入串表
+</span><span class="c1"></span><span class="n">INIT_TABLE_EXPORT</span><span class="p">(</span><span class="n">init_b</span><span class="p">,</span> <span class="s">&#34;init_b()&#34;</span><span class="p">);</span> <span class="c1">//告知编译器将函数地址加入到串表
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>main.c</code>写好后，就不会改动，如果模块想在<code>main.c</code>完成初始化工作，只需在其初始化函数后面加入<code>INIT_TABLE_EXPORT()</code>宏，编译器编译时就可以通过此宏知道将函数指针加入到<code>main.c</code>的初始化列表上。从代码上看，模块与模块之间没有任何的函数调用关系，高质量实现高内聚性低耦合度。</p>
+</details>  
+<details close=""><summary><strong>4、作用对象</strong></summary>  
+<blockquote>
+<p><code>__attribute__((section(x)))</code><strong>作用对象</strong>：<br>
+主要针对只读变量。</p>
+</blockquote>
+</details>  
+<h3 id="扩展">扩展</h3>
+<p>数据拼接除了可以用在初始化上，还可以应用于很多场合，只要和列表有关的都有应用的可能性。</p>
+<details close=""><summary><strong>1、回调串表</strong></summary>  
+<blockquote>
+<p>本人编写独立模块时，喜欢通过回调函数的方式来通知其它模块，而且回调函数做成列表，即使用列表触发通知多个第三方模块。拿按键模块作为示例，当检测到有按键动作时，调用回调列表触发【界面模块】和【恢复出厂初始化模块】执行相应动作。</p>
+</blockquote>
+<p>按键模块：<code>key.h</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">p_key_fun_t</span><span class="p">)(</span><span class="kt">uint8_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">action</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">time</span><span class="p">);</span>
+<span class="k">struct</span> <span class="n">key_fun_tab</span>
+<span class="p">{</span>
+	<span class="n">p_key_func_t</span>  <span class="n">pfun</span><span class="p">;</span>     <span class="c1">//回调函数(指针)
+</span><span class="c1"></span><span class="p">};</span>
+                            <span class="c1">//    属性关键字          分段关键字  分段名称   分段名称后缀
+</span><span class="c1"></span>                            <span class="c1">//  +-----+-----+        +----+----+  +--+--+   +-+-+
+</span><span class="c1"></span><span class="cp">#define KEYSECTION(level)       __attribute__((used, __section__(&#34;.key_fn.&#34; level))) 
+</span><span class="cp"></span>
+<span class="cp">#define KEY_FRONT_EXPORT(func)  KEYSECTION(&#34;0.front&#34;) const struct key_fun_tab key_fn_##func = {func} </span><span class="c1">//串表头
+</span><span class="c1"></span><span class="cp">#define KEY_TABLE_EXPORT(func)  KEYSECTION(&#34;1&#34;      ) const struct key_fun_tab key_fn_##func = {func}
+</span><span class="cp">#define KEY_LIMIT_EXPORT(func)  KEYSECTION(&#34;1.limit&#34;) const struct key_fun_tab key_fn_##func = {func} </span><span class="c1">//串表尾
+</span><span class="c1"></span>                            <span class="c1">//  +---------+-------+  +---------------------+---------------------+
+</span><span class="c1"></span>                            <span class="c1">//         串表宏                    一个表员(结构体)数据
+</span></code></pre></td></tr></table>
+</div>
+</div><p>按键模块：<code>key.c</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">ktab_front</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">action</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">time</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">ktab_limit</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">action</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">time</span><span class="p">)</span> <span class="p">{}</span>
+<span class="n">KEY_FRONT_EXPORT</span><span class="p">(</span><span class="n">ktab_front</span><span class="p">);</span> <span class="c1">//串表头
+</span><span class="c1"></span><span class="n">KEY_LIMIT_EXPORT</span><span class="p">(</span><span class="n">ktab_limit</span><span class="p">);</span> <span class="c1">//串表尾
+</span><span class="c1"></span>
+<span class="kt">void</span> <span class="nf">key_scan</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="p">...</span>
+
+	<span class="k">const</span> <span class="k">struct</span> <span class="n">key_fun_tab</span> <span class="o">*</span><span class="n">p_key</span><span class="p">;</span>
+
+	<span class="c1">//按键有动作时回调列表通知其它模块（由编译器维护列表内容）
+</span><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="n">p_key</span><span class="o">=&amp;</span><span class="n">key_fn_ktab_front</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">p_key</span><span class="o">&lt;&amp;</span><span class="n">key_fn_ktab_limit</span><span class="p">;</span> <span class="n">p_key</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p_key</span><span class="o">-&gt;</span><span class="n">pfun</span><span class="p">))(</span><span class="n">key</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">time</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>界面模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//---加入串表---
+</span><span class="c1"></span><span class="n">include</span> <span class="s">&#34;key.h&#34;</span>
+<span class="kt">void</span> <span class="n">lcd_key_callback</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">action</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">time</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">((</span><span class="n">key</span> <span class="o">&gt;=</span> <span class="n">KEYNO_K1</span><span class="p">)</span>
+	<span class="o">&amp;&amp;</span>  <span class="p">(</span><span class="n">key</span> <span class="o">&lt;=</span> <span class="n">KEYNO_K4</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">key</span> <span class="o">-=</span> <span class="n">KEYNO_K1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">action</span> <span class="o">==</span> <span class="n">KEYAT_1CLICK</span><span class="cm">/*单击*/</span><span class="p">)</span>
+		<span class="o">||</span>  <span class="p">(</span><span class="n">action</span> <span class="o">==</span> <span class="n">KEYAT_2CLICK</span><span class="cm">/*双击*/</span><span class="p">))</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">time</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>  <span class="cm">/*短按,非长按*/</span>
+			<span class="p">{</span>
+				<span class="p">....</span><span class="c1">//收到按键单/双击动作
+</span><span class="c1"></span>			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span><span class="c1">//加入串表
+</span><span class="c1"></span><span class="n">KEY_TABLE_EXPORT</span><span class="p">(</span><span class="n">lcd_key_callback</span><span class="p">);</span> <span class="c1">//告知编译器将函数地址加入到串表
+</span></code></pre></td></tr></table>
+</div>
+</div><p>恢复出厂初始化模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//---加入串表---
+</span><span class="c1"></span><span class="n">include</span> <span class="s">&#34;key.h&#34;</span>
+<span class="kt">void</span> <span class="n">frst_key_callback</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">key</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">action</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">time</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEYNO_FRST</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">action</span> <span class="o">==</span> <span class="n">KEYAT_1CLICK</span><span class="cm">/*单击*/</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">time</span> <span class="o">==</span> <span class="mi">5000</span><span class="p">)</span>  <span class="cm">/*长按5秒*/</span>
+			<span class="p">{</span>
+				<span class="p">....</span><span class="c1">//收到按键长按5秒动作
+</span><span class="c1"></span>			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span><span class="c1">//加入串表
+</span><span class="c1"></span><span class="n">KEY_TABLE_EXPORT</span><span class="p">(</span><span class="n">frst_key_callback</span><span class="p">);</span> <span class="c1">//告知编译器将函数地址加入到串表
+</span></code></pre></td></tr></table>
+</div>
+</div></details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-06-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20210622/" data-title="attribute-section 编译属性-数据拼接" data-hashtags="attribute"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20210622/" data-hashtag="attribute"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20210622/" data-title="attribute-section 编译属性-数据拼接"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20210622/" data-title="attribute-section 编译属性-数据拼接"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20210622/" data-title="attribute-section 编译属性-数据拼接"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/attribute/">attribute</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20210617/" class="prev" rel="prev" title="linux 中文输入工具"><i class="fas fa-angle-left fa-fw"></i>linux 中文输入工具</a>
+            <a href="/20210623/" class="next" rel="next" title="attribute-aligned 编译属性-地址对齐">attribute-aligned 编译属性-地址对齐<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

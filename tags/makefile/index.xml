@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Makefile - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/makefile/</link>
+        <description>Makefile - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Aug 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/makefile/" rel="self" type="application/rss+xml" /><item>
+    <title>linux-STM32F开发㈡-调试器的安装与使用</title>
+    <link>https://o2ospring.github.io/20220808/</link>
+    <pubDate>Mon, 08 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220808/</guid>
+    <description><![CDATA[一、前言 对于单片机的开发，我们离不开仿真器（烧录器）的使用，平常我们都是图形界面下操作，而本文主要介绍命令窗口下的仿真器驱动安装与使用。目前]]></description>
+</item><item>
+    <title>linux-STM32F开发㈠-makefile 构建与使用</title>
+    <link>https://o2ospring.github.io/20220804/</link>
+    <pubDate>Thu, 04 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220804/</guid>
+    <description><![CDATA[一、前言 在 Windows 下有完善的 IDE（集成开发环境）开发工具，开发单片机程序变得简单和傻瓜化，图形界面上所见所得操作，基本不需要我们了解一些专业知识]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MD5 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/md5/</link>
+        <description>MD5 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 11 Dec 2020 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/md5/" rel="self" type="application/rss+xml" /><item>
+    <title>MD5 对数据加密与校验</title>
+    <link>https://o2ospring.github.io/20201211/</link>
+    <pubDate>Fri, 11 Dec 2020 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20201211/</guid>
+    <description><![CDATA[一、前言 对于网络传输的数据，无非就是三点要求：一、保证数据传输的正确性；二、防止数据被篡改；三、对数据进行加密。对于前两点要求，普遍使用 MD5 来]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MCU - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/mcu/</link>
+        <description>MCU - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 06 Aug 2018 20:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/mcu/" rel="self" type="application/rss+xml" /><item>
+    <title>【MCU 专题文章索引】</title>
+    <link>https://o2ospring.github.io/mcu/</link>
+    <pubDate>Mon, 06 Aug 2018 20:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/mcu/</guid>
+    <description><![CDATA[前言 记录我使用 MCU 软硬件一些经验，涉及 STM8、STM32F103、STM32F429 等单片机，以及单片机内部资源的应用，Keil MDK、IA]]></description>
+</item></channel>
+</rss>

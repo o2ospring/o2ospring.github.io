@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>CRC 数据校验原理和应用 - o2ospring</title><meta name="Description" content="介绍 CRC 数据校验原理和应用"><meta property="og:title" content="CRC 数据校验原理和应用" />
+<meta property="og:description" content="介绍 CRC 数据校验原理和应用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20201212/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-12-12T21:33:41+08:00" />
+<meta property="article:modified_time" content="2020-12-12T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="CRC 数据校验原理和应用"/>
+<meta name="twitter:description" content="介绍 CRC 数据校验原理和应用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20201212/" /><link rel="prev" href="https://o2ospring.github.io/20201211/" /><link rel="next" href="https://o2ospring.github.io/20201224/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CRC 数据校验原理和应用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20201212\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "CRC","wordcount":  1579 ,
+        "url": "https:\/\/o2ospring.github.io\/20201212\/","datePublished": "2020-12-12T21:33:41+08:00","dateModified": "2020-12-12T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "介绍 CRC 数据校验原理和应用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">CRC 数据校验原理和应用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-12">2020-12-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1579 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/20201212/" class="leancloud_visitors" data-flag-title="CRC 数据校验原理和应用">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一简介">一、简介</a></li>
+        <li><a href="#二原理">二、原理</a></li>
+        <li><a href="#三使用">三、使用</a></li>
+        <li><a href="#四工具">四、工具</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一简介">一、简介</h3>
+<blockquote>
+<ul>
+<li>
+<p><strong>CRC 循环冗余校验（Cyclic Redundancy Check）</strong><br>
+是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种信道编码技术，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。CRC 成为计算机信息通信领域最为普遍的校验方式。常见应用有以太网/USB通信，压缩解压，视频编码，图像存储，磁盘读写等。</p>
+</li>
+<li>
+<p><strong>常用的校验算法</strong><br>
+有奇偶校验、校验和、CRC，还有 LRC、BCC 等不常用的校验算法。</p>
+</li>
+<li>
+<p><strong>常规数据帧格式</strong><br>
+帧头 + 长度 + 数据 + 校验</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="二原理">二、原理</h3>
+<details close=""><summary>点击展开内容</summary>  
+<blockquote>
+<p>单纯谈 CRC 的 模 2 除法 其实并不困难，但实际计算中经常会遇到计算出来的结果和实际不一致的情况，这就需要我们知道几个组成部分或者说计算概念：多项式公式、多项式简记式、数据宽度、初始值、输入值反转、输出值反转、结果异或值、参数模型。</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>多项式公式</strong><br>
+对于 CRC 标准除数，一般使用多项式（或二项式）公式表示，例如除数 11011 的二项式为 X4+X3+X+1，X 的指数就代表了该 bit 位上的数据为 1。</p>
+</li>
+<li>
+<p><strong>多项式简记式（POLY）</strong><br>
+通过对 CRC 的基本了解我们知道，多项式的头部和首尾必定为 1，所以就把头部这个 1 给省略掉了，出现了一个叫简记式的东西，例如除数 11011 的简记式为 1011。对于CRC_16标准下 X16+X15+X2+1（0x18005）的 poly 值实际上是 8005，这里使用的就是简记式。</p>
+</li>
+<li>
+<p><strong>数据宽度（WIDTH）</strong><br>
+数据宽度指的就是 CRC 校验码的长度（二进制位数），知道了 CRC 的运算概念和多项式，就可以理解这个概念了，CRC 长度始终要比除数位数少1，与简记式长度是一致的。</p>
+</li>
+<li>
+<p><strong>① CRC 初始值（INIT）</strong><br>
+在一些标准中，规定了运算寄存先赋初始值，之后才会与原始数据进行运算。初始值位数要求与数据宽度一致。</p>
+</li>
+<li>
+<p><strong>② 输入值反转（REFIN - 是/否）</strong><br>
+输入值反转的意思是在计算之前先将二项式反转，之后一直用得到的新值和数据进行计算。如对于 X16+X15+X2+1（0x18005），其正向值为 1 1000 0000 0000 0101，反转值则为 1010 0000 0000 0001 1</p>
+</li>
+<li>
+<p><strong>③ 输出值反转（REFOUT - 是/否）</strong><br>
+输出值反转则是将与多项式运算后得到最终的 CRC 结果进行反转。例如计算得到的 CRC 值：0x97 = 1001 0111，如果 REFOUT 为 true，进行翻转之后为 1110 1001 = 0xE9。<br>
+通常，输入值反转后的结果值也会是反转的，所以这两个选项一般是同向的，我们只有在在线CRC计算器中会看到自由选择正反转的情况存在。</p>
+</li>
+<li>
+<p><strong>④ 结果异或值（XOROUT）</strong><br>
+在所有运算得出的最后 CRC 结果值与[结果异或值]进行一次异或计算，得到的最终值才是我们需要的 CRC 校验码。结果值的位数要求与数据宽度一致。</p>
+</li>
+</ol>
+<ul>
+<li><strong>模2除法运算例子：设需要发送的信息为 1010001101，产生多项式为 110101（共6bit），则发送信息后面需要加5个0，然后对信息做模2除法运算，得余数为 01110。故实际需要发送的数据是 1010001101（信息）01110（校验）。</strong><br>
+<a href="../img/20201212_01.jpg" rel=""><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20201212_01.jpg"
+        data-srcset="../img/20201212_01.jpg, ../img/20201212_01.jpg 1.5x, ../img/20201212_01.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20201212_01.jpg"
+        title="图解模2除法运算" /></a></li>
+</ul>
+<p><strong>以上内容主要解析 CRC 基本概念及原理，下面三图才是实际使用的 CRC 种类和运算过程：</strong></p>
+<p><a href="../img/20201212_02.jpg" rel=""><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20201212_02.jpg"
+        data-srcset="../img/20201212_02.jpg, ../img/20201212_02.jpg 1.5x, ../img/20201212_02.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20201212_02.jpg"
+        title="常用的21个标准CRC参数模型" /></a><br>
+<a href="../img/20201212_03.jpg" rel=""><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20201212_03.jpg"
+        data-srcset="../img/20201212_03.jpg, ../img/20201212_03.jpg 1.5x, ../img/20201212_03.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20201212_03.jpg"
+        title="CRC-32运算函数解释" /></a><br>
+<a href="../img/20201212_04.jpg" rel=""><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20201212_04.jpg"
+        data-srcset="../img/20201212_04.jpg, ../img/20201212_04.jpg 1.5x, ../img/20201212_04.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20201212_04.jpg"
+        title="CRC-32/MPEG-2运算函数解释" /></a></p>
+</details>  
+<h3 id="三使用">三、使用</h3>
+<details close=""><summary>点击展开内容</summary>  
+<blockquote>
+<p>比如由网友whik分享的C语言版本：<br>
+<a href="https://gitee.com/whik/crc-lib-c" target="_blank" rel="noopener noreffer">https://gitee.com/whik/crc-lib-c</a><br>
+直接把“crcLib.c”“crcLib.h”加入工程使用即可。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"> <span class="kt">uint16_t</span> <span class="n">crc16</span><span class="p">;</span>
+ <span class="kt">uint32_t</span> <span class="n">crc32</span><span class="p">;</span>
+ <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">datasrc</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="mi">214</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span> <span class="c1">//要运算的数据
+</span><span class="c1"></span> 
+ <span class="n">crc16</span> <span class="o">=</span> <span class="n">crc16_usb</span><span class="p">(</span><span class="n">datasrc</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">datasrc</span><span class="p">));</span>    <span class="c1">//计算CRC
+</span><span class="c1"></span> <span class="n">crc32</span> <span class="o">=</span> <span class="n">crc32_mpeg_2</span><span class="p">(</span><span class="n">datasrc</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">datasrc</span><span class="p">));</span> <span class="c1">//计算CRC
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>补充说明：</strong></p>
+<ol>
+<li>为什么我们使用 STM32 处理器的 CRC 硬件运算器 与 <code>crc32_mpeg_2()</code>或 网上一些 CRC 计算工具计算的结果不一样？<br>
+那是因为 STM32 处理器为<strong>小端</strong>数据处理方式，CRC 规则要求为<strong>大端</strong>数据处理方式；同时 STM32 处理器 CRC 硬件运算器以 4 字节对齐方式处理，最后几字节不足 4 字节需要用户补齐（如：补齐填充 0）。</li>
+<li>标准的 CRC 函数的入口以及内部处理都是以<strong>字节</strong>作为基本处理单元，这样可避免出现<strong>大小端格式</strong>问题，所以用户调用计算函数时无须关心大小端问题。</li>
+</ol>
+</details>  
+<h3 id="四工具">四、工具</h3>
+<details close=""><summary>点击展开内容</summary>  
+<ol>
+<li><a href="http://www.ip33.com/crc.html" target="_blank" rel="noopener noreffer">CRC 在线计算工具</a></li>
+<li><a href="http://xz.w10a.com/Small/CRCJISUANQI.zip" target="_blank" rel="noopener noreffer">CRC 离线计算工具下载-CRC_Calc v0.1</a></li>
+<li><a href="http://www.geshe.com/home/products/GToolbox/bin/GCRC.exe" target="_blank" rel="noopener noreffer">CRC 离线计算工具下载-格西CRC计算器</a></li>
+</ol>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-12-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20201212/" data-title="CRC 数据校验原理和应用" data-hashtags="CRC"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20201212/" data-hashtag="CRC"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20201212/" data-title="CRC 数据校验原理和应用"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20201212/" data-title="CRC 数据校验原理和应用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20201212/" data-title="CRC 数据校验原理和应用"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/crc/">CRC</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20201211/" class="prev" rel="prev" title="MD5 对数据加密与校验"><i class="fas fa-angle-left fa-fw"></i>MD5 对数据加密与校验</a>
+            <a href="/20201224/" class="next" rel="next" title="X-MACRO 数据与代码序列化">X-MACRO 数据与代码序列化<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Markdown 语法与工具 - o2ospring</title><meta name="Description" content="Markdown 语法与工具的介绍"><meta property="og:title" content="Markdown 语法与工具" />
+<meta property="og:description" content="Markdown 语法与工具的介绍" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20181101/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-11-01T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-06-09T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Markdown 语法与工具"/>
+<meta name="twitter:description" content="Markdown 语法与工具的介绍"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20181101/" /><link rel="prev" href="https://o2ospring.github.io/other/" /><link rel="next" href="https://o2ospring.github.io/20190119/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Markdown 语法与工具",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20181101\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Markdown","wordcount":  4018 ,
+        "url": "https:\/\/o2ospring.github.io\/20181101\/","datePublished": "2018-11-01T21:33:41+08:00","dateModified": "2022-06-09T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "Markdown 语法与工具的介绍"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Markdown 语法与工具</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2018-11-01">2018-11-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4018 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/20181101/" class="leancloud_visitors" data-flag-title="Markdown 语法与工具">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一前言">一、前言</a></li>
+        <li><a href="#二语法">二、语法</a></li>
+        <li><a href="#三工具">三、工具</a></li>
+        <li><a href="#三参考">三、参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
+<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。由于 Markdown 的轻量化、易读易写特性，并且对于图片、图表、数学式都有支持，所以许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。 如 GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap、SourceForge、简书等，甚至还能被使用来撰写电子书。本人所有博文都是使用 Markdown 语法编写，通过对应工具制作或转换后发表到各类平台上。</p>
+<h3 id="二语法">二、语法</h3>
+<details close=""><summary>1、Markdwon 基本语法：</summary>  
+<blockquote>
+<p>写一篇文章，主要包括：目录、标题、文本、表格、图片 这几项内容，通过 Markdwon 语法以统一版式为我们格式化文章，让我们专注写作上，而不是排版上。下表已列出 Markdwon 基本语法及作用说明，直接打开一个排版器（如：<a href="http://md.aclickall.com/" target="_blank" rel="noopener noreffer">aclickall</a>）复制下面 Markdwon 语法把效果展示出来（备注：如果本文使用详细文字说明 Markdwon 语法反而把它说的复杂化）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法</th>
+<th style="text-align:left"><div style="width:80px">功能</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">\</td>
+<td style="text-align:left">转义符</td>
+<td style="text-align:left">用来可显示语法特殊符号。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">***  <br>---  <br>___  </td>
+<td style="text-align:left">分割线</td>
+<td style="text-align:left">前行空行+单独一行及至少三个其符号+空格，特别是 --- 前面必须要加一行空行。<a href="#XXX" rel="">三种语句一样的</a>！</td>
+</tr>
+<tr>
+<td style="text-align:left"># text1  <br>### text3  <br>###### text6  </td>
+<td style="text-align:left">标题 1…6</td>
+<td style="text-align:left">行首加其符号及空格，下行加 === 或 --- 也可表示标题 1 和 2，其中 <a href="#XXX" rel="">###</a> 常用作分类标题。</td>
+</tr>
+<tr>
+<td style="text-align:left">&gt; text  <br>&gt; text  </td>
+<td style="text-align:left">区块</td>
+<td style="text-align:left">行首加其符号及空格，后面加多一行空行表示结束，&gt;&gt; text 可嵌套 1 层、…。</td>
+</tr>
+<tr>
+<td style="text-align:left">```<br>text<br>```  </td>
+<td style="text-align:left">代码区</td>
+<td style="text-align:left">前个 ``` 不要带空格，后个 ``` 要带有空格。第一个可指出代码语言 (如: ```c)。</td>
+</tr>
+<tr>
+<td style="text-align:left">每行行首加4个空格或1个Tab符</td>
+<td style="text-align:left">代码区</td>
+<td style="text-align:left">全部字符默认颜色显示，关健字不会上色。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1. text1  <br>2. text2  </td>
+<td style="text-align:left">有序列表</td>
+<td style="text-align:left">行首加其数字和点及空格。</td>
+</tr>
+<tr>
+<td style="text-align:left">+ text1  <br>+ text2  </td>
+<td style="text-align:left">无序列表</td>
+<td style="text-align:left">行首加其符号及空格。</td>
+</tr>
+<tr>
+<td style="text-align:left">* text1  <br>* text2  </td>
+<td style="text-align:left">无序列表</td>
+<td style="text-align:left"><a href="#XXX" rel="">同上</a>。</td>
+</tr>
+<tr>
+<td style="text-align:left">- text1  <br>- text2  </td>
+<td style="text-align:left">无序列表</td>
+<td style="text-align:left"><a href="#XXX" rel="">同上</a>。</td>
+</tr>
+<tr>
+<td style="text-align:left">- [ ] text1  <br>- [x] text2  </td>
+<td style="text-align:left">选项列表</td>
+<td style="text-align:left">行首加其符号及空格 (注意空格)。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">*text*</td>
+<td style="text-align:left">斜体</td>
+<td style="text-align:left">文字两侧加其符号 (可嵌套到一些语法中)。</td>
+</tr>
+<tr>
+<td style="text-align:left">**text**</td>
+<td style="text-align:left">粗体</td>
+<td style="text-align:left">文字两侧加其符号 (可嵌套到一些语法中)。</td>
+</tr>
+<tr>
+<td style="text-align:left">***text***</td>
+<td style="text-align:left">粗斜体</td>
+<td style="text-align:left">文字两侧加其符号 (可嵌套到一些语法中)。</td>
+</tr>
+<tr>
+<td style="text-align:left">~~text~~</td>
+<td style="text-align:left">删除线</td>
+<td style="text-align:left">文字两侧加其符号 (可嵌套到一些语法中)。</td>
+</tr>
+<tr>
+<td style="text-align:left">`text`</td>
+<td style="text-align:left">代码段</td>
+<td style="text-align:left">文字两侧加其符号 (可嵌套到一些语法中)。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">[TOC]  </td>
+<td style="text-align:left">文章目录</td>
+<td style="text-align:left">单独一行，前后多一行空行，文章索引及跳转。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;link或Email&gt;</td>
+<td style="text-align:left">网址或 Email</td>
+<td style="text-align:left">直接显示网址或 Email 链接，例如：&lt;99770525@qq.com&gt; 。</td>
+</tr>
+<tr>
+<td style="text-align:left">[text](https://link &quot;title&quot;)</td>
+<td style="text-align:left">文字链接</td>
+<td style="text-align:left">可链接网址，也可链接本地文件(./01.html)，&quot;title&quot;气泡文字，可不写。</td>
+</tr>
+<tr>
+<td style="text-align:left">![text](link)</td>
+<td style="text-align:left">图片导入</td>
+<td style="text-align:left">可网络图片，也可本地图片(./01.png)。</td>
+</tr>
+<tr>
+<td style="text-align:left">[![text](link)](https://link2)</td>
+<td style="text-align:left">图片链接</td>
+<td style="text-align:left">可网络图片，也可本地图片(./01.png)。</td>
+</tr>
+<tr>
+<td style="text-align:left">[text][XXX]<br>[XXX]: https://link</td>
+<td style="text-align:left">链接引用</td>
+<td style="text-align:left">前行的 XXX 引用后行的 XXX（相当于宏定义），最终结果为 [text](https://link)。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;!-- text --&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>隐藏内容</td>
+<td style="text-align:left">隐藏内容，可隐藏多行内容 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&amp;nbsp;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>强加空格</td>
+<td style="text-align:left">强加空格，支持单元格内加空格 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;br&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>强制换行</td>
+<td style="text-align:left">强制换行，支持单元格内换行 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;u&gt;下划线文字&lt;/u&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>加下划线</td>
+<td style="text-align:left">加下划线，可包含Markdwon语法存在 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;i&gt;斜体文字&lt;/i&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>斜体文字</td>
+<td style="text-align:left">斜体文字，可包含Markdwon语法存在 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;strong&gt;文字加粗&lt;/strong&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>文字加粗</td>
+<td style="text-align:left">文字加粗，可包含Markdwon语法存在 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;center&gt;居中内容&lt;/center&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>文字居中</td>
+<td style="text-align:left">文字居中，html 语法实现的文字居中 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;details close=&quot;&quot;&gt;&lt;summary&gt;折叠标题&lt;/summary&gt;<br>折叠内容<br>&lt;/details&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>折叠内容</td>
+<td style="text-align:left">折叠内容，可包含Markdwon语法存在 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;a href=&quot;https://link&quot; title=&quot;提示文字&quot;&gt;文字链接&lt;/a&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>强加链接</td>
+<td style="text-align:left">强加链接，折叠标题中强加文字链接 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;span id=&quot;jump&quot;&gt;跳转到的位置&lt;/span&gt;<br>[点击跳转](#jump)</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>页内跳转</td>
+<td style="text-align:left">页内跳转，Markdwon＋html 语法实现 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;span style=&quot;color: #AE87FA;&quot;&gt;彩色文字&lt;/span&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>彩色文字</td>
+<td style="text-align:left">彩色文字，html语法实现文字加颜色 (gitHub支持)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;div style=&quot;width:16px&quot;&gt;单元格宽度&lt;/div&gt;</td>
+<td style="text-align:left"><strong>有用扩展：</strong><br>单元格宽</td>
+<td style="text-align:left">单元格宽，保证单元格至少宽度 16px (gitHub支持)。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注：</strong><br>
+1.1、关于【行首语法符号】的使用，与后面内容必须使用【一个空格】分隔开，这样有效避免一些兼容问题；<br>
+1.2、关于【集合性质符号】的使用，在整体前后面各加【一行空行】表示集合，这样有效避免一些兼容问题；<br>
+1.3、关于【常规段落换行】的问题，在段落结尾加多【两个空格】再回车换行，这样有效避免一些兼容问题；<br>
+1.4、关于【分割线的语法】，前面最好加多【一行空行】，防止【===】和【---】与上行内容组合为【标题1】和【标题2】等问题；<br>
+1.5、关于【列表嵌套语法】，要求子列表前加多【4个空格】或【1个TAB格】；<br>
+1.6、关于【引用嵌套语法】，增多一个【&gt;】表示嵌套多一层，减少至 n 个【&gt;】且后面只有两个空格时表示退回到第 n 层嵌套；<br>
+1.7、关于【单元宽度单位】，分为 pt:点数或磅、px:像素、cm:厘米，常用中文字大小为 14px 或 16px；</p>
+<hr>
+</details>  
+<details close=""><summary>2、Markdwon 扩展语法：</summary>  
+<p><strong>一、表格：●</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">| 左对齐 | 居中对齐 | 右对齐 | 
+| :---- | :-----: | ----: |
+| **粗体字** | [![图片链接](https://www.zybuluo.com/static/img/logo.png)](https://www.zybuluo.com) | [~~加删除线链接~~](https://www.163.com) &lt;br&gt; [表格内换行内容](https://www.163.com) |
+</code></pre></td></tr></table>
+</div>
+</div><p>表现为:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">左对齐</th>
+<th style="text-align:center">居中对齐</th>
+<th style="text-align:right">右对齐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>粗体字</strong></td>
+<td style="text-align:center"><a href="https://www.zybuluo.com" target="_blank" rel="noopener noreffer"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://www.zybuluo.com/static/img/logo.png"
+        data-srcset="https://www.zybuluo.com/static/img/logo.png, https://www.zybuluo.com/static/img/logo.png 1.5x, https://www.zybuluo.com/static/img/logo.png 2x"
+        data-sizes="auto"
+        alt="https://www.zybuluo.com/static/img/logo.png"
+        title="图片链接" /></a></td>
+<td style="text-align:right"><a href="https://www.163.com" target="_blank" rel="noopener noreffer"><del>加删除线链接</del></a> <br> <a href="https://www.163.com" target="_blank" rel="noopener noreffer">表格内换行内容</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>二、数学式：●</strong></p>
+<p>待续……</p>
+<hr>
+<p><strong>三、流程图：●</strong></p>
+<p>待续……</p>
+<hr>
+</details>  
+<details close=""><summary>3、Markdwon 字符转义：</summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:32px">字符</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">\</td>
+<td style="text-align:left">反斜线（必须要加转义）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">|</td>
+<td style="text-align:left">竖线号（专注表格使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">!</td>
+<td style="text-align:left">感叹号（专注插图使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">#</td>
+<td style="text-align:left">井字号（专在行首使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">=</td>
+<td style="text-align:left">等号　（专在行首使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">-</td>
+<td style="text-align:left">减号　（专在行首使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">_</td>
+<td style="text-align:left">下划线（专在行首使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">加号　（专在行首使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">点号　（专在行首使用，其它位置可不用转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">星号　（任意位置使用，显示字符本身须转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">`</td>
+<td style="text-align:left">反引号（任意位置使用，显示字符本身须转义！）</td>
+</tr>
+<tr>
+<td style="text-align:left">{}</td>
+<td style="text-align:left">花括号（任意位置使用，其中 “}” 可不加转义。）</td>
+</tr>
+<tr>
+<td style="text-align:left">[]</td>
+<td style="text-align:left">方括号（任意位置使用，其中 “]” 可不加转义。）</td>
+</tr>
+<tr>
+<td style="text-align:left">()</td>
+<td style="text-align:left">圆括号（任意位置使用，其中 “)” 可不加转义。）</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;&gt;</td>
+<td style="text-align:left">角括号（任意位置使用，其中 “&gt;” 不能加转义！还有:“&lt;&gt;”里面有内容才能对“&lt;”使用“\”转义）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注：</strong><br>
+3.1、某些 Markdown 解释器不支持表格内使用【``】符号包裹【|】符号！<br>
+3.2、关于【$】和【&amp;】，在 Markdown 不能转义，但在 HTML 则是特殊用途！特别是【$】符号，必须使用文本【&amp;#36;】表示，否则极容易引起格式错乱！而【&amp;】有自己格式【&amp;xxx;】，一旦符合其格式则显示为不是我们想要的文本，需要使用文本【&amp;#38;】表示，例如显示【&amp;nbsp;】文本，则使用文本【&amp;#38;nbsp;】表示！更多的 HTML 转义符，请查看【<a href="https://blog.csdn.net/qq_42374362/article/details/80867292" target="_blank" rel="noopener noreffer">网文</a>】。</p>
+<hr>
+</details>  
+<h3 id="三工具">三、工具</h3>
+<details close=""><summary>1、Markdwon 编辑工具：</summary>  
+<p>1.1、<a href="https://typora.io/" title="读音：/&#39;taɪpəura/" target="_blank" rel="noopener noreffer">Typora</a> 目前免费，可导出包括 HTML 和 PDF 等多种文件，编辑与预览同一个窗口，使用上可能不太习惯；<br>
+1.2、<a href="http://markdownpad.com/" target="_blank" rel="noopener noreffer">MarkdownPad2</a> 要收费，只能导出 HTML 和 PDF 两种文件，编辑与预览分开两窗口，不支持列表也不支持其它扩展功能；<br>
+1.3、<a href="https://www.zybuluo.com/" target="_blank" rel="noopener noreffer">Cmd Markdown</a> 作业部落出品，要收费，有网页版和离线版，主要导出 HTML 和 PDF 两种文件，编辑与预览分开两窗口；<br>
+1.4、<a href="https://pandao.github.io/editor.md/" target="_blank" rel="noopener noreffer">Editor.md</a> 是一款开源的、可嵌入的 Markdown 在线编辑器，支持语法很完整，编辑与预览分开两窗口，可以对标 Cmd Markdown 作业部落编辑器；</p>
+<hr>
+</details>  
+<details close=""><summary>2、Markdwon 排版工具：</summary>  
+<p>2.1、<a href="http://md.aclickall.com/" target="_blank" rel="noopener noreffer">aclickall</a>（<a href="http://md2.aclickall.com" target="_blank" rel="noopener noreffer">服务器2</a>）在线版，自带很多排版样式并且用户可自行定制，支持复制至微信公众号，可生成 HTML 保存到本地。<br>
+2.2、<a href="https://www.mdnice.com/" target="_blank" rel="noopener noreffer">Markdown Nice</a>（<a href="https://github.com/mdnice/markdown-nice" target="_blank" rel="noopener noreffer">开源网址</a>）在线版，自带很多排版样式并且用户可自行定制，支持复制至微信公众号、知乎和稀土掘金。<br>
+2.3、<a href="https://doocs.gitee.io/md/" target="_blank" rel="noopener noreffer">Dooc</a> 在线版，只自带一种排版样式（有 3 种简单配色），支持复制至微信公众号，可生成 HTML 保存到本地。<br>
+2.4、<a href="http://js8.in/mpeditor/" target="_blank" rel="noopener noreffer">MPEditor</a> 在线版，只自带一种排版样式，支持复制至微信公众号。<br>
+2.5、<a href="https://markdown-here.com/" target="_blank" rel="noopener noreffer">Markdown Here</a> 为安装在浏览器插件，好像只能在 Email 里一键转换，具体没怎样用过。</p>
+<details close=""><summary>● 关于使用 <a href="http://md.aclickall.com">aclickall</a> 生成的 html 网页, 建议手工改如下几处内容：</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">调整网页相关信息: 
+&lt;meta name=&#34;author&#34; content=&#34;作者相关信息&#34;&gt;
+&lt;meta name=&#34;email&#34; content=&#34;99770525@qq.com&#34;&gt;
+&lt;meta name=&#34;description&#34; content=&#34;描述内容&#34;&gt;
+&lt;title&gt;网页标题&lt;/title&gt;  
+
+改前: #export_content { margin: 40px 20%;                     //上下空出40px板边, 左右空出20%板边
+改后: #export_content { max-width: 900px; margin: 40px auto;  //上下空出40px板边, 左右自动伸展并最大限制为900px（同时适配手机和电脑显示）
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<hr>
+</details>  
+<details close=""><summary>3、Markdwon 图标素材：</summary>  
+<p>3.1、<a href="http://bj.96weixin.com/tools/emoji" target="_blank" rel="noopener noreffer">96微信编辑器</a>，有图标素材，有模板(要收费)，还有一些小工具(二维码工具也不错)。</p>
+<hr>
+</details>  
+<h3 id="三参考">三、参考</h3>
+<p><a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener noreffer">https://www.runoob.com/markdown/md-tutorial.html</a><br>
+<a href="https://cloud.tencent.com/developer/article/1748874" target="_blank" rel="noopener noreffer">https://cloud.tencent.com/developer/article/1748874</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-06-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20181101/" data-title="Markdown 语法与工具" data-hashtags="Markdown"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20181101/" data-hashtag="Markdown"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20181101/" data-title="Markdown 语法与工具"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20181101/" data-title="Markdown 语法与工具"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20181101/" data-title="Markdown 语法与工具"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/markdown/">Markdown</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/other/" class="prev" rel="prev" title="【other 其它杂谈索引】"><i class="fas fa-angle-left fa-fw"></i>【other 其它杂谈索引】</a>
+            <a href="/20190119/" class="next" rel="next" title="J-link 调试器日志打印工具-RTT">J-link 调试器日志打印工具-RTT<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

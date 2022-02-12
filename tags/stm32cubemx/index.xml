@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>STM32CubeMX - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/stm32cubemx/</link>
+        <description>STM32CubeMX - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Aug 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/stm32cubemx/" rel="self" type="application/rss+xml" /><item>
+    <title>linux-STM32F开发㈠-makefile 构建与使用</title>
+    <link>https://o2ospring.github.io/20220804/</link>
+    <pubDate>Thu, 04 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220804/</guid>
+    <description><![CDATA[一、前言 在 Windows 下有完善的 IDE（集成开发环境）开发工具，开发单片机程序变得简单和傻瓜化，图形界面上所见所得操作，基本不需要我们了解一些专业知识]]></description>
+</item><item>
+    <title>STM32CubeMX 基本使用</title>
+    <link>https://o2ospring.github.io/20210606/</link>
+    <pubDate>Sun, 06 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210606/</guid>
+    <description><![CDATA[一【基本知识】 ● STM32CubeMX 是 ST 意法半导体近几年来大力推荐的 STM32 芯片图形化配置工具，目的就是为了方便开发者，允许用户使用图形化向导【生成初始化代码】，省]]></description>
+</item></channel>
+</rss>

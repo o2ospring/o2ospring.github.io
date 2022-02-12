@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>linux 开发工具 Eclipse - o2ospring</title><meta name="Description" content="linux 集成开发工具 Eclipse 安装与使用"><meta property="og:title" content="linux 开发工具 Eclipse" />
+<meta property="og:description" content="linux 集成开发工具 Eclipse 安装与使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20200804/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-04T21:33:41+08:00" />
+<meta property="article:modified_time" content="2020-08-04T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="linux 开发工具 Eclipse"/>
+<meta name="twitter:description" content="linux 集成开发工具 Eclipse 安装与使用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20200804/" /><link rel="prev" href="https://o2ospring.github.io/20200803/" /><link rel="next" href="https://o2ospring.github.io/20200913/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "linux 开发工具 Eclipse",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20200804\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Eclipse, IDE, linux 工具\/应用","wordcount":  2244 ,
+        "url": "https:\/\/o2ospring.github.io\/20200804\/","datePublished": "2020-08-04T21:33:41+08:00","dateModified": "2020-08-04T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "linux 集成开发工具 Eclipse 安装与使用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux 开发工具 Eclipse</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-04">2020-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2244 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/20200804/" class="leancloud_visitors" data-flag-title="linux 开发工具 Eclipse">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#eclipse-简介">Eclipse 简介</a></li>
+        <li><a href="#ubuntu-平台">Ubuntu 平台</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="eclipse-简介">Eclipse 简介</h3>
+<blockquote>
+<p>Eclipse 是一个开放源代码的、基于 Java 的可扩展开发平台。就其本身而言，它只是一个框架和一组服务，用于通过插件组件构建开发环境。</p>
+</blockquote>
+<h3 id="ubuntu-平台">Ubuntu 平台</h3>
+<blockquote>
+<p><em>系统版本：16.04.7（<a href="http://mirrors.163.com/ubuntu-releases/16.04.7/ubuntu-16.04.7-desktop-amd64.iso" target="_blank" rel="noopener noreffer">ubuntu-16.04.7-desktop-amd64.iso</a>）</em><br>
+<em>软件版本：4.14.0（<a href="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2019-12/R/eclipse-cpp-2019-12-R-linux-gtk-x86_64.tar.gz" target="_blank" rel="noopener noreffer">eclipse-cpp-2019-12-R-linux-gtk-x86_64.tar.gz</a>）<a href="https://www.eclipse.org/downloads/packages" target="_blank" rel="noopener noreffer">【官网最新版】</a><a href="https://www.eclipse.org/downloads/packages/release/2019-12/r" target="_blank" rel="noopener noreffer">【4.14各种开发语言版】</a></em><br>
+<em>官方网址：<a href="https://www.eclipse.org" target="_blank" rel="noopener noreffer">https://www.eclipse.org</a></em><br>
+<em>软件依赖：<a href="../20200803" rel="">JDK</a>（因为 Eclipse 是用 Java 编写的 IDE）</em></p>
+</blockquote>
+<details close=""><summary><strong>软件简介 ●</strong></summary>  
+<p>Eclipse 是一个用 Java 所撰写 IDE，因此可跨平台，所以在 Linux 和 Windows 平台下皆可使用 Eclipse，可降低程序员熟悉 IDE 的学习曲线。Eclipse 虽然主要拿来开发 Java 程序，但事实上 Eclipse 为一个『万用语言』的 IDE，只要挂上 plugin 后，就可以在 Eclipse 开发各种语言程序，所以我们只要挂上 CDT(C/C++ Development Toolkit) 后，就可以在 Eclipse 开发 C/C++ 程序了。（<a href="https://baike.baidu.com/item/eclipse/61703" target="_blank" rel="noopener noreffer">具体介绍请查看百度百科</a>）</p>
+</details>  
+<details close=""><summary><strong>版本说明 ●</strong></summary>  
+<ol>
+<li>经常用到的是前五个版本：<br>
+Eclipse IDE for Java EE Developers：是为 J2EE 开发的版本；<br>
+Eclipse Classic：是 Eclipse 的经典版本(纯净版)，没有插件需要自己安装；<br>
+Eclipse IDE for Java Developers：适用于 Java 开发；<br>
+Eclipse IDE for C/C++ Developers：适用于 C/C++ 开发；<br>
+Eclipse for Mobile Developers：适用于 Java 手机开发；<br>
+Eclipse for RCP/Plug-in Developers：用于 RCP 和插件开发；</li>
+<li>不同的 Eclipse 版本之间就是 plugins/features 目录下的文件不同而已。</li>
+<li>初时安装 Eclipse 2020-06 (4.16)，使用时出现各种各样问题，基于兼容性稳定性以及插件支持度考虑，最后选用大约半年前一个版本：Eclipse 2019-12 (4.14) 来安装（使用过程中暂未发现问题）。</li>
+<li>Eclipse 的发行版本：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">代号</th>
+<th style="text-align:left">平台版本</th>
+<th style="text-align:left">项目</th>
+<th style="text-align:left">主要版本发行日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">3.0 [1]</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">2004-6-21</td>
+</tr>
+<tr>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">3.1</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">2005-6-28</td>
+</tr>
+<tr>
+<td style="text-align:left">Callisto</td>
+<td style="text-align:left">3.2</td>
+<td style="text-align:left">Callisto projects</td>
+<td style="text-align:left">2006-6-30</td>
+</tr>
+<tr>
+<td style="text-align:left">Europa</td>
+<td style="text-align:left">3.3</td>
+<td style="text-align:left">Europa projects</td>
+<td style="text-align:left">2007-6-29</td>
+</tr>
+<tr>
+<td style="text-align:left">Ganymede</td>
+<td style="text-align:left">3.4</td>
+<td style="text-align:left">Ganymede projects</td>
+<td style="text-align:left">2008-6-25</td>
+</tr>
+<tr>
+<td style="text-align:left">Galileo</td>
+<td style="text-align:left">3.5</td>
+<td style="text-align:left">Galileo projects</td>
+<td style="text-align:left">2009-6-24</td>
+</tr>
+<tr>
+<td style="text-align:left">Helios</td>
+<td style="text-align:left">3.6</td>
+<td style="text-align:left">Helios projects</td>
+<td style="text-align:left">2010-6-23</td>
+</tr>
+<tr>
+<td style="text-align:left">Indigo</td>
+<td style="text-align:left">3.7</td>
+<td style="text-align:left">Indigo projects</td>
+<td style="text-align:left">2011-6-22</td>
+</tr>
+<tr>
+<td style="text-align:left">Juno</td>
+<td style="text-align:left">4.2 [2]</td>
+<td style="text-align:left">Juno projects</td>
+<td style="text-align:left">2012-6-27</td>
+</tr>
+<tr>
+<td style="text-align:left">Kepler</td>
+<td style="text-align:left">4.3</td>
+<td style="text-align:left">Kepler projects</td>
+<td style="text-align:left">2013-6-26</td>
+</tr>
+<tr>
+<td style="text-align:left">Luna</td>
+<td style="text-align:left">4.4</td>
+<td style="text-align:left">Luna projects</td>
+<td style="text-align:left">2014-6-25</td>
+</tr>
+<tr>
+<td style="text-align:left">Mars</td>
+<td style="text-align:left">4.5</td>
+<td style="text-align:left">Mars projects</td>
+<td style="text-align:left">2015-6-24</td>
+</tr>
+<tr>
+<td style="text-align:left">Neon</td>
+<td style="text-align:left">4.6</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2016-6-22</td>
+</tr>
+<tr>
+<td style="text-align:left">Oxygen</td>
+<td style="text-align:left">4.7</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2017-6-28</td>
+</tr>
+<tr>
+<td style="text-align:left">Photon</td>
+<td style="text-align:left">4.8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2018-6-27</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.9</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2018-09</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2018-12</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.11</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2019-03</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.12</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2019-06</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.13</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2019-09</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.14</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2019-12</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.15</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2020-03</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4.16</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">2020-06</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<details close=""><summary><strong>安装步骤 ●</strong></summary>  
+<details close=""><summary>3.1. 将压缩包解压（<a href="../img/20200802_2_02_03_01.jpg">如图</a>）</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 解压 eclipse 压缩包到 opt 文件夹</span>
+sudo tar -zxvf eclipse-cpp-2019-12-R-linux-gtk-x86_64.tar.gz -C /opt
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>3.2. 制作启动脚本（<a href="../img/20200802_2_02_03_02.jpg">如图</a>）</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在/usr/bin目录下创建一个启动脚本eclipse，执行下面的命令来创建：</span>
+sudo gedit /usr/bin/eclipse
+
+<span class="c1"># 然后在该文件中添加以下内容（注意：#!/bin/sh 后必须使用 \n 来换行!）：</span>
+<span class="c1">#!/bin/sh</span>
+<span class="nb">export</span> <span class="nv">MOZILLA_FIVE_HOME</span><span class="o">=</span><span class="s2">&#34;/usr/lib/mozilla/&#34;</span>
+<span class="nb">export</span> <span class="nv">ECLIPSE_HOME</span><span class="o">=</span><span class="s2">&#34;/opt/eclipse&#34;</span>
+<span class="nv">$ECLIPSE_HOME</span>/eclipse  <span class="nv">$*</span>
+
+<span class="c1"># 再修改该脚本的权限，让它变成可执行，执行下面的命令：</span>
+sudo chmod +x /usr/bin/eclipse
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>3.3. 添加应用图标（<a href="../img/20200802_2_02_03_03.jpg">如图</a>）</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在应用程序菜单上添加一个图标，执行下面的命令：</span>
+sudo gedit /usr/share/applications/eclipse.desktop
+
+<span class="c1"># 然后在该文件中添加以下内容（注意：行尾不能有空格!）：</span>
+<span class="o">[</span>Desktop Entry<span class="o">]</span>
+<span class="nv">Encoding</span><span class="o">=</span>UTF-8
+<span class="nv">Name</span><span class="o">=</span>Eclipse
+<span class="nv">Comment</span><span class="o">=</span>Eclipse IDE
+<span class="nv">Exec</span><span class="o">=</span>/opt/eclipse/eclipse
+<span class="nv">Icon</span><span class="o">=</span>/opt/eclipse/icon.xpm
+<span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">StartupNotify</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">Type</span><span class="o">=</span>Application
+<span class="nv">Categories</span><span class="o">=</span>Application<span class="p">;</span>Development<span class="p">;</span>
+
+<span class="c1"># 再修改该应用图标的权限，让它变成可执行，执行下面的命令：</span>
+sudo chmod +x /usr/share/applications/eclipse.desktop
+</code></pre></td></tr></table>
+</div>
+</div><p>网文：《<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html" target="_blank" rel="noopener noreffer">Linux Desktop Entry 文件深入解析</a>》，IBM Developer 中文网站，专为开发者打造的技术资源平台。</p>
+</details>  
+<details close=""><summary>3.4. 运行应用方法（<a href="../img/20200802_2_02_03_04.jpg">如图</a>）</summary>  
+<p>点击左上角的 Search your computer 功能图标，再输入 Eclipse，单击下面显示 Eclipse 图标打开即可。</p>
+</details>  
+<details close=""><summary>3.5. 创建桌面启动（<a href="../img/20200802_2_02_03_05.jpg">如图</a>）</summary>  
+<p>在 /usr/share/applications 目录下将 Eclipse 图标右键复制到桌面，双击桌面图即可打开软件。</p>
+</details>  
+<details close=""><summary>3.6. 相关注意事项</summary>  
+<p>如果按照上述方法安装了 eclipse 后能够创建图标但是运行不起来 eclipse，就可能是 Linux 位数与 Eclipse 的位数不一致！我就因为一时疏忽遇到这个问题，浪费了很多时间。</p>
+</details>  
+</details>  
+<details close=""><summary><strong>运行工程 ●</strong></summary>  
+<p>以 littlevGL/LVGL 开源的 GUI 演示工程作为例子说明 Eclipse 的基本使用：</p>
+<details close=""><summary>4.1. 先从 github 下载 LVGL 整套 Eclipse 工程代码（<a href="https://github.com/lvgl/lv_sim_eclipse_sdl" title="LittlevGL嵌入式GUI库的模拟器项目">网址</a>）</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 克隆LVGL项目（注：--recursive 用于把当前项目依赖的一些项目同时下载下来） </span>
+git clone --recursive https://github.com/littlevgl/pc_simulator_sdl_eclipse.git
+</code></pre></td></tr></table>
+</div>
+</div><p>补注：关于 git 相关知识，请查《<a href="20190119_git%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0.html" rel="">git学习笔记</a>》。</p>
+</details>  
+<details close=""><summary>4.2. 安装 gcc 和 g++ 编译工具链</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install gcc g++
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.3. 安装 SDL 库（<a href="https://www.libsdl.org/">官网</a>）</summary>  
+<p>介绍：SDL 库的作用说白了就是封装了复杂的视音频底层操作，简化了视音频处理的难度。SDL（Simple DirectMedia Layer）是一套开放源代码的跨平台多媒体开发库，使用 C 语言写成。SDL 提供了数种控制图像、声音、输出入的函数，让开发者只要用相同或是相似的代码就可以开发出跨多个平台（Linux、Windows、Mac OS X 等）的应用软件。目前 SDL 多用于开发游戏、模拟器、媒体播放器等多媒体应用领域。SDL 使用 GNU 宽通用公共许可证为授权方式，意指动态链接（dynamic link）其库并不需要开放本身的源代码。因此诸如《雷神之锤4》等商业游戏也使用 SDL 来开发。<br>
+网文：《<a href="https://www.jianshu.com/p/d35f8a885e95" target="_blank" rel="noopener noreffer">SDL 库安装、环境配置与使用</a>》</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y build-essential libsdl2-dev
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.4. 安装 CDT 插件（<a href="../img/20200802_2_02_04_04.jpg">如图</a>）（<a href="http://www.eclipse.org/cdt/" title="CDT 与 Eclipse 的版本必须要匹配">官网</a>）</summary>  
+<ol>
+<li>插件介绍：因为 Eclipse 是用 Java 开发的，其原设计主要进行 Jave 开发。如果要进行 C/C++ 开发，则需要安装一个 CDT 插件，不过现在官方已把 CDT 插件集成到了安装包里，可以在官网选择【<a href="https://www.eclipse.org/downloads/packages" target="_blank" rel="noopener noreffer">Eclipse IDE for C/C++ Developers</a>】下载就可以了。</li>
+<li>手动安装：<br>
+a) 在菜单打开：Help / Install New Software&hellip; / Add（进入另一个窗口操作）<br>
+b) 在窗口上输入内容并点击 Add 按钮（本例 CDT 版本只能匹配 Eclipse 4.14.0）：<br>
+　 Name:     CDT<br>
+　 Location: <a href="http://download.eclipse.org/tools/cdt/releases/9.10" target="_blank" rel="noopener noreffer">http://download.eclipse.org/tools/cdt/releases/9.10</a><br>
+c) 在窗口操作：SelectAll / Next / Next / 选择同意 / Finsh（进入另一个窗口操作）</li>
+<li>注意事项：CDT 与 Eclipse 的版本必须要匹配！</li>
+<li>关于 CDT 各个版本汇总网址：<a href="https://www.eclipse.org/cdt/downloads.php" target="_blank" rel="noopener noreffer">https://www.eclipse.org/cdt/downloads.php</a></li>
+</ol>
+</details>  
+<details close=""><summary>4.5. 导入工程（<a href="../img/20200802_2_02_04_05.jpg">如图</a>）</summary>  
+<ul>
+<li>File / Import / General / Existing Projects Into Workspace / Browse / 选择工程文件夹 / OK / 勾选工程 / Finish</li>
+<li>注意：工程<strong>不要</strong>放到工作区文件夹中！</li>
+</ul>
+</details>  
+<details close=""><summary>4.6. 配置工程（<a href="../img/20200802_2_02_04_06.jpg">如图</a>）</summary>  
+<ul>
+<li>点中之前导入的工程 / Project / Properties / C/C++ Build / Tool Chain Editor / Current builder / 选择 CDT Internal Builder / Apply and Close</li>
+</ul>
+</details>  
+<details close=""><summary>4.7. 编译工程（<a href="../img/20200802_2_02_04_07.jpg">如图</a>）</summary>  
+<ol>
+<li>点中之前导入的工程 / Project / Build All</li>
+<li>编译出的执行文件路径在工程文件夹里面的 Debug 文件夹下</li>
+</ol>
+</details>  
+<details close=""><summary>4.8. 运行工程（<a href="../img/20200802_2_02_04_08.jpg">如图</a>）</summary>  
+<ul>
+<li>直接运行程序：点中之前导入的工程 / Run / Run</li>
+<li>在线仿真程序：点中之前导入的工程 / Run / Debug</li>
+</ul>
+</details>  
+</details>  
+<details close=""><summary><strong>新键工程 ●</strong></summary>  
+<p>待续……</p>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-08-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20200804/" data-title="linux 开发工具 Eclipse" data-hashtags="Eclipse,IDE,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20200804/" data-hashtag="Eclipse"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20200804/" data-title="linux 开发工具 Eclipse"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20200804/" data-title="linux 开发工具 Eclipse"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20200804/" data-title="linux 开发工具 Eclipse"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/eclipse/">Eclipse</a>,&nbsp;<a href="/tags/ide/">IDE</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20200803/" class="prev" rel="prev" title="linux JAVA 开发环境 JDK"><i class="fas fa-angle-left fa-fw"></i>linux JAVA 开发环境 JDK</a>
+            <a href="/20200913/" class="next" rel="next" title="面向对象的 C 语言实现方法">面向对象的 C 语言实现方法<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

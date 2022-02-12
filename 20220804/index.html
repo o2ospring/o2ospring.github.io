@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>linux-STM32F开发㈠-makefile 构建与使用 - o2ospring</title><meta name="Description" content="linux-STM32F开发㈠-makefile 构建与使用"><meta property="og:title" content="linux-STM32F开发㈠-makefile 构建与使用" />
+<meta property="og:description" content="linux-STM32F开发㈠-makefile 构建与使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220804/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-04T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-08-04T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="linux-STM32F开发㈠-makefile 构建与使用"/>
+<meta name="twitter:description" content="linux-STM32F开发㈠-makefile 构建与使用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220804/" /><link rel="prev" href="https://o2ospring.github.io/20220707/" /><link rel="next" href="https://o2ospring.github.io/20220808/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "linux-STM32F开发㈠-makefile 构建与使用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220804\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Makefile, ARM Cortex-M, STM32CubeMX","wordcount":  6632 ,
+        "url": "https:\/\/o2ospring.github.io\/20220804\/","datePublished": "2022-08-04T21:33:41+08:00","dateModified": "2022-08-04T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "linux-STM32F开发㈠-makefile 构建与使用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux-STM32F开发㈠-makefile 构建与使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-04">2022-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6632 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 14 分钟&nbsp;<span id="/20220804/" class="leancloud_visitors" data-flag-title="linux-STM32F开发㈠-makefile 构建与使用">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一前言">一、前言</a></li>
+        <li><a href="#二构建">二、构建</a></li>
+        <li><a href="#三使用">三、使用</a></li>
+        <li><a href="#四提升">四、提升</a></li>
+        <li><a href="#五插曲">五、插曲</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
+<p>在 Windows 下有完善的 IDE（集成开发环境）开发工具，开发单片机程序变得简单和傻瓜化，图形界面上所见所得操作，基本不需要我们了解一些专业知识。正是 IDE 太过完善了，导致我们忽略一些技术知识，限制我们技术的提升。如果想进一步提升专业知识，必须要学会在 linux 下开发，本篇文章主要介绍 STM32F 项目工程使用 Makefile 构建、配置、编译。<br>
+<strong>如果你不熟悉 linux 和 Makefile，建议认真学习下面文章</strong>：<br>
+《<a href="../20200802" rel="">linux-系统-Ubuntu 系统与工具</a>》<br>
+《<a href="../20210613" rel="">linux-命令-linux 基本命令使用</a>》<br>
+《<a href="../20200915" rel="">linux-编译-linux 编译构建工具</a>》</p>
+<h3 id="二构建">二、构建</h3>
+<details close=""><summary>1、使用【STM32CubeMX】构建操作</summary>  
+<blockquote>
+<p>● 使用【STM32CubeMX】构建一个 demo 工程，在《<a href="../20210606" rel="">STM32CubeMX 基本使用</a>》中的第三节【STM32CubeMX 使用】已非常详细介绍了，这里不再赘述！不同的是最后一步设置生成工程时选择【Makefile】选项，如图：</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_01_01.jpg"
+        data-srcset="../img/20220803_01_01.jpg, ../img/20220803_01_01.jpg 1.5x, ../img/20220803_01_01.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_01_01.jpg"
+        title="选择生成 Makefile 工程" /></p>
+</details>  
+<details close=""><summary>2、使用自己的【Makefile】构建操作</summary>  
+<blockquote>
+<p>● 使用自己的 Makefile 构建（本人有自己风格的 Makefile 模板，并且可以对特定模块定制编译参数）。首先参照《<a href="../20210606" rel="">STM32CubeMX 基本使用</a>》中的第三节【STM32CubeMX 使用】方法构建一个基本工程，然后使用本人风格 Makefile 模板嵌入工程。至于具体如何编写 Makefile 请参考《<a href="../20210606" rel="">linux-编译-linux 编译构建工具</a>》中的【三、make+Makefile 脚本】章节。本节 demo 工程请到仓库中的【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】直接下载。将 Makefile 模板几个文件嵌入到软件工程操作方法，如图：</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_01_02.jpg"
+        data-srcset="../img/20220803_01_02.jpg, ../img/20220803_01_02.jpg 1.5x, ../img/20220803_01_02.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_01_02.jpg"
+        title="将 Makefile 模板嵌入工程" /></p>
+<p>补充：嵌入式处理器需要专用的交叉编译器和编译参数，会多一个启动文件（汇编）和 一个链接器文件（脚本），生成依赖信息的方法也不同，这些主要涉及 [envi.rule] 和 [make.rule] 两个文件，具体请查阅仓库里的【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】demo 工程。至于具体参数表示何意，以及如何加入源文件、如何修改编译参数，下面章节将会详细介绍。同时建议你使用代码比较工具比较【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】与【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">3_large</a>】这两个工程中的<code>envi.rule</code> <code>make.rule</code>及三个<code>Makefile</code>文件的差异，直观了解 PC 纯软件 Makefile 与 嵌入式 Makefile 的差异！</p>
+</details>  
+<details close=""><summary>3、关于【STM32F】嵌入式构建特点</summary>  
+<blockquote>
+<p>一、相比 PC 纯软件工程构建，嵌入式工程构建会多一个启动文件（汇编）和 一个链接器文件（脚本），并且不同处理器需要使用不同启动文件及链接脚本文件（一般都是厂家提供的）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">startup_stm32f103xb.s</td>
+<td style="text-align:left">处理器启动文件（汇编）</td>
+</tr>
+<tr>
+<td style="text-align:left">STM32F103XB_FLASH.ld</td>
+<td style="text-align:left">链接器链接文件（脚本）</td>
+</tr>
+</tbody>
+</table>
+<p>备注：这两个文件来源: <code>HAL库\CMSIS\Device\ST\STM32F1xx\Source\Templates\gcc\</code>。关于【HAL 库】请到【STM32CubeMX】库文件管理目录里提取，一般路径为：<code>C:\Users\Administrator\STM32Cube\Repository\</code>。</p>
+<blockquote>
+<p>二、嵌入式编译器主要生成的文件：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.elf</td>
+<td style="text-align:left">可执行与可链接格式文件（★业界标准文件★），包含了全部的编译链接信息和程序执行数据</td>
+</tr>
+<tr>
+<td style="text-align:left">.lst</td>
+<td style="text-align:left">是使用 objdump 反汇编 elf 文件得到的输出文件，它拥有比 map 文件更详细的信息</td>
+</tr>
+<tr>
+<td style="text-align:left">.map</td>
+<td style="text-align:left">源代码被工具链构建之后的详细信息，包括固件大小、函数符号、内存映射等</td>
+</tr>
+<tr>
+<td style="text-align:left">.hex</td>
+<td style="text-align:left">基于文本描述的 Intel 标准的十六进制数据，用于烧录固件</td>
+</tr>
+<tr>
+<td style="text-align:left">.bin</td>
+<td style="text-align:left">纯二进制数据，用于烧录固件</td>
+</tr>
+</tbody>
+</table>
+<p>备注：从存储数据的信息量上看：ELF&gt;AXF&gt;HEX&gt;BIN，所以可以将大信息量的文件格式向小信息量的文件格式转换。如：ELF 可以转换为 AXF、HEX、BIN。其中 HEX 文件可转换为 BIN 文件；如果指定了数据起始地址，也可以将 BIN 转换为 HEX 文件。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_01_03.jpg"
+        data-srcset="../img/20220803_01_03.jpg, ../img/20220803_01_03.jpg 1.5x, ../img/20220803_01_03.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_01_03.jpg"
+        title="参考：armcc 的整个构建过程" /></p>
+<blockquote>
+<p>三、嵌入式编译器有自己独特的选项参数：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:152px">选项</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-mcpu=cortex-m3</td>
+<td style="text-align:left"><strong>编译/链接</strong>：处理器内核架构</td>
+</tr>
+<tr>
+<td style="text-align:left">-mthumb</td>
+<td style="text-align:left"><strong>编译/链接</strong>：指令集架构</td>
+</tr>
+<tr>
+<td style="text-align:left">-mfpu=fpv4-sp-d16</td>
+<td style="text-align:left"><strong>编译/链接</strong>：浮点运算单元（F4系列才有）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-Wa,-a,-ad,-alms=xxx.lst</td>
+<td style="text-align:left"><strong>编译</strong>：生成 lst 文件，它拥有比 map 文件更详细的信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-MMD -MP -MF&quot;xxx.d&quot;</td>
+<td style="text-align:left"><strong>编译</strong>：生成 d 文件，它是源文件包含文件的依赖信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-Dxxx</td>
+<td style="text-align:left"><strong>编译</strong>：加入工程全局宏定义，可多个 -Dxxx 全局宏定义</td>
+</tr>
+<tr>
+<td style="text-align:left">-g -gdwarf-2</td>
+<td style="text-align:left"><strong>编译</strong>：生成 gdb 调试信息 格式为[dward-2]</td>
+</tr>
+<tr>
+<td style="text-align:left">-fdata-sections</td>
+<td style="text-align:left"><strong>编译</strong>：对每个数据创建一个 section（section 是 GCC 的最小链接单元）</td>
+</tr>
+<tr>
+<td style="text-align:left">-ffunction-sections</td>
+<td style="text-align:left"><strong>编译</strong>：对每个函数创建一个 section（section 是 GCC 的最小链接单元）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-Wl,--gc-sections</td>
+<td style="text-align:left"><strong>链接</strong>：特别不链接未使用的 section（函数/数据），从而减小执行文件大小（-Wl,表示将编译器参数传给链接器）</td>
+</tr>
+<tr>
+<td style="text-align:left">-Wl,-Map=zzz.map,--cref</td>
+<td style="text-align:left"><strong>链接</strong>：打印链接表信息到[zzz.map]文件，--cref 表示输出一个交叉引用表（-Wl,表示将编译器参数传给链接器）</td>
+</tr>
+<tr>
+<td style="text-align:left">-Txxx.ld</td>
+<td style="text-align:left"><strong>链接</strong>：使用[xxx.ld]脚本文件作为链接器脚本</td>
+</tr>
+<tr>
+<td style="text-align:left">-specs=nano.specs</td>
+<td style="text-align:left"><strong>链接</strong>：替换精简 C 库以缩小代码大小</td>
+</tr>
+<tr>
+<td style="text-align:left">-lc -lm -lnosys</td>
+<td style="text-align:left"><strong>链接</strong>：标准C库（C lib）、数学库（math）、nosys 库</td>
+</tr>
+</tbody>
+</table>
+<p>参数示范如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># 链接
+</span><span class="c"></span><span class="nf">build/zzz.elf</span><span class="o">:</span> <span class="n">build</span>/<span class="n">xxx</span>.<span class="n">o</span> <span class="n">build</span>/<span class="n">yyy</span>.<span class="n">o</span> <span class="n">build</span>/<span class="n">bbb</span>.<span class="n">a</span>
+	arm-none-eabi-gcc -mcpu<span class="o">=</span>cortex-m3 -mthumb <span class="se">\
+</span><span class="se"></span>                      -T./STM32F103CBTx_FLASH.ld <span class="se">\
+</span><span class="se"></span>                      -specs<span class="o">=</span>nano.specs <span class="se">\
+</span><span class="se"></span>                      -Wl,--gc-sections <span class="se">\
+</span><span class="se"></span>                      -Wl,-Map<span class="o">=</span>build/zzz.map,--cref <span class="se">\
+</span><span class="se"></span>                      -o build/zzz.elf <span class="se">\
+</span><span class="se"></span>                      build/xxx.o build/yyy.o build/bbb.a -lc -lm -lnosys
+<span class="c"># 编译-源文件（多了 lst 生成）
+</span><span class="c"></span><span class="nf">%.o</span><span class="o">:</span> %.<span class="n">c</span>
+	arm-none-eabi-gcc -c -mcpu<span class="o">=</span>cortex-m3 -mthumb <span class="se">\
+</span><span class="se"></span>                      -g -gdwarf-2 -Wall -Og -fdata-sections -ffunction-sections <span class="se">\
+</span><span class="se"></span>                      -DUSE_HAL_DRIVER -DSTM32F103xB -I./inc/ <span class="se">\
+</span><span class="se"></span>                      -MMD -MP -MF<span class="s2">&#34;build/xxx.d&#34;</span> <span class="se">\
+</span><span class="se"></span>                      -Wa,-a,-ad,-alms<span class="o">=</span>build/xxx.lst <span class="se">\
+</span><span class="se"></span>                      xxxx/xxx.c -o build/xxx.o
+<span class="c"># 编译-汇编文件（少了 lst 生成）
+</span><span class="c"></span><span class="nf">%.o</span><span class="o">:</span> %.<span class="n">s</span>
+	arm-none-eabi-gcc -x assembler-with-cpp <span class="se">\
+</span><span class="se"></span>                      -c -mcpu<span class="o">=</span>cortex-m3 -mthumb <span class="se">\
+</span><span class="se"></span>                      -g -gdwarf-2 -Wall -Og -fdata-sections -ffunction-sections <span class="se">\
+</span><span class="se"></span>                      -DUSE_HAL_DRIVER -DSTM32F103xB -I./inc/ <span class="se">\
+</span><span class="se"></span>                      -MMD -MP -MF<span class="s2">&#34;build/yyy.d&#34;</span> <span class="se">\
+</span><span class="se"></span>                      ./yyy.s -o build/yyy.o
+</code></pre></td></tr></table>
+</div>
+</div><p>备注：这些参数主要涉及 [envi.rule] 和 [make.rule] 两个文件，具体请查看【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】demo 工程。</p>
+</details>  
+<h3 id="三使用">三、使用</h3>
+<details close=""><summary>1、基于【STM32CubeMX】构建的使用</summary>  
+<blockquote>
+<p>一、在实际的工程应用中，必定要加入自己的源代码文件和配置相关参数。下面为通过与 Keil MDK 的比较，让你快速了解 Makefile 的相关配置，如图：</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_11.jpg"
+        data-srcset="../img/20220803_02_11.jpg, ../img/20220803_02_11.jpg 1.5x, ../img/20220803_02_11.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_11.jpg"
+        title="对比 MDK 的配置" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_12.jpg"
+        data-srcset="../img/20220803_02_12.jpg, ../img/20220803_02_12.jpg 1.5x, ../img/20220803_02_12.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_12.jpg"
+        title="对比 MDK 的配置" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_13.jpg"
+        data-srcset="../img/20220803_02_13.jpg, ../img/20220803_02_13.jpg 1.5x, ../img/20220803_02_13.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_13.jpg"
+        title="对比 MDK 的配置" /></p>
+<blockquote>
+<p>二、使用 Makefile 编译工程：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################################</span>
+<span class="c1"># 在[shell]中进入[Makefile]所在的目录，输入命令执行：</span>
+<span class="c1">####################################################</span>
+<span class="nb">cd</span> stm32f1xx <span class="c1"># 进入操作目录</span>
+make all     <span class="c1"># 执行编译操作（如果想重新全编译，先执行下面命令）</span>
+make clean   <span class="c1"># 执行清除操作（清除所有编译出的文件，包括 hex 等）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、基于自己的【Makefile】构建的使用</summary>  
+<blockquote>
+<p>一、在实际的工程应用中，必定要加入自己的源代码文件和配置相关参数。下面为通过与 Keil MDK 的比较，让你快速了解 Makefile 的相关配置，如图：</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_21.jpg"
+        data-srcset="../img/20220803_02_21.jpg, ../img/20220803_02_21.jpg 1.5x, ../img/20220803_02_21.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_21.jpg"
+        title="对比 MDK 的配置" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_22.jpg"
+        data-srcset="../img/20220803_02_22.jpg, ../img/20220803_02_22.jpg 1.5x, ../img/20220803_02_22.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_22.jpg"
+        title="对比 MDK 的配置" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_23.jpg"
+        data-srcset="../img/20220803_02_23.jpg, ../img/20220803_02_23.jpg 1.5x, ../img/20220803_02_23.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_23.jpg"
+        title="对比 MDK 的配置" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_02_24.jpg"
+        data-srcset="../img/20220803_02_24.jpg, ../img/20220803_02_24.jpg 1.5x, ../img/20220803_02_24.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_02_24.jpg"
+        title="对比 MDK 的配置" /></p>
+<p>备注：以上主要涉及一个父 Makefile（配置工程及子 Makefile 文件所在目录），一个子 Makefile（统一设置编译文件、包含路径等），n 个子 Makefile（定制模块编译文件、编译参数等）。</p>
+<blockquote>
+<p>二、使用 Makefile 编译工程：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################################</span>
+<span class="c1"># 在[shell]中进入[make.rule]所在的目录，输入命令执行：</span>
+<span class="c1">####################################################</span>
+<span class="nb">cd</span> 4_stm32f1xx    <span class="c1"># 进入操作目录</span>
+make clean        <span class="c1"># 执行清除操作（同时创建所需文件夹）</span>
+make all          <span class="c1"># 执行编译操作（清除操作之后会重新全编译）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+</details>  
+<h3 id="四提升">四、提升</h3>
+<details close=""><summary>1、各种编译器的识别宏</summary>  
+<blockquote>
+<p><strong>1.1</strong>、用于在程序里识别不同编译器，通过这些宏可以使用编译器各自特性来编译相关代码：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">// 1、MDK-ARM 使用编译器的宏名称（ARM RealView）
+</span><span class="c1"></span><span class="cp">#if   defined(__CC_ARM) || defined(__CLANG_ARM)
+</span><span class="cp"></span>
+<span class="c1">// 2、IAR-ARM 使用编译器的宏名称（IAR EWARM）
+</span><span class="c1"></span><span class="cp">#elif defined(__ICCARM__)
+</span><span class="cp"></span>
+<span class="c1">// 3、GNU-gcc 使用编译器的宏名称（GNU Compiler Collection）
+</span><span class="c1"></span><span class="cp">#elif defined(__GNUC__)
+</span><span class="cp"></span>
+<span class="cp">#endif
+</span></code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、gcc 链接脚本基本知识</summary>  
+<blockquote>
+<p><strong>2.1</strong>、默认链接脚本的导出：<br>
+gcc 编译器都会有默认的链接脚本，当你需要定制链接脚本时（编译时指定链接脚本的选项参数为<code>-T</code>，用法如：<code>-Txxx.ld</code>。在嵌入式应用领域，厂家一般会提供针对其处理器定制的链接脚本，无需我们自己重新编写！），通过命令可以直接导出默认链接脚本：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 1、PC 的 gcc 默认链接脚本导出方法：</span>
+ld --verbose &gt; my_pc.ld
+
+<span class="c1"># 2、ARM 的 gcc 默认链接脚本导出方法：</span>
+arm-none-eabi-ld --verbose &gt; my_arm.ld
+
+<span class="c1"># 特别备注：</span>
+<span class="c1"># 1）导出的默认链接脚本中，“=====”及前面的文字只是说明信息，首先要把它们删除！</span>
+<span class="c1"># 2）如果你想保留这些说明信息，可以使用 /**/ 注释符把它们注释掉。</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>2.2</strong>、链接脚本常见关键字：<br>
+gcc 编译器的链接脚本常用关键字及语法需要我们有所了解，特别是在嵌入式应用领域，需要配置 ROM（FLASH）、RAM 的大小，上电运行第一段代码（函数）等，这些都是通过链接脚本来实现的。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">############################################</span>
+<span class="c1"># 1、`ENTRY`定义上电运行的第一段代码（函数）</span>
+<span class="c1">############################################</span>
+ENTRY<span class="o">(</span>Reset_Handler<span class="o">)</span>   /* 表示上电运行的第一段代码（函数）: Reset_Handler */
+
+<span class="c1">############################################</span>
+<span class="c1"># 2、`MEMORY`定义储存空间（起始地址及大小）</span>
+<span class="c1">############################################</span>
+MEMORY
+<span class="o">{</span>
+  RAM <span class="o">(</span>xrw<span class="o">)</span>  : <span class="nv">ORIGIN</span> <span class="o">=</span> 0x20000000, <span class="nv">LENGTH</span> <span class="o">=</span> 20K   /* x:执行，r:可读，w:可写 */
+  FLASH <span class="o">(</span>rx<span class="o">)</span> : <span class="nv">ORIGIN</span> <span class="o">=</span> 0x8000000,  <span class="nv">LENGTH</span> <span class="o">=</span> 128K  /* ORIGIN:起始地址，LENGTH:大小 */
+<span class="o">}</span>
+
+<span class="c1">############################################</span>
+<span class="c1"># 3、`SECTIONS`定义一些段的链接分布，例如：</span>
+<span class="c1"># text、data、bss 等段。</span>
+<span class="c1">############################################</span>
+SECTIONS
+<span class="o">{</span>
+  .text :
+  <span class="o">{</span>
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    *<span class="o">(</span>.text<span class="o">)</span>
+    *<span class="o">(</span>.text*<span class="o">)</span>
+  <span class="o">}</span> &gt;FLASH
+
+  .data : 
+  <span class="o">{</span>
+    ……
+  <span class="o">}</span> &gt;RAM AT&gt; FLASH
+
+  .bss :
+  <span class="o">{</span>
+    <span class="nv">_sbss</span> <span class="o">=</span> .<span class="p">;</span>         /* bss 段开始地址 */
+    ……
+    <span class="nv">_ebss</span> <span class="o">=</span> .<span class="p">;</span>         /* bss 段结束地址 */
+  <span class="o">}</span> &gt;RAM
+
+  ……
+<span class="o">}</span>
+
+<span class="c1">############################################</span>
+<span class="c1"># 4、`.`表示当前地址值</span>
+<span class="c1">############################################</span>
+. <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>                   /* 表示将当前开始地址强制 <span class="m">4</span> 字节对齐 */
+<span class="nv">_sdata</span> <span class="o">=</span> .<span class="p">;</span>                     /* 表示将当前地址值传给<span class="o">[</span>_sdata<span class="o">]</span>变量 */
+
+<span class="c1">############################################</span>
+<span class="c1"># 5、`KEEP`防止段(sections)的内容不被优化掉，</span>
+<span class="c1"># 因为 -Wl,--gc-sections 链接参数可能会强制</span>
+<span class="c1"># 优化掉__attribute__((section(&#34;xxx&#34;)) 定义</span>
+<span class="c1"># 的 xxx 数据段！</span>
+<span class="c1">############################################</span>
+<span class="nv">__fsymtab_start</span> <span class="o">=</span> .<span class="p">;</span>
+KEEP<span class="o">(</span>*<span class="o">(</span>FSymTab<span class="o">))</span>                /* 国产 rt-thread 实时操作系统中为其 shell 定义一段专用只读数据段 */
+<span class="nv">__fsymtab_end</span> <span class="o">=</span> .<span class="p">;</span>
+<span class="nv">__hard_init_fn_start</span> <span class="o">=</span> .<span class="p">;</span>
+KEEP<span class="o">(</span>*<span class="o">(</span>SORT<span class="o">(</span>.hard_init_fn.*<span class="o">)))</span>  /* 本人做的专用硬件初始化的分段列表，SORT<span class="o">()</span>表示对小分段进行递增排序 */
+<span class="nv">__hard_init_fn_end</span> <span class="o">=</span> .<span class="p">;</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># 6、LMA (load memory address)：   载入地址，也就是所有程序和数据储存空间位置。</span>
+<span class="c1">#  　VMA (vortual memory address)：执行地址，如将 Flash 数据加载至 RAM 上运行。</span>
+<span class="c1">#  　对于单片机应用，一般不用设置 VMA，也就是说“载入地址”与“运行地址”是同一地址上！</span>
+<span class="c1">##############################################################################</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>3、关于 text、data、bss、heap、stack 的分布 </summary>  
+<blockquote>
+<p><strong>3.1</strong>、数据段大小含义：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:32px">类型</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">代码（Code）和常量（RO-Data）的大小（ROM）</td>
+</tr>
+<tr>
+<td style="text-align:left">data</td>
+<td style="text-align:left">已初始化的全局变量（global）和静态变量（static）的大小（RAM/ROM）</td>
+</tr>
+<tr>
+<td style="text-align:left">bss</td>
+<td style="text-align:left">未初始化的全局变量（global）和静态变量（static）的大小（RAM)。 其初始值一般默认默认为零！从 STM32F103 官方的 .ld 链接文件生成的 .map 文件查到，其包括：heap（堆）和 stack （栈）的大小！</td>
+</tr>
+<tr>
+<td style="text-align:left">dec</td>
+<td style="text-align:left">text + data + bss 的总和值（十进制表示）</td>
+</tr>
+<tr>
+<td style="text-align:left">hex</td>
+<td style="text-align:left">text + data + bss 的总和值（十六进制表示）</td>
+</tr>
+<tr>
+<td style="text-align:left">补充</td>
+<td style="text-align:left">1、程序固件大小（ROM）：text + data<br>2、程序已用内存（RAM）：data + bss（包括：heap 和 stack 的大小）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:168px">RAM 堆栈</div></th>
+<th style="text-align:left"><div style="width:32px">地址分布</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">（1）堆区（heap）</td>
+<td style="text-align:left">在中地址</td>
+<td style="text-align:left">一般由程序员分配和释放，若程序员不释放，程序结束时可能由操作系统回收。分配方式类似于数据结构中的链表。通过<code>malloc</code>函数申请，通过<code>free</code>函数释放！堆：向高地址扩展！</td>
+</tr>
+<tr>
+<td style="text-align:left">（2）栈区（stack）</td>
+<td style="text-align:left">在高地址</td>
+<td style="text-align:left">由编译器自动分配和释放，存放函数的参数值、局部变量的值等，其操作方式类似于数据结构中的栈。函数调用及函数退出时自动处理！栈：向低地址扩展！</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>3.2</strong>、各段数据段分布：</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220804_4_33.jpg"
+        data-srcset="../img/20220804_4_33.jpg, ../img/20220804_4_33.jpg 1.5x, ../img/20220804_4_33.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220804_4_33.jpg"
+        title="各段数据段分布" /></p>
+<blockquote>
+<p><strong>3.3</strong>、数据段大小获取：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">// 在 C 语言中，通过如下方式获取某个分段
+</span><span class="c1">// 的起始与结束地址，再由计算可得出大小。
+</span><span class="c1">// 具体变量名称在链接脚本中找出！！！！！
+</span><span class="c1"></span><span class="k">extern</span> <span class="kt">int</span> <span class="n">_sbss</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">_ebss</span><span class="p">;</span>
+<span class="cp">#define LINKER_VAR_ZI_START ((void *)&amp;_sbss)
+</span><span class="cp">#define LINKER_VAR_ZI_LIMIT ((void *)&amp;_ebss)
+</span><span class="cp">#define LINKER_VAR_ZI_SIZE  (((void *)&amp;_ebss) - ((void *)&amp;_sbss))
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>3.4</strong>、数据段空间不足：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 当数据段空间不足时，编译时一般有如下错误信息：</span>
+xxxx.elf section <span class="s1">&#39;.xxx&#39;</span> will not fit in region <span class="s1">&#39;FLASH&#39;</span>
+<span class="c1"># 表示&#39;FLASH&#39;空间不足，装不下&#39;.xxx&#39;分段数据！</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4、关于 Keil 获取 ROM、RAM 编译大小的方法</summary>  
+<p>《<a href="../20210318" rel="">获取 ARM 编译后的 ROM 及 RAM 大小方法及原理</a>》</p>
+</details>  
+<details close=""><summary>5、使用自己的【Makefile】构建 rt-thread 工程</summary>  
+<blockquote>
+<p><strong>5.1</strong>、基本构建与使用：</p>
+</blockquote>
+<p>从【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】提取 envi.rule、make.rule、Makefile、startup_stm32f103xe.s、STM32F103XE_FLASH.ld 文件，按照上面两章节教程，完成构建、加入编译文件等操作（备注：最终搭建并整理的完整工程请到仓库中【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">5_rt-thread</a>】直接下载）。同时在父 Makefile 文件根据【STM32F103 正点原子战舰V3开发板】keil MDK 工程配置参数加入 rt-thread 定义的全局宏<code>__RTTHREAD__</code>等：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">################################</span>
+<span class="c1"># 因 rt-thread 使用了几个全局宏，</span>
+<span class="c1"># 需要将它加入变量中：</span>
+<span class="c1">################################</span>
+<span class="c1"># 添加全局宏定义,作用于整个项目工程【多个用空格分隔】</span>
+<span class="c1"># STM32F103芯片选择: STM32F103x6,STM32F103xB,STM32F103xE,STM32F103xG</span>
+<span class="nb">export</span> <span class="nv">G_DEF</span>  <span class="o">=</span> STM32F103xE                        <span class="se">\
+</span><span class="se"></span>                USE_HAL_DRIVER                     <span class="se">\
+</span><span class="se"></span>                RT_USING_LIBC                      <span class="se">\
+</span><span class="se"></span>                RT_USING_ARM_LIBC                  <span class="se">\
+</span><span class="se"></span>                __STDC_LIMIT_MACROS                <span class="se">\
+</span><span class="se"></span>                <span class="nv">__CLK_TCK</span><span class="o">=</span>RT_TICK_PER_SECOND       <span class="se">\
+</span><span class="se"></span>                __RTTHREAD__
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>5.2</strong>、修改启动文件：</p>
+</blockquote>
+<p>《startup_stm32f103xe.s》</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">################################</span>
+<span class="c1"># 因 rt-thread 在 gcc 编译环境下，</span>
+<span class="c1"># 运行的第一个应用函数为 entry()，</span>
+<span class="c1"># 所以需要修改启动文件：</span>
+<span class="c1">################################</span>
+<span class="c1">#将</span>
+bl main
+<span class="c1">#改为</span>
+bl entry
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>5.3</strong>、修改链接脚本：</p>
+</blockquote>
+<p>《STM32F103XE_FLASH.ld》</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">################################</span>
+<span class="c1"># 1、根据实际修改 FLASH、RAM、堆、</span>
+<span class="c1"># 栈的大小，例如：</span>
+<span class="c1">################################</span>
+<span class="nv">_estack</span> <span class="o">=</span> 0x2000FFFF<span class="p">;</span>    /* end of RAM */               /* RAM   的结束地址  */
+<span class="nv">_Min_Heap_Size</span> <span class="o">=</span> 0x8<span class="p">;</span>    /* required amount of heap  */ /* heap （堆）的大小。★特别说明：被 rt-thread 动态内存模块取代，所以这里设置为 <span class="m">8</span> 字节 */
+<span class="nv">_Min_Stack_Size</span> <span class="o">=</span> 0x400<span class="p">;</span> /* required amount of stack */ /* stack（栈）的大小 */
+FLASH <span class="o">(</span>rx<span class="o">)</span>      : <span class="nv">ORIGIN</span> <span class="o">=</span> 0x08000000, <span class="nv">LENGTH</span> <span class="o">=</span> 512K    /* FLASH 的起始地址及大小 */
+RAM <span class="o">(</span>xrw<span class="o">)</span>       : <span class="nv">ORIGIN</span> <span class="o">=</span> 0x20000000, <span class="nv">LENGTH</span> <span class="o">=</span> 64K     /* RAM   的起始地址及大小 */
+
+<span class="c1">################################</span>
+<span class="c1"># 2、为 rt-thread 加入其定义的段：</span>
+<span class="c1">################################</span>
+  .text :
+  <span class="o">{</span>
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    *<span class="o">(</span>.text<span class="o">)</span>           /* .text sections <span class="o">(</span>code<span class="o">)</span> */
+    *<span class="o">(</span>.text*<span class="o">)</span>          /* .text* sections <span class="o">(</span>code<span class="o">)</span> */
+    *<span class="o">(</span>.glue_7<span class="o">)</span>         /* glue arm to thumb code */
+    *<span class="o">(</span>.glue_7t<span class="o">)</span>        /* glue thumb to arm code */
+    *<span class="o">(</span>.eh_frame<span class="o">)</span>
+
+    KEEP <span class="o">(</span>*<span class="o">(</span>.init<span class="o">))</span>
+    KEEP <span class="o">(</span>*<span class="o">(</span>.fini<span class="o">))</span>
+
+    /* rt-thread 定义的 section（段）&gt;&gt;&gt;&gt;&gt; */
+    /* section information <span class="k">for</span> finsh shell */
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    <span class="nv">__fsymtab_start</span> <span class="o">=</span> .<span class="p">;</span>
+    KEEP<span class="o">(</span>*<span class="o">(</span>FSymTab<span class="o">))</span>
+    <span class="nv">__fsymtab_end</span> <span class="o">=</span> .<span class="p">;</span>
+
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    <span class="nv">__vsymtab_start</span> <span class="o">=</span> .<span class="p">;</span>
+    KEEP<span class="o">(</span>*<span class="o">(</span>VSymTab<span class="o">))</span>
+    <span class="nv">__vsymtab_end</span> <span class="o">=</span> .<span class="p">;</span>
+
+    /* section information <span class="k">for</span> utest */
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    <span class="nv">__rt_utest_tc_tab_start</span> <span class="o">=</span> .<span class="p">;</span>
+    KEEP<span class="o">(</span>*<span class="o">(</span>UtestTcTab<span class="o">))</span>
+    <span class="nv">__rt_utest_tc_tab_end</span> <span class="o">=</span> .<span class="p">;</span>
+
+    /* section information <span class="k">for</span> at server */
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    <span class="nv">__rtatcmdtab_start</span> <span class="o">=</span> .<span class="p">;</span>
+    KEEP<span class="o">(</span>*<span class="o">(</span>RtAtCmdTab<span class="o">))</span>
+    <span class="nv">__rtatcmdtab_end</span> <span class="o">=</span> .<span class="p">;</span>
+
+    /* section information <span class="k">for</span> initial. */
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    <span class="nv">__rt_init_start</span> <span class="o">=</span> .<span class="p">;</span>
+    KEEP<span class="o">(</span>*<span class="o">(</span>SORT<span class="o">(</span>.rti_fn*<span class="o">)))</span>
+    <span class="nv">__rt_init_end</span> <span class="o">=</span> .<span class="p">;</span>
+    /* rt-thread 定义的 section（段）<span class="o">&lt;&lt;&lt;</span>&lt;&lt; */
+
+    . <span class="o">=</span> ALIGN<span class="o">(</span>4<span class="o">)</span><span class="p">;</span>
+    <span class="nv">_etext</span> <span class="o">=</span> .<span class="p">;</span>        /* define a global symbols at end of code */
+  <span class="o">}</span> &gt;FLASH
+
+<span class="c1">################################</span>
+<span class="c1"># 3、为 stack 加入结束地址变量：</span>
+<span class="c1">################################</span>
+  ._user_heap_stack :
+  <span class="o">{</span>
+    . <span class="o">=</span> ALIGN<span class="o">(</span>8<span class="o">)</span><span class="p">;</span>
+    PROVIDE <span class="o">(</span> <span class="nv">end</span> <span class="o">=</span> . <span class="o">)</span><span class="p">;</span>
+    PROVIDE <span class="o">(</span> <span class="nv">_end</span> <span class="o">=</span> . <span class="o">)</span><span class="p">;</span>
+    . <span class="o">=</span> . + _Min_Heap_Size<span class="p">;</span>
+    . <span class="o">=</span> . + _Min_Stack_Size<span class="p">;</span>
+    . <span class="o">=</span> ALIGN<span class="o">(</span>8<span class="o">)</span><span class="p">;</span>
+    <span class="nv">_estack</span> <span class="o">=</span> .<span class="p">;</span>         /* 加入 stack 结束地址变量 */
+    <span class="nv">__bss_end</span> <span class="o">=</span> _estack<span class="p">;</span> /* 加入 bss   结束地址变量 */
+  <span class="o">}</span> &gt;RAM
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>5.4</strong>、修改动态内存：</p>
+</blockquote>
+<p>《board.h》</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">################################
+</span><span class="cp"># 1、根据实际修改 RAM 的大小：
+</span><span class="cp">################################
+</span><span class="cp">#define STM32_SRAM_SIZE      64
+</span><span class="cp"></span>
+<span class="cp">################################
+</span><span class="cp"># 2、修改动态内存的起始地址：
+</span><span class="cp">################################
+</span><span class="cp"></span><span class="k">extern</span> <span class="kt">int</span> <span class="n">__bss_end</span><span class="p">;</span>
+<span class="cp">#define HEAP_BEGIN      ((void *)&amp;__bss_end)
+</span></code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>6、使用 rt-thread 的【EVN】工具构建 Makefile</summary>  
+<blockquote>
+<p>1、在【STM32F103 正点原子战舰V3开发板】工程根目录 stm32f103-atk-warshipv3 下右键点击弹出 ConEmu Here 菜单进入【EVN】控制台；<br>
+2、输入命令<code>scons --target=makefile</code>生成 Makefile 即可完成构建；<br>
+3、rt-thread 编写的 Makefile 主要涉及下面几个文件：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件</th>
+<th style="text-align:left"><div style="width:160px">说明</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tools\rtthread.mk</td>
+<td style="text-align:left">Makefile 核心代码：目标、依赖、编译命令</td>
+</tr>
+<tr>
+<td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\Makefile</td>
+<td style="text-align:left">Makefile 文件，主要编译入口</td>
+</tr>
+<tr>
+<td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\config.mk</td>
+<td style="text-align:left">Makefile 核心参数：主路径、编译参数、头文件包含路径、全局宏定义</td>
+</tr>
+<tr>
+<td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\src.mk</td>
+<td style="text-align:left">Makefile 编译文件</td>
+</tr>
+<tr>
+<td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\board\linker_scripts\link.lds</td>
+<td style="text-align:left">链接脚本</td>
+</tr>
+<tr>
+<td style="text-align:left">bsp\stm32\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Source\Templates\gcc\startup_stm32f103xe.s</td>
+<td style="text-align:left">启动文件</td>
+</tr>
+</tbody>
+</table>
+<p>补充说明：【EVN】工具支持多种工程构建：mdk, ses, cb, vs2012, cdk, vs, makefile, vsc, mdk4, mdk5, eclipse, ua, iar。关于查看【EVN】工具支持哪些工程构建的技巧，命令输入一个非法的构建目标，例如：<code>scons --target=aaa</code>，【EVN】就会提示错误并指出支持哪些工程构建。关于【rtthread.mk】脚本核心代码有个缺陷，就是没有生成源码文件的包含文件的依赖关系信息，当修改其某个头文件时，不会重新编译这个源码文件！</p>
+</details>  
+<h3 id="五插曲">五、插曲</h3>
+<details close=""><summary>1、Windows 系统下编译出错</summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left">● 差异表现：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">在 linux 编译成功，但在 Windows 编译出错！</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">● 运行环境：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">在 Windows 系统 +【<a href="http://tdm-gcc.tdragon.net" target="_blank" rel="noopener noreffer">TDM-GCC</a>】的 make 工具（注：make 命令名为<code>mingw32-make</code>）+【<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads" target="_blank" rel="noopener noreffer">arm-none-eabi-gcc</a>】交叉编译器 +【<a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreffer">git</a>】命令窗口（其集成 linux 基本命令工具）运行 Makefile。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">● 出现问题：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">■ <a href="#XXXX" rel="">问题一</a>：<br><code>opening dependency file D:D:/Program Files (x86)/Git/Downloads/tmp/4_stm32f1xx/build/delay.d: Invalid argument</code>错误，一个很奇怪的问题，从提示信息中可以看到 git 的路径硬生生插入到依赖文件的路径中！经过查找，发现是由<code>-MMD -MP -MF&quot;$(@:%.o=%.d)&quot;</code>参数引起。这组参数是我参考【STM32CubeMX】生成的 Makefile 加入的，它是指在编译过程中同时生成依赖信息文件。我写的 Makefile 操作路径都使用了【绝对路径】，当我把这个参数强行改为【相对路径】<code>-MMD -MP -MF&quot;../../build/$(notdir $(@:%.o=%.d))&quot;</code>进行测试，竟然编译成功了。在 Windows 下<code>-MF</code>为什么不支持【绝对路径】，本人还没找出原因！</td>
+</tr>
+<tr>
+<td style="text-align:left">◆ 解决方法一：<br>按老方法使用<code>-MM</code>参数生成依赖信息文件，避开使用<code>-MF</code>引发问题！但因每编译一个文件会多运行一次 gcc 和调用一次 sed 处理文本，效率会低很多！</td>
+</tr>
+<tr>
+<td style="text-align:left">◆ 解决方法二：<br>调整 Makefile 机制，全部改为使用【相对路径】，于 2022-08-10 已更新全部 demo 工程！</td>
+</tr>
+<tr>
+<td style="text-align:left">■ <a href="#XXXX" rel="">问题二</a>：<br><code>../user/key/key.c:12:99: fatal error: app_cfg.h: No such file or directory</code>错误。其实在此子 Makefile 的编译指令已加<code>-I ./</code>指出包含头文件所在目录，但<code>gcc</code>编译还是找不到头文件，不明白原因！</td>
+</tr>
+<tr>
+<td style="text-align:left">◆ 解决方法：<br>在此子 Makefile 所在目录<code>-I ./</code>基础上再增加指出上级目录名称，例如上级目录名为《applications》，则增加<code>-I ../applications</code></td>
+</tr>
+</tbody>
+</table>
+<!--  
+[Rt-thread [三] link.lds链接脚本详解](https://blog.csdn.net/yuqian_ke/article/details/118250404)  
+[GCC使用stm32cubemx使用RT-Thread环境搭建](https://blog.csdn.net/weixin_44099973/article/details/109184149)  
+https://wenku.baidu.com/view/c301982d7a563c1ec5da50e2524de518964bd3b0.html  
+https://www.bilibili.com/read/cv16768749/  
+https://blog.csdn.net/kouxi1/article/details/123492797  
+https://blog.csdn.net/u010464679/article/details/52047609  
+https://blog.csdn.net/qq_44884716/article/details/123295638  
+https://blog.csdn.net/sagetom/article/details/9124631  
+[STM32 gcc编译环境搭建的配置](https://m.2cto.com/kf/201711/696597.html)  
+[使用GCC/Eclipse开发STM32 Nucleo入门指南](https://www.yiboard.com/thread-388-1-1.html)  
+[在Keil5中配置使用GCC编译器开发STM32](https://blog.csdn.net/weixin_39871788/article/details/78858791)  
+[STM32中的链接器脚本文件(.ld文件)与启动文件(.s文件)的相关知识整理](https://blog.csdn.net/laifengyuan1/article/details/108725266)  
+-->  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-08-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220804/" data-title="linux-STM32F开发㈠-makefile 构建与使用" data-hashtags="Makefile,ARM Cortex-M,STM32CubeMX"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220804/" data-hashtag="Makefile"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220804/" data-title="linux-STM32F开发㈠-makefile 构建与使用"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220804/" data-title="linux-STM32F开发㈠-makefile 构建与使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220804/" data-title="linux-STM32F开发㈠-makefile 构建与使用"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/makefile/">Makefile</a>,&nbsp;<a href="/tags/arm-cortex-m/">ARM Cortex-M</a>,&nbsp;<a href="/tags/stm32cubemx/">STM32CubeMX</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220707/" class="prev" rel="prev" title="我的社保缴纳情况"><i class="fas fa-angle-left fa-fw"></i>我的社保缴纳情况</a>
+            <a href="/20220808/" class="next" rel="next" title="linux-STM32F开发㈡-调试器的安装与使用">linux-STM32F开发㈡-调试器的安装与使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>JDK - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/jdk/</link>
+        <description>JDK - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Aug 2020 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/jdk/" rel="self" type="application/rss+xml" /><item>
+    <title>linux JAVA 开发环境 JDK</title>
+    <link>https://o2ospring.github.io/20200803/</link>
+    <pubDate>Mon, 03 Aug 2020 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20200803/</guid>
+    <description><![CDATA[JDK 简介 JDK 是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的 java 应用程序。JDK 是整个 java 开发的核心，它包含了 JAVA 的运行环境（JVM+Jav]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,49 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>blog - 分类 - o2ospring</title>
+        <link>https://o2ospring.github.io/categories/blog/</link>
+        <description>blog - 分类 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 16 Mar 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/blog/" rel="self" type="application/rss+xml" /><item>
+    <title>【blog 搭建知识索引】</title>
+    <link>https://o2ospring.github.io/blog/</link>
+    <pubDate>Thu, 02 Aug 2018 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/blog/</guid>
+    <description><![CDATA[前言 本人不是搞网站开发的，对建站一窍不通，本专题只是记录我搭建个人博客过程的笔记，希望这些笔记能帮助那些像我一样的小白们！本专题的内容包含了]]></description>
+</item><item>
+    <title>网站 PPT 生成工具 Slidev</title>
+    <link>https://o2ospring.github.io/20220316/</link>
+    <pubDate>Wed, 16 Mar 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220316/</guid>
+    <description><![CDATA[Slidev 的简介 Slidev /slʌɪdɪv/ 基于 Node.js、Vue.js 开发，利用它我们可以使用 Markdown 及扩展语法编写 PPT，它支持各种好看的主题、代码高亮、]]></description>
+</item><item>
+    <title>博客生成工具 Hugo</title>
+    <link>https://o2ospring.github.io/20220126/</link>
+    <pubDate>Wed, 26 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220126/</guid>
+    <description><![CDATA[Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司]]></description>
+</item><item>
+    <title>博客生成工具 Hexo</title>
+    <link>https://o2ospring.github.io/20220125/</link>
+    <pubDate>Tue, 25 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220125/</guid>
+    <description><![CDATA[Hexo 的简介 Hexo /'heksoʊ/ 是一个基于 Node.js 的命令行工具。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎]]></description>
+</item><item>
+    <title>电子书制作工具 GitBook</title>
+    <link>https://o2ospring.github.io/20220124/</link>
+    <pubDate>Mon, 24 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220124/</guid>
+    <description><![CDATA[GitBook 的简介 GitBook /ɡɪt/bʊk/ 是一个基于 Node.js 的命令行工具，可使用 Github/Git 和 Markdown 来制作精美的电子书（例如：IT 行业技术说明书）。前提需要安装 npm（注：N]]></description>
+</item><item>
+    <title>网站 node 包管理器 npm</title>
+    <link>https://o2ospring.github.io/20220123/</link>
+    <pubDate>Sun, 23 Jan 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220123/</guid>
+    <description><![CDATA[NPM 的简介 npm（Node Package Manager）是 node 的包管理器，随同 NodeJS 一起安装的包管理和分发工具，它很方便让 JavaScript 开发者下载、安装、上传以及管理已经安]]></description>
+</item></channel>
+</rss>

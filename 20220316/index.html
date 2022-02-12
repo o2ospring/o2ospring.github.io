@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>网站 PPT 生成工具 Slidev - o2ospring</title><meta name="Description" content="网站 PPT 生成工具 Slidev 介绍"><meta property="og:title" content="网站 PPT 生成工具 Slidev" />
+<meta property="og:description" content="网站 PPT 生成工具 Slidev 介绍" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220316/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-16T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-03-16T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="网站 PPT 生成工具 Slidev"/>
+<meta name="twitter:description" content="网站 PPT 生成工具 Slidev 介绍"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220316/" /><link rel="prev" href="https://o2ospring.github.io/20220315/" /><link rel="next" href="https://o2ospring.github.io/20220327/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "网站 PPT 生成工具 Slidev",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220316\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Slidev, linux 工具\/应用","wordcount":  3509 ,
+        "url": "https:\/\/o2ospring.github.io\/20220316\/","datePublished": "2022-03-16T21:33:41+08:00","dateModified": "2022-03-16T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "网站 PPT 生成工具 Slidev 介绍"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">网站 PPT 生成工具 Slidev</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/blog/"><i class="far fa-folder fa-fw"></i>blog</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-16">2022-03-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3509 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20220316/" class="leancloud_visitors" data-flag-title="网站 PPT 生成工具 Slidev">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#slidev-的简介">Slidev 的简介</a></li>
+        <li><a href="#ubuntu-平台">Ubuntu 平台</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="slidev-的简介">Slidev 的简介</h3>
+<blockquote>
+<p>Slidev <code>/slʌɪdɪv/</code> 基于 Node.js、Vue.js 开发，利用它我们可以使用 Markdown 及扩展语法编写 PPT，它支持各种好看的主题、代码高亮、公式、流程图、自定义的网页交互组件，还可以方便地导出成 pdf 或者直接部署成一个静态网站（纯静态的 HTML、JavaScript 文件）。前提需要安装 Node.js 的版本 &gt;=14.0.0（注：Node.js 都会默认安装 npm，具体请参考笔记《<a href="../20220123" rel="">网站 node 包管理器 npm</a>》）<br>
+官网：<a href="https://sli.dev/" target="_blank" rel="noopener noreffer">Slidev</a>、<a href="https://github.com/slidevjs/slidev" target="_blank" rel="noopener noreffer">GitHub</a></p>
+</blockquote>
+<!---  
+[网文](https://mp.weixin.qq.com/s/gvZwEK-9Ai9k9IY2MsagYw)  
+--->  
+<h3 id="ubuntu-平台">Ubuntu 平台</h3>
+<details close=""><summary><strong>1、Slidev 的安装与使用</strong></summary>  
+<blockquote>
+<p>1、项目创建</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm init slidev@latest  <span class="c1">#创建PPT项目，根据向导进行操作：</span>
+                        <span class="c1">#1、输入项目名称（文件夹名称，例如输入：myppt）</span>
+                        <span class="c1">#2、询问是否启动服务（输入：y）</span>
+                        <span class="c1">#3、选择资源服务器（选择：npm）</span>
+                        <span class="c1">#4、之后自动拉取资源包，最后自动启动本地演示服务</span>
+                        <span class="c1">#5、根据提示在浏览器输入网址浏览PPT网站：http://localhost:3030</span>
+                        <span class="c1">#6、如果想退出服务按`Ctrl + C`组合键退出</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>2、全局安装</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm i -g @slidev/cli    <span class="c1">#安装 slidev 工具（方便以后操作）</span>
+slidev -v               <span class="c1">#查看版本（用于验证是否安装成功）</span>
+
+<span class="c1">####命令基本使用####</span>
+<span class="nb">cd</span> myppt                <span class="c1">#进入之前创建的项目文件夹</span>
+slidev                  <span class="c1">#启动本地演示服务（浏览网址：http://localhost:3030，按`Ctrl + C`组合键退出）</span>
+slidev build            <span class="c1">#构建静态网站网页（存到 dist 文件夹，并且手工把 index.html 网页内容的 href=&#34;/assets/ 改为 href=&#34;/网站相对路径/assets/ 相对路径）</span>
+slidev build --base aaa <span class="c1">#同上，并指定网站相对路径，无须手工改 index.html（例如主页为 https://o2ospring.github.io 则网站相对路径 https://o2ospring.github.io/aaa）</span>
+slidev <span class="nb">export</span>           <span class="c1">#构建PPT为PDF文件（测试不成功，以后再补充！！！！）</span>
+                        <span class="c1">#构建PPT事前需要安装依赖包：npm i -D playwright-chromium</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><strong>2、PPT 内容编写及语法</strong></summary>  
+<blockquote>
+<p><strong>PPT 浏览快捷键</strong> ●<br>
+这里提前介绍一下我们浏览已构建好 PPT 网页的基本操作快捷键（下表），如果要更多操作可以把鼠标移到网页左下角即可调出导航菜单。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">←</td>
+<td style="text-align:left">前一步显示</td>
+</tr>
+<tr>
+<td style="text-align:left">→ 或 <code>空格</code></td>
+<td style="text-align:left">后一步显示</td>
+</tr>
+<tr>
+<td style="text-align:left">↑</td>
+<td style="text-align:left">前一页显示</td>
+</tr>
+<tr>
+<td style="text-align:left">↓</td>
+<td style="text-align:left">后一页显示</td>
+</tr>
+<tr>
+<td style="text-align:left">f</td>
+<td style="text-align:left">全屏进入/退出</td>
+</tr>
+<tr>
+<td style="text-align:left">o</td>
+<td style="text-align:left">总览进入/退出</td>
+</tr>
+<tr>
+<td style="text-align:left">d</td>
+<td style="text-align:left">亮/暗模式切换</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>PPT 整体内容编写</strong> ●<br>
+在根目录下的<code>slides.md</code>文件里编写整个 PPT 文档，使用标准的 Markdown 语法编写即可，也可以使用扩展语法来丰富 PPT 内容及样式。首页开头有两个<code>---</code>包含相关配置信息（例如：使用哪个主题等）。页与页之间使用一个<code>---</code>作为分隔，也可以像首页一样使用两个<code>---</code>包含自己专用配置信息（例如：修改此页布局为左右分割）</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">---
+<span class="gh"># 主题方案选择（默认：&#39;default&#39;，更多：https://cn.sli.dev/themes/gallery.html）
+</span><span class="gh"></span>theme: &#39;default&#39;
+<span class="gh"># 配色方案选择（自动：&#39;auto&#39;，明亮：&#39;light&#39;，暗黑：&#39;dark&#39;）
+</span><span class="gh"></span>colorSchema: &#39;auto&#39;
+<span class="gh"># 幻灯片长宽比（默认：&#39;16/9&#39;）
+</span><span class="gh"></span>aspectRatio: &#39;16/9&#39;
+<span class="gh"># 幻灯片的宽度（默认：空白，单位为 px）
+</span><span class="gh"></span>canvasWidth: 980
+<span class="gh"># 幻灯片总标题（默认：空白-&gt;首页标题，否则这里指定总标题）
+</span><span class="gh"></span>title: &#39;&#39;
+<span class="gh"># 总标题的后缀（默认：&#39;%s&#39;，加入后缀如：&#39;%s-我的PPT&#39;）
+</span><span class="gh"></span>titleTemplate: &#39;%s - Slidev&#39;
+<span class="gh"># 幻灯片的信息（点击左下角导航栏中感叹号查看），可以使用 markdown 语法来书写
+</span><span class="gh"></span>info: |
+  ## 关于本 PPT
+  这是我的第一个 PPT 演示，请关注我博客 [<span class="nt">o2ospring&#39;s blog</span>](<span class="na">https://o2ospring.github.io</span>)!
+
+<span class="gh"># 语法高亮设置（目前可选 &#39;prism&#39; 或 &#39;shiki&#39; 方案）
+</span><span class="gh"></span>highlighter: &#39;prism&#39;
+<span class="gh"># 显示代码行号（显示行号：true，不显示行号：false）
+</span><span class="gh"></span>lineNumbers: false
+
+<span class="gh"># 启用 monaco 编辑器，默认情况下仅在开发者（dev）模式中启用
+</span><span class="gh">#monaco: &#39;dev&#39;
+</span><span class="gh"># 在单页（SPA）构建中启用 pdf 下载，也可以指定一个自定义 url
+</span><span class="gh">#download: true
+</span><span class="gh"># vue-router 模式，可以使用 &#39;history&#39; 或 &#39;hash&#39; 模式
+</span><span class="gh">#routerMode: &#39;history&#39;
+</span><span class="gh"># 字体将从 Google 字体自动导入
+</span><span class="gh"># 了解更多：https://sli.dev/custom/fonts
+</span><span class="gh">#fonts:
+</span><span class="gh">#  sans: &#39;Roboto&#39;
+</span><span class="gh">#  serif: &#39;Roboto Slab&#39;
+</span><span class="gh">#  mono: &#39;Fira Code&#39;
+</span><span class="gh"># 为所有幻灯片添加默认的 frontmatter
+</span><span class="gh">#defaults:
+</span><span class="gh">#  layout: &#39;default&#39;
+</span><span class="gh"></span>
+<span class="gh"># random image from a curated Unsplash collection by Anthony
+</span><span class="gh"># like them? see https://unsplash.com/collections/94734566/slidev
+</span><span class="gh"></span>background: https://source.unsplash.com/collection/94734566/1920x1080
+<span class="gh"># apply any windi css classes to the current slide
+</span><span class="gh"></span>class: &#39;text-center&#39;
+<span class="gh"># persist drawings in exports and build
+</span><span class="gh"></span>drawings:
+  persist: false
+---
+
+<span class="gh"># 这是第一页标题
+</span><span class="gh"></span>
+本行内容为首页内容（一般是幻灯片主题）....
+
+<span class="c">&lt;!-- 扩展文字按钮，一般用于在首页点击进入下一页 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;pt-12&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="ni">@click</span><span class="err">=&#34;$</span><span class="na">slidev</span><span class="err">.</span><span class="na">nav</span><span class="err">.</span><span class="na">next</span><span class="err">&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;px-2 py-1 rounded cursor-pointer&#34;</span> <span class="na">hover</span><span class="o">=</span><span class="s">&#34;bg-white bg-opacity-10&#34;</span><span class="p">&gt;</span>
+    点击进入下一页 <span class="p">&lt;</span><span class="nt">carbon:arrow-right</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;inline&#34;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 专门做的 github 链接小图标（在页面右下角） --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;abs-br m-6 flex gap-2&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://github.com/o2ospring&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;GitHub&#34;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-xl icon-btn opacity-50 !border-none !hover:text-white&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">carbon-logo-github</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!--
+</span><span class="c">在页尾注释的文字是备注，不是注释！
+</span><span class="c">--&gt;</span>
+
+---
+
+<span class="gh"># 这是第二页标题
+</span><span class="gh"></span>
+这是普通文本内容
+<span class="k">*</span> 这是无序列表
+<span class="k">1.</span> 这是有序列表
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>修改单页的布局</strong> ●<br>
+页面布局一般有两种：一整页、左右分割两部分。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="c">&lt;!-- 左右分割布局格式，如下 --&gt;</span>
+
+---
+layout: two-cols
+---
+
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:default</span><span class="p">&gt;</span>
+
+<span class="gh"># 左半页标题
+</span><span class="gh"></span>
+这是左半页内容
+![<span class="nt">插入图片1</span>](<span class="na">https://o2ospring.github.io/android-chrome-192x192.png</span>)
+
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:right</span><span class="p">&gt;</span>
+
+<span class="gh"># 右半页标题
+</span><span class="gh"></span>
+这是右半页内容
+![<span class="nt">插入图片2</span>](<span class="na">https://o2ospring.github.io/about/o2ospring_blog.png</span>)
+
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>代码块及扩展</strong> ●<br>
+除了能对代码进行配色，还可以支持高亮动画显示。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="c">&lt;!-- 代码块及扩展，其中{all|2|1-3|all}为扩展语法，表示分四步高亮显示：全部、第2行、第1-3行、全部代码，如下 --&gt;</span>
+
+`` <span class="sb">`json {all|2|1-3|all}
+</span><span class="sb">{&#34;menu&#34;: {
+</span><span class="sb">  &#34;id&#34;: &#34;file&#34;,
+</span><span class="sb">  &#34;value&#34;: &#34;File&#34;,
+</span><span class="sb">  &#34;popup&#34;: {
+</span><span class="sb">    &#34;menuitem&#34;: [
+</span><span class="sb">      {&#34;value&#34;: &#34;New&#34;, &#34;onclick&#34;: &#34;CreateNewDoc()&#34;},
+</span><span class="sb">      {&#34;value&#34;: &#34;Open&#34;, &#34;onclick&#34;: &#34;OpenDoc()&#34;},
+</span><span class="sb">      {&#34;value&#34;: &#34;Close&#34;, &#34;onclick&#34;: &#34;CloseDoc()&#34;}
+</span><span class="sb">    ]
+</span><span class="sb">  }
+</span><span class="sb">}}
+</span><span class="sb">`` `</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>显示动画语法</strong> ●<br>
+显示主要包括显示顺序、显示动画。关于几个不同的显示顺序语法，不建议同一页面使用多个不同语法，否则显示顺序可能错乱！</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="c">&lt;!-- 针对行内容的显示顺序，如下 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-click</span><span class="o">=</span><span class="s">&#34;3&#34;</span><span class="p">&gt;</span>111 此行内容最后显示<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-click</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>222 此行内容次之显示<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-click</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>222 此行内容次之显示<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-click</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>333 此行内容最先显示<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 针对列表项的显示顺序，如下 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">v-clicks</span><span class="p">&gt;</span>
+
+<span class="k">-</span> 无序列表内容一；//点一步显示下一项列表（注意：列表动画扩展语法需要空行隔开↑）
+<span class="k">-</span> 无序列表内容二。//点一步显示下一项列表（注意：列表动画扩展语法需要空行隔开↓）
+
+<span class="p">&lt;/</span><span class="nt">v-clicks</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>插入图标或图片</strong> ●<br>
+你可以通过 <a href="https://icones.js.org/" target="_blank" rel="noopener noreffer">Icônes</a> 来浏览访问所有可用的图标，每个图标都有自己的标识符。例如：小火箭的标识符为<code>uim-rocket</code>。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="c">&lt;!-- 在文本中插入图标(小火箭)，如下 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">uim-rocket</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- 改图标(小火箭)大小及颜色，如下 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">uim-rocket</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-3xl text-red-400 mx-2&#34;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- 改图标(小火箭)大小及颜色，并加入动效，如下 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">uim-rocket</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-3xl text-orange-400 animate-ping&#34;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- 默认模式插入本地图片，如下 --&gt;</span>
+![<span class="nt">Remote Image</span>](<span class="na">./img/android-chrome-192x192.png</span>)
+
+<span class="c">&lt;!-- 指定相对位置及大小插入图片，如下 --&gt;</span>
+<span class="c">&lt;!-- </span><span class="sb">`m-10`</span><span class="c">相对位置，`h-20`大小(50:貌似一比一)，`rounded shadow`表示圆角阴影 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./img/android-chrome-192x192.png&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;m-10 h-20 rounded shadow&#34;</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>其它应用功能</strong> ●<br>
+除了上面介绍的功能外，还有数学公式（LaTeX）、图表（Mermaid）、网页组件等，具体请到官网【<a href="https://cn.sli.dev/guide/" target="_blank" rel="noopener noreffer">开始使用</a>】了解。</p>
+</blockquote>
+</details>  
+<details close=""><summary><strong>3、PPT 网页构建与发布</strong></summary>  
+<blockquote>
+<p>Slidev 构建的静态网页存放到<code>dist/</code>文件夹里，将其里面的所有文件托管到 GitHub Pages 上即可。事前需要在 <a href="https://github.com" target="_blank" rel="noopener noreffer">GitHub</a> 创建仓库，并将仓库配置为网页模式（静态站点服务）。</p>
+</blockquote>
+<p>1、创建远程仓库及网页配置：<a href="../img/20220316_03_01.jpg" rel="">图示</a><br>
+2、构建静态网页并上传仓库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">######初次发布######</span>
+slidev build --base test_ppt <span class="c1">#【构建】静态网站网页（存到 dist 文件夹）（注意：test_ppt 是 GitHub 的仓库名称，也就是主页相对路径）</span>
+<span class="nb">cd</span> dist                      <span class="c1">#【进入】&#34;dist&#34;目录，为建git本地仓库准备  </span>
+git init                     <span class="c1">#【创建+初始化】Git本地仓库  </span>
+git add .                    <span class="c1">#【添加】工作区所有文件到【暂存区】  </span>
+git commit -m <span class="s2">&#34;first commit&#34;</span> <span class="c1">#【提交】暂存区所有文件到【本地库】  </span>
+                             <span class="c1">#【关联】github远程仓库(使用HTTP协议方式)(使用仓库默认名称:origin)  </span>
+git remote add origin https://github.com/o2ospring/test_ppt.git
+git push -u origin master    <span class="c1">#【推送】本地仓库到【远程仓库】(仓库默认名称:origin)（之后提示输入仓库托管网站账号和token密码）  </span>
+                             <span class="c1"># -u 刚创建这个远程仓库时首次push才加此选项。  </span>
+<span class="c1">######之后发布######</span>
+slidev build --base test_ppt <span class="c1">#【构建】静态网站网页（存到 dist 文件夹）（注意：test_ppt 是 GitHub 的仓库名称，也就是主页相对路径）</span>
+<span class="nb">cd</span> dist                      <span class="c1">#【进入】&#34;dist&#34;目录。 </span>
+git add .                    <span class="c1">#【添加】工作区所有文件到【暂存区】  </span>
+git commit --amend --no-edit <span class="c1">#【提交】暂存区所有文件到【本地库】（更新PPT但不用版本管理）  </span>
+git push -f origin master    <span class="c1">#【推送】本地仓库到【远程仓库】（强制推送，因为版本没有更新）  </span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3、PPT 一般只作为博客的一篇文章，建议你先搭建个人博客，具体操作请参考：《<a href="../20220126" rel="">博客生成工具 Hugo</a>》，以及参考其【4、Hugo 的发布】了解更多网页发布知识。</p>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-03-16</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220316/" data-title="网站 PPT 生成工具 Slidev" data-hashtags="Slidev,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220316/" data-hashtag="Slidev"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220316/" data-title="网站 PPT 生成工具 Slidev"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220316/" data-title="网站 PPT 生成工具 Slidev"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220316/" data-title="网站 PPT 生成工具 Slidev"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/slidev/">Slidev</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220315/" class="prev" rel="prev" title="ACM32F403RE 国产 MCU 试用笔记"><i class="fas fa-angle-left fa-fw"></i>ACM32F403RE 国产 MCU 试用笔记</a>
+            <a href="/20220327/" class="next" rel="next" title="Keil 4 与 Keil 5 的兼容性">Keil 4 与 Keil 5 的兼容性<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

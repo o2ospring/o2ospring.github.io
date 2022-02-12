@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>linux-STM32F开发㈢-在线调试工具CGDB - o2ospring</title><meta name="Description" content="linux-STM32F开发㈢-在线调试工具CGDB"><meta property="og:title" content="linux-STM32F开发㈢-在线调试工具CGDB" />
+<meta property="og:description" content="linux-STM32F开发㈢-在线调试工具CGDB" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220916/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-16T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-09-16T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="linux-STM32F开发㈢-在线调试工具CGDB"/>
+<meta name="twitter:description" content="linux-STM32F开发㈢-在线调试工具CGDB"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220916/" /><link rel="prev" href="https://o2ospring.github.io/20220828/" /><link rel="next" href="https://o2ospring.github.io/blog/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "linux-STM32F开发㈢-在线调试工具CGDB",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220916\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "GDB, ARM Cortex-M","wordcount":  2860 ,
+        "url": "https:\/\/o2ospring.github.io\/20220916\/","datePublished": "2022-09-16T21:33:41+08:00","dateModified": "2022-09-16T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "linux-STM32F开发㈢-在线调试工具CGDB"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux-STM32F开发㈢-在线调试工具CGDB</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-16">2022-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2860 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20220916/" class="leancloud_visitors" data-flag-title="linux-STM32F开发㈢-在线调试工具CGDB">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一前言">一、前言</a></li>
+        <li><a href="#二安装">二、安装</a></li>
+        <li><a href="#三使用">三、使用</a></li>
+        <li><a href="#三扩展">三、扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
+<p>GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不能边看代码边调试，这几点应该是造成很多人不愿意长期使用的原因（后来集成 TUI 模式有所改善，在调试窗口按<code>Ctrl+X+A</code>进入/退出 TUI 模式）。CGDB 可以看作 GDB 的界面增强版，用来替代 GDB 的 gdb-tui。CGDB 主要功能是在调试时进行代码的同步显示，这无疑增加了调试的方便性，提高了调试效率。界面类似 vi，符合 unix/linux 下开发人员习惯，所以如果熟悉 gdb 和 vi，几乎可以立即使用 CGDB。</p>
+<h3 id="二安装">二、安装</h3>
+<details close=""><summary>1、arm-none-eabi-gdb 的安装</summary>  
+<p><strong><a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain" target="_blank" rel="noopener noreffer">arm-none-eabi-gcc</a></strong>（包含 arm-none-eabi-gdb）为 ARM 框架、无供应商、无系统、嵌入式二进制接口，一般适合 ARM7、Cortex-M、Cortex-R 内核的芯片使用，它使用的是 newlib 这个专用于嵌入式系统的 C 库，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。注意：交叉编译器目前都是 32 位执行程序，依赖 32 位库，事前需要安装 ia32-libs（<a href="https://blog.csdn.net/hj74535099/article/details/50220207" target="_blank" rel="noopener noreffer">网文</a>）或 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。进入网页选择你需要的版本下载：<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads" target="_blank" rel="noopener noreffer">官网最新版</a>、<a href="https://developer.arm.com/downloads/-/gnu-rm" target="_blank" rel="noopener noreffer">官网 2021 版</a>、<a href="https://launchpad.net/gcc-arm-embedded/&#43;download" target="_blank" rel="noopener noreffer">Ubuntu-launchpad 软件开发者平台</a> 及依赖 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。补充：关于 Windows 版本，为直接安装文件，双击安装即可，还有安装后需要手工加入环境变量【<a href="../img/20200915_2_2_22.jpg" rel="">如图</a>】。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 <span class="c1">#下载交叉编译器压缩包</span>
+sudo tar -xjvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /usr/lib/gcc <span class="c1">#将交叉编译器压缩包解压到：/usr/lib/gcc</span>
+sudo gedit /etc/profile             <span class="c1">#打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin</span>
+<span class="nb">source</span> /etc/profile                 <span class="c1">#使能环境变量。</span>
+sudo apt-get install lsb-core       <span class="c1">#64位操作系统需要安装32位依赖库：lsb-core     （arm-none-eabi-gcc 用到）</span>
+sudo apt-get install lib32ncurses5  <span class="c1">#64位操作系统需要安装32位依赖库：lib32ncurses5（arm-none-eabi-gdb 用到）</span>
+arm-none-eabi-gcc -v                <span class="c1">#查看版本(验证是否安装成功)</span>
+arm-none-eabi-gdb --version         <span class="c1">#查看版本(验证是否安装成功)</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>2、CGDB 的安装</summary>  
+<p><a href="http://cgdb.github.io/" target="_blank" rel="noopener noreffer">CGDB</a> 可以看作 GDB 的界面增强版（其参考了 GDB TUI 设计和实现），分上下两屏，【上屏】代码区的界面模仿了 Unix 经典的文本编辑器界面：vi，【下屏】还是 GDB 的命令窗口，所以如果熟悉 vi 和 gdb，几乎可以立即使用 CGDB。官方提供源码编译安装方式，用户到 <a href="http://cgdb.github.io/" target="_blank" rel="noopener noreffer">官网</a> 或 <a href="https://github.com/cgdb/cgdb" target="_blank" rel="noopener noreffer">github</a> 下载源码，然后自己编译并安装程序。资料：<a href="https://www.bookstack.cn/read/cgdb-manual-in-chinese/4.0.md" target="_blank" rel="noopener noreffer">CGDB 中文手册</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">######################################</span>
+<span class="c1"># 一、安装相关依赖软件</span>
+<span class="c1">######################################</span>
+sudo apt install autoconf            <span class="c1"># 安装 autotools 系列工具，包括：autoconf,automake,aclocal,autoheader,autoscan</span>
+sudo apt install libtool-bin         <span class="c1"># 安装 libtool 工具</span>
+sudo apt install bison               <span class="c1"># 安装 bison 工具</span>
+sudo apt install flex                <span class="c1"># 安装 flex 工具</span>
+sudo apt install texinfo             <span class="c1"># 安装依赖</span>
+sudo apt install libreadline6        <span class="c1"># 安装依赖</span>
+sudo apt install libreadline6-dev    <span class="c1"># 安装依赖</span>
+sudo apt install libreadline-dev     <span class="c1"># 安装依赖</span>
+sudo apt install libncurses5-dev     <span class="c1"># 安装依赖</span>
+sudo apt install libncursesw5-dev    <span class="c1"># 安装依赖</span>
+
+<span class="c1">######################################</span>
+<span class="c1"># 二、下载、编译、安装</span>
+<span class="c1">######################################</span>
+git clone https://github.com/cgdb/cgdb.git  <span class="c1"># 下载（使用 git 工具克隆仓库）</span>
+<span class="nb">cd</span> cgdb                              <span class="c1"># 进入文件夹</span>
+./autogen.sh                         <span class="c1"># 生成配置文件</span>
+./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 配置，并设置安装目录</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
+<span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
+make                                 <span class="c1"># 编译CGDB软件</span>
+sudo make install                    <span class="c1"># 安装CGDB软件</span>
+cgdb --version                       <span class="c1"># 查看CGDB版本（验证是否安装成功）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="三使用">三、使用</h3>
+<blockquote>
+<p>本案例为基于【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">5_rt-thread</a>】演示工程（工程路径：5_rt-thread/bsp/stm32/stm32f103-atk-warshipv3），烧录/调试前要对工程进行编译，最终生成固件及调试文件！</p>
+</blockquote>
+<details open=""><summary>1、arm-none-eabi-gdb 的基本使用</summary>  
+<details close=""><summary>1.1、第一步：在命令窗口启动 OpenOCD 服务</summary>  
+<p>前提条件：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_131.jpg"
+        data-srcset="../img/20220808_3_131.jpg, ../img/20220808_3_131.jpg 1.5x, ../img/20220808_3_131.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_131.jpg"
+        title="虚拟机连接jlink" /></p>
+<p>输入命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg  <span class="c1"># 配置文件完整路径：/usr/local/share/openocd/scripts/ 下的 interface/stlink-v2.cfg 和 target/stm32f1x.cfg</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果如下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_22.jpg"
+        data-srcset="../img/20220808_3_22.jpg, ../img/20220808_3_22.jpg 1.5x, ../img/20220808_3_22.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_22.jpg"
+        title="启动服务结果" /></p>
+<p>备注-1：启动 gdb 对 C/C++ 程序的调试，必须要在编译前就加上 -g 选项！<br>
+备注-2：在 Windows 系统下，j-link 的原厂应用驱动软件，也提供 GDB 对接服务，直接打开【J-Link GDB Server】可视界面操作即可！</p>
+</details>  
+<details close=""><summary>1.2、第二步：在另一命令窗口运行 GDB 调试</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##############################################</span>
+<span class="c1"># ①、在 shell 命令窗口运行</span>
+<span class="c1">##############################################</span>
+<span class="c1"># 1.1、运行 gdb</span>
+arm-none-eabi-gdb ./build/gcc/rt-thread.elf
+
+<span class="c1">##############################################</span>
+<span class="c1"># ②、在 gdb 命令窗口运行（输入命令后回车）</span>
+<span class="c1">##############################################</span>
+<span class="c1"># 2.1、连接 openocd</span>
+target remote localhost:3333
+
+<span class="c1"># 2.2、复位并暂停处理器</span>
+monitor reset halt
+
+<span class="c1"># 2.3、下载固件（实测无需复位暂停处理器直接load也可以）</span>
+load
+
+<span class="c1"># 2.4、设置临时断点（main函数）</span>
+tb main
+
+<span class="c1"># 2.5、运行程序</span>
+c
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220916_3_121.jpg"
+        data-srcset="../img/20220916_3_121.jpg, ../img/20220916_3_121.jpg 1.5x, ../img/20220916_3_121.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220916_3_121.jpg"
+        title="运行 gdb" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220916_3_122.jpg"
+        data-srcset="../img/20220916_3_122.jpg, ../img/20220916_3_122.jpg 1.5x, ../img/20220916_3_122.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220916_3_122.jpg"
+        title="gdb 操作" /></p>
+</details>  
+</details>  
+<details open=""><summary>2、CGDB 的基本使用</summary>  
+<details close=""><summary>2.1、第一步：查看 arm-none-eabi-gdb 版本</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看版本，用于验证其是否可正常工作</span>
+arm-none-eabi-gdb --version  <span class="c1"># 版本要求≥7.12</span>
+
+<span class="c1">##############################################</span>
+<span class="c1"># 出现问题：提示信息显示找不到 libncurses.so.5</span>
+<span class="c1">##############################################</span>
+arm-none-eabi-gdb: error <span class="k">while</span> loading shared 
+libraries: libncurses.so.5: cannot open shared 
+object file: No such file or directory
+
+<span class="c1">##############################################</span>
+<span class="c1"># 解决方法：安装所需32位依赖库 lib32ncurses5 ！</span>
+<span class="c1">##############################################</span>
+sudo apt-get install lib32ncurses5
+
+</code></pre></td></tr></table>
+</div>
+</div><p>备注-1：启动 gdb 对 C/C++ 程序的调试，必须要在编译前就加上 -g 选项！<br>
+备注-2：CGDB（v0.8.0）要调用 arm-none-eabi-gdb，要求 gdb 的版本必须大于等于 7.12</p>
+</details>  
+<details close=""><summary>2.2、第二步：在命令窗口启动 OpenOCD 服务</summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_131.jpg"
+        data-srcset="../img/20220808_3_131.jpg, ../img/20220808_3_131.jpg 1.5x, ../img/20220808_3_131.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_131.jpg"
+        title="虚拟机连接jlink" /></p>
+<p>输入命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg  <span class="c1"># 配置文件完整路径：/usr/local/share/openocd/scripts/ 下的 interface/jlink_swd.cfg 和 target/stm32f1x.cfg</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果如下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_22.jpg"
+        data-srcset="../img/20220808_3_22.jpg, ../img/20220808_3_22.jpg 1.5x, ../img/20220808_3_22.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_22.jpg"
+        title="启动服务结果" /></p>
+</details>  
+<details close=""><summary>2.3、第三步：在另一命令窗口运行 CGDB 调试</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##############################################</span>
+<span class="c1"># ①、在 shell 命令窗口运行</span>
+<span class="c1">##############################################</span>
+<span class="c1"># 1.1、运行 cgdb</span>
+cgdb -d arm-none-eabi-gdb ./build/gcc/rt-thread.elf
+
+<span class="c1">##############################################</span>
+<span class="c1"># ②、在 cgdb 命令窗口运行（输入命令后回车）</span>
+<span class="c1">##############################################</span>
+<span class="c1"># 2.1、连接 openocd</span>
+target remote localhost:3333
+
+<span class="c1"># 2.2、复位并暂停处理器</span>
+monitor reset halt
+
+<span class="c1"># 2.3、下载固件（实测无需复位暂停处理器直接load也可以）</span>
+load
+
+<span class="c1"># 2.4、设置临时断点（main函数）</span>
+tb main
+
+<span class="c1"># 2.5、运行程序</span>
+c
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220916_3_231.jpg"
+        data-srcset="../img/20220916_3_231.jpg, ../img/20220916_3_231.jpg 1.5x, ../img/20220916_3_231.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220916_3_231.jpg"
+        title="运行 cgdb" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220916_3_232.jpg"
+        data-srcset="../img/20220916_3_232.jpg, ../img/20220916_3_232.jpg 1.5x, ../img/20220916_3_232.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220916_3_232.jpg"
+        title="cgdb 操作" /></p>
+<p>备注：CGDB（v0.8.0）要调用 arm-none-eabi-gdb，要求 gdb 的版本必须大于等于 7.12</p>
+</details>  
+</details>  
+<details close=""><summary>3、CGDB/OpenOCD 使用总结</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########连接USB ########</span>
+虚拟机/可移动设备/SEGGER J-Link/连接
+
+<span class="c1">########下载固件########</span>
+sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg -c init -c <span class="s2">&#34;reset halt; wait_halt; flash write_image erase out/project.hex&#34;</span> -c reset -c shutdown
+
+<span class="c1">########调试程序########</span>
+sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg  <span class="c1"># /usr/local/share/openocd/scripts/ 下的 interface/jlink_swd.cfg 和 target/stm32f1x.cfg</span>
+                             <span class="c1"># 编译加[-g]选项          #【在一个命令窗口启动openocd服务】</span>
+cgdb -d arm-none-eabi-gdb ./build/gcc/rt-thread.elf  <span class="c1">#【在另一命令窗口启动cgdb+gdb服务】</span>
+target remote localhost:3333 <span class="c1"># 在cgdb里:连接openocd服务</span>
+monitor reset halt           <span class="c1"># 在cgdb里:复位并暂停处理器</span>
+load                         <span class="c1"># 在cgdb里:装载调试固件（实测无需复位暂停处理器直接load也可以）</span>
+tb main                      <span class="c1"># 在cgdb里:在main函数设置临时断点</span>
+c                            <span class="c1"># 在cgdb里:运行程序</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="三扩展">三、扩展</h3>
+<details close=""><summary>1、IDE 集成开发环境的组成</summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:96px">组件</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">代码编辑工具</td>
+<td style="text-align:left">IDE 直接使用 QScitinal 这类的编辑器库</td>
+</tr>
+<tr>
+<td style="text-align:left">代码智能提示</td>
+<td style="text-align:left">IDE 后台调用 clang 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">代码语法错误动态检测</td>
+<td style="text-align:left">IDE 后台调用 gcc 或者 clang 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">工程源码文件组织</td>
+<td style="text-align:left">IDE 使用的是 makefile，后台调用 make 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">编译</td>
+<td style="text-align:left">IDE 后台调用 gcc 编译器</td>
+</tr>
+<tr>
+<td style="text-align:left">连接硬件调试器</td>
+<td style="text-align:left">IDE 后台调用 OpenOCD 连接调试器和板子</td>
+</tr>
+<tr>
+<td style="text-align:left">下载</td>
+<td style="text-align:left">IDE 后台调用 OpenOCD 命令下载固件</td>
+</tr>
+<tr>
+<td style="text-align:left">调试</td>
+<td style="text-align:left">IDE 后台调用 gdb，给 gdb 发命令，gdb 再给 OpenOCD 发命令，OpenOCD 再指挥调试器控制板子。实现单步执行，查看变量值，寄存器等</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<!--  
+cgdb -d arm-none-eabi-gdb -x "./build/gcc/rt-thread.elf"  
+[cgdb远程调试](https://www.likecs.com/show-203539021.html)  
+[GDB：从单线程调试到多线程调试](https://www.bbsmax.com/A/xl56ymKxJr/)  
+[CGDB 中文手册](https://www.bookstack.cn/read/cgdb-manual-in-chinese/4.0.md)  
+[跟我一起学OpenOCD](https://zhuanlan.zhihu.com/p/41517198)  
+[Windows上使用 OpenOCD 给 STM32 下载程序](https://blog.csdn.net/Mculover666/article/details/117553014)  
+[OpenOCD安装与使用（JTAG调试）](https://www.bbsmax.com/A/Vx5MDGgvJN/)  
+[OpenOCD如何通过stlink直接下载程序到stm32板子](https://blog.csdn.net/kangkanglhb88008/article/details/126037321)  
+[嵌入式IDE原理 OpenOCD介绍 以及stlink如何连接stm32板子](https://blog.csdn.net/kangkanglhb88008/article/details/125921453)  
+[STM32高级开发(6)-makefile与调试器驱动](https://blog.csdn.net/zhengyangliu123/article/details/54784038)  
+[ubuntu20.04 + arm-none-eabi-gdb + openocd + STlink调试STM32F103单片机](https://blog.csdn.net/dhy9974/article/details/124376993)  
+https://blog.csdn.net/qq_44884716/article/details/123295638  
+https://blog.csdn.net/sagetom/article/details/9124631  
+[STM32 gcc编译环境搭建的配置](https://m.2cto.com/kf/201711/696597.html)  
+[使用GCC/Eclipse开发STM32 Nucleo入门指南](https://www.yiboard.com/thread-388-1-1.html)  
+[在Keil5中配置使用GCC编译器开发STM32](https://blog.csdn.net/weixin_39871788/article/details/78858791)  
+[STM32中的链接器脚本文件(.ld文件)与启动文件(.s文件)的相关知识整理](https://blog.csdn.net/laifengyuan1/article/details/108725266)  
+-->  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-09-16</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220916/" data-title="linux-STM32F开发㈢-在线调试工具CGDB" data-hashtags="GDB,ARM Cortex-M"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220916/" data-hashtag="GDB"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220916/" data-title="linux-STM32F开发㈢-在线调试工具CGDB"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220916/" data-title="linux-STM32F开发㈢-在线调试工具CGDB"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220916/" data-title="linux-STM32F开发㈢-在线调试工具CGDB"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/gdb/">GDB</a>,&nbsp;<a href="/tags/arm-cortex-m/">ARM Cortex-M</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220828/" class="prev" rel="prev" title="对技术型创业团队的看法"><i class="fas fa-angle-left fa-fw"></i>对技术型创业团队的看法</a>
+            <a href="/blog/" class="next" rel="next" title="【blog 搭建知识索引】">【blog 搭建知识索引】<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

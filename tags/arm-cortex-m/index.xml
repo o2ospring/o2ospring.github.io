@@ -1,0 +1,63 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ARM Cortex-M - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/arm-cortex-m/</link>
+        <description>ARM Cortex-M - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/arm-cortex-m/" rel="self" type="application/rss+xml" /><item>
+    <title>linux-STM32F开发㈢-在线调试工具CGDB</title>
+    <link>https://o2ospring.github.io/20220916/</link>
+    <pubDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220916/</guid>
+    <description><![CDATA[一、前言 GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不]]></description>
+</item><item>
+    <title>linux-STM32F开发㈡-调试器的安装与使用</title>
+    <link>https://o2ospring.github.io/20220808/</link>
+    <pubDate>Mon, 08 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220808/</guid>
+    <description><![CDATA[一、前言 对于单片机的开发，我们离不开仿真器（烧录器）的使用，平常我们都是图形界面下操作，而本文主要介绍命令窗口下的仿真器驱动安装与使用。目前]]></description>
+</item><item>
+    <title>linux-STM32F开发㈠-makefile 构建与使用</title>
+    <link>https://o2ospring.github.io/20220804/</link>
+    <pubDate>Thu, 04 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220804/</guid>
+    <description><![CDATA[一、前言 在 Windows 下有完善的 IDE（集成开发环境）开发工具，开发单片机程序变得简单和傻瓜化，图形界面上所见所得操作，基本不需要我们了解一些专业知识]]></description>
+</item><item>
+    <title>ACM32F403RE 国产 MCU 试用笔记</title>
+    <link>https://o2ospring.github.io/20220315/</link>
+    <pubDate>Tue, 15 Mar 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220315/</guid>
+    <description><![CDATA[前言 现在很多公司要求应用芯片国产化，于是找来一家国产单片机厂家（上海爱信诺航芯电子科技有限公司（简称：上海航芯）），有幸拿到厂家的一块 MCU 为 ACM32F403RET8]]></description>
+</item><item>
+    <title>STM32CubeMX 基本使用</title>
+    <link>https://o2ospring.github.io/20210606/</link>
+    <pubDate>Sun, 06 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210606/</guid>
+    <description><![CDATA[一【基本知识】 ● STM32CubeMX 是 ST 意法半导体近几年来大力推荐的 STM32 芯片图形化配置工具，目的就是为了方便开发者，允许用户使用图形化向导【生成初始化代码】，省]]></description>
+</item><item>
+    <title>ARM-Cortex-M 系列 MCU 错误追踪库-CmBacktrace</title>
+    <link>https://o2ospring.github.io/20210526/</link>
+    <pubDate>Wed, 26 May 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210526/</guid>
+    <description><![CDATA[前言 ● 对于 &ldquo;hard falut&rdquo; 死机，是玩 ARM Cortex-M 系列 MCU 工程师望而生畏的错误，虽然大多数情况下都是内存溢出引起，但想定位出错误代码位置，那可是一件不容易的事。 ● 对]]></description>
+</item><item>
+    <title>Keil MDK(ARM)-在已运行单片机硬件上中途插入调试</title>
+    <link>https://o2ospring.github.io/20210520/</link>
+    <pubDate>Thu, 20 May 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210520/</guid>
+    <description><![CDATA[前言 一台没有上调试仿真器（如：j-link）的设备突然死机、调试控制大功率机器过程中调试仿真器突然掉线、给测试部测试了近一个月的设备突然死机]]></description>
+</item><item>
+    <title>获取 ARM 编译后的 ROM 及 RAM 大小方法及原理</title>
+    <link>https://o2ospring.github.io/20210318/</link>
+    <pubDate>Thu, 18 Mar 2021 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20210318/</guid>
+    <description><![CDATA[前言 ● 我们常用的 RT-Thread、Free OS 这类的操作系统都有动态内存管理，这段内存是编译后剩余的空间。那么是如何获知 Keil 编译器编译后剩余 RAM]]></description>
+</item></channel>
+</rss>

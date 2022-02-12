@@ -1,0 +1,79 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>o2ospring</title>
+        <link>https://o2ospring.github.io/</link>
+        <description>分享嵌入式软硬件技术、物联网、智能家居、单片机、linux 等学习笔记及经验</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</lastBuildDate>
+            <atom:link href="https://o2ospring.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>【MCU 专题文章索引】</title>
+    <link>https://o2ospring.github.io/mcu/</link>
+    <pubDate>Mon, 06 Aug 2018 20:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/mcu/</guid>
+    <description><![CDATA[前言 记录我使用 MCU 软硬件一些经验，涉及 STM8、STM32F103、STM32F429 等单片机，以及单片机内部资源的应用，Keil MDK、IA]]></description>
+</item><item>
+    <title>【linux 专题文章索引】</title>
+    <link>https://o2ospring.github.io/linux/</link>
+    <pubDate>Sun, 05 Aug 2018 20:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/linux/</guid>
+    <description><![CDATA[前言 记录我学习 linux 基础知识、终端命令的使用、编程编译环境的应用，以及在 linux（Ubuntu）操作系统环境下各类工具软件的安装、配置、使用！]]></description>
+</item><item>
+    <title>【software 软件技术索引】</title>
+    <link>https://o2ospring.github.io/software/</link>
+    <pubDate>Sat, 04 Aug 2018 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/software/</guid>
+    <description><![CDATA[前言 软件技术包括：编程语言、编程算法、编程思维、数据处理、开源应用模块的使用、实时操作系统的使用等，涉及 C、Lua、RT-thread、Fr]]></description>
+</item><item>
+    <title>【hardware 硬件技术索引】</title>
+    <link>https://o2ospring.github.io/hardware/</link>
+    <pubDate>Fri, 03 Aug 2018 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/hardware/</guid>
+    <description><![CDATA[前言 硬件技术包括：电路设计、PCB 设计、硬件总线、模块方案、强弱电、实验室测试、产品认证，以及 EDA 等相关工具的使用，涉及 Altium Designer、P]]></description>
+</item><item>
+    <title>【blog 搭建知识索引】</title>
+    <link>https://o2ospring.github.io/blog/</link>
+    <pubDate>Thu, 02 Aug 2018 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/blog/</guid>
+    <description><![CDATA[前言 本人不是搞网站开发的，对建站一窍不通，本专题只是记录我搭建个人博客过程的笔记，希望这些笔记能帮助那些像我一样的小白们！本专题的内容包含了]]></description>
+</item><item>
+    <title>linux-STM32F开发㈢-在线调试工具CGDB</title>
+    <link>https://o2ospring.github.io/20220916/</link>
+    <pubDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220916/</guid>
+    <description><![CDATA[一、前言 GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不]]></description>
+</item><item>
+    <title>对技术型创业团队的看法</title>
+    <link>https://o2ospring.github.io/20220828/</link>
+    <pubDate>Sun, 28 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220828/</guid>
+    <description><![CDATA[一、内容 对技术型创业团队，有两个重要组成部分，一个前端，另一个是后端。前端主要是负责制定产品需求和开拓市场，后端主要是产品开发（可能还会包括]]></description>
+</item><item>
+    <title>linux-STM32F开发㈡-调试器的安装与使用</title>
+    <link>https://o2ospring.github.io/20220808/</link>
+    <pubDate>Mon, 08 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220808/</guid>
+    <description><![CDATA[一、前言 对于单片机的开发，我们离不开仿真器（烧录器）的使用，平常我们都是图形界面下操作，而本文主要介绍命令窗口下的仿真器驱动安装与使用。目前]]></description>
+</item><item>
+    <title>linux-STM32F开发㈠-makefile 构建与使用</title>
+    <link>https://o2ospring.github.io/20220804/</link>
+    <pubDate>Thu, 04 Aug 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220804/</guid>
+    <description><![CDATA[一、前言 在 Windows 下有完善的 IDE（集成开发环境）开发工具，开发单片机程序变得简单和傻瓜化，图形界面上所见所得操作，基本不需要我们了解一些专业知识]]></description>
+</item><item>
+    <title>我的社保缴纳情况</title>
+    <link>https://o2ospring.github.io/20220707/</link>
+    <pubDate>Thu, 07 Jul 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220707/</guid>
+    <description><![CDATA[内容 前段时间公司收集员工的社保缴纳累计年/月情况，并把研发中心所有员工的社保缴纳情况汇总下发到群里，让员工自行校对。打开 Execl 文档，排序列表，看]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>RGB 屏与 MIPI 屏基本知识 - o2ospring</title><meta name="Description" content="介绍 RGB 屏与 MIPI 屏的基本知识"><meta property="og:title" content="RGB 屏与 MIPI 屏基本知识" />
+<meta property="og:description" content="介绍 RGB 屏与 MIPI 屏的基本知识" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20210323/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-23T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-02-22T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="RGB 屏与 MIPI 屏基本知识"/>
+<meta name="twitter:description" content="介绍 RGB 屏与 MIPI 屏的基本知识"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20210323/" /><link rel="prev" href="https://o2ospring.github.io/20210318/" /><link rel="next" href="https://o2ospring.github.io/20210515/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "RGB 屏与 MIPI 屏基本知识",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20210323\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "RGB, MIPI, 显示屏","wordcount":  1803 ,
+        "url": "https:\/\/o2ospring.github.io\/20210323\/","datePublished": "2021-03-23T21:33:41+08:00","dateModified": "2022-02-22T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "介绍 RGB 屏与 MIPI 屏的基本知识"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">RGB 屏与 MIPI 屏基本知识</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/hardware/"><i class="far fa-folder fa-fw"></i>hardware</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-23">2021-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1803 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/20210323/" class="leancloud_visitors" data-flag-title="RGB 屏与 MIPI 屏基本知识">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#rgb-屏">RGB 屏</a></li>
+        <li><a href="#mipi-屏">MIPI 屏</a></li>
+        <li><a href="#接口区别">接口区别</a></li>
+        <li><a href="#参考资料">参考资料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="前言">前言</h3>
+<blockquote>
+<p>性能较弱的单片机一般没有视频接口，我们只能使用并行总线方式驱动并口显示屏，其最大分辨率一般为 480×320。但随着工业的不断进步，现在的单片机性能越来越强，慢慢出现了自带显示总线控制器（视频接口），其中 RGB 接口最为常见，其分辨率可达 800×600 上下。顺带介绍一下手机使用的 MIPI 接口，其可用于多方面的数据传输，显示屏数据传输只是它的其中一项功能。</p>
+</blockquote>
+<h3 id="rgb-屏">RGB 屏</h3>
+<details close=""><summary>点击展开内容</summary>  
+<blockquote>
+<p>RGB：称为色光三原色，分别为红、绿、蓝。目前的显示器大都是采用了 RGB 颜色标准。在显示器上，是通过电子枪打在屏幕的红、绿、蓝三色发光极上来产生色彩的，目前的电脑一般都能显示 32 位颜色，约有一百万种以上的颜色。<br>
+YUV：其的发明是由于彩色电视与黑白电视的过渡时期。Y 表示明亮度（Luminance 或 Luma），也就是灰阶值；U 和 V 表示的是色度（Chrominance 或 Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。</p>
+</blockquote>
+<ol>
+<li>RGB 控制端口</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">端口名称</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">R[7:0]</td>
+<td style="text-align:left">红色数据</td>
+</tr>
+<tr>
+<td style="text-align:left">G[7:0]</td>
+<td style="text-align:left">绿色数据</td>
+</tr>
+<tr>
+<td style="text-align:left">B[7:0]</td>
+<td style="text-align:left">蓝色数据</td>
+</tr>
+<tr>
+<td style="text-align:left">CLK</td>
+<td style="text-align:left">像素同步时钟信号</td>
+</tr>
+<tr>
+<td style="text-align:left">HSYNC</td>
+<td style="text-align:left">水平同步信号</td>
+</tr>
+<tr>
+<td style="text-align:left">VSYNC</td>
+<td style="text-align:left">垂直同步信号</td>
+</tr>
+<tr>
+<td style="text-align:left">DE</td>
+<td style="text-align:left">数据使能信号</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">显示格式</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">RGB888</td>
+<td style="text-align:left">红、绿、蓝分别为 8、8、8 根线，共 24 位色</td>
+</tr>
+<tr>
+<td style="text-align:left">RGB666</td>
+<td style="text-align:left">红、绿、蓝分别为 6、6、6 根线，共 18 位色</td>
+</tr>
+<tr>
+<td style="text-align:left">RGB565</td>
+<td style="text-align:left">红、绿、蓝分别为 5、6、5 根线，共 16 位色</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ol start="2">
+<li>RGB 接口时序</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_11.jpg"
+        data-srcset="../img/20210323_11.jpg, ../img/20210323_11.jpg 1.5x, ../img/20210323_11.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_11.jpg"
+        title="图示" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_12.jpg"
+        data-srcset="../img/20210323_12.jpg, ../img/20210323_12.jpg 1.5x, ../img/20210323_12.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_12.jpg"
+        title="图示" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_13.jpg"
+        data-srcset="../img/20210323_13.jpg, ../img/20210323_13.jpg 1.5x, ../img/20210323_13.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_13.jpg"
+        title="图示" /></p>
+<p>HBP 和 HFP 存在的必要性：从道理上说，LCD 使用矩阵寻址这两个阶段完全可以没有。但是考虑到从前 CRT 电子枪行扫描时，需要一个返回时间，而且目前的制式中，在有效信号的两端分别加入了消隐时间。就是为了做到一致，这二者才出来的。<br>
+VBP 和 VFP 存在的必要性：同理。</p>
+</details>  
+<h3 id="mipi-屏">MIPI 屏</h3>
+<details close=""><summary>点击展开内容</summary>  
+<blockquote>
+<p>MIPI（移动行业处理器接口）是 Mobile Industry Processor Interface 的缩写。MIPI（移动行业处理器接口）是 MIPI 联盟发起的为移动应用处理器制定的开放标准。MIPI 并不是一个单一的接口或协议，而是包含了一套协议和标准，以满足各种子系统（图像子系统[摄像头和显示器]、存储子系统、无线子系统、电源管理子系统、低带宽子系统[音频、键盘、鼠标、蓝牙]）独特的要求。</p>
+</blockquote>
+<ol>
+<li>分层结构</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">层级</th>
+<th style="text-align:left">解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Application 层</td>
+<td style="text-align:left">描述高层编码和解析数据流（<em>类似 485 总线<code>用户</code>定义的控制数据协议</em>）</td>
+</tr>
+<tr>
+<td style="text-align:left">Low Level Protocol 层</td>
+<td style="text-align:left">定义了如何组帧和解析以及错误检测等（<em>类似 485 总线<code>串口</code>数据帧格式定义</em>）</td>
+</tr>
+<tr>
+<td style="text-align:left">Lane Management 层</td>
+<td style="text-align:left">发送和收集数据流到每条 lane（<em>类似485总线<code>串口</code>的 RX、TX 控制端定义</em>）</td>
+</tr>
+<tr>
+<td style="text-align:left">PHY 层</td>
+<td style="text-align:left">定义了传输媒介，输入/输出电路和和时钟和信号机制（<em>类似 485 总线<code>RS485</code>收发器芯片</em>）</td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_21.jpg"
+        data-srcset="../img/20210323_21.jpg, ../img/20210323_21.jpg 1.5x, ../img/20210323_21.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_21.jpg"
+        title="图示" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">规范</th>
+<th style="text-align:left">所在层级</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DCS 规范</td>
+<td style="text-align:left">Application 层</td>
+<td style="text-align:left">DCS 是一个标准化的命令集，用于命令模式的显示模组（<em>类似 485 总线<code>用户定义的控制指令</code></em>）</td>
+</tr>
+<tr>
+<td style="text-align:left">DSI 规范</td>
+<td style="text-align:left">Low Level Protocol 层<br>Lane Management 层</td>
+<td style="text-align:left">定义了一个位于处理器和显示模组之间的高速串行接口（<em>类似 485 总线<code>串口驱动器</code></em>）</td>
+</tr>
+<tr>
+<td style="text-align:left">D-PHY 规范</td>
+<td style="text-align:left">PHY 层</td>
+<td style="text-align:left">提供DSI和CSI的物理层定义（<em>类似 485 总线<code>RS485 收发器芯片</code></em>）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">串行接口</th>
+<th style="text-align:left">解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DSI（Display Serial Interface）</td>
+<td style="text-align:left">定义了一个位于<code>处理器</code>和<code>显示模组</code>之间的高速串行接口</td>
+</tr>
+<tr>
+<td style="text-align:left">CSI（Camera Serial Interface）</td>
+<td style="text-align:left">定义了一个位于<code>处理器</code>和<code>摄像模组</code>之间的高速串行接口</td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_22.jpg"
+        data-srcset="../img/20210323_22.jpg, ../img/20210323_22.jpg 1.5x, ../img/20210323_22.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_22.jpg"
+        title="图示" /></p>
+<hr>
+<ol start="2">
+<li>接口定义</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">接口定义</th>
+<th style="text-align:left">解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">时钟</td>
+<td style="text-align:left">一个时钟 lane（由两根差分信号线组成）</td>
+</tr>
+<tr>
+<td style="text-align:left">数据</td>
+<td style="text-align:left">一个或多个数据 lane（每个都是由两根差分信号线组成）</td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_23.jpg"
+        data-srcset="../img/20210323_23.jpg, ../img/20210323_23.jpg 1.5x, ../img/20210323_23.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_23.jpg"
+        title="图示" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20210323_24.jpg"
+        data-srcset="../img/20210323_24.jpg, ../img/20210323_24.jpg 1.5x, ../img/20210323_24.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20210323_24.jpg"
+        title="图示" /></p>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">速度模式</th>
+<th style="text-align:left">速度</th>
+<th style="text-align:left">电平</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">LP 低功耗信号模式（Low-Power signaling mode）</td>
+<td style="text-align:left">10MHz (max)</td>
+<td style="text-align:left">0-1.2V（差分）</td>
+</tr>
+<tr>
+<td style="text-align:left">HS 高速信号模式（High-Speed signaling mode）</td>
+<td style="text-align:left">80Mbps ~ 1Gbps/Lane</td>
+<td style="text-align:left">100-300mV(200mV)（差分）</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<h3 id="接口区别">接口区别</h3>
+<details close=""><summary>点击展开内容</summary>  
+<p>RGB-TTL、LVDS、MIPI-DSI 接口比较：这些接口区别于信号的类型，也区别于信号内容。  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">接口类型</th>
+<th style="text-align:left">接口信号类型</th>
+<th style="text-align:left">信号内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">RGB-TTL</td>
+<td style="text-align:left">TTL电平</td>
+<td style="text-align:left">RGB666 或 RGB888 及行场同步和时钟（R、G、B、CLK、HSYNC、VSYNC、DE）</td>
+</tr>
+<tr>
+<td style="text-align:left">LVDS</td>
+<td style="text-align:left">LVDS 信号（低电压差分信号）</td>
+<td style="text-align:left">RGB 数据还有行场同步和时钟（1 组时钟 CLK，4 组 DATA）</td>
+</tr>
+<tr>
+<td style="text-align:left">MIPI-DSI</td>
+<td style="text-align:left">LVDS 信号（低电压差分信号）</td>
+<td style="text-align:left">视频流数据和控制指令（1 组时钟 CLK，1~4 组 lane）</td>
+</tr>
+</tbody>
+</table>
+<p>LVDS、MIPI-DSI 接口比较：  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">接口类型</th>
+<th style="text-align:left">传输内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">LVDS</td>
+<td style="text-align:left">传输视频数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MIPI-DSI</td>
+<td style="text-align:left">不仅能够传输视频数据，还能传输控制指令</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">接口类型</th>
+<th style="text-align:left">信号与格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">LVDS</td>
+<td style="text-align:left">将 RGB TTL 信号按照 SPWG / JEIDA 格式转换成 LVDS 信号进行传输</td>
+</tr>
+<tr>
+<td style="text-align:left">MIPI-DSI</td>
+<td style="text-align:left">LVDS 信号进行传输，及按照特定的握手顺序和指令规则传输屏幕控制所需的视频数据和控制数据</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<h3 id="参考资料">参考资料</h3>
+<details close=""><summary>点击展开内容</summary>  
+<ol>
+<li>网文-1：<a href="https://blog.csdn.net/shen924/article/details/9140509" target="_blank" rel="noopener noreffer">MIPI DSI 协议介绍</a></li>
+<li>网文-2：<a href="https://blog.csdn.net/weixin_40973138/article/details/87897494" target="_blank" rel="noopener noreffer">STM32F429 &raquo; 21. LTDC 液晶屏幕</a></li>
+<li>网文-3：<a href="https://blog.csdn.net/juxianliyu/article/details/80421760" target="_blank" rel="noopener noreffer">LCD 接口和 RGB 介绍</a></li>
+<li>网文-4：<a href="https://blog.csdn.net/u014470361/article/details/88891255" target="_blank" rel="noopener noreffer">MIPI-DSI、MIPI-CSI、LVDS 等接口解析</a></li>
+<li>网文-5：<a href="https://blog.csdn.net/coldrainbow/article/details/108850488" target="_blank" rel="noopener noreffer">RGB_TTL、LVDS、MIPI 接口液晶屏学习笔记</a></li>
+</ol>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-02-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20210323/" data-title="RGB 屏与 MIPI 屏基本知识" data-hashtags="RGB,MIPI,显示屏"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20210323/" data-hashtag="RGB"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20210323/" data-title="RGB 屏与 MIPI 屏基本知识"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20210323/" data-title="RGB 屏与 MIPI 屏基本知识"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20210323/" data-title="RGB 屏与 MIPI 屏基本知识"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/rgb/">RGB</a>,&nbsp;<a href="/tags/mipi/">MIPI</a>,&nbsp;<a href="/tags/%E6%98%BE%E7%A4%BA%E5%B1%8F/">显示屏</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20210318/" class="prev" rel="prev" title="获取 ARM 编译后的 ROM 及 RAM 大小方法及原理"><i class="fas fa-angle-left fa-fw"></i>获取 ARM 编译后的 ROM 及 RAM 大小方法及原理</a>
+            <a href="/20210515/" class="next" rel="next" title="Serial Studio 数据可视化工具">Serial Studio 数据可视化工具<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

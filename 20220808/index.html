@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>linux-STM32F开发㈡-调试器的安装与使用 - o2ospring</title><meta name="Description" content="linux-STM32F开发㈡-调试器的安装与使用"><meta property="og:title" content="linux-STM32F开发㈡-调试器的安装与使用" />
+<meta property="og:description" content="linux-STM32F开发㈡-调试器的安装与使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220808/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-08T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-08-08T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="linux-STM32F开发㈡-调试器的安装与使用"/>
+<meta name="twitter:description" content="linux-STM32F开发㈡-调试器的安装与使用"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220808/" /><link rel="prev" href="https://o2ospring.github.io/20220804/" /><link rel="next" href="https://o2ospring.github.io/20220828/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "linux-STM32F开发㈡-调试器的安装与使用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220808\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Makefile, ARM Cortex-M","wordcount":  4202 ,
+        "url": "https:\/\/o2ospring.github.io\/20220808\/","datePublished": "2022-08-08T21:33:41+08:00","dateModified": "2022-08-08T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "linux-STM32F开发㈡-调试器的安装与使用"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux-STM32F开发㈡-调试器的安装与使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-08">2022-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4202 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/20220808/" class="leancloud_visitors" data-flag-title="linux-STM32F开发㈡-调试器的安装与使用">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一前言">一、前言</a></li>
+        <li><a href="#二安装">二、安装</a></li>
+        <li><a href="#三使用">三、使用</a></li>
+        <li><a href="#三扩展">三、扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
+<p>对于单片机的开发，我们离不开仿真器（烧录器）的使用，平常我们都是图形界面下操作，而本文主要介绍命令窗口下的仿真器驱动安装与使用。目前的 DSP、FPGA、ARM、部分单片机等主流芯片均支持 JTAG 协议，也就是说绝大部分仿真器都是 JTAG 接口。JTAG（Joint Test Action Group 联合测试行动小组）作为一项国际标准测试协议（IEEE 1149.1 兼容），主要用于芯片内部测试和调试。SWD（Serial Wire Debug 串行线调试）是 ARM 设计的协议，用于对其微控制器进行编程和调试。支持 JTAG 接口必定支持 SWD，而且 SWD 使用引脚更少、速度更快、稳定性更好、且支持打印调试信息！</p>
+<h3 id="二安装">二、安装</h3>
+<details close=""><summary>1、j-link 应用驱动安装</summary>  
+<p>待续……</p>
+</details>  
+<details close=""><summary>2、st-link 应用驱动安装</summary>  
+<!--  
+https://github.com/stlink-org/stlink  
+  
+https://blog.csdn.net/hpf247/article/details/122682231  
+https://blog.csdn.net/BadBoyHolly/article/details/118303486  
+  
+  
+    git  
+    gcc或clang或mingw32-gcc或mingw64-gcc（C编译器；很可能已经存在gcc）  
+    build-essential （在基于Debian的发行版上（debian，ubuntu））  
+    cmake （3.4.2或更高版本，请使用存储库中提供的最新版本）  
+    pkg-config  
+    libusb-1.0  
+    libusb-1.0-0-dev （用于构建的开发标头）  
+    libgtk-3-dev（可选，需要stlink-gui）  
+    pandoc（可选的，从markdown生成手册页是必需的）  
+  
+  
+  
+sudo apt-get install git              # 分布式项目版本管理（代码版本管理）  
+sudo apt-get install build-essential  # 包含依赖 make GCC 编译器以及编译软件所需的许多库和其他实用程序  
+  
+  
+sudo apt-get install libusb-1.0-0-dev  
+sudo apt-get install cmake  
+  
+  
+									 # 下载源码  
+git clone https://github.com/stlink-org/stlink.git  
+cd stlink                            # 进入根目录  
+cmake .                              #  
+make                                 # 编译  
+cd build/Release                     # 进入目录  
+make install                         # 安装？？？？？？？？？？？？make install DESTDIR=_install  
+sudo cp st-flash /usr/bin            # 复制stlink工具到系统  
+或  
+cd bin  
+sudo cp st-* /usr/local/bin  
+cd ../lib  
+sudo cp *.so* /lib32  
+  
+  
+lsusb  检查是否驱动成功:  
+  
+  
+sudo cp etc/udev/rules.d/*  /etc/udev/rules.d  
+udevadm control --reload-rules  
+udevadm trigger  
+或  
+cd ../config/udev/rules.d  
+sudo cp 49-stlinkv*.rules /etc/udev/rules.d/  
+或  
+sudo cp stlink/config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/  
+  
+  
+  
+st-info  - 用来读取stlink及芯片的信息。  
+st-flash - stm32芯片flash烧写程序。  
+st-trace - log工具  
+st-util  - GDB服务，用于VSCode或 VSCodium（需要安装插件Cortex-Debug)  
+  
+  
+st-flash write targetfile.bin 0x0800000   # 烧录的例子：  
+st-flash read dummy.bin 0 0xffff          # 读取的例子：  
+st-flash read firmware.bin 0x8000000 4096 # 从0x8000000读取4096字节存到firmware.bin里  
+  
+  
+  
+  
+  
+sudo apt-get install git make cmake libusb-1.0-0-dev  
+sudo apt-get install gcc build-essential  
+  
+cd ~/Downloads  
+mkdir stm32  
+cd stm32  
+git clone https://github.com/stlink-org/stlink  
+cd stlink  
+cmake .  
+make  
+  
+cd bin  
+sudo cp st-* /usr/local/bin  
+cd ../lib  
+sudo cp *.so* /lib32  
+  
+sudo cp stlink/config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/  
+  
+作者：知乎用户  
+链接：https://www.zhihu.com/question/452034401/answer/1808164458  
+来源：知乎  
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。  
+-->  
+<p>待续……</p>
+<!--  
+关于 st-link 的驱动，它以源码方式提供，需要到仓库下载源码，然后在本地编译安装。由于 st-link 驱动编译时需要的 libusb 和 cmake 程序，所以需要首先安装它们。  
+  
+https://github.com/texane/stlink  
+-->  
+</details>  
+<details close=""><summary>3、OpenOCD 应用驱动安装</summary>  
+<blockquote>
+<p>OpenOCD（Open On-Chip Debugger）是一个开源的 JTAG 上位机调试程序，支持驱动 st-link、j-link 等多种主流的调试器，支持 ARM7、ARM9、ARM10、ARM11 和 Cortex（如：STM32F103） 等多种内核处理器。听说它是一位国外研究生在上学时构思与完成的软件，更多介绍可到【<a href="https://www.oschina.net/p/openocd" target="_blank" rel="noopener noreffer">开源中国</a>】看看。OpenOCD 以提供源码方式来编译及安装，所以事先需要安装 make、gcc 工具！关于 OpenOCD 下载，进入【<a href="http://sourceforge.net/projects/openocd" target="_blank" rel="noopener noreffer">代码仓库站点</a>】，点击里面的 Download 按钮下载 【<a href="https://sourceforge.net/projects/openocd/files/latest/download" target="_blank" rel="noopener noreffer">openocd-0.11.0.zip</a>】 压缩包。如果你没编译条件，也可直接【<a href="https://github.com/xpack-dev-tools/openocd-xpack/releases" target="_blank" rel="noopener noreffer">下载</a>】第三方编译好的软件，解压后配置环境变量即可（加入路径到环境变量，如：D:\openOCD\xpack-openocd-0.11.0-5\bin）。特别说明：由于 OpenOCD 是上位机软件（是仿真器与调试软件之间的连接器），所以压根不能驱动仿真器，所以事先需要安装 USB 硬件驱动程序 【<a href="https://libusb.info/" target="_blank" rel="noopener noreffer">libusb</a>】！资料：<a href="https://openocd.org/" target="_blank" rel="noopener noreffer">官网</a>、<a href="https://openocd.org/doc/html/" target="_blank" rel="noopener noreffer">官方手册</a>。扩展：【<a href="https://github.com/riscv/riscv-openocd" target="_blank" rel="noopener noreffer">openOCD RISC-V 版</a>】，具体参考【<a href="https://blog.csdn.net/qq_41470620/article/details/114084406" target="_blank" rel="noopener noreffer">网文</a>】！</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_2_300.jpg"
+        data-srcset="../img/20220808_2_300.jpg, ../img/20220808_2_300.jpg 1.5x, ../img/20220808_2_300.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_2_300.jpg"
+        title="图示" /></p>
+<p><strong>3.1、linux 系统下安装</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">unzip -q openocd-0.11.0.zip           <span class="c1"># 解压zip压缩包</span>
+<span class="nb">cd</span> openocd-0.11.0/                    <span class="c1"># 进入刚才解压出的文件夹</span>
+sudo apt-get install libusb-1.0-0-dev <span class="c1"># 安装依赖Libusb库（./configure时会检查libusb组件，找不到会显示：- USB .... no）</span>
+./configure                           <span class="c1"># 进行自动默认配置（在最后可以看到支持的调试器类型以及是否已打开）</span>
+<span class="c1"># ./configure --enable-jlink          # 如果你使用调试器是J-Link，但默认配置里它没被打开，运行本行命令！</span>
+<span class="c1"># ./configure -h                      # 当你的是其它调试器，运行帮助命令查看具体是哪条选项来打开调试器。</span>
+make                                  <span class="c1"># 编译OpenOCD软件（OpenOCD可以使用gcc和clang两个编译器进行编译）</span>
+sudo make install                     <span class="c1"># 安装OpenOCD软件（默认安装到 /usr/local/share/openocd/）</span>
+openocd -v                            <span class="c1"># 查看OpenOCD版本（用于验证是否安装成功，当前版本为：0.11.0）</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>3.2、安装不正确出现的问题</strong>：</p>
+<details close=""><summary>3.2.1、libusb 组件的安装问题</summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_2_321.jpg"
+        data-srcset="../img/20220808_2_321.jpg, ../img/20220808_2_321.jpg 1.5x, ../img/20220808_2_321.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_2_321.jpg"
+        title="图示" /></p>
+</details>  
+<details close=""><summary>3.2.2、烧录固件提示找不到驱动</summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_2_322.jpg"
+        data-srcset="../img/20220808_2_322.jpg, ../img/20220808_2_322.jpg 1.5x, ../img/20220808_2_322.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_2_322.jpg"
+        title="图示" /></p>
+</details>  
+</details>  
+<details close=""><summary>4、libusb USB 低层硬件驱动介绍</summary>  
+<blockquote>
+<p>libusb 是一个由 C 语言开发的开源库，可帮助开发者在应用层面上直接与 USB 硬件进行通讯，它属于通用的 USB 硬件驱动库，可跨平台移植。安装 libusb 的目的，其实就是因为 OpenOCD 只把 J-link 等仿真器当作普通的 USB 设备来使用，不使用 J-link 自带的仿真器驱动程序。资料：<a href="https://libusb.info/" target="_blank" rel="noopener noreffer">libusb 新官网</a>、<a href="http://www.libusb.org/" target="_blank" rel="noopener noreffer">libusb 旧官网</a>、<a href="https://sourceforge.net/projects/libusb-win32/" target="_blank" rel="noopener noreffer">libusb Windows 版</a>、<a href="https://sourceforge.net/projects/libusb/" target="_blank" rel="noopener noreffer">libusb sourceforge 下载</a>、<a href="https://github.com/libusb/libusb" target="_blank" rel="noopener noreffer">libusb github 下载</a>。</p>
+</blockquote>
+<p><strong>4.1、linux 系统下的编译安装</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">tar -xjvf libusb-1.0.26.tar.bz2       <span class="c1"># 解压压缩包</span>
+<span class="nb">cd</span> libusb-1.0.26                      <span class="c1"># 进入刚才解压出的文件夹</span>
+./configure --build<span class="o">=</span>x86_64-linux --disable-udev <span class="c1"># 进行基本配置（Windows系统选项参数貌似为：--build=mingw32）</span>
+<span class="c1"># ./configure -h                      # 可查看一些选项参数内容</span>
+make                                  <span class="c1"># 编译libusb软件</span>
+sudo make install                     <span class="c1"># 安装libusb软件（默认安装到 /usr/local/lib/）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>4.2、Windows 系统下的安装工具</strong>：</p>
+<p>在 Windows 系统下，我们把 j-link 原厂驱动转换成 openocd 可以识别的 Libusb-WinUSB 驱动之后，j-flash、j-Men 等软件就无法使用了，也无法在 Keil 中使用 j-link 烧录和调试程序。如果想使用这些工具，就必须把驱动还原回去，这时候 USBDriverTool 软件就派上用场了。在 USBDriverTool 软件界面上操作如下：</p>
+<p>a）先插好 j-link 然后在 j-link 设备上单击右键；<br>
+b）转换：选择<code>Install Libusb-WinUSB</code>即可完成驱动的转换。<br>
+c）恢复：选择<code>Restore default driver</code>即可恢复原驱动。</p>
+<p>补充：关于【<a href="https://visualgdb.com/UsbDriverTool/" target="_blank" rel="noopener noreffer">USBDriverTool</a>】与【<a href="https://zadig.akeo.ie/" target="_blank" rel="noopener noreffer">Zadig</a>】两款驱动工具，可以阅读【<a href="https://blog.csdn.net/weixin_45467056/article/details/119886361" target="_blank" rel="noopener noreffer">解决 openocd 无法识别 jlink 问题</a>】的博文介绍。</p>
+</details>  
+<h3 id="三使用">三、使用</h3>
+<details close=""><summary>1、使用 OpenOCD 软件下载固件</summary>  
+<details close=""><summary>1.1、介绍：openocd 命令行</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># openocd命令行格式：</span>
+openocd -f &lt;下载器配置文件&gt; -f &lt;目标芯片配置文件&gt; -c &lt;执行命令&gt;
+
+<span class="c1"># 下载固件实用指令：</span>
+openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg -c init -c <span class="s2">&#34;reset halt; wait_halt; flash write_image erase out/project.hex&#34;</span> -c reset -c shutdown
+
+<span class="c1"># 相关参数补充说明：</span>
+-f interface/stlink-v2.cfg  <span class="c1">#下载器配置文件，表示使用stlink-v2烧录器 （配置文件完整路径：/usr/local/share/openocd/scripts/interface/stlink-v2.cfg）</span>
+-f target/stm32f1x.cfg      <span class="c1">#目标芯片配置文件，表示烧录stm32f1x单片机（配置文件完整路径：/usr/local/share/openocd/scripts/target/stm32f1x.cfg）</span>
+-c init                     <span class="c1">#表示烧录前初始处理器（补充说明：-c init -c halt 是很多博文给出的参数，但应用中出现第一次成功第二次失败的现象，估计 -c halt 有时失效，改为下一行加相关参数）</span>
+-c <span class="s2">&#34;reset halt; wait_halt; flash write_image erase out/project.hex&#34;</span> <span class="c1">#表示烧录前先复位并暂停处理器，再对flash擦除并写入十六进制文件。如果是二进制文件，其后面空格后加入地址，如: 0x08000000</span>
+-c reset                    <span class="c1">#表示烧录后复位处理器</span>
+-c shutdown                 <span class="c1">#表示烧录后退出openocd</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>1.2、准备：烧录器配置文件</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#######################################################</span>
+<span class="c1"># 由于我使用的是 jlink 仿真器，并且接口为 SWD，所以要将</span>
+<span class="c1"># /usr/share/openocd/scripts/interface/jlink.cfg </span>
+<span class="c1"># 配置脚本另存为：jlink_swd.cfg，并在其里面增加两项参数：</span>
+<span class="c1"># 1、接口改为：SWD</span>
+<span class="c1"># 2、速度改为：20000KHz</span>
+<span class="c1">#######################################################</span>
+
+<span class="c1">#</span>
+<span class="c1"># SEGGER J-Link</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.segger.com/jlink.html</span>
+<span class="c1">#</span>
+
+adapter driver jlink
+
+<span class="c1"># add swd config       （1、接口改为：SWD）</span>
+transport <span class="k">select</span> swd
+<span class="c1"># add speed(KHz) config（2、速度改为：20000KHz）</span>
+adapter speed <span class="m">20000</span>
+
+<span class="c1"># The serial number can be used to select a specific device in case more than</span>
+<span class="c1"># one is connected to the host.</span>
+<span class="c1">#</span>
+<span class="c1"># Example: Select J-Link with serial number 123456789</span>
+<span class="c1">#</span>
+<span class="c1"># jlink serial 123456789</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>1.3、烧录：固件烧录操作</summary>  
+<p>1.3.1、第一步：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_131.jpg"
+        data-srcset="../img/20220808_3_131.jpg, ../img/20220808_3_131.jpg 1.5x, ../img/20220808_3_131.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_131.jpg"
+        title="虚拟机连接jlink" /></p>
+<p>1.3.2、第二步：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#######################################################</span>
+<span class="c1"># 由于我使用的是 jlink 仿真器，并且接口为 SWD，单片机为</span>
+<span class="c1"># STM32F103RC，烧录文件为十六进制文件，文件所在相对路径</span>
+<span class="c1"># 为 out/project.hex，则直接运行下面命令烧录固件：</span>
+<span class="c1">#######################################################</span>
+
+sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg -c init -c <span class="s2">&#34;reset halt; wait_halt; flash write_image erase out/project.hex&#34;</span> -c reset -c shutdown
+</code></pre></td></tr></table>
+</div>
+</div><p>1.3.3、最终结果：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_132.jpg"
+        data-srcset="../img/20220808_3_132.jpg, ../img/20220808_3_132.jpg 1.5x, ../img/20220808_3_132.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_132.jpg"
+        title="成功烧录信息" /></p>
+</details>  
+</details>  
+<details close=""><summary>2、使用 OpenOCD 软件仿真程序</summary>  
+<details close=""><summary>2.1、第一步：查看 arm-none-eabi-gdb 版本</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看版本，用于验证其是否可正常工作</span>
+arm-none-eabi-gdb --version  <span class="c1"># 版本要求≥7.12</span>
+
+<span class="c1">##############################################</span>
+<span class="c1"># 出现问题：提示信息显示找不到 libncurses.so.5</span>
+<span class="c1">##############################################</span>
+arm-none-eabi-gdb: error <span class="k">while</span> loading shared 
+libraries: libncurses.so.5: cannot open shared 
+object file: No such file or directory
+
+<span class="c1">##############################################</span>
+<span class="c1"># 解决方法：安装所需32位依赖库 lib32ncurses5 ！</span>
+<span class="c1">##############################################</span>
+sudo apt-get install lib32ncurses5
+
+</code></pre></td></tr></table>
+</div>
+</div><p>备注-1：启动 gdb 对 C/C++ 程序的调试，必须要在编译前就加上 -g 选项！<br>
+备注-2：CGDB（v0.8.0）要调用 arm-none-eabi-gdb，要求 gdb 的版本必须大于等于 7.12</p>
+</details>  
+<details close=""><summary>2.2、第二步：在命令窗口启动 OpenOCD 服务</summary>  
+<p>前提条件：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_131.jpg"
+        data-srcset="../img/20220808_3_131.jpg, ../img/20220808_3_131.jpg 1.5x, ../img/20220808_3_131.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_131.jpg"
+        title="虚拟机连接jlink" /></p>
+<p>输入命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg  <span class="c1"># 配置文件完整路径：/usr/local/share/openocd/scripts/ 下的 interface/jlink_swd.cfg 和 target/stm32f1x.cfg</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果如下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220808_3_22.jpg"
+        data-srcset="../img/20220808_3_22.jpg, ../img/20220808_3_22.jpg 1.5x, ../img/20220808_3_22.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220808_3_22.jpg"
+        title="启动服务结果" /></p>
+<p>备注：在 Windows 系统下，j-link 的原厂应用驱动软件，也提供 GDB 对接服务，直接打开【J-Link GDB Server】可视界面操作即可！</p>
+</details>  
+<details close=""><summary>2.3、第三步：在另一命令窗口运行 GDB 调试</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##############################################</span>
+<span class="c1"># ①、在 shell 命令窗口运行</span>
+<span class="c1">##############################################</span>
+<span class="c1"># 1.1、运行 gdb</span>
+arm-none-eabi-gdb ./build/gcc/rt-thread.elf
+
+<span class="c1">##############################################</span>
+<span class="c1"># ②、在 gdb 命令窗口运行</span>
+<span class="c1">##############################################</span>
+<span class="c1"># 2.1、连接 openocd</span>
+target remote localhost:3333
+
+<span class="c1"># 2.2、复位并暂停处理器</span>
+monitor reset halt
+
+<span class="c1"># 2.3、下载固件（实测无需复位暂停处理器直接load也可以）</span>
+load
+
+<span class="c1"># 2.4、GDB 相关操作，下面列出常用命令：</span>
+<span class="c1"># r --------run-------&gt; run         //运行程序 (指定运行程序文件: run app.exe argv1 argv2)</span>
+<span class="c1"># l --------list------&gt; list        //查看文件 (当前运行文件行号: l     100) (指定文件行号: l     max.c:5) (接续查看: l         )</span>
+<span class="c1"># b --------break-----&gt; breakpoint  //设置断点 (当前运行文件行号: b     100) (指定文件行号: b     max.c:5) (指定函数: b     main)</span>
+<span class="c1"># tb--------tbreak----&gt; temporarily //临时断点 (当前运行文件行号: tb    100) (指定文件行号: tb    max.c:5) (指定函数: tb    main)【备注：断点执行后自动取消!】</span>
+<span class="c1"># clear ----clear-----&gt; clear       //清除断点 (当前运行文件行号: clear 100) (指定文件行号: clear max.c:5) (指定函数: clear main)</span>
+<span class="c1"># d --------delete----&gt; delete      //删除断点 (删除指定编号断点: d       2)【备注：需要 i b 查看断点编号来配合使用!】</span>
+<span class="c1"># i b ------info b----&gt; information //查看断点编号与信息</span>
+<span class="c1"># p --------print-----&gt; print       //查看变量 (空格后加变量名称)</span>
+<span class="c1"># s --------step------&gt; step        //单步运行 (会进入子函数)</span>
+<span class="c1"># n --------next------&gt; next        //单步运行 (不进入子函数)</span>
+<span class="c1"># c --------continue--&gt; continue    //恢复运行 (直至遇到断点)(否则 ctrl+c 强制退出，再设置断点等操作)</span>
+<span class="c1"># jump -----jump------&gt; jump        //跳转执行 (空格后加行号)(建议在同一个函数中进行跳转,否则函数运行完返回时可能会出错)</span>
+<span class="c1"># finish ---finish----&gt; finish      //运行当前函数结束后暂停运行</span>
+<span class="c1"># bt -------backtrace-&gt; backtrace   //查看函数堆栈</span>
+<span class="c1"># q --------quit------&gt; quit        //退出gdb调度</span>
+<span class="c1"># │        │          └────→//命令单词</span>
+<span class="c1"># │        └──────────→//命令(全写)</span>
+<span class="c1"># └───────────────→//命令(简写)</span>
+</code></pre></td></tr></table>
+</div>
+</div><!--  
+[GDB基本命令(整合)](https://www.cnblogs.com/zl1991/p/7344707.html)  
+[GCC与GDB](https://blog.csdn.net/manonghouyiming/article/details/79533387)  
+-->  
+</details>  
+</details>  
+<details close=""><summary>3、使用 OpenOCD 总结</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########连接USB ########</span>
+虚拟机/可移动设备/SEGGER J-Link/连接
+
+<span class="c1">########下载固件########</span>
+sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg -c init -c <span class="s2">&#34;reset halt; wait_halt; flash write_image erase out/project.hex&#34;</span> -c reset -c shutdown
+
+<span class="c1">########调试程序########</span>
+sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg  <span class="c1"># /usr/local/share/openocd/scripts/ 下的 interface/jlink_swd.cfg 和 target/stm32f1x.cfg</span>
+                             <span class="c1"># 编译加[-g]选项  #【在一个命令窗口启动openocd服务】</span>
+arm-none-eabi-gdb ./build/gcc/rt-thread.elf  <span class="c1">#【在另一命令窗口启动gdb服务】</span>
+target remote localhost:3333 <span class="c1"># 在gdb里:连接openocd服务</span>
+monitor reset halt           <span class="c1"># 在gdb里:复位并暂停处理器</span>
+load                         <span class="c1"># 在gdb里:装载调试固件（实测无需复位暂停处理器直接load也可以）</span>
+tb main                      <span class="c1"># 在gdb里:在main函数设置临时断点</span>
+c                            <span class="c1"># 在gdb里:运行程序</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="三扩展">三、扩展</h3>
+<details close=""><summary>1、IDE 集成开发环境的组成</summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:96px">组件</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">代码编辑工具</td>
+<td style="text-align:left">IDE 直接使用 QScitinal 这类的编辑器库</td>
+</tr>
+<tr>
+<td style="text-align:left">代码智能提示</td>
+<td style="text-align:left">IDE 后台调用 clang 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">代码语法错误动态检测</td>
+<td style="text-align:left">IDE 后台调用 gcc 或者 clang 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">工程源码文件组织</td>
+<td style="text-align:left">IDE 使用的是 makefile，后台调用 make 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">编译</td>
+<td style="text-align:left">IDE 后台调用 gcc 编译器</td>
+</tr>
+<tr>
+<td style="text-align:left">连接硬件调试器</td>
+<td style="text-align:left">IDE 后台调用 OpenOCD 连接调试器和板子</td>
+</tr>
+<tr>
+<td style="text-align:left">下载</td>
+<td style="text-align:left">IDE 后台调用 OpenOCD 命令下载固件</td>
+</tr>
+<tr>
+<td style="text-align:left">调试</td>
+<td style="text-align:left">IDE 后台调用 gdb，给 gdb 发命令，gdb 再给 OpenOCD 发命令，OpenOCD 再指挥调试器控制板子。实现单步执行，查看变量值，寄存器等</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<!--  
+[跟我一起学OpenOCD](https://zhuanlan.zhihu.com/p/41517198)  
+[Windows上使用 OpenOCD 给 STM32 下载程序](https://blog.csdn.net/Mculover666/article/details/117553014)  
+[OpenOCD安装与使用（JTAG调试）](https://www.bbsmax.com/A/Vx5MDGgvJN/)  
+[OpenOCD如何通过stlink直接下载程序到stm32板子](https://blog.csdn.net/kangkanglhb88008/article/details/126037321)  
+[嵌入式IDE原理 OpenOCD介绍 以及stlink如何连接stm32板子](https://blog.csdn.net/kangkanglhb88008/article/details/125921453)  
+[STM32高级开发(6)-makefile与调试器驱动](https://blog.csdn.net/zhengyangliu123/article/details/54784038)  
+[ubuntu20.04 + arm-none-eabi-gdb + openocd + STlink调试STM32F103单片机](https://blog.csdn.net/dhy9974/article/details/124376993)  
+https://blog.csdn.net/qq_44884716/article/details/123295638  
+https://blog.csdn.net/sagetom/article/details/9124631  
+[STM32 gcc编译环境搭建的配置](https://m.2cto.com/kf/201711/696597.html)  
+[使用GCC/Eclipse开发STM32 Nucleo入门指南](https://www.yiboard.com/thread-388-1-1.html)  
+[在Keil5中配置使用GCC编译器开发STM32](https://blog.csdn.net/weixin_39871788/article/details/78858791)  
+[STM32中的链接器脚本文件(.ld文件)与启动文件(.s文件)的相关知识整理](https://blog.csdn.net/laifengyuan1/article/details/108725266)  
+-->  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-08-08</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220808/" data-title="linux-STM32F开发㈡-调试器的安装与使用" data-hashtags="Makefile,ARM Cortex-M"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220808/" data-hashtag="Makefile"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220808/" data-title="linux-STM32F开发㈡-调试器的安装与使用"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220808/" data-title="linux-STM32F开发㈡-调试器的安装与使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220808/" data-title="linux-STM32F开发㈡-调试器的安装与使用"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/makefile/">Makefile</a>,&nbsp;<a href="/tags/arm-cortex-m/">ARM Cortex-M</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220804/" class="prev" rel="prev" title="linux-STM32F开发㈠-makefile 构建与使用"><i class="fas fa-angle-left fa-fw"></i>linux-STM32F开发㈠-makefile 构建与使用</a>
+            <a href="/20220828/" class="next" rel="next" title="对技术型创业团队的看法">对技术型创业团队的看法<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

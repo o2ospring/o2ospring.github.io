@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>博客 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
+        <description>博客 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 02 Aug 2018 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E5%8D%9A%E5%AE%A2/" rel="self" type="application/rss+xml" /><item>
+    <title>【blog 搭建知识索引】</title>
+    <link>https://o2ospring.github.io/blog/</link>
+    <pubDate>Thu, 02 Aug 2018 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/blog/</guid>
+    <description><![CDATA[前言 本人不是搞网站开发的，对建站一窍不通，本专题只是记录我搭建个人博客过程的笔记，希望这些笔记能帮助那些像我一样的小白们！本专题的内容包含了]]></description>
+</item></channel>
+</rss>

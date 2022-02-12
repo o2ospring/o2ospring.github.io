@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>正则表达式 - o2ospring</title><meta name="Description" content="正则表达式语法的基本介绍"><meta property="og:title" content="正则表达式" />
+<meta property="og:description" content="正则表达式语法的基本介绍" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20220527/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-27T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-05-27T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="正则表达式"/>
+<meta name="twitter:description" content="正则表达式语法的基本介绍"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220527/" /><link rel="prev" href="https://o2ospring.github.io/20220526/" /><link rel="next" href="https://o2ospring.github.io/20220707/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "正则表达式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20220527\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "正则表达式","wordcount":  6280 ,
+        "url": "https:\/\/o2ospring.github.io\/20220527\/","datePublished": "2022-05-27T21:33:41+08:00","dateModified": "2022-05-27T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "正则表达式语法的基本介绍"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">正则表达式</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-27">2022-05-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6280 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;<span id="/20220527/" class="leancloud_visitors" data-flag-title="正则表达式">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一简介">一、简介</a></li>
+        <li><a href="#二语法">二、语法</a></li>
+        <li><a href="#三应用">三、应用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一简介">一、简介</h3>
+<p>正则表达式（Regular Expression <code>/'reɡjələr/ɪk'spreʃn/</code>）是一种文本匹配模式，其使用一组由字母和符号组成的特殊文本来描述用户自定义规则的字符串，用于查找或替换满足你想要格式的文本。许多程序设计语言和脚本语言都支持利用正则表达式进行字符串操作（例如：C# 编程语言、python 脚本语言），以及很多专业文本编辑软件都支持利用正则表达式进行文本查找替换操作（例如：Notepad++ 代码编辑软件、Meld 代码比较工具）。注意：因为正则表达式并不仅限于某一种语言/软件，所以在每种语言中都会有细微的差别。</p>
+<h3 id="二语法">二、语法</h3>
+<details close=""><summary><strong>1、额外标记</strong></summary>  
+<blockquote>
+<p>标记也称为修饰符，正则表达式的标记用于指定额外的匹配策略，可以理解为微调全局匹配规则。<br>
+例如：<code>i</code>表示将匹配更改为不区分大小写。<br>
+语法：<code>/相关匹配表达式/额外标记</code><br>
+实例：<code>/[a-z]+/ig</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:64px">额外标记</div></th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">i</td>
+<td style="text-align:left">ignore &mdash;&mdash; 忽略大小写，将匹配更改为<strong>不区分大小写</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">g</td>
+<td style="text-align:left">global &mdash;&mdash; 全局匹配，表示<strong>查找所有</strong>匹配项。</td>
+</tr>
+<tr>
+<td style="text-align:left">m</td>
+<td style="text-align:left">multi line &ndash; 多行匹配，使边界字符 <strong>^</strong> 和 <strong>$</strong> 匹配更改为<strong>每一行</strong>的开头和结尾，而不是整段字符串的开头和结尾。</td>
+</tr>
+<tr>
+<td style="text-align:left">s</td>
+<td style="text-align:left">将<code>.</code>的匹配更改为<strong>包含换行符</strong>（\n）。</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<details close=""><summary><strong>2、语法特殊符</strong></summary>  
+<blockquote>
+<p><strong>2.1</strong>、在普通的字符中，存在隐性的控制符，例如 Tab 符和回车符等，这些字符需要转义才能表达出来。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:120px">控制类-特殊字符</div></th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>\cX</code></td>
+<td style="text-align:left">表达一个由 X 指明的控制字符。例如：\cM 表达一个回车符。X 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &lsquo;c&rsquo; 字符。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\t</code></td>
+<td style="text-align:left">表示一个　　制表符。等价于 \x09 或 \cI。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\n</code></td>
+<td style="text-align:left">表示一个　　换行符。等价于 \x0a 或 \cJ。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\v</code></td>
+<td style="text-align:left">表示一个垂直制表符。等价于 \x0b 或 \cK。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\f</code></td>
+<td style="text-align:left">表示一个　　换页符。等价于 \x0c 或 \cL。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\r</code></td>
+<td style="text-align:left">表示一个　　回车符。等价于 \x0d 或 \cM。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>2.2</strong>、匹配语法中，使用了十几个特殊符号来表达匹配规则。当需要显示符号本身时需要转义来呈现。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:120px">匹配类-特殊字符</div></th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>\\</code> <code>\/</code> \| <br><code>\(</code> <code>\)</code> <br><code>\[</code> <code>\]</code> <br><code>\{</code> <code>\}</code> <br><code>\*</code> <code>\+</code> <br><code>\?</code> <code>\.</code> <br><code>\^</code> <code>\$</code> <br></td>
+<td style="text-align:left"><strong>字符转义</strong>：匹配中一些特殊字符需要用<code>\</code>转义来显示符号本身，主要包括 15 个特殊字符：\  |  /  (  )  [  ]  {  }  *  +  ?  .  ^  $ ，其中 <strong>]</strong>  <strong>}</strong> 两个符号可以不用<code>\</code>转义。</td>
+</tr>
+<tr>
+<td style="text-align:left">\</td>
+<td style="text-align:left"><strong>转义字符</strong>：将字符<code>转义</code>为特殊字符、或八进制转义符等等。</td>
+</tr>
+<tr>
+<td style="text-align:left">|</td>
+<td style="text-align:left"><strong>匹配或项</strong>：为<code>或</code>运算符，两项表达式中只要有一项匹配即表示符合规则。</td>
+</tr>
+<tr>
+<td style="text-align:left">( )</td>
+<td style="text-align:left"><strong>匹配捕获</strong>：在匹配获得的字符串中，捕获 ( ) 内规则内容放到缓存，简称<code>捕获物</code>，可以有多个捕获物，最多 99 个，\1 表示访问第一个捕获物（如：(([0-9])\2) 其中 \1 表示第一个捕获物为整体，\2 表示为第二个捕获物的克隆）。注：(?xxx) 语句不是捕获物。</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ]</td>
+<td style="text-align:left"><strong>匹配字集</strong>：与自定义<code>字符集</code>其中一个字符匹配。例如 [0-9] 表示与数字匹配，[^0-9] 表示与<strong>非</strong>数字匹配。</td>
+</tr>
+<tr>
+<td style="text-align:left">{ }</td>
+<td style="text-align:left"><strong>匹配次数</strong>：限制其左边一个字符或一个捕获物的<code>匹配次数</code>为用户指定。例如 [0-9]{3}、[0-9]{3,}、[0-9]{3,5} 分别表示匹配 3 个、n～3 个、5～3 个数字，如果后面加一个<code>?</code>修饰则 [0-9]{3,5}? 表示匹配 3～5 个数字。</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><strong>匹配次数</strong>：限制其左边一个字符或一个捕获物的匹配次数为<strong><code>n～0</code></strong>，如果后加多一个<code>?</code>修饰则表示匹配次数为<strong><code>0～n</code></strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left"><strong>匹配次数</strong>：限制其左边一个字符或一个捕获物的匹配次数为<strong><code>n～1</code></strong>，如果后加多一个<code>?</code>修饰则表示匹配次数为<strong><code>1～n</code></strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left"><strong>匹配次数</strong>：限制其左边一个字符或一个捕获物的匹配次数为<strong><code>1～0</code></strong>，如果后加多一个<code>?</code>修饰则表示匹配次数为<strong><code>0～1</code></strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left"><strong>匹配字集</strong>：与除换行符 &lsquo;\n&rsquo; 之外的<code>任何单字符</code>匹配。备注：个人认为应该是只包括空格、Tab格、及可见字符的任一单字符！</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left"><strong>匹配位置</strong>：匹配输入字符串的<code>开始位置</code>。例如 ^[0-9]+ 表示整体以数字开始。如果在 [ ] 里面使用，则表示在 ^ 右边的字符集除外的其它字符集。</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left"><strong>匹配位置</strong>：匹配输入字符串的<code>结尾位置</code>。例如 [0-9]+$ 表示整体以数字结束。如果设置了 RegExp 对象的 Multiline 属性，则 $ 也匹配 &lsquo;\n&rsquo; 或 &lsquo;\r&rsquo;。要匹配 $。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?:X)</td>
+<td style="text-align:left"><strong>匹配集合</strong>：由于规则有优先级，特别是匹配或项 &ldquo;|&rdquo; 的使用，使用<code>匹配集合</code>有效解决组合问题。例如 Version_(?:Alpha|Beta) 表示匹配 Version_Alpha 或 Version_Beta 两个字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?&lt;=X)　(?=X)</td>
+<td style="text-align:left"><strong>匹配位置</strong>：匹配符合 X 表达式(<code>真条件</code>)的<code>相对开始位置</code>、<code>相对结尾位置</code>，类同 ^ 和 $。例如 (?&lt;=[0-9]+)[a-z]+、[a-z]+(?=[0-9]+) 分别表示匹配以数字开始、以数字结束的文本位置上。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?&lt;!X)　(?!X)</td>
+<td style="text-align:left"><strong>匹配位置</strong>：匹配符合 <strong>非</strong>X 表达式(<code>假条件</code>)的<code>相对开始位置</code>、<code>相对结尾位置</code>，类同 ^ 和 $。例如 (?&lt;![0-9]+)[a-z]+、[a-z]+(?![0-9]+) 分别匹配表示以<strong>非</strong>数字开始、以<strong>非</strong>数字结束的文本位置上。</td>
+</tr>
+<tr>
+<td style="text-align:left">\b</td>
+<td style="text-align:left"><strong>匹配位置</strong>：匹配一个<code>单词边界位置</code>，即字与空格间的位置。而大写 <strong>\B</strong> 表示“<strong>非</strong>”。</td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left"><strong>匹配字集</strong>：与<code>数字</code>匹配，即 [0-9]。而大写 <strong>\D</strong> 表示“<strong>非</strong>”，即 [^0-9]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\w</td>
+<td style="text-align:left"><strong>匹配字集</strong>：与任何的<code>字母、数字、下划线</code>匹配，即 [a-zA-Z0-9_]。而大写 <strong>\W</strong> 表示“<strong>非</strong>”，即 [^a-zA-Z0-9_]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\s</td>
+<td style="text-align:left"><strong>匹配字集</strong>：与任何的<code>空白字符</code>匹配，即 [ \t\n\v\f\r]。而大写 <strong>\S</strong> 表示“<strong>非</strong>”，即 [^ \t\n\v\f\r]。注意：包括<strong>空格</strong>。注意 Unicode 正则表达式会匹配全角空格符。</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<details close=""><summary><strong>3、语法优先级</strong></summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">\</td>
+<td style="text-align:center">转义符</td>
+</tr>
+<tr>
+<td style="text-align:left">()、(?:)、(?=)、(?!)、[]</td>
+<td style="text-align:center">括号符</td>
+</tr>
+<tr>
+<td style="text-align:left">*、+、?、{n}、{n,}、{n,m}</td>
+<td style="text-align:center">限定符</td>
+</tr>
+<tr>
+<td style="text-align:left">^、$</td>
+<td style="text-align:center">定位符</td>
+</tr>
+<tr>
+<td style="text-align:left">|</td>
+<td style="text-align:center">或项符</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<details close=""><summary><strong>4、语法的图解</strong></summary>  
+<blockquote>
+<p>在【<a href="https://www.runoob.com/regexp/regexp-tutorial.html" target="_blank" rel="noopener noreffer">菜鸟教程-正则表达式</a>】网页中嵌入的【<strong>测试工具</strong>】非常形象展示正则表达式的语法匹配，利用它加快我们理解正则表达式的语法。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:80px">匹配符</div></th>
+<th style="text-align:left">展示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">( )</td>
+<td style="text-align:left"><strong>◆①【n~1 位相邻相同数字】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0400.jpg"
+        data-srcset="../img/20220527_0400.jpg, ../img/20220527_0400.jpg 1.5x, ../img/20220527_0400.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0400.jpg"
+        title="../img/20220527_0400.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">[ ]</td>
+<td style="text-align:left"><strong>◆①【1 位数字 + 1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0401.jpg"
+        data-srcset="../img/20220527_0401.jpg, ../img/20220527_0401.jpg 1.5x, ../img/20220527_0401.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0401.jpg"
+        title="../img/20220527_0401.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">{ }</td>
+<td style="text-align:left"><strong>◆①【3 位数字 + 3 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0402.jpg"
+        data-srcset="../img/20220527_0402.jpg, ../img/20220527_0402.jpg 1.5x, ../img/20220527_0402.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0402.jpg"
+        title="../img/20220527_0402.jpg" /><br><strong>◆②【n~3 位数字 + n~3 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0403.jpg"
+        data-srcset="../img/20220527_0403.jpg, ../img/20220527_0403.jpg 1.5x, ../img/20220527_0403.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0403.jpg"
+        title="../img/20220527_0403.jpg" /><br><strong>◆③【3~n 位数字 + 3~n 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0404.jpg"
+        data-srcset="../img/20220527_0404.jpg, ../img/20220527_0404.jpg 1.5x, ../img/20220527_0404.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0404.jpg"
+        title="../img/20220527_0404.jpg" /><br><strong>◆④【4~3 位数字 + 4~3 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0405.jpg"
+        data-srcset="../img/20220527_0405.jpg, ../img/20220527_0405.jpg 1.5x, ../img/20220527_0405.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0405.jpg"
+        title="../img/20220527_0405.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><strong>◆①【n~0 位数字 + n~0 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0406.jpg"
+        data-srcset="../img/20220527_0406.jpg, ../img/20220527_0406.jpg 1.5x, ../img/20220527_0406.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0406.jpg"
+        title="../img/20220527_0406.jpg" /><br><strong>◆②【0~n 位数字 + 0~n 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0407.jpg"
+        data-srcset="../img/20220527_0407.jpg, ../img/20220527_0407.jpg 1.5x, ../img/20220527_0407.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0407.jpg"
+        title="../img/20220527_0407.jpg" /><br><strong>◆③【0~n 位数字 + n~0 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0408.jpg"
+        data-srcset="../img/20220527_0408.jpg, ../img/20220527_0408.jpg 1.5x, ../img/20220527_0408.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0408.jpg"
+        title="../img/20220527_0408.jpg" /><br><strong>◆④【0~n 位数字 + &ldquo;abc&quot;字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0409.jpg"
+        data-srcset="../img/20220527_0409.jpg, ../img/20220527_0409.jpg 1.5x, ../img/20220527_0409.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0409.jpg"
+        title="../img/20220527_0409.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left"><strong>◆①【n~1 位数字 + n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0410.jpg"
+        data-srcset="../img/20220527_0410.jpg, ../img/20220527_0410.jpg 1.5x, ../img/20220527_0410.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0410.jpg"
+        title="../img/20220527_0410.jpg" /><br><strong>◆②【1~n 位数字 + 1~n 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0411.jpg"
+        data-srcset="../img/20220527_0411.jpg, ../img/20220527_0411.jpg 1.5x, ../img/20220527_0411.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0411.jpg"
+        title="../img/20220527_0411.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left"><strong>◆①【1~0 位数字 + 1~0 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0412.jpg"
+        data-srcset="../img/20220527_0412.jpg, ../img/20220527_0412.jpg 1.5x, ../img/20220527_0412.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0412.jpg"
+        title="../img/20220527_0412.jpg" /><br><strong>◆②【0~1 位数字 + 0~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0413.jpg"
+        data-srcset="../img/20220527_0413.jpg, ../img/20220527_0413.jpg 1.5x, ../img/20220527_0413.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0413.jpg"
+        title="../img/20220527_0413.jpg" /><br><strong>◆③【1~0 位数字 + &ldquo;hi&quot;字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0414.jpg"
+        data-srcset="../img/20220527_0414.jpg, ../img/20220527_0414.jpg 1.5x, ../img/20220527_0414.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0414.jpg"
+        title="../img/20220527_0414.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left"><strong>◆①【1 位字符 + &ldquo;hi&quot;字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0415.jpg"
+        data-srcset="../img/20220527_0415.jpg, ../img/20220527_0415.jpg 1.5x, ../img/20220527_0415.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0415.jpg"
+        title="../img/20220527_0415.jpg" /><br><strong>◆②【n~1 位字符 + &ldquo;hi&quot;字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0416.jpg"
+        data-srcset="../img/20220527_0416.jpg, ../img/20220527_0416.jpg 1.5x, ../img/20220527_0416.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0416.jpg"
+        title="../img/20220527_0416.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left"><strong>◆①【整段字符前 10 个字符】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0417.jpg"
+        data-srcset="../img/20220527_0417.jpg, ../img/20220527_0417.jpg 1.5x, ../img/20220527_0417.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0417.jpg"
+        title="../img/20220527_0417.jpg" /><br><strong>◆②【每行字符前 10 个字符】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0418.jpg"
+        data-srcset="../img/20220527_0418.jpg, ../img/20220527_0418.jpg 1.5x, ../img/20220527_0418.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0418.jpg"
+        title="../img/20220527_0418.jpg" /><br><strong>◆③【整行为大写字符】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0419.jpg"
+        data-srcset="../img/20220527_0419.jpg, ../img/20220527_0419.jpg 1.5x, ../img/20220527_0419.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0419.jpg"
+        title="../img/20220527_0419.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left"><strong>◆①【整段字符后 10 个字符】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0420.jpg"
+        data-srcset="../img/20220527_0420.jpg, ../img/20220527_0420.jpg 1.5x, ../img/20220527_0420.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0420.jpg"
+        title="../img/20220527_0420.jpg" /><br><strong>◆②【每行字符后 10 个字符】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0421.jpg"
+        data-srcset="../img/20220527_0421.jpg, ../img/20220527_0421.jpg 1.5x, ../img/20220527_0421.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0421.jpg"
+        title="../img/20220527_0421.jpg" /><br><strong>◆③【整行为日期字符】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0422.jpg"
+        data-srcset="../img/20220527_0422.jpg, ../img/20220527_0422.jpg 1.5x, ../img/20220527_0422.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0422.jpg"
+        title="../img/20220527_0422.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">(?:X)</td>
+<td style="text-align:left"><strong>◆①【&ldquo;23&quot;或&quot;78&quot;数字 + n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0423.jpg"
+        data-srcset="../img/20220527_0423.jpg, ../img/20220527_0423.jpg 1.5x, ../img/20220527_0423.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0423.jpg"
+        title="../img/20220527_0423.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">(?&lt;=X)　(?=X)</td>
+<td style="text-align:left"><strong>◆①【在&quot;23&quot;数字后面的 n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0424.jpg"
+        data-srcset="../img/20220527_0424.jpg, ../img/20220527_0424.jpg 1.5x, ../img/20220527_0424.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0424.jpg"
+        title="../img/20220527_0424.jpg" /><br><strong>◆②【在&quot;55&quot;数字前面的 n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0425.jpg"
+        data-srcset="../img/20220527_0425.jpg, ../img/20220527_0425.jpg 1.5x, ../img/20220527_0425.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0425.jpg"
+        title="../img/20220527_0425.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">(?&lt;!X)　(?!X)</td>
+<td style="text-align:left"><strong>◆①【在<code>非&quot;78&quot;</code>后面的 n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0426.jpg"
+        data-srcset="../img/20220527_0426.jpg, ../img/20220527_0426.jpg 1.5x, ../img/20220527_0426.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0426.jpg"
+        title="../img/20220527_0426.jpg" /><br><strong>◆②【在<code>非&quot;55&quot;</code>前面的 n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0427.jpg"
+        data-srcset="../img/20220527_0427.jpg, ../img/20220527_0427.jpg 1.5x, ../img/20220527_0427.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0427.jpg"
+        title="../img/20220527_0427.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">\b</td>
+<td style="text-align:left"><strong>◆①【在单词边界后面的 n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0428.jpg"
+        data-srcset="../img/20220527_0428.jpg, ../img/20220527_0428.jpg 1.5x, ../img/20220527_0428.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0428.jpg"
+        title="../img/20220527_0428.jpg" /><br><strong>◆②【在<code>非单词边界</code>后面的 n~1 位字母】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0429.jpg"
+        data-srcset="../img/20220527_0429.jpg, ../img/20220527_0429.jpg 1.5x, ../img/20220527_0429.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0429.jpg"
+        title="../img/20220527_0429.jpg" /></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left"><strong>◆①【n~1 位数字】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0430.jpg"
+        data-srcset="../img/20220527_0430.jpg, ../img/20220527_0430.jpg 1.5x, ../img/20220527_0430.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0430.jpg"
+        title="../img/20220527_0430.jpg" /><br><strong>◆②【n~1 位<code>非数字</code>】匹配</strong>：<br><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220527_0431.jpg"
+        data-srcset="../img/20220527_0431.jpg, ../img/20220527_0431.jpg 1.5x, ../img/20220527_0431.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220527_0431.jpg"
+        title="../img/20220527_0431.jpg" /></td>
+</tr>
+</tbody>
+</table>
+</details>  
+<h3 id="三应用">三、应用</h3>
+<details close=""><summary><strong>1、应用软件</strong></summary>  
+<blockquote>
+<p>只要有文本查找、替换操作，都有可能使用到正则表达式，它们包括文本编辑软件、脚本、编程语言。下面列出相关应用者对正则表达式的支持度：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:80px">软件/语言</div></th>
+<th style="text-align:center">.</th>
+<th style="text-align:center">[ ]</th>
+<th style="text-align:center">^</th>
+<th style="text-align:center">$</th>
+<th style="text-align:center">\( \)</th>
+<th style="text-align:center">\{ \}</th>
+<th style="text-align:center">?</th>
+<th style="text-align:center">+</th>
+<th style="text-align:center">|</th>
+<th style="text-align:center">( )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../20210616" rel="">vi</a></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+</tr>
+<tr>
+<td style="text-align:left">sed</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+</tr>
+<tr>
+<td style="text-align:left">awk</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center"><span style="color: #CCCCCC;"><a href="#jump" title="awk 是支持该语法的，只是要在命令 行加入 --posix or --re-interval 参数即可，可见 man awk 中的 interval expression" rel="">√</a></span></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">perl</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">python</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">javascript</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">Visual C++</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+</tr>
+<tr>
+<td style="text-align:left">C#</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">delphi</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">java</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">php</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+<td style="text-align:center">　</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注</strong>：<br>
+正则表达式的<code>( )</code>和<code>{ }</code>匹配字符，为何上表为何写成<code>\( \)</code>和<code>\{ \}</code>呢？那是因为相关软件所在工作环境影响，例如：在 shell 命令窗口执行时，大部分符号为 shell 的普通字符，所以只能反过来使用<code>\</code>转义表示！同时，也不排除其它符号也是如此！正则表达式并不仅限于某一种语言/软件，在每种语言中会都有细微的差别。</p>
+</details>  
+<details close=""><summary><strong>2、应用实例</strong></summary>  
+<blockquote>
+<p>网上早已收集一些常用正则表达式，这就无需我们重复编写了，劳烦你动一下左手的两根手指<code>Ctrl+C</code>和<code>Ctrl+V</code>。^0^ 。</p>
+</blockquote>
+<!--  
+\\  
+\(  
+\[  
+\{  
+\*  
+\|  
+&#36;  
+-->  
+<p><strong>一、校验数字的表达式</strong></p>
+<ul>
+<li>数字：^[0-9]*$</li>
+<li>n位的数字：^\d{n}$</li>
+<li>至少n位的数字：^\d{n,}$</li>
+<li>m-n位的数字：^\d{m,n}$</li>
+<li>零和非零开头的数字：^(0|[1-9][0-9]*)$</li>
+<li>非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(\.[0-9]{1,2})?$</li>
+<li>带1-2位小数的正数或负数：^(\-)?\d+(\.\d{1,2})$</li>
+<li>正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$</li>
+<li>有两位小数的正实数：^[0-9]+(\.[0-9]{2})?$</li>
+<li>有1~3位小数的正实数：^[0-9]+(\.[0-9]{1,3})?$</li>
+<li>非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*){1,3}$ 或 ^\+?[1-9][0-9]*$</li>
+<li>非零的负整数：^\-[1-9][]0-9&rdquo;*$ 或 ^-[1-9]\d*$</li>
+<li>非负整数：^\d+$ 或 ^[1-9]\d*|0$</li>
+<li>非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</li>
+<li>非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</li>
+<li>非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</li>
+<li>正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</li>
+<li>负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</li>
+<li>浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</li>
+</ul>
+<p><strong>二、校验字符的表达式</strong></p>
+<ul>
+<li>汉字：^[\u4e00-\u9fa5]{0,}$</li>
+<li>英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$</li>
+<li>长度为3-20的所有字符：^.{3,20}$</li>
+<li>由26个英文字母组成的字符串：^[A-Za-z]+$</li>
+<li>由26个大写英文字母组成的字符串：^[A-Z]+$</li>
+<li>由26个小写英文字母组成的字符串：^[a-z]+$</li>
+<li>由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$</li>
+<li>由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w{3,20}$</li>
+<li>中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$</li>
+<li>中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</li>
+<li>可以输入含有^%&amp;',;=?$\&ldquo;等字符：[^%&amp;',;=?$\x22]+</li>
+<li>禁止输入含有~的字符：[^~]+</li>
+</ul>
+<p><strong>三、特殊需求表达式</strong></p>
+<ul>
+<li>Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</li>
+<li>域名：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?</li>
+<li>InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</li>
+<li>手机号码：^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$</li>
+<li>电话号码(&ldquo;XXX-XXXXXXX&rdquo;、&ldquo;XXXX-XXXXXXXX&rdquo;、&ldquo;XXX-XXXXXXX&rdquo;、&ldquo;XXX-XXXXXXXX&rdquo;、&ldquo;XXXXXXX&quot;和&quot;XXXXXXXX)：^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$</li>
+<li>国内电话号码(0511-4405222、021-87888822)：\d{3}-\d{8}|\d{4}-\d{7}</li>
+<li>电话号码正则表达式（支持手机号码，3-4位区号，7-8位直播号码，1－4位分机号）: ((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)</li>
+<li>身份证号(15位、18位数字)，最后一位是校验位，可能为数字或字符X：(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)</li>
+<li>帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$</li>
+<li>密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w{5,17}$</li>
+<li>强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,10}$</li>
+<li>强密码(必须包含大小写字母和数字的组合，可以使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$</li>
+<li>日期格式：^\d{4}-\d{1,2}-\d{1,2}</li>
+<li>一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</li>
+<li>一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$</li>
+<li>钱的输入格式：
+<ol>
+<li>有四种钱的表示形式我们可以接受:&ldquo;10000.00&rdquo; 和 &ldquo;10,000.00&rdquo;, 和没有 &ldquo;分&rdquo; 的 &ldquo;10000&rdquo; 和 &ldquo;10,000&rdquo;：^[1-9][0-9]*$</li>
+<li>这表示任意一个不以0开头的数字,但是,这也意味着一个字符&quot;0&quot;不通过,所以我们采用下面的形式：^(0|[1-9][0-9]*)$</li>
+<li>一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]*)$</li>
+<li>这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧。下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$</li>
+<li>必须说明的是,小数点后面至少应该有1位数,所以&quot;10.&ldquo;是不通过的,但是 &ldquo;10&rdquo; 和 &ldquo;10.2&rdquo; 是通过的：^[0-9]+(.[0-9]{2})?$</li>
+<li>这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]{1,2})?$</li>
+<li>这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})?$</li>
+<li>1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]{1,3}(,[0-9]{3})*)(.[0-9]{1,2})?$</li>
+<li>备注：这就是最终结果了,别忘了&rdquo;+&ldquo;可以用&rdquo;*&ldquo;替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</li>
+</ol>
+</li>
+<li>xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$</li>
+<li>中文字符的正则表达式：[\u4e00-\u9fa5]</li>
+<li>双字节字符：[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</li>
+<li>空白行的正则表达式：\n\s*\r (可以用来删除空白行)</li>
+<li>HTML标记的正则表达式：&lt;(\S*?)[^&gt;]*&gt;.*?|&lt;.*? /&gt; ( 首尾空白字符的正则表达式：^\s*|\s*$或(^\s*)|(\s*$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</li>
+<li>腾讯QQ号：[1-9][0-9]{4,} (腾讯QQ号从10000开始)</li>
+<li>中国邮政编码：[1-9]\d{5}(?!\d) (中国邮政编码为6位数字)</li>
+<li>IPv4地址：((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}</li>
+</ul>
+</details>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-05-27</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20220527/" data-title="正则表达式" data-hashtags="正则表达式"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20220527/" data-hashtag="正则表达式"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20220527/" data-title="正则表达式"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20220527/" data-title="正则表达式"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20220527/" data-title="正则表达式"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20220526/" class="prev" rel="prev" title="无产权公寓"><i class="fas fa-angle-left fa-fw"></i>无产权公寓</a>
+            <a href="/20220707/" class="next" rel="next" title="我的社保缴纳情况">我的社保缴纳情况<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
