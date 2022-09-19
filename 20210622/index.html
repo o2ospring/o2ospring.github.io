@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "attribute","wordcount":  2408 ,
+                        }],"genre": "posts","keywords": "attribute","wordcount":  3666 ,
         "url": "https:\/\/o2ospring.github.io\/20210622\/","datePublished": "2021-06-22T21:33:41+08:00","dateModified": "2021-06-22T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">attribute-section 编译属性-数据拼接</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-22">2021-06-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2408 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/20210622/" class="leancloud_visitors" data-flag-title="attribute-section 编译属性-数据拼接">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-22">2021-06-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3666 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20210622/" class="leancloud_visitors" data-flag-title="attribute-section 编译属性-数据拼接">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -137,7 +137,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="简介">简介</h3>
-<p>数据拼接就是把分散的数据（全局/只读），通过编译器的编译链接把它们拼接起来放到一段连续的空间内，本人简称为“串表”。如果这些分散的数据都是同一类型，则这段数据就是数组，程序可实现快速访问。对于这类需求，GCC 的编译属性<code>__attribute__((section(&quot;name&quot;))</code>为我们提供了解决方案。<br>
+<p>数据拼接就是把分散的数据（全局/只读），通过编译器的编译链接把它们拼接起来放到一段连续的空间内，本人简称为“串表”或叫“分段列表”。如果这些分散的数据都是同一类型，则这段数据就是数组，程序可实现快速访问。对于这类需求，GCC 的编译属性<code>__attribute__((section(&quot;name&quot;))</code>为我们提供了解决方案。<br>
 <strong>更多的 attribute 编译属性</strong>：<br>
 《<a href="../20210622" rel="">attribute-section 编译属性-数据拼接</a>》<br>
 《<a href="../20210623" rel="">attribute-aligned 编译属性-地址对齐</a>》<br>
@@ -187,7 +187,7 @@
 </div></details>  
 <details close=""><summary><strong>2、列表方式</strong></summary>  
 <blockquote>
-<p>做一个数组列表，在列表加入这些初始化函数，<code>main()</code>的上电初始化时用<code>for</code>循环统一初始化，当新增一模块无须动代码，只需要在数组列表增加内容即可，这种方式比调用方式简洁方便很多。而且这个表格可以独立放到一个文件里，不但集中管理调用初始化函数，还有效阻隔核心代码不被程序员改动。由于集中管理，会存在一定可能性的误操作（如：误删别的模块初始化操作），与独立模块还存在一定的耦合性。</p>
+<p>做一个数组列表，在列表加入这些初始化函数，<code>main()</code>的上电初始化时用<code>for</code>循环统一初始化，当新增一模块无须动代码，只需要在数组列表增加内容即可，这种方式比调用方式简洁方便很多。而且这个表格可以独立放到一个文件里，不但集中管理调用初始化函数，还有效阻隔核心代码不被程序员改动。由于集中管理，会存在一定可能性的误操作（如：误删别的模块初始化操作），与独立模块还是存在一定的耦合性。</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -247,7 +247,8 @@
 <code>.name.</code> 为分段名称，<strong>同名</strong>分段数据存放到同一段连接的空间内。<br>
 <code>tail</code>   为分段名称后缀，先由它决定数据先后顺序，再由代码编译先后顺序决定。<br>
 <code>used</code>   向编译器说明这段代码即使没使用也不能优化掉，不能产生警告；<br>
-<code>而 unused</code> 则是表示该函数或变量可能不使用，编译器不要产生警告信息。</p>
+<code>而 unused</code> 则是表示该函数或变量可能不使用，编译器不要产生警告信息。<br>
+<strong>特别说明</strong>：<code>section</code>修饰的数据段会被<strong>编译器</strong>和<strong>链接器</strong>这两道关卡优化掉，需要增加特别语句加以防止！used、unused 只针对<strong>编译器</strong>而言，但对于<strong>链接器</strong>无效，也就是说<strong>链接器</strong>的<code>--gc-sections</code>还是会优化掉没使用的段，除非在链接脚本中使用<code>KEEP</code>语句特别指的段才不会被优化掉！</p>
 </blockquote>
 <p>主程序：<code>main.h</code></p>
 <div class="highlight"><div class="chroma">
@@ -389,6 +390,157 @@
 主要针对只读变量。</p>
 </blockquote>
 </details>  
+<details close=""><summary><strong>5、语法总结</strong></summary>  
+<blockquote>
+<p>一、关于<code>__attribute__(())</code>的参数名称，为了防止与其它对象出现同名影响，强烈建议在参数的前后都加上<code>__</code>两个下划线。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">__attribute__</span><span class="p">((</span><span class="n">section</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__section__</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">at</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>      <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__at__</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">packed</span><span class="p">))</span>     <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__packed__</span><span class="p">))</span>
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">aligned</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span> <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">unused</span><span class="p">))</span>     <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__unused__</span><span class="p">))</span>
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">used</span><span class="p">))</span>       <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__used__</span><span class="p">))</span>
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">weak</span><span class="p">))</span>       <span class="err">改为</span>  <span class="n">__attribute__</span><span class="p">((</span><span class="n">__weak__</span><span class="p">))</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>二、关于<code>__attribute__(())</code>语句书写位置总体原则：书写到修饰对象名称的后面，但考虑要跨编译平台使用，强烈建议使用宏定义并且按下面规则使用。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//【总体原则】+++++++++++++++++++
+</span><span class="c1"></span><span class="cp">#define O2O_SECTION(x)   __attribute__((__section__(x)))    </span><span class="c1">//数据拼接　（对象名称后明声明）
+</span><span class="c1"></span><span class="cp">#define O2O_AT(a)        __attribute__((__at__(a)))         </span><span class="c1">//地址指定　（对象名称后明声明）
+</span><span class="c1"></span><span class="cp">#define O2O_PACKED       __attribute__((__packed__))        </span><span class="c1">//字节对齐　（对象名称后明声明，强烈建议改用 #pragma pack(push, 1) ... #pragma pack(pop) 的兼容性更好）
+</span><span class="c1"></span><span class="cp">#define O2O_ALIGN(n)     __attribute__((__aligned__(n)))    </span><span class="c1">//地址对齐　（对象整体最前声明）
+</span><span class="c1"></span><span class="cp">#define O2O_UNUSED       __attribute__((__unused__))        </span><span class="c1">//未用不警告（对象整体最前声明）
+</span><span class="c1"></span><span class="cp">#define O2O_USED         __attribute__((__used__))          </span><span class="c1">//未用不优化（对象整体最前声明）
+</span><span class="c1"></span><span class="cp">#define O2O_WEAK         __attribute__((__weak__))          </span><span class="c1">//弱化对象　（对象整体最前声明）
+</span><span class="c1"></span><span class="cp">#define O2O_INLINE       static __inline                    </span><span class="c1">//内联函数　（对象整体最前声明，c/h文件中直接编写函数(体)，不能外部声明）
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>三、关于<code>__attribute__(())</code>的<code>__aligned__(n)</code>参数对【结构体类型】修饰的特殊表现（只是唯一的特殊个案）：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">obj_1_</span>
+<span class="p">{</span>
+	<span class="kt">uint16_t</span> <span class="n">a</span><span class="p">;</span>
+	<span class="kt">uint8_t</span>  <span class="n">b</span><span class="p">;</span>
+
+<span class="p">}</span><span class="n">obj_1_t</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)));</span> <span class="c1">//1.用于[单体]结构体类型的【起始地址】
+</span><span class="c1"></span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">obj_n_</span>
+<span class="p">{</span>
+	<span class="kt">uint16_t</span> <span class="n">a</span><span class="p">;</span>
+	<span class="kt">uint8_t</span>  <span class="n">b</span><span class="p">;</span>
+
+<span class="p">}</span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">obj_n_t</span><span class="p">;</span> <span class="c1">//2.用于结构体[组员]类型的【起始地址】和【大小】，也可用于单体结构体！
+</span><span class="c1"></span>                <span class="c1">//                           　　　　　　　　　　　  　　　　　　　　-┬-
+</span><span class="c1"></span><span class="n">obj_1_t</span> <span class="n">aaaaaa</span><span class="p">;</span> <span class="c1">//1.影响[单体结构体]的起始地址对齐。　　　　　                        ├→ ●只是唯一的特殊个案●
+</span><span class="c1"></span><span class="n">obj_n_t</span> <span class="n">bbb</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//2.影响结构体[每个组员]的起始地址对齐和大小限制----------------------┘
+</span><span class="c1"></span>                <span class="c1">//3.影响[数组整体]起始地址，但不影响其它组员起始地址和大小！
+</span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="k">struct</span> <span class="n">obj_1_</span> <span class="n">ccc</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span> <span class="c1">//←┤
+</span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="k">struct</span> <span class="n">obj_n_</span> <span class="n">ddd</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span> <span class="c1">//←┘
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>四、关于<code>__attribute__(())</code>的<code>__section__(x)</code>参数被【编译器】与【链接器】优化的问题：</p>
+</blockquote>
+<p>【section】修饰的数据段会被【编译器】和【链接器】这两道关卡优化掉，需要增加特别语句加以防止！【used、unused】只针对【编译器】而言，但对于【链接器】无效，也就是说链接器的【-Wl,&ndash;gc-sections】参数还是会优化掉没使用的段，除非在【链接脚本】中使用【KEEP】语句特别指出的段才不会被优化掉！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//1.变量声明
+</span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__used__</span><span class="p">))</span> <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">aaa</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">__section__</span><span class="p">(</span><span class="s">&#34;.init.001&#34;</span><span class="p">)));</span> <span class="c1">//增加__used__防止被[编译器]优化
+</span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__used__</span><span class="p">))</span> <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">bbb</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">__section__</span><span class="p">(</span><span class="s">&#34;.init.002&#34;</span><span class="p">)));</span> <span class="c1">//增加__used__防止被[编译器]优化
+</span><span class="c1"></span>
+<span class="c1">//2.编译链接
+</span><span class="c1"></span><span class="n">gcc</span> <span class="o">-</span><span class="n">Wl</span><span class="p">,</span><span class="o">--</span><span class="n">gc</span><span class="o">-</span><span class="n">sections</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="p">.</span><span class="n">c</span> <span class="cm">/* -Wl,--gc-sections 会强制优化掉没使用的__section__（函数段/数据段）*/</span>
+
+<span class="c1">//3.链接脚本
+</span><span class="c1"></span><span class="p">.</span><span class="nl">text</span> <span class="p">:</span>
+<span class="p">{</span>
+  <span class="p">.............</span>
+  
+  <span class="p">.</span> <span class="o">=</span> <span class="n">ALIGN</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="n">KEEP</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">SORT</span><span class="p">(.</span><span class="n">init</span><span class="p">.</span><span class="o">*</span><span class="p">)))</span>               <span class="cm">/* 使用 KEEP(*(SORT()) 防止被[链接器]优化 */</span>
+
+  <span class="p">.</span> <span class="o">=</span> <span class="n">ALIGN</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="n">_etext</span> <span class="o">=</span> <span class="p">.;</span>
+<span class="p">}</span> <span class="o">&gt;</span><span class="n">FLASH</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
 <h3 id="扩展">扩展</h3>
 <p>数据拼接除了可以用在初始化上，还可以应用于很多场合，只要和列表有关的都有应用的可能性。</p>
 <details close=""><summary><strong>1、回调串表</strong></summary>  

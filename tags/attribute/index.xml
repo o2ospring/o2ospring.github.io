@@ -44,6 +44,6 @@
     <pubDate>Tue, 22 Jun 2021 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20210622/</guid>
-    <description><![CDATA[简介 数据拼接就是把分散的数据（全局/只读），通过编译器的编译链接把它们拼接起来放到一段连续的空间内，本人简称为“串表”。如果这些分散的数据都]]></description>
+    <description><![CDATA[简介 数据拼接就是把分散的数据（全局/只读），通过编译器的编译链接把它们拼接起来放到一段连续的空间内，本人简称为“串表”或叫“分段列表”。如果]]></description>
 </item></channel>
 </rss>

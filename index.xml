@@ -3,7 +3,7 @@
         <title>o2ospring</title>
         <link>https://o2ospring.github.io/</link>
         <description>分享嵌入式软硬件技术、物联网、智能家居、单片机、linux 等学习笔记及经验</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 18 Oct 2022 21:33:41 &#43;0800</lastBuildDate>
             <atom:link href="https://o2ospring.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>【MCU 专题文章索引】</title>
@@ -41,6 +41,13 @@
     <guid>https://o2ospring.github.io/blog/</guid>
     <description><![CDATA[前言 本人不是搞网站开发的，对建站一窍不通，本专题只是记录我搭建个人博客过程的笔记，希望这些笔记能帮助那些像我一样的小白们！本专题的内容包含了]]></description>
 </item><item>
+    <title>对集中式控制系统优缺点的分析</title>
+    <link>https://o2ospring.github.io/20221018/</link>
+    <pubDate>Tue, 18 Oct 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20221018/</guid>
+    <description><![CDATA[一、内容 结合自己使用经验和网上搜索到的相关知识，对集中式控制系统作简单的分析。总体来说，集中式控制系统架构简单、数据集中处理，有很大的优点，]]></description>
+</item><item>
     <title>linux-STM32F开发㈢-在线调试工具CGDB</title>
     <link>https://o2ospring.github.io/20220916/</link>
     <pubDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</pubDate>
@@ -68,12 +75,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220804/</guid>
     <description><![CDATA[一、前言 在 Windows 下有完善的 IDE（集成开发环境）开发工具，开发单片机程序变得简单和傻瓜化，图形界面上所见所得操作，基本不需要我们了解一些专业知识]]></description>
-</item><item>
-    <title>我的社保缴纳情况</title>
-    <link>https://o2ospring.github.io/20220707/</link>
-    <pubDate>Thu, 07 Jul 2022 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20220707/</guid>
-    <description><![CDATA[内容 前段时间公司收集员工的社保缴纳累计年/月情况，并把研发中心所有员工的社保缴纳情况汇总下发到群里，让员工自行校对。打开 Execl 文档，排序列表，看]]></description>
 </item></channel>
 </rss>

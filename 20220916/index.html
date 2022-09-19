@@ -20,7 +20,7 @@
 <meta name="application-name" content="o2ospring">
 <meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220916/" /><link rel="prev" href="https://o2ospring.github.io/20220828/" /><link rel="next" href="https://o2ospring.github.io/blog/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220916/" /><link rel="prev" href="https://o2ospring.github.io/20220828/" /><link rel="next" href="https://o2ospring.github.io/20221018/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "GDB, ARM Cortex-M","wordcount":  2865 ,
+                        }],"genre": "posts","keywords": "GDB, ARM Cortex-M","wordcount":  5709 ,
         "url": "https:\/\/o2ospring.github.io\/20220916\/","datePublished": "2022-09-16T21:33:41+08:00","dateModified": "2022-09-16T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux-STM32F开发㈢-在线调试工具CGDB</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-16">2022-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2865 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20220916/" class="leancloud_visitors" data-flag-title="linux-STM32F开发㈢-在线调试工具CGDB">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-16">2022-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5709 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="/20220916/" class="leancloud_visitors" data-flag-title="linux-STM32F开发㈢-在线调试工具CGDB">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -138,33 +138,70 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
-<p>GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不能边看代码边调试，这几点应该是造成很多人不愿意长期使用的原因（后来集成 TUI 模式有所改善，在调试窗口按<code>Ctrl+X+A</code>进入/退出 TUI 模式）。CGDB 可以看作 GDB 的界面增强版，用来替代 GDB 的 gdb-tui。CGDB 主要功能是在调试时进行代码的同步显示，这无疑增加了调试的方便性，提高了调试效率。界面类似 vi，符合 unix/linux 下开发人员习惯，所以如果熟悉 gdb 和 vi，几乎可以立即使用 CGDB。</p>
+<p>GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不能边看代码边调试，这几点应该是造成很多人不愿意长期使用的原因（后来集成 TUI 模式有所改善，在调试窗口按<code>Ctrl+X+A</code>进入/退出 TUI 模式）。CGDB 可以看作 GDB 的界面增强版，用来替代 GDB 的 gdb-tui。CGDB 主要功能是在调试时进行代码的同步显示，这无疑增加了调试的方便性，提高了调试效率。由于界面类似 vi，符合 unix/linux 下开发人员习惯，所以如果熟悉 gdb 和 vi，几乎可以立即使用 CGDB。</p>
 <h3 id="二安装">二、安装</h3>
 <details close=""><summary>1、arm-none-eabi-gdb 的安装</summary>  
-<p><strong><a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain" target="_blank" rel="noopener noreffer">arm-none-eabi-gcc</a></strong>（包含 arm-none-eabi-gdb）为 ARM 框架、无供应商、无系统、嵌入式二进制接口，一般适合 ARM7、Cortex-M、Cortex-R 内核的芯片使用，它使用的是 newlib 这个专用于嵌入式系统的 C 库，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。注意：交叉编译器目前都是 32 位执行程序，依赖 32 位库，事前需要安装 ia32-libs（<a href="https://blog.csdn.net/hj74535099/article/details/50220207" target="_blank" rel="noopener noreffer">网文</a>）或 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。进入网页选择你需要的版本下载：<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads" target="_blank" rel="noopener noreffer">官网最新版</a>、<a href="https://developer.arm.com/downloads/-/gnu-rm" target="_blank" rel="noopener noreffer">官网 2021 版</a>、<a href="https://launchpad.net/gcc-arm-embedded/&#43;download" target="_blank" rel="noopener noreffer">Ubuntu-launchpad 软件开发者平台</a> 及依赖 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。补充：关于 Windows 版本，为直接安装文件，双击安装即可，还有安装后需要手工加入环境变量【<a href="../img/20200915_2_2_22.jpg" rel="">如图</a>】。</p>
+<p><strong><a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain" target="_blank" rel="noopener noreffer">arm-none-eabi-gcc</a></strong>（包含 arm-none-eabi-gdb）为 ARM 框架、无供应商、无系统、嵌入式二进制接口的交叉编译器，一般适合 ARM7、Cortex-M、Cortex-R 内核的芯片使用，它使用的是 newlib 这个专用于嵌入式系统的 C 库，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。注意：交叉编译器目前都是 32 位执行程序，依赖 32 位库，事前需要安装 ia32-libs（<a href="https://blog.csdn.net/hj74535099/article/details/50220207" target="_blank" rel="noopener noreffer">网文</a>）或 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。进入网页选择你需要的版本下载：<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads" target="_blank" rel="noopener noreffer">官网最新版</a>、<a href="https://developer.arm.com/downloads/-/gnu-rm" target="_blank" rel="noopener noreffer">官网 2021 版</a>、<a href="https://launchpad.net/gcc-arm-embedded/&#43;download" target="_blank" rel="noopener noreffer">Ubuntu-launchpad 软件开发者平台</a> 及依赖 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。补充：关于 Windows 版本，为直接安装文件，双击安装即可，还有安装后需要手工加入环境变量【<a href="../img/20200915_2_2_22.jpg" rel="">如图</a>】。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 <span class="c1">#下载交叉编译器压缩包</span>
-sudo tar -xjvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /usr/lib/gcc <span class="c1">#将交叉编译器压缩包解压到：/usr/lib/gcc</span>
-sudo gedit /etc/profile             <span class="c1">#打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin</span>
-<span class="nb">source</span> /etc/profile                 <span class="c1">#使能环境变量。</span>
-sudo apt-get install lsb-core       <span class="c1">#64位操作系统需要安装32位依赖库：lsb-core     （arm-none-eabi-gcc 用到）</span>
-sudo apt-get install lib32ncurses5  <span class="c1">#64位操作系统需要安装32位依赖库：lib32ncurses5（arm-none-eabi-gdb 用到）</span>
-arm-none-eabi-gcc -v                <span class="c1">#查看版本(验证是否安装成功)</span>
-arm-none-eabi-gdb --version         <span class="c1">#查看版本(验证是否安装成功)</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">######################################</span>
+<span class="c1"># 一、安装较新版本的 arm-none-eabi-gcc</span>
+<span class="c1">######################################</span>
+wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2  <span class="c1"># 下载交叉编译器压缩包</span>
+sudo tar -xjvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /usr/lib/gcc  <span class="c1"># 将交叉编译器压缩包解压到：/usr/lib/gcc</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin</span>
+<span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
+sudo apt-get install lsb-core        <span class="c1"># 64位操作系统需要安装32位依赖库：lsb-core     （arm-none-eabi-gcc 用到）</span>
+sudo apt-get install lib32ncurses5   <span class="c1"># 64位操作系统需要安装32位依赖库：lib32ncurses5（arm-none-eabi-gdb 用到）</span>
+arm-none-eabi-gcc -v                 <span class="c1"># 查看版本(验证是否安装成功)</span>
+arm-none-eabi-gdb --version          <span class="c1"># 查看版本(验证是否安装成功)</span>
+
+<span class="c1">######################################</span>
+<span class="c1"># 二、arm-none-eabi-gcc 多版本处理方法</span>
+<span class="c1">######################################</span>
+<span class="c1">#####加gcc版本优先级方法#####           # 注意要把之前在环境变量加入的软件执行文件路径移除，否则可能会冲突！</span>
+sudo update-alternatives --install /usr/bin/arm-none-eabi-gcc arm-none-eabi-gcc /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcc   <span class="m">999</span>  --slave /usr/bin/arm-none-eabi-addr2line arm-none-eabi-addr2line /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-addr2line    --slave /usr/bin/arm-none-eabi-ar arm-none-eabi-ar /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-ar    --slave /usr/bin/arm-none-eabi-as arm-none-eabi-as /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-as    --slave /usr/bin/arm-none-eabi-c++ arm-none-eabi-c++ /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-c++    --slave /usr/bin/arm-none-eabi-c++filt arm-none-eabi-c++filt /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-c++filt    --slave /usr/bin/arm-none-eabi-cpp arm-none-eabi-cpp /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-cpp    --slave /usr/bin/arm-none-eabi-elfedit arm-none-eabi-elfedit /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-elfedit    --slave /usr/bin/arm-none-eabi-g++ arm-none-eabi-g++ /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-g++    --slave /usr/bin/arm-none-eabi-gcc-ar arm-none-eabi-gcc-ar /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcc-ar    --slave /usr/bin/arm-none-eabi-gcc-nm arm-none-eabi-gcc-nm /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcc-nm    --slave /usr/bin/arm-none-eabi-gcc-ranlib arm-none-eabi-gcc-ranlib /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcc-ranlib    --slave /usr/bin/arm-none-eabi-gcov arm-none-eabi-gcov /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcov    --slave /usr/bin/arm-none-eabi-gcov-tool arm-none-eabi-gcov-tool /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcov-tool    --slave /usr/bin/arm-none-eabi-gdb arm-none-eabi-gdb /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb    --slave /usr/bin/arm-none-eabi-gdb-py arm-none-eabi-gdb-py /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb-py    --slave /usr/bin/arm-none-eabi-gprof arm-none-eabi-gprof /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gprof    --slave /usr/bin/arm-none-eabi-ld arm-none-eabi-ld /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-ld    --slave /usr/bin/arm-none-eabi-ld.bfd arm-none-eabi-ld.bfd /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-ld.bfd    --slave /usr/bin/arm-none-eabi-nm arm-none-eabi-nm /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-nm    --slave /usr/bin/arm-none-eabi-objcopy arm-none-eabi-objcopy /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-objcopy    --slave /usr/bin/arm-none-eabi-objdump arm-none-eabi-objdump /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-objdump    --slave /usr/bin/arm-none-eabi-ranlib arm-none-eabi-ranlib /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-ranlib    --slave /usr/bin/arm-none-eabi-readelf arm-none-eabi-readelf /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-readelf    --slave /usr/bin/arm-none-eabi-size arm-none-eabi-size /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-size    --slave /usr/bin/arm-none-eabi-strings arm-none-eabi-strings /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-strings    --slave /usr/bin/arm-none-eabi-strip arm-none-eabi-strip /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-strip
+                                     <span class="c1"># 配置arm-none-eabi-gcc 05.4版的优先级（目前处理了27个软件：arm-none-eabi-gcc、arm-none-eabi-ar、arm-none-eabi-ld、arm-none-eabi-size、arm-none-eabi-objcopy、……）</span>
+sudo update-alternatives --install /usr/bin/arm-none-eabi-gcc arm-none-eabi-gcc /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc <span class="m">103</span>  --slave /usr/bin/arm-none-eabi-addr2line arm-none-eabi-addr2line /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-addr2line  --slave /usr/bin/arm-none-eabi-ar arm-none-eabi-ar /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ar  --slave /usr/bin/arm-none-eabi-as arm-none-eabi-as /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-as  --slave /usr/bin/arm-none-eabi-c++ arm-none-eabi-c++ /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-c++  --slave /usr/bin/arm-none-eabi-c++filt arm-none-eabi-c++filt /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-c++filt  --slave /usr/bin/arm-none-eabi-cpp arm-none-eabi-cpp /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-cpp  --slave /usr/bin/arm-none-eabi-elfedit arm-none-eabi-elfedit /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-elfedit  --slave /usr/bin/arm-none-eabi-g++ arm-none-eabi-g++ /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-g++  --slave /usr/bin/arm-none-eabi-gcc-ar arm-none-eabi-gcc-ar /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc-ar  --slave /usr/bin/arm-none-eabi-gcc-nm arm-none-eabi-gcc-nm /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc-nm  --slave /usr/bin/arm-none-eabi-gcc-ranlib arm-none-eabi-gcc-ranlib /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc-ranlib  --slave /usr/bin/arm-none-eabi-gcov arm-none-eabi-gcov /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcov  --slave /usr/bin/arm-none-eabi-gcov-tool arm-none-eabi-gcov-tool /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcov-tool  --slave /usr/bin/arm-none-eabi-gdb arm-none-eabi-gdb /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb  --slave /usr/bin/arm-none-eabi-gdb-py arm-none-eabi-gdb-py /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb-py  --slave /usr/bin/arm-none-eabi-gprof arm-none-eabi-gprof /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gprof  --slave /usr/bin/arm-none-eabi-ld arm-none-eabi-ld /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ld  --slave /usr/bin/arm-none-eabi-ld.bfd arm-none-eabi-ld.bfd /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ld.bfd  --slave /usr/bin/arm-none-eabi-nm arm-none-eabi-nm /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-nm  --slave /usr/bin/arm-none-eabi-objcopy arm-none-eabi-objcopy /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-objcopy  --slave /usr/bin/arm-none-eabi-objdump arm-none-eabi-objdump /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-objdump  --slave /usr/bin/arm-none-eabi-ranlib arm-none-eabi-ranlib /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ranlib  --slave /usr/bin/arm-none-eabi-readelf arm-none-eabi-readelf /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-readelf  --slave /usr/bin/arm-none-eabi-size arm-none-eabi-size /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-size  --slave /usr/bin/arm-none-eabi-strings arm-none-eabi-strings /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-strings  --slave /usr/bin/arm-none-eabi-strip arm-none-eabi-strip /usr/lib/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-strip
+                                     <span class="c1"># 配置arm-none-eabi-gcc 10.3版的优先级（目前处理了27个软件：arm-none-eabi-gcc、arm-none-eabi-ar、arm-none-eabi-ld、arm-none-eabi-size、arm-none-eabi-objcopy、……）</span>
+<span class="c1">#####选择gcc工作版本方法#####</span>
+sudo update-alternatives --config arm-none-eabi-gcc
+                                     <span class="c1"># 选择arm-none-eabi-gcc工作版本，根据界面提示输入对应数字+回车选择</span>
+<span class="c1">#####移除gcc某优先级方法#####</span>
+sudo update-alternatives --remove arm-none-eabi-gcc /usr/lib/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcc
+                                     <span class="c1"># 移除arm-none-eabi-gcc 05.4版的优先级（将从优先级列表中移除）</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><hr>
+</details>  
 <details close=""><summary>2、CGDB 的安装</summary>  
 <p><a href="http://cgdb.github.io/" target="_blank" rel="noopener noreffer">CGDB</a> 可以看作 GDB 的界面增强版（其参考了 GDB TUI 设计和实现），分上下两屏，【上屏】代码区的界面模仿了 Unix 经典的文本编辑器界面：vi，【下屏】还是 GDB 的命令窗口，所以如果熟悉 vi 和 gdb，几乎可以立即使用 CGDB。官方提供源码编译安装方式，用户到 <a href="http://cgdb.github.io/" target="_blank" rel="noopener noreffer">官网</a> 或 <a href="https://github.com/cgdb/cgdb" target="_blank" rel="noopener noreffer">github</a> 下载源码，然后自己编译并安装程序。资料：<a href="https://www.bookstack.cn/read/cgdb-manual-in-chinese/4.0.md" target="_blank" rel="noopener noreffer">CGDB 中文手册</a>。</p>
 <div class="highlight"><div class="chroma">
@@ -214,23 +251,30 @@ sudo apt install libncursesw5-dev    <span class="c1"># 安装依赖</span>
 <span class="c1">######################################</span>
 <span class="c1"># 二、下载、编译、安装</span>
 <span class="c1">######################################</span>
-git clone https://github.com/cgdb/cgdb.git  <span class="c1"># 下载（使用 git 工具克隆仓库）</span>
+git clone https://github.com/cgdb/cgdb.git  <span class="c1"># 下载（使用git工具克隆仓库）</span>
 <span class="nb">cd</span> cgdb                              <span class="c1"># 进入文件夹</span>
-./autogen.sh                         <span class="c1"># 生成配置文件</span>
-./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 配置，并设置安装目录</span>
-sudo gedit /etc/profile              <span class="c1"># 打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
+./autogen.sh                         <span class="c1"># 自动生成配置（文件）（前提需要安装依赖：sudo apt-get install autoconf automake libtool-bin）</span>
+./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 手工修改配置，并设置安装目录</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量，在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
 <span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
 make                                 <span class="c1"># 编译CGDB软件</span>
 sudo make install                    <span class="c1"># 安装CGDB软件</span>
 cgdb --version                       <span class="c1"># 查看CGDB版本（验证是否安装成功）</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><hr>
+</details>  
+<details close=""><summary>3、AutoTools 的介绍</summary>  
+<p>当你有下载过流行的软件项目的源代码，安装方法几乎都是仪式般的【<code>./configure; make &amp;&amp; make install</code>】命令序列来构建和安装它！如果是这样，你已经使用过 GNU Autotools 工具了。很多 GNU Linux 的软件都是用它生成 Makefile 的，包括我们非常熟悉的 Linux 内核源代码。编写 Makefile 确实不是一件轻松的事，尤其对于一个较大的项目而言更是如此。AutoTools 系列工具正是为此而设的，它只需用户输入简单的目标文件、依赖文件、文件目录等就可以轻松地生成 Makefile 了。有网文这样形容：“GNU Autotools 的设置要比你想象的要简单得多，GNU Autotools 本身可以为你生成这些上千行的配置文件。是的，你可以编写 20 或 30 行安装代码，并免费获得其他 4,000 行。”</p>
+</details>  
 <h3 id="三使用">三、使用</h3>
+<details close=""><summary>■【使用的演示工程说明】■</summary>  
 <blockquote>
-<p>本案例为基于【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">5_rt-thread</a>】演示工程（工程路径：5_rt-thread/bsp/stm32/stm32f103-atk-warshipv3），烧录/调试前要对工程进行编译，最终生成固件及调试文件！</p>
+<p>本案例为基于【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">5_rt-thread</a>】演示工程（工程路径：5_rt-thread/bsp/stm32/stm32f103-atk-warshipv3），烧录/调试前要对工程进行编译（编译记得加<code>-g</code>选项 ），最终生成固件及调试文件！【特别说明】：因 CGDB（v0.8.0）要求 GDB（arm-none-eabi-gdb） 版本≥7.12，但使用 arm-none-eabi-gcc 10.3 编译时出现编译器与 rt-thread V4.0.3 操作系统有几个宏名称相同的错误！目前处理方法：编译使用 arm-none-eabi-gcc 5.4 旧版来编译，调试使用 arm-none-eabi-gcc 10.3 新版来调试！备注：选择 arm-none-eabi-gcc 工作版本请看上面章节！</p>
 </blockquote>
-<details open=""><summary>1、arm-none-eabi-gdb 的基本使用</summary>  
+<hr>
+</details>  
+<details close=""><summary>1、arm-none-eabi-gdb 的基本使用</summary>  
 <details close=""><summary>1.1、第一步：在命令窗口启动 OpenOCD 服务</summary>  
 <p>前提条件：</p>
 <p><img
@@ -288,6 +332,10 @@ cgdb --version                       <span class="c1"># 查看CGDB版本（验�
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##############################################</span>
@@ -299,10 +347,14 @@ arm-none-eabi-gdb ./build/gcc/rt-thread.elf
 <span class="c1">##############################################</span>
 <span class="c1"># ②、在 gdb 命令窗口运行（输入命令后回车）</span>
 <span class="c1">##############################################</span>
+<span class="c1"># 2.0、修改 gdb 本次连接超时时间（防止openocd与仿真器速度低造成超时）</span>
+<span class="nb">set</span> remotetimeout <span class="m">60</span>             <span class="c1">#修改超时时间</span>
+<span class="c1">#show remotetimeout              #查看超时时间</span>
+
 <span class="c1"># 2.1、连接 openocd</span>
 target remote localhost:3333
 
-<span class="c1"># 2.2、复位并暂停处理器</span>
+<span class="c1"># 2.2、复位并暂停处理器（monitor表示向外部服务传送命令）</span>
 monitor reset halt
 
 <span class="c1"># 2.3、下载固件（实测无需复位暂停处理器直接load也可以）</span>
@@ -333,8 +385,9 @@ c
         alt="../img/20220916_3_122.jpg"
         title="gdb 操作" /></p>
 </details>  
+<hr>
 </details>  
-<details open=""><summary>2、CGDB 的基本使用</summary>  
+<details close=""><summary>2、CGDB 的基本使用</summary>  
 <details close=""><summary>2.1、第一步：查看 arm-none-eabi-gdb 版本</summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -356,7 +409,7 @@ c
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看版本，用于验证其是否可正常工作</span>
-arm-none-eabi-gdb --version  <span class="c1"># 版本要求≥7.12</span>
+arm-none-eabi-gdb --version  <span class="c1"># CGDB（v0.8.0）要求 gdb 版本≥7.12</span>
 
 <span class="c1">##############################################</span>
 <span class="c1"># 出现问题：提示信息显示找不到 libncurses.so.5</span>
@@ -430,6 +483,10 @@ sudo apt-get install lib32ncurses5
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##############################################</span>
@@ -441,10 +498,14 @@ cgdb -d arm-none-eabi-gdb ./build/gcc/rt-thread.elf
 <span class="c1">##############################################</span>
 <span class="c1"># ②、在 cgdb 命令窗口运行（输入命令后回车）</span>
 <span class="c1">##############################################</span>
+<span class="c1"># 2.0、修改 gdb 本次连接超时时间（防止openocd与仿真器速度低造成超时）</span>
+<span class="nb">set</span> remotetimeout <span class="m">60</span>             <span class="c1">#修改超时时间</span>
+<span class="c1">#show remotetimeout              #查看超时时间</span>
+
 <span class="c1"># 2.1、连接 openocd</span>
 target remote localhost:3333
 
-<span class="c1"># 2.2、复位并暂停处理器</span>
+<span class="c1"># 2.2、复位并暂停处理器（monitor表示向外部服务传送命令）</span>
 monitor reset halt
 
 <span class="c1"># 2.3、下载固件（实测无需复位暂停处理器直接load也可以）</span>
@@ -474,8 +535,10 @@ c
         data-sizes="auto"
         alt="../img/20220916_3_232.jpg"
         title="cgdb 操作" /></p>
-<p>备注：CGDB（v0.8.0）要调用 arm-none-eabi-gdb，要求 gdb 的版本必须大于等于 7.12</p>
+<p>备注-1：启动 gdb 对 C/C++ 程序的调试，必须要在编译前就加上 -g 选项！<br>
+备注-2：CGDB（v0.8.0）要调用 arm-none-eabi-gdb，要求 gdb 的版本必须大于等于 7.12</p>
 </details>  
+<hr>
 </details>  
 <details close=""><summary>3、CGDB/OpenOCD 使用总结</summary>  
 <div class="highlight"><div class="chroma">
@@ -495,6 +558,7 @@ c
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########连接USB ########</span>
@@ -502,19 +566,120 @@ c
 
 <span class="c1">########下载固件########</span>
 sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg -c init -c <span class="s2">&#34;reset halt; wait_halt; flash write_image erase out/project.hex&#34;</span> -c reset -c shutdown
-
-<span class="c1">########调试程序########</span>
-sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg  <span class="c1"># /usr/local/share/openocd/scripts/ 下的 interface/jlink_swd.cfg 和 target/stm32f1x.cfg</span>
-                             <span class="c1"># 编译加[-g]选项          #【在一个命令窗口启动openocd服务】</span>
-cgdb -d arm-none-eabi-gdb ./build/gcc/rt-thread.elf  <span class="c1">#【在另一命令窗口启动cgdb+gdb服务】</span>
-target remote localhost:3333 <span class="c1"># 在cgdb里:连接openocd服务</span>
-monitor reset halt           <span class="c1"># 在cgdb里:复位并暂停处理器</span>
+        　　　　               　　　　　　　　　　       　　　    <span class="c1"># 备注：/usr/local/share/openocd/scripts/ 下的 interface/jlink_swd.cfg 和 target/stm32f1x.cfg</span>
+<span class="c1">#(1)####调试程序########      #【在一个命令窗口启动openocd服务】    # 备注：编译要加[-g]选项！</span>
+sudo openocd -f interface/jlink_swd.cfg -f target/stm32f1x.cfg
+<span class="c1">#(2)    　　　　              #【在另一命令窗口启动cgdb+gdb服务】</span>
+cgdb -d arm-none-eabi-gdb ./build/gcc/rt-thread.elf   <span class="c1">#（也可先运行命令 cgdb -d arm-none-eabi-gdb 进入gdb后再运行命令 file ./build/gcc/rt-thread.elf 装载调试文件）</span>
+<span class="nb">set</span> remotetimeout <span class="m">60</span>         <span class="c1"># 在cgdb里:修改gdb本次连接超时时间（防止openocd与仿真器速度低造成超时）</span>
+target remote localhost:3333 <span class="c1"># 在cgdb里:连接openocd服务（但会提示：首选GDB命令为 target extended-remote localhost:3333 而不是 target remote localhost:3333）</span>
+monitor reset halt           <span class="c1"># 在cgdb里:复位并暂停处理器（monitor表示向外部服务传送命令）</span>
 load                         <span class="c1"># 在cgdb里:装载调试固件（实测无需复位暂停处理器直接load也可以）</span>
 tb main                      <span class="c1"># 在cgdb里:在main函数设置临时断点</span>
-c                            <span class="c1"># 在cgdb里:运行程序</span>
+c                            <span class="c1"># 在cgdb里:运行程序（可用 ctrl+c 强制退出运行，暂停运行时可 monitor reset halt 复位程序，再 c 运行程序）</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########一键调试########      #【适合Makefile里执行“一键调试”】    # 注意：要事先处理libusb的操作权限！具体请查看上一篇《linux-STM32F开发㈡-调试器的安装与使用》</span>
+cgdb -d arm-none-eabi-gdb <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;set remotetimeout 60&#39;</span> <span class="se">\
+</span><span class="se"></span>-iex <span class="s1">&#39;target extended-remote | openocd -c &#34;gdb_port pipe&#34; -f &#34;interface/jlink_swd.cfg&#34; -f &#34;target/stm32f1x.cfg&#34;&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;monitor sleep 1000&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;monitor reset halt&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;monitor sleep 1000&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;file ../build/gcc/rt-thread.elf&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;load&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;tb main&#39;</span> <span class="se">\
+</span><span class="se"></span>-ex  <span class="s1">&#39;c&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><details close=""><summary>3.1、GDB 常用命令</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">c                <span class="c1">#【运行程序】继续运行程序</span>
+s                <span class="c1">#【运行程序】单步运行（会进入子函数）</span>
+n                <span class="c1">#【运行程序】单步运行（不进入子函数）</span>
+finish           <span class="c1">#【运行函数】完成运行并跳出当前函数</span>
+l <span class="m">100</span>            <span class="c1">#【查看文件】指定当前运行文件行号查看</span>
+l max.c:5        <span class="c1">#【查看文件】指定文件行号查看</span>
+l                <span class="c1">#【查看文件】继续向下查看文件</span>
+b  <span class="m">100</span>           <span class="c1">#【设置断点】指定当前运行文件行号断点（注意：当前文件是指程序暂停运行所在的文件！）</span>
+b  main          <span class="c1">#【设置断点】指定函数断点</span>
+tb <span class="m">100</span>           <span class="c1">#【临时断点】指定当前运行文件行号断点（注意：当前文件是指程序暂停运行所在的文件！）</span>
+tb main          <span class="c1">#【临时断点】指定函数断点</span>
+u  <span class="m">100</span>           <span class="c1">#【运行到行】运行到当前文件指定行断点（注意：当前文件是指程序暂停运行所在的文件！）</span>
+watch i&gt;9        <span class="c1">#【条件断点】不固定位置的变量条件断点　　（只能设置全局变量）</span>
+rwatch i         <span class="c1">#【条件断点】不固定位置的读变量条件断点　（只能设置全局变量）</span>
+awatch i         <span class="c1">#【条件断点】不固定位置的读写变量条件断点（只能设置全局变量）</span>
+clear            <span class="c1">#【清除断点】清除当前程序所在的断点</span>
+clear main       <span class="c1">#【清除断点】清除某个指定函数断点</span>
+d                <span class="c1">#【删除断点】所有断点</span>
+d <span class="m">2</span>              <span class="c1">#【删除断点】删除某个指定编号的断点　　（备注：需要 i b 查看断点编号来配合使用!）</span>
+d display <span class="m">2</span>      <span class="c1">#【删除显示】删除某个指定编号的变量显示（备注：需要 i display 查看变量编号来配合使用!）</span>
+i b              <span class="c1">#【查看断点】查看断点信息（查看使用 break   设置的断点）</span>
+i display        <span class="c1">#【查看信息】查看变量信息（查看使用 display 显示的变量）</span>
+i locals         <span class="c1">#【查看信息】查看当前函数所有局部变量值（注意：当前函数是指程序暂停运行所在的函数！）</span>
+display cnt      <span class="c1">#【查看变量】查看变量信息（默认显示格式显示）【程序运行到暂停后会自动显示】</span>
+p <span class="nv">i</span><span class="o">=</span><span class="m">1</span>            <span class="c1">#【变量赋值】给变量赋值　（支持局部变量操作）</span>
+p cnt            <span class="c1">#【查看变量】查看变量信息（默认显示格式显示）（支持局部变量操作）</span>
+ptype i          <span class="c1">#【查看变量】查看变量类型（普通变量）(可查看程序暂停运行所在函数的局部变量)</span>
+x/3xb 0x8003000  <span class="c1">#【查看数据】查看[0x8003000]起始地址的数据（数量：3个单元，格式：十六进制，单元大小：１字节）</span>
+x/3uh buf        <span class="c1">#【查看数据】查看[buf]变量内存数据　　（数量：3个单元，格式：无符号十进制，单元大小：２字节）</span>
+bt               <span class="c1">#【查看调用】查看函数调用栈信息</span>
+<span class="nb">help</span> info        <span class="c1">#【查看帮助】查看info命令帮助</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>更多命令请查看《<a href="../20200916" rel="">linux-调试-linux 调试仿真工具</a>》的【使用】章节！</p>
+</details>  
+<hr>
+</details>  
 <h3 id="三扩展">三、扩展</h3>
 <details close=""><summary>1、IDE 集成开发环境的组成</summary>  
 <table>
@@ -534,19 +699,19 @@ c                            <span class="c1"># 在cgdb里:运行程序</span>
 <td style="text-align:left">IDE 后台调用 clang 工具</td>
 </tr>
 <tr>
-<td style="text-align:left">代码语法错误动态检测</td>
-<td style="text-align:left">IDE 后台调用 gcc 或者 clang 工具</td>
+<td style="text-align:left">语法错误检测</td>
+<td style="text-align:left">IDE 后台调用 gcc 或者 clang 对代码语法错误动态检测</td>
 </tr>
 <tr>
-<td style="text-align:left">工程源码文件组织</td>
+<td style="text-align:left">工程文件组织</td>
 <td style="text-align:left">IDE 使用的是 makefile，后台调用 make 工具</td>
 </tr>
 <tr>
 <td style="text-align:left">编译</td>
-<td style="text-align:left">IDE 后台调用 gcc 编译器</td>
+<td style="text-align:left">IDE 后台调用 gcc 或者 clang 编译器编译</td>
 </tr>
 <tr>
-<td style="text-align:left">连接硬件调试器</td>
+<td style="text-align:left">调试器</td>
 <td style="text-align:left">IDE 后台调用 OpenOCD 连接调试器和板子</td>
 </tr>
 <tr>
@@ -559,6 +724,10 @@ c                            <span class="c1"># 在cgdb里:运行程序</span>
 </tr>
 </tbody>
 </table>
+<hr>
+</details>  
+<details close=""><summary>2、CGDB/GDB 应用及命令知识</summary>  
+<p>《<a href="../20200916" rel="">linux-调试-linux 调试仿真工具</a>》</p>
 </details>  
 <!--  
 cgdb -d arm-none-eabi-gdb -x "./build/gcc/rt-thread.elf"  
@@ -603,7 +772,7 @@ https://blog.csdn.net/sagetom/article/details/9124631
     </div>
 
     <div class="post-nav"><a href="/20220828/" class="prev" rel="prev" title="对技术型创业团队的看法"><i class="fas fa-angle-left fa-fw"></i>对技术型创业团队的看法</a>
-            <a href="/blog/" class="next" rel="next" title="【blog 搭建知识索引】">【blog 搭建知识索引】<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/20221018/" class="next" rel="next" title="对集中式控制系统优缺点的分析">对集中式控制系统优缺点的分析<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

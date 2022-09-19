@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Makefile, ARM Cortex-M, STM32CubeMX","wordcount":  6632 ,
+                        }],"genre": "posts","keywords": "Makefile, ARM Cortex-M, STM32CubeMX","wordcount":  6976 ,
         "url": "https:\/\/o2ospring.github.io\/20220804\/","datePublished": "2022-08-04T21:33:41+08:00","dateModified": "2022-08-04T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux-STM32F开发㈠-makefile 构建与使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-04">2022-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6632 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-04">2022-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6976 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 14 分钟&nbsp;<span id="/20220804/" class="leancloud_visitors" data-flag-title="linux-STM32F开发㈠-makefile 构建与使用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -157,6 +157,7 @@
         data-sizes="auto"
         alt="../img/20220803_01_01.jpg"
         title="选择生成 Makefile 工程" /></p>
+<hr>
 </details>  
 <details close=""><summary>2、使用自己的【Makefile】构建操作</summary>  
 <blockquote>
@@ -170,7 +171,8 @@
         data-sizes="auto"
         alt="../img/20220803_01_02.jpg"
         title="将 Makefile 模板嵌入工程" /></p>
-<p>补充：嵌入式处理器需要专用的交叉编译器和编译参数，会多一个启动文件（汇编）和 一个链接器文件（脚本），生成依赖信息的方法也不同，这些主要涉及 [envi.rule] 和 [make.rule] 两个文件，具体请查阅仓库里的【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】demo 工程。至于具体参数表示何意，以及如何加入源文件、如何修改编译参数，下面章节将会详细介绍。同时建议你使用代码比较工具比较【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】与【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">3_large</a>】这两个工程中的<code>envi.rule</code> <code>make.rule</code>及三个<code>Makefile</code>文件的差异，直观了解 PC 纯软件 Makefile 与 嵌入式 Makefile 的差异！</p>
+<p>补充：嵌入式处理器需要专用的交叉编译器和编译参数，会多一个启动文件（汇编）和 一个链接器文件（脚本），生成依赖信息的方法也不同，这些主要涉及 [makeenvi.mk] 和 [makecore.mk] 两个文件，具体请查阅仓库里的【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】demo 工程。至于具体参数表示何意，以及如何加入源文件、如何修改编译参数，下面章节将会详细介绍。同时建议你使用代码比较工具比较【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】与【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">3_large</a>】这两个工程中的<code>makeenvi.mk</code> <code>makecore.mk</code>及三个<code>Makefile</code>文件的差异，直观了解 PC 纯软件 Makefile 与 嵌入式 Makefile 的差异！</p>
+<hr>
 </details>  
 <details close=""><summary>3、关于【STM32F】嵌入式构建特点</summary>  
 <blockquote>
@@ -236,7 +238,18 @@
         data-srcset="../img/20220803_01_03.jpg, ../img/20220803_01_03.jpg 1.5x, ../img/20220803_01_03.jpg 2x"
         data-sizes="auto"
         alt="../img/20220803_01_03.jpg"
-        title="参考：armcc 的整个构建过程" /></p>
+        title="参考：armcc 的整个构建过程" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220803_01_04.jpg"
+        data-srcset="../img/20220803_01_04.jpg, ../img/20220803_01_04.jpg 1.5x, ../img/20220803_01_04.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220803_01_04.jpg"
+        title="参考：arm 编译器的构建过程" /></p>
+<!---  
+https://blog.csdn.net/kouxi1/article/details/126707153  
+--->  
 <blockquote>
 <p>三、嵌入式编译器有自己独特的选项参数：</p>
 </blockquote>
@@ -297,8 +310,12 @@
 <td style="text-align:left"><strong>链接</strong>：特别不链接未使用的 section（函数/数据），从而减小执行文件大小（-Wl,表示将编译器参数传给链接器）</td>
 </tr>
 <tr>
-<td style="text-align:left">-Wl,-Map=zzz.map,--cref</td>
-<td style="text-align:left"><strong>链接</strong>：打印链接表信息到[zzz.map]文件，--cref 表示输出一个交叉引用表（-Wl,表示将编译器参数传给链接器）</td>
+<td style="text-align:left">-Wl,-print-gc-sections</td>
+<td style="text-align:left"><strong>链接</strong>：打印链接器优化掉的 section（函数/数据），方便程序员查优化问题（-Wl,表示将编译器参数传给链接器）</td>
+</tr>
+<tr>
+<td style="text-align:left">-Wl,-Map=xxx.map,--cref</td>
+<td style="text-align:left"><strong>链接</strong>：打印链接表信息到[xxx.map]文件，--cref 表示输出一个交叉引用表（-Wl,表示将编译器参数传给链接器）</td>
 </tr>
 <tr>
 <td style="text-align:left">-Txxx.ld</td>
@@ -371,7 +388,7 @@
 </span><span class="se"></span>                      ./yyy.s -o build/yyy.o
 </code></pre></td></tr></table>
 </div>
-</div><p>备注：这些参数主要涉及 [envi.rule] 和 [make.rule] 两个文件，具体请查看【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】demo 工程。</p>
+</div><p>备注：这些参数主要涉及 [makeenvi.mk] 和 [makecore.mk] 两个文件，具体请查看【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】demo 工程。</p>
 </details>  
 <h3 id="三使用">三、使用</h3>
 <details close=""><summary>1、基于【STM32CubeMX】构建的使用</summary>  
@@ -418,12 +435,13 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################################</span>
 <span class="c1"># 在[shell]中进入[Makefile]所在的目录，输入命令执行：</span>
 <span class="c1">####################################################</span>
-<span class="nb">cd</span> stm32f1xx <span class="c1"># 进入操作目录</span>
-make all     <span class="c1"># 执行编译操作（如果想重新全编译，先执行下面命令）</span>
-make clean   <span class="c1"># 执行清除操作（清除所有编译出的文件，包括 hex 等）</span>
+<span class="nb">cd</span> x_stm32f1xx <span class="c1"># 进入操作目录</span>
+make all       <span class="c1"># 执行编译操作（如果想重新全编译，先执行下面命令）</span>
+make clean     <span class="c1"># 执行清除操作（清除所有编译出的文件，包括 hex 等）</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><hr>
+</details>  
 <details close=""><summary>2、基于自己的【Makefile】构建的使用</summary>  
 <blockquote>
 <p>一、在实际的工程应用中，必定要加入自己的源代码文件和配置相关参数。下面为通过与 Keil MDK 的比较，让你快速了解 Makefile 的相关配置，如图：</p>
@@ -475,7 +493,7 @@ make clean   <span class="c1"># 执行清除操作（清除所有编译出的文
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################################</span>
-<span class="c1"># 在[shell]中进入[make.rule]所在的目录，输入命令执行：</span>
+<span class="c1"># 在[shell]中进入[makecore.mk]所在的目录，输入命令执行：</span>
 <span class="c1">####################################################</span>
 <span class="nb">cd</span> 4_stm32f1xx    <span class="c1"># 进入操作目录</span>
 make clean        <span class="c1"># 执行清除操作（同时创建所需文件夹）</span>
@@ -515,7 +533,12 @@ make all          <span class="c1"># 执行编译操作（清除操作之后会�
 <span class="cp">#endif
 </span></code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><blockquote>
+<p><strong>1.2</strong>、ARM 主流编译器：armcc、clang、iccarm、gcc 等，具体请参考下面网文：</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/ZCShouCSDN/article/details/89553323" target="_blank" rel="noopener noreffer">ARM 主流编译器介绍</a></p>
+<hr>
+</details>  
 <details close=""><summary>2、gcc 链接脚本基本知识</summary>  
 <blockquote>
 <p><strong>2.1</strong>、默认链接脚本的导出：<br>
@@ -617,6 +640,14 @@ gcc 编译器的链接脚本常用关键字及语法需要我们有所了解，�
 </span><span class="lnt">64
 </span><span class="lnt">65
 </span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">############################################</span>
@@ -681,13 +712,23 @@ KEEP<span class="o">(</span>*<span class="o">(</span>SORT<span class="o">(</span
 <span class="nv">__hard_init_fn_end</span> <span class="o">=</span> .<span class="p">;</span>
 
 <span class="c1">##############################################################################</span>
-<span class="c1"># 6、LMA (load memory address)：   载入地址，也就是所有程序和数据储存空间位置。</span>
+<span class="c1"># 6、LMA (load memory address)：   加载地址，也就是所有程序和数据储存空间位置。</span>
 <span class="c1">#  　VMA (vortual memory address)：执行地址，如将 Flash 数据加载至 RAM 上运行。</span>
 <span class="c1">#  　对于单片机应用，一般不用设置 VMA，也就是说“载入地址”与“运行地址”是同一地址上！</span>
+<span class="c1">#    也就是说单片机程序是在 flash 里运行，则运行地址和加载地址是相同的。</span>
 <span class="c1">##############################################################################</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># 7、输入段、输出段</span>
+<span class="c1"># 输出段：是指生成的文件，例如 elf 中的每个段。</span>
+<span class="c1"># 输入段：是指提供链接的所有目标文件(OBJ)中的段。</span>
+<span class="c1">##############################################################################</span>
+
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><p>更多知识请参考网文：《<a href="https://blog.csdn.net/hy907539007/article/details/102608816/" target="_blank" rel="noopener noreffer">gcc ld 链接脚语法简明讲解</a>》和《<a href="https://blog.csdn.net/kouxi1/article/details/126707153" target="_blank" rel="noopener noreffer">Linker Script 链接脚本说明</a>》</p>
+<hr>
+</details>  
 <details close=""><summary>3、关于 text、data、bss、heap、stack 的分布 </summary>  
 <blockquote>
 <p><strong>3.1</strong>、数据段大小含义：</p>
@@ -798,15 +839,17 @@ xxxx.elf section <span class="s1">&#39;.xxx&#39;</span> will not fit in region <
 <span class="c1"># 表示&#39;FLASH&#39;空间不足，装不下&#39;.xxx&#39;分段数据！</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><hr>
+</details>  
 <details close=""><summary>4、关于 Keil 获取 ROM、RAM 编译大小的方法</summary>  
 <p>《<a href="../20210318" rel="">获取 ARM 编译后的 ROM 及 RAM 大小方法及原理</a>》</p>
+<hr>
 </details>  
 <details close=""><summary>5、使用自己的【Makefile】构建 rt-thread 工程</summary>  
 <blockquote>
 <p><strong>5.1</strong>、基本构建与使用：</p>
 </blockquote>
-<p>从【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】提取 envi.rule、make.rule、Makefile、startup_stm32f103xe.s、STM32F103XE_FLASH.ld 文件，按照上面两章节教程，完成构建、加入编译文件等操作（备注：最终搭建并整理的完整工程请到仓库中【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">5_rt-thread</a>】直接下载）。同时在父 Makefile 文件根据【STM32F103 正点原子战舰V3开发板】keil MDK 工程配置参数加入 rt-thread 定义的全局宏<code>__RTTHREAD__</code>等：</p>
+<p>从【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">4_stm32f1xx</a>】提取 makeenvi.mk、makecore.mk、Makefile、startup_stm32f103xe.s、STM32F103XE_FLASH.ld 文件，按照上面两章节教程，完成构建、加入编译文件等操作（备注：最终搭建并整理的完整工程请到仓库中【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">5_rt-thread</a>】直接下载）。同时在父 Makefile 文件根据【STM32F103 正点原子战舰V3开发板】keil MDK 工程配置参数加入 rt-thread 定义的全局宏<code>__RTTHREAD__</code>等：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1055,7 +1098,24 @@ RAM <span class="o">(</span>xrw<span class="o">)</span>       : <span class="nv"
 <span class="cp">#define HEAP_BEGIN      ((void *)&amp;__bss_end)
 </span></code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><blockquote>
+<p><strong>5.5</strong>、编译问题说明：</p>
+</blockquote>
+<p>使用 arm-none-eabi-gcc 10.3 编译时出现编译器与 rt-thread V4.0.3 源码有几个宏名称相同的错误（目前解决方法：使用 arm-none-eabi-gcc 5.4 旧版本编译！）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">error: redefinition of <span class="s1">&#39;union sigval&#39;</span>
+error: redefinition of <span class="s1">&#39;struct sigevent&#39;</span>
+error: conflicting types <span class="k">for</span> <span class="s1">&#39;siginfo_t&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+</details>  
 <details close=""><summary>6、使用 rt-thread 的【EVN】工具构建 Makefile</summary>  
 <blockquote>
 <p>1、在【STM32F103 正点原子战舰V3开发板】工程根目录 stm32f103-atk-warshipv3 下右键点击弹出 ConEmu Here 菜单进入【EVN】控制台；<br>
@@ -1076,15 +1136,15 @@ RAM <span class="o">(</span>xrw<span class="o">)</span>       : <span class="nv"
 </tr>
 <tr>
 <td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\Makefile</td>
-<td style="text-align:left">Makefile 文件，主要编译入口</td>
+<td style="text-align:left">Makefile 入口文件，主要编译入口</td>
 </tr>
 <tr>
 <td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\config.mk</td>
-<td style="text-align:left">Makefile 核心参数：主路径、编译参数、头文件包含路径、全局宏定义</td>
+<td style="text-align:left">Makefile 工程参数：主路径、编译参数、头文件包含路径、全局宏定义</td>
 </tr>
 <tr>
 <td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\src.mk</td>
-<td style="text-align:left">Makefile 编译文件</td>
+<td style="text-align:left">Makefile 编译文件。</td>
 </tr>
 <tr>
 <td style="text-align:left">bsp\stm32\stm32f103-atk-warshipv3\board\linker_scripts\link.lds</td>

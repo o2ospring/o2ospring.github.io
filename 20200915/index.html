@@ -20,7 +20,7 @@
 <meta name="application-name" content="o2ospring">
 <meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20200915/" /><link rel="prev" href="https://o2ospring.github.io/20200913/" /><link rel="next" href="https://o2ospring.github.io/20201211/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20200915/" /><link rel="prev" href="https://o2ospring.github.io/20200913/" /><link rel="next" href="https://o2ospring.github.io/20200916/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "编译, GNU, GCC, linux 工具\/应用","wordcount":  31466 ,
+                        }],"genre": "posts","keywords": "编译, GNU, GCC, linux 工具\/应用","wordcount":  31810 ,
         "url": "https:\/\/o2ospring.github.io\/20200915\/","datePublished": "2020-09-15T21:33:41+08:00","dateModified": "2022-07-17T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 编译构建工具</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-15">2020-09-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 31466 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 63 分钟&nbsp;<span id="/20200915/" class="leancloud_visitors" data-flag-title="linux 编译构建工具">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-15">2020-09-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 31810 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 64 分钟&nbsp;<span id="/20200915/" class="leancloud_visitors" data-flag-title="linux 编译构建工具">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -139,12 +139,12 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="前言">前言</h3>
-<p>Linux 下可用的编译器有 GCC、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！<a href="http://gcc.gnu.org/" target="_blank" rel="noopener noreffer">GCC</a>（GNU Compiler Collection）是由 <a href="https://www.gnu.org/" target="_blank" rel="noopener noreffer">GNU</a> 开发的编程语言译器套件。GNU 编译器套件包括 C、C++、Objective-C、Fortran、Ada、Go 及 D 语言前端，也包括了这些语言的库（如：libstdc++，libgcj 等）</p>
+<p>Linux 下可用的编译器有 GCC、LLVM-clang、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！<a href="http://gcc.gnu.org/" target="_blank" rel="noopener noreffer">GCC</a>（GNU Compiler Collection）是由 <a href="https://www.gnu.org/" target="_blank" rel="noopener noreffer">GNU</a> 开发的编程语言译器套件。GNU 编译器套件包括 C、C++、Objective-C、Fortran、Ada、Go 及 D 语言前端，也包括了这些语言的库（如：libstdc++，libgcj 等）</p>
 <details close=""><summary>1、关于工具链关系</summary>  
 <blockquote>
-<p>●<code>CMake</code>是一种跨平台编译构建工具，其将程序员编写 CMakeLists.txt 文件转化 makefile 文件，最后调用 make 命令执行相关工作。<br>
-●<code>make</code>是一个脚本工具，用于解释执行 Makefile 脚本的命令工具。<br>
-●<code>makefile</code>是脚本语言，用于描述了整个工程的编译、链接等规则，调用 GCC（也可以是其它编译器）命令执行编译、链接动作。<br>
+<p>●<code>CMake</code>是一种跨平台编译构建工具（也就是项目构建生成工具），其将程序员编写 CMakeLists.txt 文件转化 makefile 文件，最后调用 make 命令执行相关工作。<br>
+●<code>make</code>是一个脚本工具（也就是项目构建工具/编译批处理工具），用于解释执行 Makefile 脚本的命令工具。<br>
+●<code>makefile</code>是脚本语言，用于描述了整个工程的编译、链接等规则，调用 GCC（也可以是其它编译器，如：clang）命令执行编译、链接动作。<br>
 ●<code>gcc</code>是编译器，用于编译源文件，链接生成执行文件。<br>
 ●<code>gdb</code>是调试器，用于调试 c/c++ 程序，也可以调试 Ada、Objective-C、Pascal 及其它语言。</p>
 </blockquote>
@@ -238,24 +238,24 @@ gcc --version                    <span class="c1">#查看 gcc 版本用于验证
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#####安装仓库以及gcc#####</span>
-sudo apt install software-properties-common         <span class="c1">#安装`PPA`仓库工具（只需安装一次）</span>
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test <span class="c1">#加入`PPA`仓库</span>
-sudo apt update                                     <span class="c1">#更新`PPA`仓库信息</span>
-sudo apt install gcc-9 g++-9                        <span class="c1">#安装`GCC`和`G++`(需要安装什么版本就输入什么版本)</span>
-                                                    <span class="c1">#如果没找到软件包，则提示“E: Unable to locate package XXX”</span>
-<span class="c1">#####加gcc版本优先级####</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#####安装仓库以及gcc方法#####</span>
+sudo apt install software-properties-common          <span class="c1">#安装`PPA`仓库工具（只需安装一次）</span>
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test  <span class="c1">#加入`PPA`仓库</span>
+sudo apt update                                      <span class="c1">#更新`PPA`仓库信息</span>
+sudo apt install gcc-9 g++-9                         <span class="c1">#安装`GCC`和`G++`(需要安装什么版本就输入什么版本)</span>
+                                                     <span class="c1">#如果没找到软件包，则提示“E: Unable to locate package XXX”</span>
+<span class="c1">#####加gcc版本优先级方法#####                           #注意要把之前在环境变量加入的软件执行文件路径移除，否则可能会冲突！</span>
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">90</span>  --slave /usr/bin/g++ g++ /usr/bin/g++-9
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 <span class="m">999</span> --slave /usr/bin/g++ g++ /usr/bin/g++-5
-                                                    <span class="c1">#我的系统 Ubuntu 16.04 已安装官方版本为：gcc 5.4.0，上面的 --slave 的 g++ 表示的默认版本由 gcc 配置决定</span>
-<span class="c1">#####配置gcc默认版本####</span>
-sudo update-alternatives --config gcc               <span class="c1">#配置gcc默认版本，根据界面提示输入对应数字+回车选择</span>
+                                                     <span class="c1">#备注：①我的系统 Ubuntu 16.04 已安装：gcc 5.4.0；②上面的 --slave 的 g++ 表示的工作版本由 gcc 配置决定</span>
+<span class="c1">#####选择gcc工作版本方法#####</span>
+sudo update-alternatives --config gcc                <span class="c1">#选择gcc工作版本，根据界面提示输入对应数字+回车选择</span>
 
-<span class="c1">#####移除PPA仓库方法#####</span>
-<span class="c1"># sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test</span>
-
-<span class="c1">#####移除gcc版本优先级###</span>
-<span class="c1"># sudo update-alternatives --remove gcc /usr/bin/gcc-9 #移除 gcc 9 的优先级（将从优先级列表中移除）</span>
+<span class="c1">#####移除专用PPA仓库方法#####</span>
+sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
+                                                     <span class="c1">#移除上面加入的PPA仓库</span>
+<span class="c1">#####移除gcc某优先级方法#####</span>
+sudo update-alternatives --remove gcc /usr/bin/gcc-9 <span class="c1">#移除 gcc 9 的优先级（将从优先级列表中移除）</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>1.3、Ubuntu 下自己编译与安装</p>
@@ -441,11 +441,14 @@ gcc    -o hello   hello.o         <span class="c1"># 链接  (链接生成可执
 </span><span class="lnt">95
 </span><span class="lnt">96
 </span><span class="lnt">97
+</span><span class="lnt">98
+</span><span class="lnt">99
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 一些编译常用选项</span>
 gcc --version                     <span class="c1"># 查看gcc版本</span>
 gcc -v                            <span class="c1"># 查看gcc版本(包括配置参数信息)</span>
+gcc -x c xxxx.b -x none hello.c   <span class="c1"># 忽略文件类型强制以C文件类型编译[xxxx.b]，自动识别文件类型编译[hello.c]</span>
 gcc -std<span class="o">=</span>c99 hello.c -o hello     <span class="c1"># 使用[C99]标准编译（gcc 默认使用的是 C89 的标准，而 -std=gun99 是 GNU 的 C99，及 -std=gnu11 是 C11 与 GNU 的拓展））</span>
 gcc -static  hello.c -o hello     <span class="c1"># 静态编译生成的可执行文件(优点:独立无依赖,缺点:文件很大)</span>
 gcc -g       hello.c -o hello     <span class="c1"># 在可执行程序中包含标准调试信息</span>
@@ -454,6 +457,7 @@ gcc -O2      hello.c -o hello     <span class="c1"># 用[-O2]优化选项编译�
 <span class="c1"># GCC警告提示常用选项</span>
 gcc -w        wrong.c -o wrong    <span class="c1"># [-w]        关闭所有警告　　　（w小写）</span>
 gcc -W        wrong.c -o wrong    <span class="c1"># [-W]        开启认为错误的警告（W大写）</span>
+gcc -Werror   wrong.c -o wrong    <span class="c1"># [-Werror]   开启将警告转换成错误（主要用于排除警告代码）</span>
 gcc -Wall     wrong.c -o wrong    <span class="c1"># [-Wall]     开启所有警告（建议读者养成使用该选项的习惯）</span>
 gcc -W -Wall  wrong.c -o wrong    <span class="c1"># [-W -Wall]  开启常规警告（建议读者养成使用该选项的习惯）</span>
 gcc -ansi     wrong.c -o wrong    <span class="c1"># [-ansi]     该选项强制GCC生成标准语法所要求的告警信息</span>
@@ -468,9 +472,9 @@ gcc -MMD -MP -MF<span class="s2">&#34;out/x.d&#34;</span> -I./inc main.c <span c
 
 <span class="c1"># --------------------------动/静态库编译方法:-----------------------</span>
 <span class="c1">#【静态库】编译方法：</span>
-gcc -c -o zzz.o zzz.c -I.                <span class="c1"># 两步编译方法：一、生成的目标文件， [r] 在库中插入模块（替换），（replace）</span>
-ar rcs libzzz.a zzz.o                    <span class="c1"># 两步编译方法：二、打包成为静态库。 [c] 创建静态库，不管库是否存在，（create）</span>
-nm libzzz.a                              <span class="c1"># 查看库中包含的函数全局变量等信息。 [s] 写入一个目标文件索引到库中，或者更新一个存在的目标文件索引。</span>
+gcc -c -o zzz.o zzz.c -I.                <span class="c1"># 两步编译方法：一、生成的目标文件， [r] 更新及替换,（replace）</span>
+ar rcs libzzz.a zzz.o xxx.o              <span class="c1"># 两步编译方法：二、打包成为静态库。 [c] 创建静态库,（create）</span>
+nm libzzz.a                              <span class="c1"># 查看库中包含的函数全局变量等信息。 [s] 及建立索引。</span>
 
 <span class="c1">#【静态库】使用简介：</span>
 gcc -o <span class="nb">test</span> test.c -I. ./libzzz.a        <span class="c1"># 方式一：直接指定静态库文件名称及路径与源文件一同编译。</span>
@@ -609,12 +613,12 @@ eabi   <span class="c1"># Embedded Application Binary Interface</span>
 <details close=""><summary>2、arm 框架交叉编译器 ●</summary>  
 <details close=""><summary>2.1、armcc</summary>  
 <blockquote>
-<p><strong>armcc</strong> 是 RM 公司推出的商用收费编译工具，功能和 arm-none-eabi-gcc 类似，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。armcc 一般和 ARM 开发工具一起，例如 Keil MDK、ADS、RVDS 和 DS-5 中的编译器都是 armcc。</p>
+<p><strong>armcc</strong> 是 ARM 公司推出的商用收费编译工具，功能和 arm-none-eabi-gcc 类似，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。armcc 一般和 ARM 开发工具一起，例如 Keil MDK、ADS、RVDS 和 DS-5 中的编译器都是 armcc。</p>
 </blockquote>
 </details>  
 <details close=""><summary>2.2、arm-none-eabi-gcc</summary>  
 <blockquote>
-<p><strong><a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain" target="_blank" rel="noopener noreffer">arm-none-eabi-gcc</a></strong> 为 ARM 框架、无供应商、无系统、嵌入式二进制接口，一般适合 ARM7、Cortex-M、Cortex-R 内核的芯片使用，它使用的是 newlib 这个专用于嵌入式系统的 C 库，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。注意：交叉编译器目前都是 32 位执行程序，依赖 32 位库，事前需要安装 ia32-libs（<a href="https://blog.csdn.net/hj74535099/article/details/50220207" target="_blank" rel="noopener noreffer">网文</a>）或 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。进入网页选择你需要的版本下载：<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads" target="_blank" rel="noopener noreffer">官网最新版</a>、<a href="https://developer.arm.com/downloads/-/gnu-rm" target="_blank" rel="noopener noreffer">官网 2021 版</a>、<a href="https://launchpad.net/gcc-arm-embedded/&#43;download" target="_blank" rel="noopener noreffer">Ubuntu-launchpad 软件开发者平台</a> 及依赖 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。补充：关于 Windows 版本，为直接安装文件，双击安装即可，还有安装后需要手工加入环境变量【<a href="../img/20200915_2_2_22.jpg" rel="">如图</a>】。</p>
+<p><strong><a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain" target="_blank" rel="noopener noreffer">arm-none-eabi-gcc</a></strong> 为 ARM 框架、无供应商、无系统、嵌入式二进制接口的交叉编译器，一般适合 ARM7、Cortex-M、Cortex-R 内核的芯片使用，它使用的是 newlib 这个专用于嵌入式系统的 C 库，用于编译裸机程序（u-boot、kernel、单片机程序），但是不能编译 Linux 应用程序。注意：交叉编译器目前都是 32 位执行程序，依赖 32 位库，事前需要安装 ia32-libs（<a href="https://blog.csdn.net/hj74535099/article/details/50220207" target="_blank" rel="noopener noreffer">网文</a>）或 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。进入网页选择你需要的版本下载：<a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads" target="_blank" rel="noopener noreffer">官网最新版</a>、<a href="https://developer.arm.com/downloads/-/gnu-rm" target="_blank" rel="noopener noreffer">官网 2021 版</a>、<a href="https://launchpad.net/gcc-arm-embedded/&#43;download" target="_blank" rel="noopener noreffer">Ubuntu-launchpad 软件开发者平台</a> 及依赖 <a href="https://pkgs.org/download/lsb-core" target="_blank" rel="noopener noreffer">lsb-core</a>。补充：关于 Windows 版本，为直接安装文件，双击安装即可，还有安装后需要手工加入环境变量【<a href="../img/20200915_2_2_22.jpg" rel="">如图</a>】。</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1163,13 +1167,13 @@ arm-none-linux-gnueabi-gcc -v       <span class="c1">#查看版本(验证是否�
 <details close=""><summary>1、make、<strong>Makefile</strong> 关系 ●</summary>  
 <blockquote>
 <p>● <code>make</code>是一个脚本工具，用于解释执行 Makefile 脚本的命令工具。<br>
-● <code>makefile</code>是脚本语言，用于描述整个工程的编译、链接等规则，调用 GCC（也可以是其它编译器）命令执行编译、链接动作。脚本文件默认名称为 Makefile 或 makefile。</p>
+● <code>makefile</code>是脚本语言，用于描述整个工程的编译、链接等规则，调用 GCC（也可以是其它编译器，如：clang）命令执行编译、链接动作。脚本文件默认名称为 Makefile 或 makefile。</p>
 </blockquote>
 </details>  
 <details close=""><summary>2、<strong>make</strong> 命令的使用方法 ●</summary>  
 <blockquote>
 <p>make 命令常用格式为：<code>make [选项] [目标(操作)]</code>。<br>
-make 命令是用来解释和执行 Makefile 脚本命令，<strong>所以<code>[目标(操作)]</code>是由 Makefile 脚本提供的</strong>，如果不指出则 make 工具默认使用 Makefile 中的第一个目标。</p>
+make 命令是用来解释和执行 Makefile 脚本命令，<strong>所以<code>[目标(操作)]</code>是由 Makefile 脚本提供的</strong>，如果不指出则 make 工具默认执行 Makefile 中的第一个目标。</p>
 </blockquote>
 <p>2.1、【目标】目标的名称约定常常有以下惯例：</p>
 <table>
@@ -1402,11 +1406,11 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 </tr>
 <tr>
 <td style="text-align:left">目标与依赖的搜索对象关系</td>
-<td style="text-align:left">只要目标有依赖，make 工具就会尝试在搜索目录中寻找依赖文件<a href="#XXXX" rel="">是否存在</a>或者<a href="#XXXX" rel="">是否为别的目标</a>。如果都为否，则 make 运行就会抛出错误！备注：Makefile 搜索目录为当前 Makefile 根目录及 VPATH、vpath 设置的目录。</td>
+<td style="text-align:left">只要目标有依赖，make 工具就会尝试在搜索目录中寻找<a href="#XXXX" rel="">依赖文件是否存在</a>或者<a href="#XXXX" rel="">是否为别的目标</a>。如果都为否，则 make 运行就会抛出错误！备注：Makefile 搜索目录为当前 Makefile 根目录及 VPATH、vpath 设置的目录。</td>
 </tr>
 <tr>
 <td style="text-align:left">目标与依赖的路径定义关系</td>
-<td style="text-align:left">目标文件在书写时没写明路径表示为当前 Makefile <a href="#XXXX" rel="">根目录</a>文件，否则就是<a href="#XXXX" rel="">指定目录</a>文件。依赖文件没写明路径时由 Makefile <a href="#XXXX" rel="">搜索目录</a>中找出文件（没找出就默认为当前 Makefile <a href="#XXXX" rel="">根目录</a>文件），否则就是<a href="#XXXX" rel="">指定目录</a>中找出文件（没找出也是认为书写的<a href="#XXXX" rel="">指定目录</a>文件）；如果最后依赖文件没找出时，就会从另一个<a href="#XXXX" rel="">同路径同名称</a>的目标中尝试生成！总结：对于实目标和实依赖，都必须现场得出<a href="#XXXX" rel="">确定的路径</a>，之后才可以进一步的操作。备注：Makefile 搜索目录为当前 Makefile 根目录及 VPATH、vpath 设置的目录。</td>
+<td style="text-align:left">目标文件在书写时没写明路径表示为当前 Makefile <a href="#XXXX" rel="">根目录</a>文件，有写明路径就是<a href="#XXXX" rel="">指定目录</a>文件。依赖文件没写明路径时由 Makefile <a href="#XXXX" rel="">搜索目录</a>中找出文件（优先搜索当前 Makefile <a href="#XXXX" rel="">根目录</a>文件），有写明路径时就是<a href="#XXXX" rel="">指定目录</a>中找出文件（没找出可能还会尝试从搜索目录找出）；如果最后依赖文件没找出时，就会从另一个<a href="#XXXX" rel="">同路径同名称</a>的目标中尝试生成！总结：对于实目标和实依赖，都必须现场得出<a href="#XXXX" rel="">确定的路径</a>，之后才可以进一步的操作。备注：Makefile 搜索目录为当前 Makefile 根目录及 VPATH、vpath 设置的目录。</td>
 </tr>
 <tr>
 <td style="text-align:left">目标与依赖的规则执行关系</td>
@@ -1570,7 +1574,7 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 <td style="text-align:left">执行文件</td>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>.exe</code></td>
-<td style="text-align:left">执行文件</td>
+<td style="text-align:left">执行文件（在 Windows 系统中编译生成的目标(PC 软件)必须要加<code>.exe</code>后缀，否则每次编译都会重新生成目标）</td>
 </tr>
 </tbody>
 </table>
@@ -1778,7 +1782,7 @@ make clean              <span class="c1"># 运行命令，当前文件夹下扩�
 </span><span class="c">####################################################
 </span><span class="c"></span><span class="err">define</span> <span class="err">FUNC</span>
 <span class="nf">$1</span><span class="o">:</span> $2
-	gcc -c -o <span class="nv">$$</span>@ <span class="nv">$$</span>^
+	gcc -c -o <span class="nv">$$</span>@ <span class="nv">$$</span>&lt;
 <span class="err">endef</span>
 
 <span class="nv">SRCS_F</span> <span class="o">:=</span> app/main.c usr/foo.c
@@ -1809,6 +1813,12 @@ make clean              <span class="c1"># 运行命令，当前文件夹下扩�
 </tr>
 <tr>
 <td style="text-align:left">● 错误：编译工具(gcc)编译<code>app/main.c</code>没找到包含文件<code>hello.h</code>。</br>◆ 解决：在编译命令加入包含路径选项，如：<code>-I usr/inc</code>。</td>
+</tr>
+<tr>
+<td style="text-align:left">3、<code>fatal error: cannot specify -o with -c, -S or -E with multiple files</code></td>
+</tr>
+<tr>
+<td style="text-align:left">● 错误：该项目将要生成两个或更多相同名称的<code>.o</code>文件，产生了冲突。</br>◆ 解决：使用<code>$(eval $(call ……))</code>编译语句，依赖写法由<code>$$^</code>改为<code>$$&lt;</code>。</td>
 </tr>
 </tbody>
 </table>
@@ -2668,7 +2678,7 @@ src2: a.c b.c c.c        <span class="c1"># 运行结果（Makefile 变量[src2]
 
 <span class="c"># 22.【变量参数化】函数
 </span><span class="c"></span><span class="nv">var</span> <span class="o">=</span> <span class="k">$(</span>1<span class="k">)</span> <span class="k">$(</span>2<span class="k">)</span> ...             <span class="c1"># $(1)表示取第一个参数“str1”，$(2)表示取第二个参数“str2”，……</span>
-<span class="k">$(</span><span class="nv">call</span> <span class="nv">var</span>,<span class="nv">str</span>1,<span class="nv">str</span>2,...<span class="k">)</span>       <span class="c"># 唯一可以在命令运行过程中赋值或修改变量值的函数
+<span class="k">$(</span><span class="nv">call</span> <span class="nv">var</span>,<span class="nv">str</span>1,<span class="nv">str</span>2,...<span class="k">)</span>       <span class="c"># 将 var 视为函数(调用)，将 str1 视为第一个参数，将 str2 视为第二个参数，则将上行表达式视为函数体！
 </span><span class="c"></span>                                <span class="c1"># v3 = $(3) $(1) $(2)</span>
                                 <span class="c1"># $(call v3,bb bb,cc,aa)  结果“aa bb bb cc”（注意：bb bb 是一个参数，因为没有用逗号分开！）</span>
                                 <span class="c1"># $(call v3,$(shell pwd)) 结果“/home/xiaomin/test”（因其它两个参数为空,即只会得出一个参数）</span>
@@ -2690,7 +2700,7 @@ src2: a.c b.c c.c        <span class="c1"># 运行结果（Makefile 变量[src2]
                                 <span class="c1"># OBJ_PATH := out</span>
                                 <span class="c1"># obj = $$(OBJ_PATH)/$(strip $1)</span>
                                 <span class="c1"># $$(obj): $2</span>
-                                <span class="c1"># 	gcc $$^ -o $$@</span>
+                                <span class="c1"># 	gcc $$&lt; -o $$@</span>
                                 <span class="c1"># endef</span>
                                 <span class="c1"># </span>
                                 <span class="c1"># all : out/foo</span>
@@ -3699,7 +3709,7 @@ https://blog.csdn.net/shallnet/article/details/38070745
 </span><span class="c">####################################################
 </span><span class="c"></span><span class="err">define</span> <span class="err">FUNC</span>
 <span class="nf">$1</span><span class="o">:</span> $2
-	gcc -c -o <span class="nv">$$</span>@ <span class="nv">$$</span>^
+	gcc -c -o <span class="nv">$$</span>@ <span class="nv">$$</span>&lt;
 <span class="err">endef</span>
 
 <span class="nv">SRCS_F</span> <span class="o">:=</span> app/main.c usr/foo.c
@@ -4016,7 +4026,7 @@ make clean <span class="c1"># 执行清除操作（同时创建所需文件夹�
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">1、与【写法一】没有本质区别，只是把一个</span> <span class="err">Makefile</span> <span class="err">分为多个子</span> <span class="err">Makefile</span> <span class="err">操作；</span>
 <span class="err">1、通过父</span> <span class="err">Makefile</span> <span class="err">调用各个子</span> <span class="err">Makefile（注：生成执行文件的子</span> <span class="err">Makefile</span> <span class="err">须最后调用）；</span>
-<span class="err">2、将多个</span> <span class="err">Makefile</span> <span class="err">脚本的公共代码分别移到[make.rule]和[envi.rule]两个文件；</span>
+<span class="err">2、将多个</span> <span class="err">Makefile</span> <span class="err">脚本的公共代码分别移到[makecore.mk]和[makeenvi.mk]两个文件；</span>
 <span class="err">3、因多个</span> <span class="err">Makefile</span> <span class="err">文件都会生成一个最终文件，及一个项目工程只能生成一个执行文件，</span>
  　<span class="err">则要求：只能一个子</span> <span class="err">Makefile</span> <span class="err">生成执行文件，其它子</span> <span class="err">Makefile</span> <span class="err">生成库文件；</span>
 </code></pre></td></tr></table>
@@ -4076,7 +4086,7 @@ make clean <span class="c1"># 执行清除操作（同时创建所需文件夹�
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="k">export </span><span class="nv">ROOT</span> <span class="o">=</span> <span class="k">$(</span>realpath .<span class="k">)</span>
 <span class="nf">.PHONY</span><span class="o">:</span> <span class="n">all</span> <span class="n">clean</span> <span class="n">echo</span>
-<span class="err">include</span> <span class="err">envi.rule</span>
+<span class="err">include</span> <span class="err">makeenvi.mk</span>
 
 <span class="c">####################################################
 </span><span class="c"># 1、定义子 Makefile 文件所在路径。【多个用空格分隔】
@@ -4191,11 +4201,11 @@ make clean <span class="c1"># 执行清除操作（同时创建所需文件夹�
 </span><span class="se"></span>         ../modules/delay
 
 <span class="c"># 定义编译器及其环境相关参数
-</span><span class="c"></span><span class="err">include</span> <span class="err">../envi.rule</span>
+</span><span class="c"></span><span class="err">include</span> <span class="err">../makeenvi.mk</span>
 <span class="nv">CFLAG_O</span> <span class="o">+=</span> -W -Wall
 
 <span class="c"># 包含[Makefile]脚本公共代码
-</span><span class="c"></span><span class="err">include</span> <span class="err">../make.rule</span>
+</span><span class="c"></span><span class="err">include</span> <span class="err">../makecore.mk</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -4256,15 +4266,15 @@ make clean <span class="c1"># 执行清除操作（同时创建所需文件夹�
 </span><span class="c"></span><span class="nv">VPATH</span>  <span class="o">=</span> 
 
 <span class="c"># 定义编译器及其环境相关参数
-</span><span class="c"></span><span class="err">include</span> <span class="err">../../envi.rule</span>
+</span><span class="c"></span><span class="err">include</span> <span class="err">../../makeenvi.mk</span>
 <span class="nv">CFLAG_O</span> <span class="o">+=</span> -W -Wall -O1
 
 <span class="c"># 包含[Makefile]脚本公共代码
-</span><span class="c"></span><span class="err">include</span> <span class="err">../../make.rule</span>
+</span><span class="c"></span><span class="err">include</span> <span class="err">../../makecore.mk</span>
 
 </code></pre></td></tr></table>
 </div>
-</div><p>◆④【Makefile 公共代码】环境公共参数</p>
+</div><p>◆④【Makefile 公共代码】环境相关参数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -4289,7 +4299,7 @@ make clean <span class="c1"># 执行清除操作（同时创建所需文件夹�
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c">####################################################
-</span><span class="c"># 1、定义编译器及环境公共参数，方便不同环境/平台移植
+</span><span class="c"># 1、定义编译器及环境相关参数，方便不同环境/平台移植
 </span><span class="c">####################################################
 </span><span class="c"></span>
 <span class="nv">CC</span> <span class="o">=</span> gcc
@@ -4497,7 +4507,7 @@ make clean <span class="c1"># 执行清除操作（同时创建所需文件夹�
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################################</span>
-<span class="c1"># 在[shell]中进入[make.rule]所在的目录，输入命令执行：</span>
+<span class="c1"># 在[shell]中进入[makecore.mk]所在的目录，输入命令执行：</span>
 <span class="c1">####################################################</span>
 make <span class="nb">echo</span>         <span class="c1"># 执行查看变量（同时创建所需文件夹）</span>
 make all          <span class="c1"># 执行编译操作</span>
@@ -4525,7 +4535,7 @@ make clean        <span class="c1"># 执行清除操作（同时创建所需文�
 <blockquote>
 <p><strong>案例三</strong>：基于【写法二】应用于【STM32F103】单片机工程。（<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">展示例子：4_stm32f1xx</a>）</p>
 </blockquote>
-<p>说明：具体请阅读《<a href="../20220804" rel="">linux-STM32F开发-makefile 构建与使用</a>》，可以进一步了解一些编译参数、生成的几种文件，以及交叉编译器的一些工具！</p>
+<p>说明：具体请阅读《<a href="../20220804" rel="">linux-STM32F开发-makefile 构建与使用</a>》，可以进一步了解一些编译参数、链接脚本、生成的几种执行文件，以及交叉编译器的一些工具！</p>
 </details>  
 <details close=""><summary>3.9.4、【说明四】</summary>  
 <blockquote>
@@ -4577,11 +4587,13 @@ make clean        <span class="c1"># 执行清除操作（同时创建所需文�
 </details>  
 </details>  
 <h3 id="四相关的编译构建工具">四、相关的编译构建工具</h3>
-<p><a href="https://cmake.org/" target="_blank" rel="noopener noreffer">CMake</a><br>
+<p><a href="https://cmake.org/" title="cmake 是一个跨平台的 Makefile 生成工具！以 CMakeLists.txt 组织描述，输出 makefile 或者 project 文件。" target="_blank" rel="noopener noreffer">CMake</a><br>
+<a href="https://doc.qt.io/qt-5/qmake-manual.html" title="qmake 是 Qt 的构建工具，主要作用是解析 pro 格式的项目文件、生成编译 Makefiles 等。" target="_blank" rel="noopener noreffer">Qmake</a><br>
 <a href="https://xmake.io/" target="_blank" rel="noopener noreffer">XMake</a><br>
 <a href="https://mesonbuild.com/" target="_blank" rel="noopener noreffer">Meson</a><br>
 <a href="https://www.scons.org/" target="_blank" rel="noopener noreffer">SCons</a><br>
-<a href="https://www.busybox.net/" target="_blank" rel="noopener noreffer">BusyBox</a><br>
+<a href="https://www.busybox.net/" title="BusyBox 是一个集成了约 400 个最常用 Linux/UNIX 命令和工具的软件，并且对相关软件进行精简。它为任何小型或嵌入式系统提供了一个相当完整的环境。" target="_blank" rel="noopener noreffer">BusyBox</a><br>
+<a href="https://www.gnu.org/" title="Autotools 用来制作一个符合所有 GNU 标准的软件包" target="_blank" rel="noopener noreffer">Autotools</a><br>
 待续……</p>
 <!--  
 [如何评价 xmake？](https://www.zhihu.com/question/56634628)  
@@ -4616,7 +4628,7 @@ make clean        <span class="c1"># 执行清除操作（同时创建所需文�
     </div>
 
     <div class="post-nav"><a href="/20200913/" class="prev" rel="prev" title="面向对象的 C 语言实现方法"><i class="fas fa-angle-left fa-fw"></i>面向对象的 C 语言实现方法</a>
-            <a href="/20201211/" class="next" rel="next" title="MD5 对数据加密与校验">MD5 对数据加密与校验<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/20200916/" class="next" rel="next" title="linux 调试仿真工具">linux 调试仿真工具<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

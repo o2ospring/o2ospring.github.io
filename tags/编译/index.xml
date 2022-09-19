@@ -16,6 +16,6 @@
     <pubDate>Tue, 15 Sep 2020 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20200915/</guid>
-    <description><![CDATA[前言 Linux 下可用的编译器有 GCC、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！GCC（GNU Compiler Collection）是由 GNU 开发的编程语]]></description>
+    <description><![CDATA[前言 Linux 下可用的编译器有 GCC、LLVM-clang、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！GCC（GNU Compiler Collectio]]></description>
 </item></channel>
 </rss>

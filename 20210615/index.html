@@ -222,7 +222,7 @@ FreeRTOS 特点：</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//配置 (FreeRTOSConfig.h)
-</span><span class="c1"></span><span class="cp">#define configMAX_SYSCALL_INTERRUPT_PRIORITY 191        </span><span class="c1">//有一个临界区中断优先级（数值越低优先级越低）
+</span><span class="c1"></span><span class="cp">#define configMAX_SYSCALL_INTERRUPT_PRIORITY 191        </span><span class="c1">//有一个临界区中断优先级（数值越小优先级越低）
 </span><span class="c1"></span>
 <span class="c1">//线程中调用
 </span><span class="c1"></span><span class="n">taskENTER_CRITICAL</span><span class="p">();</span> <span class="c1">//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
@@ -312,7 +312,7 @@ FreeRTOS 特点：</p>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//配置
 </span><span class="c1"></span><span class="cp">#define NETWORK_THREAD_STK_SIZE   512                </span><span class="c1">//线程堆栈大小
-</span><span class="c1"></span><span class="cp">#define NETWORK_THREAD_PRIO       2                  </span><span class="c1">//线程优先级（数值越低优先级越低）
+</span><span class="c1"></span><span class="cp">#define NETWORK_THREAD_PRIO       2                  </span><span class="c1">//线程优先级（数值越小优先级越低）
 </span><span class="c1"></span>
 <span class="c1">//创建 (动态线程)
 </span><span class="c1"></span><span class="n">TaskHandle_t</span> <span class="o">*</span><span class="k">const</span> <span class="n">p_network</span><span class="p">;</span>                       <span class="c1">//动态线程句柄

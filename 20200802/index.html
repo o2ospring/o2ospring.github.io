@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  3843 ,
+                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  3965 ,
         "url": "https:\/\/o2ospring.github.io\/20200802\/","datePublished": "2020-08-02T21:33:41+08:00","dateModified": "2022-03-24T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu 系统与工具</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3843 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3965 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20200802/" class="leancloud_visitors" data-flag-title="Ubuntu 系统与工具">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -469,9 +469,10 @@ dns-nameservers 8.8.8.8
 <p>介绍：解决 ubuntu16.04 和 windows 电脑之间无法复制粘贴问题。</p>
 </blockquote>
 <ol>
-<li><code>sudo apt-get autoremove open-vm-tools</code>移除系统原来的虚拟工具条</li>
-<li><code>sudo apt-get install open-vm-tools</code>安装开源工具包</li>
-<li><code>sudo apt-get install open-vm-tools-desktop</code>安装桌面版的虚拟工具条</li>
+<li><code>sudo apt-get autoremove open-vm-tools</code>移除系统原工具</li>
+<li><code>sudo apt-get install open-vm-tools</code>安装开源虚拟机交互工具包</li>
+<li><code>sudo apt-get install open-vm-tools-desktop</code>安装桌面双向复制粘贴工具</li>
+<li><code>sudo apt-get install open-vm-tools-dkms</code>安装文件夹共享工具</li>
 <li>安装过程中，yes 或者 y 一路通过。</li>
 <li>重启 Ubuntu 即可。</li>
 </ol>
@@ -497,14 +498,25 @@ dns-nameservers 8.8.8.8
 </tr>
 </tbody>
 </table>
-<!--  
+<p>补充：每次重新开机共享文件夹不能自动挂载，要进行先“禁用”再“启动”操作后才能使用，很是麻烦！解决方法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gedit /etc/fstab   <span class="c1"># 打开配置文件，在其最后面增加一行自动挂载语句：</span>
+                        <span class="c1"># .host:/         /mnt/hgfs       fuse.vmhgfs-fuse allow_other,defaults   0   0</span>
+</code></pre></td></tr></table>
+</div>
+</div><!--  
 https://blog.csdn.net/weixin_50603017/article/details/122309067  
 https://blog.51cto.com/u_15061930/4284241  
 -->  
 </details>  
 <details close=""><summary>9. <strong>解决系统分辨率自适应问题</strong></summary>  
 <blockquote>
-<p>介绍：相信很多人在装虚拟机的时候，遇到了窗口过小不能自适应的问题。我在网上查了好多资料，有说安装 Vmware Tools 解决，也有说修改分辨率解决。但 Vmware Tools 工具官方已经不建议，更提倡开源的 open-vm-tools。</p>
+<p>介绍：相信很多人在装虚拟机的时候，遇到了窗口过小不能自适应的问题。我在网上查了好多资料，有说安装 Vmware Tools 解决，也有说修改分辨率解决。但 Vmware Tools 官方工具已经不建议用，更提倡开源的 open-vm-tools。</p>
 </blockquote>
 <ol>
 <li><code>sudo apt-get install open-vm-tools</code>安装开源工具包；</li>

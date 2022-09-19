@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "C, 编程规范","wordcount":  2770 ,
+                        }],"genre": "posts","keywords": "C, 编程规范","wordcount":  3108 ,
         "url": "https:\/\/o2ospring.github.io\/20210609\/","datePublished": "2021-06-09T21:33:41+08:00","dateModified": "2021-06-09T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">本人 C 语言编程规范</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-09">2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2770 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20210609/" class="leancloud_visitors" data-flag-title="本人 C 语言编程规范">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-09">2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3108 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/20210609/" class="leancloud_visitors" data-flag-title="本人 C 语言编程规范">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -140,10 +140,15 @@
 </nav></div>
             </div><div class="content" id="content"><h3 id="前言">前言</h3>
 <blockquote>
-<p>代码编写规则应该在建立一个工程项目之前，应该贯穿整个项目的始终，以保证代码的一致性。采用标准的代码编写惯例，可以大大简化项目的维护负担。采用一种好的风格，以达到以下目的：可移植性、连贯、整洁、易于维护、易于理解、简洁。关于本人 C 语言编程规范，以简单实用为主，不会设置过多规则。写这篇文章目的是为以后介绍我开发的一些模块，其按规范编写以保持统一风格方便大家阅读代码。</p>
+<p>代码编写规范应该在建立一个工程项目之前，并且贯穿整个项目的始终，以保证代码的一致性。采用标准的代码编写惯例，可以大大简化项目的维护负担，最终达到：简洁、一致、易理解、易维护、易移植的目的，非常有利于团队成员的合作。关于本人 C 语言编程规范，以简单实用为主，不会设置过多规则。写这篇文章目的是为以后介绍我开发的一些模块，其按规范编写以保持统一风格方便大家阅读代码。</p>
 </blockquote>
 <h3 id="总体规范">总体规范</h3>
-<details close=""><summary>1、源文件命名规范</summary>  
+<details close=""><summary>1、规范总规则概述</summary>  
+<blockquote>
+<p><strong>一</strong>）单词与单词使用下划线连接，字符使用全大写或全小写；<strong>二</strong>）源文件和头文件名称使用全小写；<strong>三</strong>）变量和数据结构名称使用全小写；<strong>四</strong>）枚举成员、宏名称使用全大写；<strong>五</strong>）数据类型名称以<code>_t</code>结尾，枚举类型名称以<code>_e</code>结尾；<strong>六</strong>）指针名称以<code>p_</code>开头，函数指针名称以<code>_fn</code>结尾，回调函数名称以<code>_cb</code>结尾。</p>
+</blockquote>
+</details>  
+<details close=""><summary>2、源文件命名规范</summary>  
 <blockquote>
 <ol>
 <li>使用全小写形式，单词与单词之间使用<code>_</code>连接；</li>
@@ -162,13 +167,13 @@
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary>2、头文件总体规范</summary>  
+<details close=""><summary>3、头文件总体规范</summary>  
 <blockquote>
 <ol>
 <li>使用统一的头部声明；</li>
+<li>加入防重复包含的宏；</li>
 <li>此头文件包含重映射；</li>
 <li>一些依赖头文件包含；</li>
-<li>加入防重复包含的宏；</li>
 <li>加入C++的兼容语句；</li>
 <li>参数配置；</li>
 <li>数据类型；</li>
@@ -221,6 +226,24 @@
 </span><span class="lnt">41
 </span><span class="lnt">42
 </span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
@@ -235,12 +258,17 @@
 </span><span class="cp">#define O2O_EEPROM_H__
 </span><span class="cp"></span>
 <span class="c1">//########################################################################################################
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;app_cfg.h&#34; /////////////////////// &lt;- 很多工程都会有专管理应用模块的头文件★★★★★★★★★★##</span><span class="cp">
-</span><span class="cp">#ifdef __O2O_EEPROM_REMAP_H </span><span class="c1">//////////////// &lt;- 如果在[app_cfg.h]定义此宏，则启动头文件重映射功能！     ##
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom_remap.h&#34; ////////////// &lt;- 当启动重映射,则当前头文件包含映射到[o2o_eeprom_remap.h] ##</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;app_cfg.h&#34; /////////////////////// &lt;- 按规定[app_cfg.h]作为工程所有应用模块统一配置头文件！   ##</span><span class="cp">
+</span><span class="cp">#ifdef __O2O_EEPROM_REMAP_H </span><span class="c1">//////////////// &lt;- 如果在[app_cfg.h]定义此宏，则启动头文件重映射功能←┐   ##
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom_remap.h&#34; ////////////// &lt;- 当启动重映射,则头文件包含将映射到本行定义的头文件←┘   ##</span><span class="cp">
 </span><span class="cp">#else </span><span class="c1">//##################################################################################################
 </span><span class="c1"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt; //////////////////////// &lt;-使用的数据定义，如: int8_t, uint32_t 等</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt; //////////////////////// &lt;- 使用的数据定义，如: int8_t, uint32_t 等</span><span class="cp">
+</span><span class="cp">#ifdef O2O_EEPROM_C__
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt; //////////////////////// &lt;- 使用的字符处理，如: strcpy(), memcpy() 等</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;rtthread.h&#34; ////////////////////// &lt;- 使用RT-Thread操作系统</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;rthw.h&#34; ////////////////////////// &lt;- 使用RT-Thread操作系统</span><span class="cp">
+</span><span class="cp">#endif
 </span><span class="cp"></span>
 <span class="cp">#ifdef __cplusplus
 </span><span class="cp"></span><span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="p">{</span>
@@ -250,15 +278,27 @@
 <span class="cm">/*++++++++++++++++++++++++++++++++++++++++++++++ 参数配置 ++++++++++++++++++++++++++++++++++++++++++++++*/</span>
 <span class="cm">/********************************************************************************************************/</span>
 
+<span class="c1">// 模块硬件级别临界处理:
+</span><span class="c1"></span><span class="cp">#define O2O_EEPROM_VARIAB()                      register rt_base_t level;           </span><span class="c1">// 使用到的变量声明
+</span><span class="c1"></span><span class="cp">#define O2O_EEPROM_LOCKED()                      level = rt_hw_interrupt_disable()   </span><span class="c1">// [关]中断总开关
+</span><span class="c1"></span><span class="cp">#define O2O_EEPROM_UNLOCK()                      rt_hw_interrupt_enable(level)       </span><span class="c1">// [开]中断总开关
+</span><span class="c1"></span>
 <span class="cm">/********************************************************************************************************/</span>
 <span class="cm">/*++++++++++++++++++++++++++++++++++++++++++++++ 数据类型 ++++++++++++++++++++++++++++++++++++++++++++++*/</span>
 <span class="cm">/********************************************************************************************************/</span>
 
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">o2o_eeprom_</span>                       <span class="c1">//新定义的结构体数据类型以“_”结束
+</span><span class="c1"></span><span class="p">{</span>
+	<span class="kt">uint8_t</span>  <span class="n">chip_addr</span><span class="p">;</span>
+	<span class="kt">uint16_t</span> <span class="n">i2c_ch</span><span class="p">;</span>
+
+<span class="p">}</span><span class="n">o2o_eeprom_t</span><span class="p">;</span>                                   <span class="c1">//新定义的结构体数据类型以“_t”结束
+</span><span class="c1"></span>
 <span class="cm">/********************************************************************************************************/</span>
 <span class="cm">/*++++++++++++++++++++++++++++++++++++++++++++++ 操作函数 ++++++++++++++++++++++++++++++++++++++++++++++*/</span>
 <span class="cm">/********************************************************************************************************/</span>
 
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="nf">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">);</span>
 
 <span class="cp">#ifdef __cplusplus
 </span><span class="cp"></span>	<span class="p">}</span>
@@ -266,13 +306,15 @@
 </span><span class="cp"></span>
 <span class="cp">#endif  </span><span class="c1">//#ifdef __O2O_EEPROM_REMAP_H
 </span><span class="c1"></span><span class="cp">#endif  </span><span class="c1">//#ifndef O2O_EEPROM_H__
-</span></code></pre></td></tr></table>
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary>3、源文件总体规范</summary>  
+<details close=""><summary>4、源文件总体规范</summary>  
 <blockquote>
 <ol>
 <li>头部声明；</li>
+<li>文件包含；</li>
 <li>模块开关；</li>
 <li>全局变量；</li>
 <li>函数声明；</li>
@@ -331,13 +373,11 @@
 </span><span class="cm">  * Date           Author       Notes
 </span><span class="cm">  * 2021-05-30     o2ospring    原始版本
 </span><span class="cm">  */</span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
-</span><span class="cp">#define O2O_EEPROM_C__
+<span class="cp">#define   O2O_EEPROM_C__
 </span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom.h&#34;</span><span class="cp">
-</span><span class="cp">#if (defined(APP_O2O_EEPROM_EN) &amp;&amp; (APP_O2O_EEPROM_EN == DEF_ENABLED))
-</span><span class="cp">#ifdef  O2O_EEPROM_X__    </span><span class="c1">//再次调用头文件,用于增加存在交叉关系的内容!
-</span><span class="c1"></span><span class="cp">#undef  O2O_EEPROM_H__
+</span><span class="cp">#if (defined(O2O_APP_EEPROM_EN) &amp;&amp; (O2O_APP_EEPROM_EN == DEF_ENABLED))
+</span><span class="cp">#ifdef    O2O_EEPROM_X__   </span><span class="c1">//再次调用头文件,用于增加存在交叉关系的内容!
+</span><span class="c1"></span><span class="cp">#undef    O2O_EEPROM_H__
 </span><span class="cp">#include</span> <span class="cpf">&#34;o2o_eeprom.h&#34;</span><span class="cp">
 </span><span class="cp">#endif
 </span><span class="cp"></span>
@@ -351,16 +391,18 @@
 <span class="cm">/**
 </span><span class="cm">  * @brief  EEPROM对象写操作
 </span><span class="cm">  * @param  *pob            要操作的EEPROM对象
-</span><span class="cm">  * @param  addr            要写入位置
+</span><span class="cm">  * @param  addr            要写入的位置
 </span><span class="cm">  * @param  *pda            要写入的数据源
 </span><span class="cm">  * @param  len             要写入的数据长度
 </span><span class="cm">  * @return ＞0:操作成功
 </span><span class="cm">  */</span>
 <span class="kt">int</span> <span class="nf">o2o_eeprom_write</span><span class="p">(</span><span class="n">o2o_eeprom_t</span> <span class="o">*</span><span class="n">pob</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pda</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">)</span>
 <span class="p">{</span>
+	<span class="kt">uint8_t</span> <span class="n">i</span><span class="p">,</span> <span class="n">dat</span><span class="p">;</span>
+
 <span class="p">}</span>
 
-<span class="cp">#endif  </span><span class="c1">//#if (APP_O2O_EEPROM_EN == DEF_ENABLED)
+<span class="cp">#endif  </span><span class="c1">//#if (O2O_APP_EEPROM_EN == DEF_ENABLED)
 </span><span class="c1"></span>
 </code></pre></td></tr></table>
 </div>

@@ -25,6 +25,13 @@
     <guid>https://o2ospring.github.io/20220428/</guid>
     <description><![CDATA[前言 MinGW/MinGW-w64（Minimalist GNU for Windows）是为 windows 系统打造的编译器套件，其主要是把 GNU 的 gcc、make 等编译]]></description>
 </item><item>
+    <title>常用开发辅助工具</title>
+    <link>https://o2ospring.github.io/20220308/</link>
+    <pubDate>Tue, 08 Mar 2022 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220308/</guid>
+    <description><![CDATA[前言 古语有云“工欲善其事，必先利其器”。对于做开发的我们，辅助工具是提高开发效率、提高开发质量的必备工具！有个它，我们就如虎添翼！兄弟们，冲]]></description>
+</item><item>
     <title>cygwin 之 unix 模拟环境</title>
     <link>https://o2ospring.github.io/20220227/</link>
     <pubDate>Sun, 27 Feb 2022 15:00:00 &#43;0800</pubDate>
@@ -66,12 +73,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20210624/</guid>
     <description><![CDATA[简介 对于嵌入式底层二进制通讯数据，往往需要取消处理器默认长度的数据对齐方式（例如：4 字节对齐），而是取用 1 字节对齐方式。对于这类需求，GCC]]></description>
-</item><item>
-    <title>attribute-aligned 编译属性-地址对齐</title>
-    <link>https://o2ospring.github.io/20210623/</link>
-    <pubDate>Wed, 23 Jun 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20210623/</guid>
-    <description><![CDATA[简介 对于一些硬件控制器或者是操作系统堆栈，要求数据的起始地址必须是处理器位长的倍数关系，如果不是倍数关系则会影响运行速率甚至硬件会运行出错。]]></description>
 </item></channel>
 </rss>

@@ -11,11 +11,18 @@
     <guid>https://o2ospring.github.io/20220428/</guid>
     <description><![CDATA[前言 MinGW/MinGW-w64（Minimalist GNU for Windows）是为 windows 系统打造的编译器套件，其主要是把 GNU 的 gcc、make 等编译]]></description>
 </item><item>
+    <title>linux 调试仿真工具</title>
+    <link>https://o2ospring.github.io/20200916/</link>
+    <pubDate>Wed, 16 Sep 2020 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20200916/</guid>
+    <description><![CDATA[一、前言 GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不]]></description>
+</item><item>
     <title>linux 编译构建工具</title>
     <link>https://o2ospring.github.io/20200915/</link>
     <pubDate>Tue, 15 Sep 2020 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20200915/</guid>
-    <description><![CDATA[前言 Linux 下可用的编译器有 GCC、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！GCC（GNU Compiler Collection）是由 GNU 开发的编程语]]></description>
+    <description><![CDATA[前言 Linux 下可用的编译器有 GCC、LLVM-clang、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！GCC（GNU Compiler Collectio]]></description>
 </item></channel>
 </rss>

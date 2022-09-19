@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  14198 ,
+                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  14283 ,
         "url": "https:\/\/o2ospring.github.io\/20210613\/","datePublished": "2021-06-13T21:33:41+08:00","dateModified": "2021-06-13T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 基本命令使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14198 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14283 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 29 分钟&nbsp;<span id="/20210613/" class="leancloud_visitors" data-flag-title="linux 基本命令使用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -283,29 +283,31 @@ arm-none-eabi-gcc -v                 <span class="c1"># 查看版本(验证是�
 </div><p>● <strong>源码版</strong>-安装示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://cgdb.me/files/cgdb-0.8.0.tar.gz  <span class="c1"># 下载软件源码</span>
+sudo tar -xzvf cgdb-0.8.0.tar.gz     <span class="c1"># 解压文件</span>
 <span class="nb">cd</span> cgdb                              <span class="c1"># 进入文件夹</span>
-./autogen.sh                         <span class="c1"># 生成配置文件（前提需要安装依赖：sudo apt-get install autoconf automake libtool-bin）</span>
-./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 配置，并设置安装目录</span>
-sudo gedit /etc/profile              <span class="c1"># 打开环境变量,在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
+./autogen.sh                         <span class="c1"># 自动生成配置（文件）（前提需要安装依赖：sudo apt-get install autoconf automake libtool-bin）</span>
+./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 手工修改配置，并设置安装目录</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量，在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
 <span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
 make                                 <span class="c1"># 编译CGDB软件，</span>
 sudo make install                    <span class="c1"># 安装CGDB软件。</span>
 cgdb --version                       <span class="c1"># 查看CGDB版本（验证是否安装成功）</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>● <strong>安装多个版本软件处理方法</strong>：</p>
+</div><p>● <strong>多版本共存处理方法</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -323,23 +325,31 @@ cgdb --version                       <span class="c1"># 查看CGDB版本（验�
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 例如系统自带了【gcc-5.4】版，现在又要安装【gcc-9】版。  扩展：【apt命令Linux发行商都在推荐】（网文`apt`对比`apt-get`：https://www.sysgeek.cn/apt-vs-apt-get/）</span>
-sudo apt install software-properties-common         <span class="c1"># 安装`PPA`仓库工具（只需要安装一次）</span>
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test <span class="c1"># 加入`PPA`仓库　　（gcc 新版本仓库）</span>
-sudo apt update                                     <span class="c1"># 更新`PPA`仓库信息</span>
-sudo apt install gcc-9 g++-9                        <span class="c1"># 安装`GCC`和`G++`（安装 gcc g++ 9）</span>
-                                                    <span class="c1"># ●同一软件安装多个版本处理方法●：（alternative /ɔːl&#39;tɜːnətɪv/ 可选）</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 例如系统自带了【gcc-5.4】版，现在又要安装【gcc-9】版。    # 扩展：【apt命令Linux发行商都在推荐】（网文`apt`对比`apt-get`：https://www.sysgeek.cn/apt-vs-apt-get/）</span>
+sudo apt install software-properties-common          <span class="c1"># 安装`PPA`仓库工具（只需要安装一次）</span>
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test  <span class="c1"># 加入`PPA`仓库　　（gcc 新版本仓库）</span>
+sudo apt update                                      <span class="c1"># 更新`PPA`仓库信息</span>
+sudo apt install gcc-9 g++-9                         <span class="c1"># 安装`GCC`和`G++`（安装 gcc g++ 9）</span>
+
+<span class="c1">#####加gcc版本优先级方法#####                           # 注意要把之前在环境变量加入的软件执行文件路径移除，否则可能会冲突！</span>
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 <span class="m">90</span>  --slave /usr/bin/g++ g++ /usr/bin/g++-9
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 <span class="m">999</span> --slave /usr/bin/g++ g++ /usr/bin/g++-5
-sudo update-alternatives --config gcc               <span class="c1"># 配置gcc默认版本，根据界面提示输入对应数字+回车选择</span>
-                                                    <span class="c1"># ■原理只是快捷方式链接不同对象■</span>
-<span class="c1">#####移除PPA仓库方法#####</span>
-sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
 
-<span class="c1">#####移除gcc版本优先级###</span>
-sudo update-alternatives --remove gcc /usr/bin/gcc-9 <span class="c1">#移除 gcc 9 的优先级（将从优先级列表中移除）</span>
+<span class="c1">#####选择gcc工作版本方法#####                           # alternative /ɔːl&#39;tɜːnətɪv/ 可选</span>
+sudo update-alternatives --config gcc                <span class="c1"># 选择gcc工作版本，根据界面提示输入对应数字+回车选择</span>
+                                                     <span class="c1"># ● 原理只是快捷方式链接不同对象 ●</span>
+<span class="c1">#####移除gcc某优先级方法#####</span>
+sudo update-alternatives --remove gcc /usr/bin/gcc-9 <span class="c1"># 移除 gcc 9 的优先级（将从优先级列表中移除）</span>
+
+<span class="c1">#####移除专用PPA仓库方法#####</span>
+sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
+                                                     <span class="c1"># 移除上面加入的PPA仓库</span>
 </code></pre></td></tr></table>
 </div>
 </div></details>  

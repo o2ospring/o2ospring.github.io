@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>linux 调试仿真工具 - o2ospring</title><meta name="Description" content="linux 调试仿真工具"><meta property="og:title" content="linux 调试仿真工具" />
+<meta property="og:description" content="linux 调试仿真工具" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20200916/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-09-16T21:33:41+08:00" />
+<meta property="article:modified_time" content="2022-09-18T22:58:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="linux 调试仿真工具"/>
+<meta name="twitter:description" content="linux 调试仿真工具"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20200916/" /><link rel="prev" href="https://o2ospring.github.io/20200915/" /><link rel="next" href="https://o2ospring.github.io/20201211/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "linux 调试仿真工具",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20200916\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "调试, GNU, GDB, CGDB, linux 工具\/应用","wordcount":  7851 ,
+        "url": "https:\/\/o2ospring.github.io\/20200916\/","datePublished": "2020-09-16T21:33:41+08:00","dateModified": "2022-09-18T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "linux 调试仿真工具"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux 调试仿真工具</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-16">2020-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7851 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;<span id="/20200916/" class="leancloud_visitors" data-flag-title="linux 调试仿真工具">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一前言">一、前言</a></li>
+        <li><a href="#二安装">二、安装</a></li>
+        <li><a href="#三使用">三、使用</a></li>
+        <li><a href="#三扩展">三、扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="一前言">一、前言</h3>
+<p>GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，常用命令虽不多，但操作起来真心不方便。操作不方便、代码不能高亮、不能边看代码边调试，这几点应该是造成很多人不愿意长期使用的原因（后来集成 TUI 模式有所改善，在调试窗口按<code>Ctrl+X+A</code>进入/退出 TUI 模式）。CGDB 可以看作 GDB 的界面增强版，用来替代 GDB 的 gdb-tui。CGDB 主要功能是在调试时进行代码的同步显示，这无疑增加了调试的方便性，提高了调试效率。由于界面类似 vi，符合 unix/linux 下开发人员习惯，所以如果熟悉 gdb 和 vi，几乎可以立即使用 CGDB。除此之外，还有更强更好用的 GDB 前端软件（如：Emacs GDB），具体请参考网文：《<a href="https://mp.weixin.qq.com/s/gUaRAHVbJAKBVXCyjKNxkQ" target="_blank" rel="noopener noreffer">Linux 终端调试大全</a>》，其转自 《<a href="https://zhuanlan.zhihu.com/p/32843449" target="_blank" rel="noopener noreffer">终端调试哪家强</a>》。</p>
+<h3 id="二安装">二、安装</h3>
+<details close=""><summary>1、GDB 的安装</summary>  
+<p>GDB（GNU symbolic debugger）是 Linux 平台下使用最多的一款调试器，是 GNU 开源组织发布的一个强大的 Linux 下的程序调试工具，除支持 c/c++ 语言外还支持 go、D、object-c、fortran 等语言调试。资料：<a href="https://www.gnu.org/" target="_blank" rel="noopener noreffer">GNU 官网</a>、<a href="https://www.gnu.org/software/gdb/" target="_blank" rel="noopener noreffer">GDB 主页</a>、<a href="https://ftp.gnu.org/gnu/gdb/" target="_blank" rel="noopener noreffer">GDB 官网下载</a>。</p>
+<p><strong>1.1、linux 系统下安装</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##########################################</span>
+<span class="c1"># 安装：直接下载最新版安装</span>
+<span class="c1">##########################################</span>
+wget http://ftp.gnu.org/gnu/gdb/gdb-12.1.tar.gz <span class="c1"># 下载gdb软件</span>
+tar -xzvf gdb-12.1.tar.gz                <span class="c1"># 解压文件</span>
+<span class="nb">cd</span> gdb-12.1                              <span class="c1"># 进入文件夹</span>
+./configure --prefix<span class="o">=</span>/usr/local/gdb-12.1 <span class="c1"># 手工修改配置，并设置安装目录</span>
+sudo gedit /etc/profile                  <span class="c1"># 打开环境变量，在文件最后添加内容：export PATH=$PATH:/usr/local/gdb-12.1/bin</span>
+<span class="nb">source</span> /etc/profile                      <span class="c1"># 使能环境变量。</span>
+sudo apt-get install texinfo             <span class="c1"># 安装依赖工具。（有些网文提到还要安装另一依赖：https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz）</span>
+sudo apt-get install libgmp-dev          <span class="c1"># 安装依赖工具。（官网：https://gmplib.org/）</span>
+make                                     <span class="c1"># 编译GDB软件，</span>
+sudo make install                        <span class="c1"># 安装GDB软件。</span>
+gdb --version                            <span class="c1"># 查看GDB版本。（验证是否安装成功）</span>
+
+<span class="c1">##########################################</span>
+<span class="c1"># 处理：多版本共存处理方法</span>
+<span class="c1">##########################################</span>
+<span class="c1">#####首先修改软件名称#####</span>
+sudo mv /usr/bin/gdb       /usr/bin/gdb-old       <span class="c1"># 旧版gdb改名      （因将要创建gdb      的快捷方式处于同名同路径下，所以旧版本必须要改名）</span>
+sudo mv /usr/bin/gdbserver /usr/bin/gdbserver-old <span class="c1"># 旧版gdbserver改名（因将要创建gdbserver的快捷方式处于同名同路径下，所以旧版本必须要改名）</span>
+
+<span class="c1">#####加版本优先级方法#####                 # 注意要把之前在环境变量加入的软件执行文件路径移除，否则可能会冲突！</span>
+sudo update-alternatives --install /usr/bin/gdb gdb /usr/bin/gdb-old            <span class="m">999</span> --slave /usr/bin/gdbserver gdbserver /usr/bin/gdbserver-old
+sudo update-alternatives --install /usr/bin/gdb gdb /usr/local/gdb-12.1/bin/gdb <span class="m">121</span> --slave /usr/bin/gdbserver gdbserver /usr/local/gdb-12.1/bin/gdbserver
+
+<span class="c1">#####选择工作版本方法#####</span>
+sudo update-alternatives --config gdb   <span class="c1"># 选择gdb工作版本，根据界面提示输入对应数字+回车选择</span>
+                                        <span class="c1"># ● 原理只是快捷方式链接不同对象 ●</span>
+<span class="c1">#####移除某优先级方法#####</span>
+sudo update-alternatives --remove gdb /usr/local/gdb-12.1/bin/gdb
+                                        <span class="c1"># 移除gdb-12.1版的优先级（将从优先级列表中移除）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>1.2、安装出错问题记录</strong>：</p>
+<details close=""><summary>1.2.1、编译 gdb-12.1 提示的错误</summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_2_121.jpg"
+        data-srcset="../img/20200916_2_121.jpg, ../img/20200916_2_121.jpg 1.5x, ../img/20200916_2_121.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_2_121.jpg"
+        title="图示" /></p>
+<!--  
+[开发板离线安装arm-gdb](https://blog.csdn.net/weixin_45787652/article/details/125177808)  
+-->  
+</details>  
+<hr>
+</details>  
+<details close=""><summary>2、CGDB 的安装</summary>  
+<p><a href="http://cgdb.github.io/" target="_blank" rel="noopener noreffer">CGDB</a> 可以看作 GDB 的界面增强版（其参考了 GDB TUI 设计和实现），分上下两屏，【上屏】代码区的界面模仿了 Unix 经典的文本编辑器界面：vi，【下屏】还是 GDB 的命令窗口，所以如果熟悉 vi 和 gdb，几乎可以立即使用 CGDB。官方提供源码编译安装方式，用户到 <a href="http://cgdb.github.io/" target="_blank" rel="noopener noreffer">官网</a> 或 <a href="https://github.com/cgdb/cgdb" target="_blank" rel="noopener noreffer">github</a> 下载源码，然后自己编译并安装程序。资料：<a href="https://www.bookstack.cn/read/cgdb-manual-in-chinese/4.0.md" target="_blank" rel="noopener noreffer">CGDB 中文手册</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">######################################</span>
+<span class="c1"># 一、安装相关依赖软件</span>
+<span class="c1">######################################</span>
+sudo apt install autoconf            <span class="c1"># 安装 autotools 系列工具，包括：autoconf,automake,aclocal,autoheader,autoscan</span>
+sudo apt install libtool-bin         <span class="c1"># 安装 libtool 工具</span>
+sudo apt install bison               <span class="c1"># 安装 bison 工具</span>
+sudo apt install flex                <span class="c1"># 安装 flex 工具</span>
+sudo apt install texinfo             <span class="c1"># 安装依赖</span>
+sudo apt install libreadline6        <span class="c1"># 安装依赖</span>
+sudo apt install libreadline6-dev    <span class="c1"># 安装依赖</span>
+sudo apt install libreadline-dev     <span class="c1"># 安装依赖</span>
+sudo apt install libncurses5-dev     <span class="c1"># 安装依赖</span>
+sudo apt install libncursesw5-dev    <span class="c1"># 安装依赖</span>
+
+<span class="c1">######################################</span>
+<span class="c1"># 二、下载、编译、安装</span>
+<span class="c1">######################################</span>
+git clone https://github.com/cgdb/cgdb.git  <span class="c1"># 下载（使用git工具克隆仓库）</span>
+<span class="nb">cd</span> cgdb                              <span class="c1"># 进入文件夹</span>
+./autogen.sh                         <span class="c1"># 自动生成配置（文件）（前提需要安装依赖：sudo apt-get install autoconf automake libtool-bin）</span>
+./configure --prefix<span class="o">=</span>/usr/local/cgdb <span class="c1"># 手工修改配置，并设置安装目录</span>
+sudo gedit /etc/profile              <span class="c1"># 打开环境变量，在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
+<span class="nb">source</span> /etc/profile                  <span class="c1"># 使能环境变量。</span>
+make                                 <span class="c1"># 编译CGDB软件</span>
+sudo make install                    <span class="c1"># 安装CGDB软件</span>
+cgdb --version                       <span class="c1"># 查看CGDB版本（验证是否安装成功）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<h3 id="三使用">三、使用</h3>
+<details close=""><summary>■【使用的演示工程说明】■</summary>  
+<blockquote>
+<p>本文主要基于【<a href="https://github.com/o2ospring/makefile_demo" target="_blank" rel="noopener noreffer">3_large</a>】工程来演示，同时已将 CGDB/GDB 调试启动命令加到工程 Makefile 里，事前先配置父 Makefile 中的<code>DEBUG = 1</code>，再编译生成执行文件后，最后直接运行<code>make debug</code>即可启动 CGDB/GDB 调试。特别说明：一、使用 CGDB/GDB 调试程序，在编译时必须增加<code>-g</code>选项参数，否则只能汇编调试而无法源码调试！二、CGDB（v0.8.0）要求 GDB 版本≥7.12（如果 GDB 过低，CGDB 调用 GDB 时会抛出错误）！</p>
+</blockquote>
+<hr>
+</details>  
+<details close=""><summary>1、CGDB/GDB 的启动方式</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#########【方式一】#########</span>
+cgdb -d gdb ./build/objs/app.exe     <span class="c1"># 启动cgdb+gdb,并装载调试文件（嵌入式调试文件为 xxx.elf）</span>
+tb main                              <span class="c1"># 在gdb里:在main函数设置临时断点</span>
+r                                    <span class="c1"># 在gdb里:运行程序（如果程序有入口参数，写法如：r ./build/objs/app.exe argv1 argv2）</span>
+                                     <span class="c1">#【备注】嵌入式 arm-none-eabi-gdb 不能使用 run 指令来运行程序！改用 c 直接运行程序即可！</span>
+<span class="c1">#########【方式二】#########</span>
+cgdb -d gdb                          <span class="c1"># 启动cgdb+gdb</span>
+file ./build/objs/app.exe            <span class="c1"># 在gdb里:装载调试文件（嵌入式调试文件为 xxx.elf）</span>
+tb main                              <span class="c1"># 在gdb里:在main函数设置临时断点</span>
+r                                    <span class="c1"># 在gdb里:运行程序（如果程序有入口参数，写法如：r ./build/objs/app.exe argv1 argv2）</span>
+                                     <span class="c1">#【备注】嵌入式 arm-none-eabi-gdb 不能使用 run 指令来运行程序！改用 c 直接运行程序即可！</span>
+<span class="c1">#########【方式三】#########</span>
+cgdb -d gdb -x gdb.scrip             <span class="c1"># 启动cgdb+gdb,并装载GDB命令脚本文件</span>
+                                     <span class="c1"># gdb.scrip 命令脚本文件内容为：</span>
+                                     <span class="c1"># file ./build/objs/app.exe</span>
+                                     <span class="c1"># tb main</span>
+                                     <span class="c1"># r</span>
+<span class="c1">#########【方式四】#########</span>
+cgdb -d gdb -ex <span class="s1">&#39;file ./build/objs/app.exe&#39;</span> -ex <span class="s1">&#39;tb main&#39;</span> -ex <span class="s1">&#39;r&#39;</span>
+                                     <span class="c1"># 启动cgdb+gdb,并自动在GDB里运行多条命令（适合 makefile 里直接调用命令运行调试）</span>
+                                     <span class="c1">#【知识扩展】</span>
+                                     <span class="c1"># -iex 在GDB本体外执行一条命令（如：GDB调试程序前先执行启动openocd服务）</span>
+                                     <span class="c1"># -ex  在GDB本体内执行一条命令（如：执行一条GDB的r命令）</span>
+                                     <span class="c1"># -x   从文件获取并运行多条GDB命令</span>
+                                     <span class="c1">#【嵌入式 arm-none-eabi-gdb 案例】</span>
+                                     <span class="c1"># cgdb -d arm-none-eabi-gdb \</span>
+                                     <span class="c1"># -ex  &#39;set remotetimeout 60&#39; \</span>
+                                     <span class="c1"># -iex &#39;target extended-remote | openocd -c &#34;gdb_port pipe&#34; -f &#34;interface/jlink_swd.cfg&#34; -f &#34;target/stm32f1x.cfg&#34;&#39; \</span>
+                                     <span class="c1"># -ex  &#39;monitor sleep 1000&#39; \</span>
+                                     <span class="c1"># -ex  &#39;monitor reset halt&#39; \</span>
+                                     <span class="c1"># -ex  &#39;monitor sleep 1000&#39; \</span>
+                                     <span class="c1"># -ex  &#39;file ../build/gcc/rt-thread.elf&#39; \</span>
+                                     <span class="c1"># -ex  &#39;load&#39; \</span>
+                                     <span class="c1"># -ex  &#39;tb main&#39; \</span>
+                                     <span class="c1"># -ex  &#39;c&#39;</span>
+<span class="c1">###########################</span>
+<span class="c1">#【其它应用知识】</span>
+<span class="c1">###########################</span>
+gdb out/app.exe <span class="m">1234</span>                 <span class="c1"># 调试已经运行的程序（1234 为 ps aux 命令查看 out/app.exe 程序对应的 PID 数值）</span>
+gdb -p          <span class="m">1234</span>                 <span class="c1"># 同上，忽略执行程序名称</span>
+gdb out/app.exe core.9579            <span class="c1"># core.9579 为程序异常挂掉时候生成的core文件，我们可以直接对这个core文件进行分析</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_101.jpg"
+        data-srcset="../img/20200916_3_101.jpg, ../img/20200916_3_101.jpg 1.5x, ../img/20200916_3_101.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_101.jpg"
+        title="运行 cgdb" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_102.jpg"
+        data-srcset="../img/20200916_3_102.jpg, ../img/20200916_3_102.jpg 1.5x, ../img/20200916_3_102.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_102.jpg"
+        title="cgdb 操作" /></p>
+<p>补充：由于 CGDB 启动时调用 GDB 运行，所以 CGDB 与 GDB 启动是一致的。如果想直接运行 GDB，开头命令去除<code>cgdb -d</code>语句即可，其它命令完全一样（其实都是 GDB 内部命令）！上面介绍几种启动方式，前两种是分多条分多次命令输入执行，如果每次都这样操作，效率会很低，时间久了一些命令可能会忘记了！所以在实际开发中，使用类似“一键”启动方式（方式四），里面的几条命令由脚本调用执行。</p>
+<hr>
+</details>  
+<details close=""><summary>2、CGDB/GDB 的退出方法</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 1、如果程序正在运行</span>
+Ctrl+c键                  <span class="c1"># 按ctrl+c组合键强制暂停程序</span>
+<span class="c1"># 2、当程序已暂停运行</span>
+Ctrl+d键                  <span class="c1"># 按ctrl+d组合键退出GDB，</span>
+q                       　<span class="c1"># 或输入quit命令退出GDB。</span>
+                        　<span class="c1"># 备注：在CGDB代码窗口输入【:q】也可直接并强制退出！</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_201.jpg"
+        data-srcset="../img/20200916_3_201.jpg, ../img/20200916_3_201.jpg 1.5x, ../img/20200916_3_201.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_201.jpg"
+        title="退出 cgdb" /></p>
+<hr>
+</details>  
+<details close=""><summary>3、CGDB/GDB 的视窗切换</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">###########################</span>
+<span class="c1"># CGDB 视窗切换</span>
+<span class="c1">###########################</span>
+o键                       <span class="c1"># 打开CGDB文件列表窗口（可查找及打开对应源文件）</span>
+q键                       <span class="c1"># 退出CGDB文件列表窗口</span>
+i键                       <span class="c1"># 切换进入GDB命令视窗</span>
+Esc键                     <span class="c1"># 切换回CGDB代码视窗</span>
+Ctrl+<span class="o">[</span>键                  <span class="c1"># 切换回CGDB代码视窗</span>
+-键                       <span class="c1"># 减小CGDB代码视窗大小（也可使用 _键 快速减小）</span>
+<span class="o">=</span>键                       <span class="c1"># 增大CGDB代码视窗大小（也可使用 +键 快速增大）</span>
+
+<span class="c1">###########################</span>
+<span class="c1"># GDB 视窗切换</span>
+<span class="c1">###########################（特别说明：在CGDB里不要执行下面命令，有冲突会花屏，且不能关闭）</span>
+layout src              　<span class="c1"># 显示源代码窗口　　　　 (关闭/重开:ctrl+x+a)</span>
+layout asm              　<span class="c1"># 显示汇编代码窗口　　　 (关闭/重开:ctrl+x+a)</span>
+layout regs             　<span class="c1"># 显示寄存器窗口　　　　 (关闭/重开:ctrl+x+a)</span>
+focus  src              　<span class="c1"># 将焦点移到源代码窗口　 (上下方向键和PageUp/PageDown键浏览内容) (focus /ˈfəʊkəs/)</span>
+focus  asm              　<span class="c1"># 将焦点移到汇编代码窗口 (上下方向键和PageUp/PageDown键浏览内容)</span>
+focus  regs             　<span class="c1"># 将焦点移到寄存器窗口　 (上下方向键和PageUp/PageDown键浏览内容)</span>
+winheight src -5        　<span class="c1"># 代码窗口減少5行</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>各类窗口：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_301.jpg"
+        data-srcset="../img/20200916_3_301.jpg, ../img/20200916_3_301.jpg 1.5x, ../img/20200916_3_301.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_301.jpg"
+        title="CGDB 代码/命令窗口" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_302.jpg"
+        data-srcset="../img/20200916_3_302.jpg, ../img/20200916_3_302.jpg 1.5x, ../img/20200916_3_302.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_302.jpg"
+        title="CGDB 文件列表窗口" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_303.jpg"
+        data-srcset="../img/20200916_3_303.jpg, ../img/20200916_3_303.jpg 1.5x, ../img/20200916_3_303.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_303.jpg"
+        title="GDB 汇编窗口" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20200916_3_304.jpg"
+        data-srcset="../img/20200916_3_304.jpg, ../img/20200916_3_304.jpg 1.5x, ../img/20200916_3_304.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20200916_3_304.jpg"
+        title="GDB 寄存器窗口" /></p>
+<p>特别说明：在 CGDB 里不要执行 GDB 视窗切换命令<code>layout</code>，有冲突会花屏，且不能关闭！</p>
+<hr>
+</details>  
+<details close=""><summary>4、CGDB/GDB 的调试操作</summary>  
+<details close=""><summary>4.01、CGDB 类 vi 操作</summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">###########################</span>
+<span class="c1"># 1、光标操作</span>
+<span class="c1">###########################</span>
+k键                   　　<span class="c1"># 向上移动一行</span>
+j键                   　　<span class="c1"># 向下移动一行</span>
+h键                   　　<span class="c1"># 向左移动一列</span>
+l键                   　　<span class="c1"># 向右移动一列</span>
+gg键                  　　<span class="c1"># 移动到文件顶部</span>
+G键                   　　<span class="c1"># 移动到文件底部</span>
+Ctrl+b键 或 Page Up键     <span class="c1"># 向上翻一页</span>
+Ctrl+f键 或 Page Down键   <span class="c1"># 向下翻一页</span>
+Ctrl+u键              　　<span class="c1"># 向上翻半页</span>
+Ctrl+d键              　　<span class="c1"># 向下翻半页</span>
+
+<span class="c1">###########################</span>
+<span class="c1"># 2、搜索操作</span>
+<span class="c1">###########################</span>
+/键                   　　<span class="c1"># 启动从当前光标处向下搜索（之后输入搜索字符串后按回车，支持正则表达式）</span>
+?键                   　　<span class="c1"># 启动从当前光标处向上搜索（之后输入搜索字符串后按回车，支持正则表达式）</span>
+n键                   　　<span class="c1"># 向下继续搜索</span>
+N键                   　　<span class="c1"># 向上继续搜索</span>
+
+<span class="c1">###########################</span>
+<span class="c1"># 3、调试操作</span>
+<span class="c1">###########################</span>
+F5键                  　　<span class="c1"># 运行程序(重新运行程序)，即向GDB发送一个run命令</span>
+F6键                  　　<span class="c1"># 恢复运行(直至遇到断点)，即向GDB发送一个continue命令</span>
+F7键                  　　<span class="c1"># 完成运行并跳出当前函数，即向GDB发送一个finish命令</span>
+F8键                  　　<span class="c1"># 单步运行(不进入子函数)，即向GDB发送一个next命令</span>
+F10键                 　　<span class="c1"># 单步运行(会进入子函数)，即向GDB发送一个step命令</span>
+空格键                    <span class="c1"># 当前行设置(或取消)断点</span>
+t键                   　　<span class="c1"># 当前行设置(或取消)临时断点</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.02、GDB 命令<code>r -------- run</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 运行程序</span>
+<span class="c1"># 命令简写: r</span>
+<span class="c1"># 命令全写: run</span>
+<span class="c1"># 单　　词: run</span>
+<span class="c1">####################################</span>
+r                       <span class="c1">#【运行程序】运行程序（以默认/上次方式运行）</span>
+run app.exe argv1 argv2 <span class="c1">#【运行程序】指定执行文件及参数运行程序</span>
+                        <span class="c1"># 特别说明：对于嵌入式 arm-none-eabi-gdb 不能使用 run 指令来运行代码！直接使用 c 运行程序即可。</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.03、GDB 命令<code>c -------- continue</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 继续运行程序</span>
+<span class="c1"># 命令简写: c</span>
+<span class="c1"># 命令全写: continue</span>
+<span class="c1"># 单　　词: continue</span>
+<span class="c1">####################################</span>
+c               <span class="c1">#【运行程序】继续运行程序</span>
+                <span class="c1"># 特别说明：对于嵌入式 arm-none-eabi-gdb 不能使用 run 指令来运行代码！直接使用 c 运行程序即可。</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.04、GDB 命令<code>n -------- next</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 单步运行【平行运行】</span>
+<span class="c1"># 命令简写: n</span>
+<span class="c1"># 命令全写: next</span>
+<span class="c1"># 单　　词: next</span>
+<span class="c1">####################################</span>
+n               <span class="c1">#【运行程序】单步运行（不进入子函数）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.05、GDB 命令<code>s -------- step</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 单步运行【往里运行】</span>
+<span class="c1"># 命令简写: s</span>
+<span class="c1"># 命令全写: step</span>
+<span class="c1"># 单　　词: step</span>
+<span class="c1">####################################</span>
+s               <span class="c1">#【运行程序】单步运行（会进入子函数）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.06、GDB 命令<code>fin ------ finish</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 完成函数【往外运行】</span>
+<span class="c1"># 命令简写: fin</span>
+<span class="c1"># 命令全写: finish</span>
+<span class="c1"># 单　　词: finish</span>
+<span class="c1">####################################</span>
+fin             <span class="c1">#【运行函数】完成运行并跳出当前函数</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.07、GDB 命令<code>l -------- list</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看文件（CGDB 里不要用）</span>
+<span class="c1"># 命令简写: l</span>
+<span class="c1"># 命令全写: list</span>
+<span class="c1"># 单　　词: list</span>
+<span class="c1">####################################</span>
+l <span class="m">100</span>           <span class="c1">#【查看文件】指定当前运行文件行号查看</span>
+l max.c:5       <span class="c1">#【查看文件】指定文件行号查看</span>
+l               <span class="c1">#【查看文件】继续向下查看文件</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.08、GDB 命令<code>b -------- break</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 设置断点【长期断点】</span>
+<span class="c1"># 命令简写: b</span>
+<span class="c1"># 命令全写: break</span>
+<span class="c1"># 单　　词: breakpoint</span>
+<span class="c1">####################################</span>
+b <span class="m">100</span>           <span class="c1">#【设置断点】指定当前运行文件行号断点（注意：当前文件是指程序暂停运行所在的文件！）</span>
+b max.c:5       <span class="c1">#【设置断点】指定文件行号断点</span>
+b max.c:maxf    <span class="c1">#【设置断点】指定文件函数断点</span>
+b main          <span class="c1">#【设置断点】指定函数断点</span>
+b <span class="m">46</span> <span class="k">if</span> <span class="nv">i</span><span class="o">==</span><span class="m">10</span>   <span class="c1">#【设置断点】指定变量条件断点（只能设置全局变量）(46为断点编号，非行号)</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.09、GDB 命令<code>tb-------- tbreak</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 设置断点【临时断点】</span>
+<span class="c1"># 命令简写: tb</span>
+<span class="c1"># 命令全写: tbreak</span>
+<span class="c1"># 单　　词: temporary breakpoint /ˈtemprəri/</span>
+<span class="c1">####################################</span>
+tb <span class="m">100</span>          <span class="c1">#【临时断点】指定当前运行文件行号断点（注意：当前文件是指程序暂停运行所在的文件！）</span>
+tb max.c:5      <span class="c1">#【临时断点】指定文件行号断点</span>
+tb max.c:maxf   <span class="c1">#【临时断点】指定文件函数断点</span>
+tb main         <span class="c1">#【临时断点】指定函数断点</span>
+tb <span class="m">46</span> <span class="k">if</span> <span class="nv">i</span><span class="o">==</span><span class="m">10</span>  <span class="c1">#【临时断点】指定变量条件断点（只能设置全局变量）(46为断点编号，非行号)</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.10、GDB 命令<code>u -------- until</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 运行到当前文件指定行断点</span>
+<span class="c1"># 命令简写: u</span>
+<span class="c1"># 命令全写: until</span>
+<span class="c1"># 单　　词: until /ənˈtɪl/</span>
+<span class="c1">####################################</span>
+u <span class="m">100</span>           <span class="c1">#【运行到行】运行到当前文件指定行断点（注意：当前文件是指程序暂停运行所在的文件！）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.11、GDB 命令<code>j -------- jump</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 跳转执行</span>
+<span class="c1"># 命令简写: j</span>
+<span class="c1"># 命令全写: jump</span>
+<span class="c1"># 单　　词: jump</span>
+<span class="c1">####################################</span>
+j <span class="m">100</span>           <span class="c1">#【跳转执行】跳转到当前文件指定行号执行（注意：当前文件是指程序暂停运行所在的文件！）</span>
+                <span class="c1"># 特别说明：建议在同一个函数中进行跳转,否则函数运行完返回时可能会出错。</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.12、GDB 命令<code>cond ----- condition</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 指定编号断点增加条件【修改】</span>
+<span class="c1"># 命令简写: cond</span>
+<span class="c1"># 命令全写: condition</span>
+<span class="c1"># 单　　词: condition /kənˈdɪʃn/</span>
+<span class="c1">####################################</span>
+cond <span class="m">3</span> <span class="nv">i</span><span class="o">==</span><span class="m">3</span>     <span class="c1">#【条件断点】指定编号断点增加停止条件（只能设置全局变量）(断点编号使用 i b 查看)</span>
+                <span class="c1"># 其实就是【修改】某个断点的条件，而 b 46 if i==10 这个命令则为【新建】一个条件断点</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.13、GDB 命令<code>watch ---- watch</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 不固定位置的条件断点【新建】</span>
+<span class="c1"># 命令简写: watch</span>
+<span class="c1"># 命令全写: watch</span>
+<span class="c1"># 单　　词: watchpoint</span>
+<span class="c1">####################################</span>
+watch i&gt;9       <span class="c1">#【条件断点】不固定位置的变量条件断点　　（只能设置全局变量）</span>
+rwatch i        <span class="c1">#【条件断点】不固定位置的读变量条件断点　（只能设置全局变量）</span>
+awatch i        <span class="c1">#【条件断点】不固定位置的读写变量条件断点（只能设置全局变量）</span>
+                <span class="c1"># 意思是说只要程序修改全局变量数值并符合对应条件就会停下来（好像是软件实现，嵌入式使用仿真器调试时会严重影响实际运行速度！）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.14、GDB 命令<code>clear ---- clear</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 清除断点【单种类别】</span>
+<span class="c1"># 命令简写: clear</span>
+<span class="c1"># 命令全写: clear</span>
+<span class="c1"># 单　　词: clear</span>
+<span class="c1">####################################</span>
+clear           <span class="c1">#【清除断点】清除当前程序所在的断点</span>
+clear max.c:5   <span class="c1">#【清除断点】清除某个指定文件行号断点</span>
+clear main      <span class="c1">#【清除断点】清除某个指定函数断点</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.15、GDB 命令<code>d -------- delete</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 删除对象【多种类别】</span>
+<span class="c1"># 命令简写: d</span>
+<span class="c1"># 命令全写: delete</span>
+<span class="c1"># 单　　词: delete breakpoints</span>
+<span class="c1">####################################</span>
+d               <span class="c1">#【删除断点】所有断点</span>
+d <span class="m">2</span>             <span class="c1">#【删除断点】删除某个指定编号的断点　　（备注：需要 i b 查看断点编号来配合使用!）</span>
+d <span class="nb">break</span>  <span class="m">2</span>      <span class="c1">#【删除断点】同上</span>
+d display <span class="m">2</span>     <span class="c1">#【删除显示】删除某个指定编号的变量显示（备注：需要 i display 查看变量编号来配合使用!）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.16、GDB 命令<code>dis ------ disable</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 禁用断点</span>
+<span class="c1"># 命令简写: dis</span>
+<span class="c1"># 命令全写: disable</span>
+<span class="c1"># 单　　词: disable</span>
+<span class="c1">####################################</span>
+dis <span class="m">2</span>           <span class="c1">#【禁用断点】禁用某个指定编号的断点（备注：需要 i b 查看断点编号来配合使用!）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.17、GDB 命令<code>en ------- enable</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 启用断点</span>
+<span class="c1"># 命令简写: en</span>
+<span class="c1"># 命令全写: enable</span>
+<span class="c1"># 单　　词: enable</span>
+<span class="c1">####################################</span>
+en <span class="m">2</span>            <span class="c1">#【启用断点】启用某个指定编号的断点（备注：需要 i b 查看断点编号来配合使用!）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.18、GDB 命令<code>i -------- info</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看信息【多种类别】</span>
+<span class="c1"># 命令简写: i</span>
+<span class="c1"># 命令全写: info</span>
+<span class="c1"># 单　　词: information</span>
+<span class="c1">####################################</span>
+i r             <span class="c1">#【查看信息】查看处理器寄存器信息（查看 registers 信息）</span>
+i s             <span class="c1">#【查看调用】查看函数调用栈信息  （查看 stack     信息）</span>
+i b             <span class="c1">#【查看断点】查看断点信息（查看使用 break   设置的断点）</span>
+i display       <span class="c1">#【查看信息】查看变量信息（查看使用 display 显示的变量）</span>
+i locals        <span class="c1">#【查看信息】查看当前函数所有局部变量值（注意：当前函数是指程序暂停运行所在的函数！）</span>
+……
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.19、GDB 命令<code>display -- display</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看变量【长期查看】</span>
+<span class="c1"># 命令简写: display</span>
+<span class="c1"># 命令全写: display</span>
+<span class="c1"># 单　　词: display</span>
+<span class="c1">####################################</span>
+display cnt     <span class="c1">#【查看变量】查看变量信息（默认显示格式显示）【程序运行到暂停后会自动显示】</span>
+display cfg.ip  <span class="c1">#【查看变量】查看结构体成员信息（备注：结构体成员书写格式与C语言一样）</span>
+display /x cnt  <span class="c1">#【查看变量】以十六进制显示格式查看变量信息　【程序运行到暂停后会自动显示】</span>
+                <span class="c1"># /x 十六进制　　 (hex)</span>
+                <span class="c1"># /d 有符号十进制 (decimal)</span>
+                <span class="c1"># /u 无符号十进制 (unsigned decimal)</span>
+                <span class="c1"># /c 字符　　　　 (char)</span>
+                <span class="c1"># /t 二进制　　　 (binary)</span>
+                <span class="c1"># /f 浮点数　　　 (float)</span>
+                <span class="c1"># /o 八进制　　　 (octal)</span>
+                <span class="c1"># /a 十六进制　　 (address)（地址格式）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.20、GDB 命令<code>p -------- print</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看变量【临时查看】</span>
+<span class="c1"># 命令简写: p</span>
+<span class="c1"># 命令全写: print</span>
+<span class="c1"># 单　　词: print</span>
+<span class="c1">####################################</span>
+p <span class="nv">i</span><span class="o">=</span><span class="m">1</span>           <span class="c1">#【变量赋值】给变量赋值（支持局部变量操作）</span>
+p cnt           <span class="c1">#【查看变量】查看变量信息（默认显示格式显示）（支持局部变量操作）</span>
+p cfg.ip        <span class="c1">#【查看变量】查看结构体成员信息（备注：结构体成员书写格式与C语言一样）</span>
+p /x cnt        <span class="c1">#【查看变量】以十六进制显示格式查看变量信息</span>
+p /x cnt@10     <span class="c1">#【查看变量】以十六进制显示格式查看变量信息，将变量类型强制为数组元素并且显示多个(10个)</span>
+                <span class="c1"># /x 十六进制　　 (hex)</span>
+                <span class="c1"># /d 有符号十进制 (decimal)</span>
+                <span class="c1"># /u 无符号十进制 (unsigned decimal)</span>
+                <span class="c1"># /c 字符　　　　 (char)</span>
+                <span class="c1"># /t 二进制　　　 (binary)</span>
+                <span class="c1"># /f 浮点数　　　 (float)</span>
+                <span class="c1"># /o 八进制　　　 (octal)</span>
+                <span class="c1"># /a 十六进制　　 (address)（地址格式）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.21、GDB 命令<code>ptype ---- ptype</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看对象类型【查看类型】</span>
+<span class="c1"># 命令简写: ptype</span>
+<span class="c1"># 命令全写: ptype</span>
+<span class="c1"># 单　　词: print type</span>
+<span class="c1">####################################</span>
+ptype i         <span class="c1">#【查看变量】查看变量类型（普通变量）(可查看程序暂停运行所在函数的局部变量)</span>
+ptype net_obj   <span class="c1">#【查看变量】查看变量类型（结构体）</span>
+ptype main      <span class="c1">#【查看函数】查看函数类型</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.22、GDB 命令<code>x/ ------- x/</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看内存数据【查看内存】</span>
+<span class="c1"># 命令简写: x/</span>
+<span class="c1"># 命令全写: x/</span>
+<span class="c1"># 单　　词: </span>
+<span class="c1">####################################</span>
+x/3xb 0x8003000 <span class="c1">#【查看数据】查看[0x8003000]起始地址的数据（数量：3个单元，格式：十六进制，单元大小：１字节）</span>
+x/3uh buf       <span class="c1">#【查看数据】查看[buf]变量内存数据　　（数量：3个单元，格式：无符号十进制，单元大小：２字节）</span>
+                <span class="c1">#【书写格式：x/+个数+格式+字长+对象(地址)】</span>
+                <span class="c1"># ● 显示格式--------</span>
+                <span class="c1"># x 十六进制</span>
+                <span class="c1"># d 有符号十进制</span>
+                <span class="c1"># u 无符号十进制</span>
+                <span class="c1"># c 字符</span>
+                <span class="c1"># t 二进制</span>
+                <span class="c1"># f 浮点数</span>
+                <span class="c1"># o 八进制</span>
+                <span class="c1"># a 十六进制（地址格式）</span>
+                <span class="c1"># ● 单元大小--------</span>
+                <span class="c1"># b  1字节</span>
+                <span class="c1"># h  2字节</span>
+                <span class="c1"># w  4字节</span>
+                <span class="c1"># g  8字节</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.23、GDB 命令<code>bt ------- backtrace</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 查看函数调用栈信息</span>
+<span class="c1"># 命令简写: bt</span>
+<span class="c1"># 命令全写: backtrace</span>
+<span class="c1"># 单　　词: backtrace /bæktreɪs/</span>
+<span class="c1">####################################</span>
+bt              <span class="c1">#【查看调用】查看函数调用栈信息</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>4.24、GDB 命令<code>help ----- help</code></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####################################</span>
+<span class="c1"># 命令作用: 帮助</span>
+<span class="c1"># 命令简写: help</span>
+<span class="c1"># 命令全写: help</span>
+<span class="c1"># 单　　词: help</span>
+<span class="c1">####################################</span>
+<span class="nb">help</span> layout     <span class="c1">#【查看帮助】查看layout命令帮助</span>
+<span class="nb">help</span> finish     <span class="c1">#【查看帮助】查看finish命令帮助</span>
+<span class="nb">help</span> info       <span class="c1">#【查看帮助】查看info  命令帮助</span>
+<span class="nb">help</span> <span class="nb">set</span>        <span class="c1">#【查看帮助】查看set   命令帮助</span>
+……
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+</details>  
+<!--  
+[使用GDB调试你的工程](https://blog.csdn.net/zhengyangliu123/article/details/54934719)  
+[GDB 命令](https://blog.csdn.net/qq_45652400/article/details/109370592)  
+[GDB基本命令(整合)](https://www.cnblogs.com/zl1991/p/7344707.html)  
+[gdb调试命令与技巧](https://blog.csdn.net/lile777/article/details/103687081)  
+[GDB：从单线程调试到多线程调试](https://www.bbsmax.com/A/xl56ymKxJr/)  
+-->  
+<h3 id="三扩展">三、扩展</h3>
+<details close=""><summary>1、IDE 集成开发环境的组成</summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><div style="width:96px">组件</div></th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">代码编辑工具</td>
+<td style="text-align:left">IDE 直接使用 QScitinal 这类的编辑器库</td>
+</tr>
+<tr>
+<td style="text-align:left">代码智能提示</td>
+<td style="text-align:left">IDE 后台调用 clang 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">语法错误检测</td>
+<td style="text-align:left">IDE 后台调用 gcc 或者 clang 对代码语法错误动态检测</td>
+</tr>
+<tr>
+<td style="text-align:left">工程文件组织</td>
+<td style="text-align:left">IDE 使用的是 makefile，后台调用 make 工具</td>
+</tr>
+<tr>
+<td style="text-align:left">编译</td>
+<td style="text-align:left">IDE 后台调用 gcc 或者 clang 编译器编译</td>
+</tr>
+<tr>
+<td style="text-align:left">调试器</td>
+<td style="text-align:left">IDE 后台调用 OpenOCD 连接调试器和板子</td>
+</tr>
+<tr>
+<td style="text-align:left">下载</td>
+<td style="text-align:left">IDE 后台调用 OpenOCD 命令下载固件</td>
+</tr>
+<tr>
+<td style="text-align:left">调试</td>
+<td style="text-align:left">IDE 后台调用 gdb，给 gdb 发命令，gdb 再给 OpenOCD 发命令，OpenOCD 再指挥调试器控制板子。实现单步执行，查看变量值，寄存器等</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</details>  
+<details close=""><summary>2、CGDB/GDB 在 STM32F 上的应用</summary>  
+<p>《<a href="../20220804" rel="">linux-STM32F开发㈠-makefile 构建与使用</a>》<br>
+《<a href="../20220808" rel="">linux-STM32F开发㈡-调试器的安装与使用</a>》<br>
+《<a href="../20220916" rel="">linux-STM32F开发㈢-在线调试工具CGDB</a>》</p>
+</details>  
+<!--  
+[跟我一起学OpenOCD](https://zhuanlan.zhihu.com/p/41517198)  
+[Windows上使用 OpenOCD 给 STM32 下载程序](https://blog.csdn.net/Mculover666/article/details/117553014)  
+[OpenOCD安装与使用（JTAG调试）](https://www.bbsmax.com/A/Vx5MDGgvJN/)  
+[OpenOCD如何通过stlink直接下载程序到stm32板子](https://blog.csdn.net/kangkanglhb88008/article/details/126037321)  
+[嵌入式IDE原理 OpenOCD介绍 以及stlink如何连接stm32板子](https://blog.csdn.net/kangkanglhb88008/article/details/125921453)  
+[STM32高级开发(6)-makefile与调试器驱动](https://blog.csdn.net/zhengyangliu123/article/details/54784038)  
+[ubuntu20.04 + arm-none-eabi-gdb + openocd + STlink调试STM32F103单片机](https://blog.csdn.net/dhy9974/article/details/124376993)  
+https://blog.csdn.net/qq_44884716/article/details/123295638  
+https://blog.csdn.net/sagetom/article/details/9124631  
+[STM32 gcc编译环境搭建的配置](https://m.2cto.com/kf/201711/696597.html)  
+[使用GCC/Eclipse开发STM32 Nucleo入门指南](https://www.yiboard.com/thread-388-1-1.html)  
+[在Keil5中配置使用GCC编译器开发STM32](https://blog.csdn.net/weixin_39871788/article/details/78858791)  
+[STM32中的链接器脚本文件(.ld文件)与启动文件(.s文件)的相关知识整理](https://blog.csdn.net/laifengyuan1/article/details/108725266)  
+-->  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-09-18</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20200916/" data-title="linux 调试仿真工具" data-hashtags="调试,GNU,GDB,CGDB,linux 工具/应用"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20200916/" data-hashtag="调试"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20200916/" data-title="linux 调试仿真工具"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20200916/" data-title="linux 调试仿真工具"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20200916/" data-title="linux 调试仿真工具"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%B0%83%E8%AF%95/">调试</a>,&nbsp;<a href="/tags/gnu/">GNU</a>,&nbsp;<a href="/tags/gdb/">GDB</a>,&nbsp;<a href="/tags/cgdb/">CGDB</a>,&nbsp;<a href="/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/">linux 工具/应用</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20200915/" class="prev" rel="prev" title="linux 编译构建工具"><i class="fas fa-angle-left fa-fw"></i>linux 编译构建工具</a>
+            <a href="/20201211/" class="next" rel="next" title="MD5 对数据加密与校验">MD5 对数据加密与校验<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
