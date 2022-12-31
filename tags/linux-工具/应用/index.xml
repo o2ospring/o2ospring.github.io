@@ -4,6 +4,13 @@
         <link>https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/</link>
         <description>linux 工具/应用 - 标签 - o2ospring</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>linux 命令帮助工具 tldr</title>
+    <link>https://o2ospring.github.io/20230215/</link>
+    <pubDate>Wed, 15 Feb 2023 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20230215/</guid>
+    <description><![CDATA[tldr 的简介 tldr（Too Long Didn&rsquo;t Read 太长不看）是开源的命令帮助工具。像本人一样记性不好的同学，经常忘记命令的用法，使用系统自带工具 man 来查看命令帮助]]></description>
+</item><item>
     <title>网站 PPT 生成工具 Slidev</title>
     <link>https://o2ospring.github.io/20220316/</link>
     <pubDate>Wed, 16 Mar 2022 21:33:41 &#43;0800</pubDate>
@@ -66,12 +73,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20210620/</guid>
     <description><![CDATA[NFS 的简介 NFS 就是 Network File System 的缩写，即网络文件系统，它最大的功能就是可以通过网络，让不同的机器、不同的操作系统可以共享彼此的文件。nfs 服务端相当于]]></description>
-</item><item>
-    <title>linux 网络终端工具 ssh</title>
-    <link>https://o2ospring.github.io/20210619/</link>
-    <pubDate>Thu, 17 Jun 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20210619/</guid>
-    <description><![CDATA[SSH 的简介 SSH 为 Secure Shell 的缩写，由 IETF 的网络工作小组（Network Working Group）所制定。SSH 为建立在应用层和传输层基础上的安全协议，而传统的网络服]]></description>
 </item></channel>
 </rss>

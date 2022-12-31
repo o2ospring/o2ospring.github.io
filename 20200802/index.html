@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  3965 ,
+                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  4115 ,
         "url": "https:\/\/o2ospring.github.io\/20200802\/","datePublished": "2020-08-02T21:33:41+08:00","dateModified": "2022-03-24T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu 系统与工具</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3965 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20200802/" class="leancloud_visitors" data-flag-title="Ubuntu 系统与工具">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4115 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/20200802/" class="leancloud_visitors" data-flag-title="Ubuntu 系统与工具">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -466,7 +466,7 @@ dns-nameservers 8.8.8.8
 </details>  
 <details close=""><summary>8. <strong>解决系统之间复制粘贴问题</strong></summary>  
 <blockquote>
-<p>介绍：解决 ubuntu16.04 和 windows 电脑之间无法复制粘贴问题。</p>
+<p>一、复制粘贴方式：</p>
 </blockquote>
 <ol>
 <li><code>sudo apt-get autoremove open-vm-tools</code>移除系统原工具</li>
@@ -476,6 +476,28 @@ dns-nameservers 8.8.8.8
 <li>安装过程中，yes 或者 y 一路通过。</li>
 <li>重启 Ubuntu 即可。</li>
 </ol>
+<p>复制粘贴方式实现 ubuntu16.04 和 windows 电脑之间灵活的文件(夹)拷贝操作，但是实际使用中会出现速度变慢、卡顿、卡死等一些不稳定问题，所以只建议用来复制文本内容，至于文件(夹)拷贝使用下面的文件夹共享方式会更好。</p>
+<blockquote>
+<p>二、文件夹共享方式：</p>
+</blockquote>
+<ol>
+<li><code>sudo apt-get install open-vm-tools-dkms</code>安装文件夹共享工具</li>
+<li>在 VMware 虚拟机菜单依次点击→虚拟机→设置→选项→共享文件夹→总是启用→添加目录即可，在 Unbuntu 系统的访问的共享文件夹在<code>/mnt/hgfs</code>对应目录</li>
+<li>每次重新开机共享文件夹不能自动挂载，要进行先“已禁用”再“总是启用”操作后才能使用，很是麻烦！解决方法如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gedit /etc/fstab   <span class="c1"># 打开配置文件，在其最后面增加一行自动挂载语句：</span>
+                        <span class="c1"># .host:/         /mnt/hgfs       fuse.vmhgfs-fuse allow_other,defaults   0   0</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>三、相关工具简介：</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -494,22 +516,11 @@ dns-nameservers 8.8.8.8
 </tr>
 <tr>
 <td>open-vm-tools-dkms</td>
-<td>实现文件夹共享。在 VMware 虚拟机菜单依次点击→虚拟机→设置→选项→共享文件夹→总是启用→添加目录即可，在 Unbuntu 系统的访问的共享文件夹在<code>/mnt/hgfs</code>对应目录</td>
+<td>实现文件夹共享</td>
 </tr>
 </tbody>
 </table>
-<p>补充：每次重新开机共享文件夹不能自动挂载，要进行先“禁用”再“启动”操作后才能使用，很是麻烦！解决方法如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gedit /etc/fstab   <span class="c1"># 打开配置文件，在其最后面增加一行自动挂载语句：</span>
-                        <span class="c1"># .host:/         /mnt/hgfs       fuse.vmhgfs-fuse allow_other,defaults   0   0</span>
-</code></pre></td></tr></table>
-</div>
-</div><!--  
+<!--  
 https://blog.csdn.net/weixin_50603017/article/details/122309067  
 https://blog.51cto.com/u_15061930/4284241  
 -->  
@@ -684,6 +695,22 @@ X-MultipleArgs<span class="o">=</span><span class="nb">false</span>
 </div>
 </div><p>3、最后：在可视窗口里进入 /usr/share/applications 文件夹，点右键菜单复制 Firefox98 Web Browser 桌面快捷启动图标，然后到桌面点右键菜单粘贴，最后点击图标即可在桌面启动 Firefox98 浏览器。</p>
 </details>  
+<details close=""><summary><span id="2_04">4. <strong>Ubuntu 上其它日常软件</strong></span></summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">网址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">linuxqq</td>
+<td style="text-align:left"><a href="https://im.qq.com/linuxqq/download.html" target="_blank" rel="noopener noreffer">官网下载</a></td>
+</tr>
+</tbody>
+</table>
+</details>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -715,7 +742,7 @@ X-MultipleArgs<span class="o">=</span><span class="nb">false</span>
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
