@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  14283 ,
+                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  15342 ,
         "url": "https:\/\/o2ospring.github.io\/20210613\/","datePublished": "2021-06-13T21:33:41+08:00","dateModified": "2021-06-13T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 基本命令使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14283 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 29 分钟&nbsp;<span id="/20210613/" class="leancloud_visitors" data-flag-title="linux 基本命令使用">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15342 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 31 分钟&nbsp;<span id="/20210613/" class="leancloud_visitors" data-flag-title="linux 基本命令使用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -163,12 +163,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#〖安装本地软件包方法〗</span>
-sudo dpkg -i xxxx.deb     <span class="c1">#安装【本地软件包】</span>
+sudo dpkg -i xxxx.deb     <span class="c1">#安装【本地软件包】（dpkg 是 Debian Package /ˈpækɪdʒ/ 简写，即 Debian 软件包）</span>
 sudo dpkg -r xxxx         <span class="c1">#卸载【本地软件包】（保留配置）（不保留配置使用 -P 选项）</span>
 sudo dpkg -l xxxx         <span class="c1">#显示软件的版本</span>
 
 <span class="c1">#【安装远程软件包方法】</span>
-sudo apt-get install xxxx <span class="c1">#安装软件包的最新版本</span>
+sudo apt-get install xxxx <span class="c1">#安装软件包的最新版本（apt 是 Advanced Package Tool（高级软件包工具）简写，apt-get、apt-cache 是 apt 工具的传统命令行接口，apt 现在被推荐为更现代的用法，例如：apt list --installed 列出已安装的软件包）</span>
 sudo apt-get remove  xxxx <span class="c1">#从系统中删除指定的软件包</span>
 sudo apt-get update       <span class="c1">#检测已安装软件包是否有更新（如果指定软件名则表示指定软件包是否有更新）</span>
 sudo apt-get upgrade xxxx <span class="c1">#升级指定的软件包(前提：先运行 update 检测)(而使用 dist-upgrade 则以更聪明的方式来解决更新过程中出现的软件依赖问题)</span>
@@ -235,11 +235,11 @@ sudo yum list updates     <span class="c1">#列出所有可更新的软件包</s
 <em>Bash</em> <code>/bæʃ/</code>是大多数 Linux 系统默认的 shell 脚本解释器（注：我们平时说 Linux 中有多少种 shell 其实指的就是其中存在几种 shell 脚本解释器），可以使用命令<code>cat /etc/shells</code>打开文件查看到系统可用的 shell 。在脚本文件中，我们常看到第一行内容为<code>#!/bin/bash</code>，表示告知系统使用哪个脚本解释器来执行脚本文件，即使用哪一种 shell 。（补充：<em>Bourne Again shell</em> <code>/bʊən/ə'ɡen/ʃel/</code>（简写为 Bash）（标记为<code>#!/bin/bash</code>）是 Bourne shell（标记为<code>#!/bin/sh</code>） 的扩展，与 Bourne shell 完全向后兼容，并且在 Bourne shell 的基础上增加、增强了很多特性。<strong>特别说明</strong>：<code>#!/bin/bash</code>这些信息在首行且必须使用<code>\n</code>来换行，不能是<code>\r\n</code>之类的来换行，否则会提示 ^M 错误!!!</p>
 <hr>
 <p>● <strong>linux 环境变量</strong><br>
-shell 中变量分三种：内部变量、环境变量、用户变量。<br>
+shell 中环境变量变量分三种：内部变量、系统变量、用户变量。<br>
 内部变量：系统提供，不用定义，不可修改；（<code>$$ $? $0 $# $* $@ $1 … $SHELL(当前使用的shell(路径)) $HOME(家目录)</code>）<br>
-环境变量：系统提供，不用定义，可以修改，利用<code>export</code>将用户变量转为环境变量；<br>
-用户变量：用户定义，可以修改；<br>
-环境变量（environment variables /ɪn&rsquo;vaɪrənmənt/&lsquo;veəriəbls/）一般是指在操作系统中用来指定操作系统运行环境的一些参数，其中一个目的是告诉系统知道应用程序所在哪个路径下，让系统可直接运行应用程序（如果应用程序已在系统标准位置下，则不需要增加环境变量。linux系统几个标准位置：/bin、/sbin、/usr/bin、/usr/sbin、/usr/local/bin 等）（Windown 系统使用分号分隔，而 linux 系统使用冒号分隔）。环境变量包括：系统环境变量和用户环境变量。环境变量配置推荐：如果要修改所有用户环境配置的话修改<code>/etc/profile</code>，修改单个用户的话修改<code>~/.bashrc</code>（如：开发板的 /root/.bashrc）。<br>
+系统变量：系统提供，不用定义，可以修改，利用<code>export</code>将用户变量转为系统变量；<br>
+用户变量：用户提供，用户定义，可以修改，利用<code>export</code>将用户变量转为系统变量；<br>
+环境变量（environment variables <code>/ɪn'vaɪrənmənt/'veəriəbls/</code>）一般是指在操作系统中用来指定操作系统运行环境的一些参数，其中一个目的是告诉系统知道应用程序所在哪个路径下，让系统可直接运行应用程序（如果应用程序已在系统标准位置下，则不需要增加环境变量。linux系统几个标准位置：/bin、/sbin、/usr/bin、/usr/sbin、/usr/local/bin 等）（Windown 系统使用分号分隔，而 linux 系统使用冒号分隔）。一般提到的环境变量主要指系统变量。环境变量配置推荐：如果要修改所有用户环境配置的话修改<code>/etc/profile</code>，修改单个用户的话修改<code>~/.bashrc</code>（如：开发板的 /root/.bashrc）。<br>
 1.1、<code>export</code>显示包括利用 export 将用户变量转为环境变量的 shell 变量。<br>
 1.2、<code>echo $PATH</code>命令为输出当前的 PATH 环境变量的值（以冒号分割不同路径）<br>
 1.3、<code>export PATH=$PATH:/home/abc/mysql/bin</code>可临时/永久配置环境变量（例子）。<br>
@@ -254,12 +254,24 @@ shell 中变量分三种：内部变量、环境变量、用户变量。<br>
 <details close=""><summary><strong>linux软件安装</strong></summary>  
 <blockquote>
 <p>所谓命令，其实就是在终端机下调用某个软件（工具）运行。这些软件大部分是系统自带的，但有些需要我们去安装，安装的方式有在线安装、离线安装（离线软件包括：解压版、源码版、安装版）。<br>
-解压版：直接解压即可使用；（推荐方式）<br>
-源码版：需要交叉编译器源代码，再复制到目标板运行；<br>
+在线版：利用系统提供的服务，直接运行命令安装软件；（常规方式）<br>
+解压版：直接解压即可使用，建议移到合理目录；（推荐方式）<br>
+源码版：先编译源代码，再复制到目标(板)运行；<br>
 安装版：执行后按照提示安装；<br>
 【补充：通常还需要配置环境变量！】</p>
 </blockquote>
-<p>● <strong>解压版</strong>-安装示例：</p>
+<p>● <strong>在线版</strong>-安装示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update                  <span class="c1"># 更新软件包列表</span>
+sudo apt-get install python3         <span class="c1"># 安装python3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>● <strong>解压版</strong>-安装示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -352,17 +364,62 @@ sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
                                                      <span class="c1"># 移除上面加入的PPA仓库</span>
 </code></pre></td></tr></table>
 </div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 又如安装【node】两个版本</span>
+
+<span class="c1">####下载软件####</span>
+wget https://nodejs.org/dist/latest-v10.x/node-v10.24.1-linux-x64.tar.xz  <span class="c1"># 在命令窗口直接下载[node-v10.24.1]</span>
+wget https://nodejs.org/dist/latest-v10.x/node-v16.19.0-linux-x64.tar.xz  <span class="c1"># 在命令窗口直接下载[node-v16.19.0]</span>
+tar -xf node-v10.24.1-linux-x64.tar.xz                                    <span class="c1"># 将压缩包解压到当前目录</span>
+tar -xf node-v16.19.0-linux-x64.tar.xz                                    <span class="c1"># 将压缩包解压到当前目录</span>
+sudo mv node-v10.24.1-linux-x64 /usr/local/node-v10.24.1                  <span class="c1"># 将文件夹移到/usr/local/目录并重命令为[node-v10.24.1]</span>
+sudo mv node-v16.19.0-linux-x64 /usr/local/node-v16.19.0                  <span class="c1"># 将文件夹移到/usr/local/目录并重命令为[node-v16.19.0]</span>
+
+<span class="c1">####加入列表####</span>
+sudo update-alternatives --install /usr/bin/node node /usr/local/node-v10.24.1/bin/node <span class="m">1024</span> --slave /usr/bin/npm npm /usr/local/node-v10.24.1/bin/npm
+sudo update-alternatives --install /usr/bin/node node /usr/local/node-v16.19.0/bin/node <span class="m">1619</span> --slave /usr/bin/npm npm /usr/local/node-v16.19.0/bin/npm
+<span class="c1">#sudo update-alternatives --remove node /usr/local/node-v10.24.1/bin/node # 移除某项列表的方法</span>
+
+<span class="c1">####选择版本####</span>
+sudo update-alternatives --config node               <span class="c1"># 选择默认版本，根据界面提示输入对应数字+回车选择</span>
+
+</code></pre></td></tr></table>
+</div>
 </div></details>  
 <details close=""><summary><strong>linux命令常识</strong></summary>  
 <blockquote>
 <p>●【<strong>命令的基本格式</strong>】：<br>
-<code>command [options] [arguments]</code>选项（<code>options</code>/&lsquo;ɒpʃnz/）是命令行为开关，分为短选项和长选项，短选项-例如：<code>-l -a</code>，某些可组合-例如<code>-la</code>，其带子参数为<code>-p 1234</code>（通常中间使用空格），长选项-例如：<code>--help</code>，其带子参数为<code>--size=1G</code>（通常中间使用=）。补充：选项一般在命令右边及作用对象的左边。参数（<code>arguments</code>/&lsquo;ɑːgjʊmənts/）是命令的作用对象，例如：<code>cat 123.txt</code>表示查看 123.txt 文件内容。</p>
+<code>command [options] [arguments]</code><br>
+选项<code>options</code>（/&lsquo;ɒpʃnz/）是命令的行为开关，分为短选项和长选项，短选项-例如：<code>-l -a</code>，某些可组合-例如<code>-la</code>，其带子参数为<code>-p 1234</code>（通常中间使用空格），长选项-例如：<code>--help</code>，其带子参数为<code>--size=1G</code>（通常中间使用=）。补充：选项一般在命令右边及作用对象的左边。<br>
+参数<code>arguments</code>（/&lsquo;ɑːgjʊmənts/）是命令的作用对象，例如：<code>cat 123.txt</code>表示查看 123.txt 文件内容。</p>
 <hr>
 <p>●【<strong>多条命令方式</strong>】：<br>
-<code>command_1; command_2; command_3</code>表示如果一件事情需要多行命令就算期间不成功也往下一条指令执行，免去等待时间；<br>
-<code>command_1 &amp;&amp; command_2</code>表示如果一件事情需要多行命令并确保命令成功才往下一条指令执行，例如：一些编译命令；<br>
-<code>command_1 || command_2</code>表示如果一件事情需要多行命令并确保命令失败才往下一条指令执行；<br>
-<code>command_1 &amp; command_2</code>表示两行命令同时执行（补充：实际优先执行前行命令）</p>
+<code>command_1; command_2; command_3</code>表示如果一件事情需要多行命令运行，无论命令成功与否都会往下一条指令执行，免去等待时间；<br>
+<code>command_1 &amp;&amp; command_2</code>表示如果一件事情需要多行命令运行，并确保命令【成功】才往下一条指令执行，例如：一些编译命令；<br>
+<code>command_1 || command_2</code>表示如果一件事情需要多行命令运行，并确保命令【失败】才往下一条指令执行；<br>
+<code>command_1 &amp; command_2</code>表示两行命令【同时】执行（补充：实际优先执行前行命令）</p>
 <hr>
 <p>●【<strong>在 bash 中的 命令、选项、参数 处理方式</strong>】：<a href="https://www.linuxidc.com/Linux/2018-07/153121.htm" target="_blank" rel="noopener noreffer">网文</a><br>
 <code>直接</code>来处理，依次对 <code>$1, $2, ..., $n</code> 进行解析。<br>
@@ -410,6 +467,7 @@ sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
 <li><a href="https://www.zhihu.com/question/407140230/answer/1341055445" target="_blank" rel="noopener noreffer">常见编程语言选择</a></li>
 <li><a href="https://www.zhihu.com/question/22867411" target="_blank" rel="noopener noreffer">作为程序员的你，常用的工具软件有哪些？</a></li>
 <li><a href="https://unbug.github.io/codelf/" target="_blank" rel="noopener noreffer">Codelf 帮开发者命名变量的开源搜索服务</a></li>
+<li><a href="https://mp.weixin.qq.com/s/4xnHh8H8aM73RRLOYIaajg" target="_blank" rel="noopener noreffer">单片机 -&gt; RTOS -&gt; Linux</a></li>
 </ol>
 </details>  
 <h3 id="二基本命令">二、基本命令</h3>
@@ -421,13 +479,15 @@ sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
 <li><code>Ctrl+Alt+F1</code>切换到命令行界面终端。</li>
 <li><code>Ctrl+Alt+F7</code>切换到图形界面终端。</li>
 <li><code>Ctrl+Alt+t</code>在<strong>图形界面</strong>下打开命令行终端机。</li>
-<li><code>Ctrl+D</code>关闭当前命令行终端机（纯终端则重启）。</li>
-<li><code>Ctrl+C</code>强制退出在当前命令行终端机的程序。</li>
+<li><code>Ctrl+d</code>关闭当前命令行终端机（纯终端则重启）。</li>
+<li><code>Ctrl+c</code>强制退出在当前命令行终端机的程序。</li>
 <li><code>Ctrl+Insert</code>复制选择的文本内容。</li>
 <li><code>Shift+Insert</code>粘贴缓存的文本内容。</li>
-<li><code>Ctrl+A 或 Home</code>转到行的开头。</li>
-<li><code>Ctrl+E 或 End</code>转到行的结尾。</li>
-<li><code>Ctrl+L</code>输入行移到页面顶部（相当清屏）。</li>
+<li><code>Ctrl+a 或 Home</code>转到行的开头。</li>
+<li><code>Ctrl+e 或 End</code>转到行的结尾。</li>
+<li><code>Ctrl+u</code>把光标前面的内容全删掉。</li>
+<li><code>Ctrl+k</code>把光标后面的内容全删掉。</li>
+<li><code>Ctrl+l</code>输入行移到页面顶部（相当清屏）。</li>
 <li><code>↑ 和 ↓</code>方向键调取之前执行过的 Linux 命令。</li>
 <li><code>Tab</code> 自动补全命令，提高输入速度及精准度。</li>
 <li><code>$</code> 命令行前面显示此字符，表示以用户权限操作。</li>
@@ -471,28 +531,9 @@ sudo add-apt-repository --remove ppa:ubuntu-toolchain-r/test
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo su                             <span class="c1"># su 仅仅取得 root 权限，工作环境不变。</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo su                             <span class="c1"># su 仅仅取得 root 权限【Permission】，工作环境不变。</span>
 su root                             <span class="c1"># 切换到root</span>
 <span class="nb">exit</span>                                <span class="c1"># 退出root(前提已进入root)</span>
                                     <span class="c1"># 【关于提示符】: </span>
@@ -503,44 +544,25 @@ sudo passwd                         <span class="c1"># 设置root的密码 (根�
                                     <span class="c1"># [su   ] 向当前用户授权管理员权限级别许可,但工作环境没有任何变动</span>
                                     <span class="c1"># [sudo ] 以管理员身份操作(只在操作过程中变成管理员工作环境,平常还是当前用户工作环境)</span>
                                     <span class="c1"># [chmod] 修改文件(夹)操作权限,特别是从Windows拷贝到linux时,经常要改权限,否则不能执行</span>
-sudo chmod <span class="m">777</span> /srv/ftp/upload      <span class="c1"># 对目录[/srv/ftp/upload]拥有者rwx,用户组rwx,其它用户rwx</span>
-sudo chmod <span class="m">751</span> /srv/ftp/download    <span class="c1"># 对目录[/srv/ftp/upload]拥有者rwx,用户组r-x,其它用户--x</span>
-sudo chmod ug+rw /srv/ftp/upload    <span class="c1"># 对目录[/srv/ftp/upload]拥有者u和用户组g[增加]读r和写w权限</span>
-sudo chmod ug-rw /srv/ftp/upload    <span class="c1"># 对目录[/srv/ftp/upload]拥有者u和用户组g[移除]读r和写w权限</span>
-sudo chmod <span class="nv">ug</span><span class="o">=</span>rw /srv/ftp/upload    <span class="c1"># 对目录[/srv/ftp/upload]拥有者u和用户组g[设为]读r和写w权限</span>
+sudo chmod -R <span class="m">777</span> /srv/ftp/upload/  <span class="c1"># 修改[该目录里面的所有文件]操作权限：拥有者rwx,用户组rwx,其它用户rwx</span>
+sudo chmod <span class="m">777</span> /srv/ftp/upload/     <span class="c1"># 修改目录[/srv/ftp/upload ]操作权限：拥有者rwx,用户组rwx,其它用户rwx</span>
+sudo chmod <span class="m">751</span> /srv/ftp/23.txt      <span class="c1"># 修改文件[/srv/ftp/23.txt ]操作权限：拥有者rwx,用户组r-x,其它用户--x</span>
+sudo chmod ug+rw /srv/ftp/upload/   <span class="c1"># 修改目录[/srv/ftp/upload ]操作权限：拥有者u和用户组g[增加]读r和写w权限</span>
+sudo chmod ug-rw /srv/ftp/upload/   <span class="c1"># 修改目录[/srv/ftp/upload ]操作权限：拥有者u和用户组g[移除]读r和写w权限</span>
+sudo chmod <span class="nv">ug</span><span class="o">=</span>rw /srv/ftp/upload/   <span class="c1"># 修改目录[/srv/ftp/upload ]操作权限：拥有者u和用户组g[设为]读r和写w权限</span>
                                     <span class="c1"># 【扩展说明】: </span>
                                     <span class="c1"># [u] 表文件拥有者  |  [+] 添加某个权限  |  [r] 可读</span>
                                     <span class="c1"># [g] 表示同组用户  |  [-] 取消某个权限  |  [w] 可写 </span>
                                     <span class="c1"># [o] 表示其它用户  |  [=] 重设 rwx权限  |  [x] 可执行</span>
                                     <span class="c1"># [a] 表示全部用户  |                    |           </span>
 sudo chown root /var/run/httpd.pid  <span class="c1"># 改变 /var/run/httpd.pid 文件的拥有者为 root</span>
-sudo chown runoob:runoobgroup f.txt <span class="c1"># 改变 f.txt   文件的拥有者为 runoob，群体的使用者为 runoobgroup </span>
+sudo chown runoob:runoobgroup f.txt <span class="c1"># 改变 f.txt   文件的拥有者为 runoob，用户组为 runoobgroup </span>
 sudo chown xiaomin 123.txt          <span class="c1"># 改变 123.txt 文件的拥有者为 xiaomin</span>
 sudo chown -R xiaomin /home/abc/    <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的拥有者为 xiaomin（拥有者owner /&#39;əʊnə(r)/）</span>
 sudo chgrp -R xiaomin /home/abc/    <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的用户组为 xiaomin（用户组group /ɡruːp/）</span>
                                     <span class="c1"># 【权限总结】：</span>
                                     <span class="c1"># 1.文件(夹)的拥有者（用户/用户组）</span>
                                     <span class="c1"># 2.拥有者的操作权限（读/写/执行）</span>
-ifconfig                            <span class="c1"># 查看网络</span>
-ifconfig eth0 192.168.2.10          <span class="c1"># 临时配置IP地址(是临时配置,没保存!)</span>
-ifconfig eth0 192.168.2.10 netmask 255.255.255.0
-ifconfig eth0 192.168.2.10 netmask 255.255.255.0 broadcast 192.168.2.255
-sudo /etc/init.d/networking restart <span class="c1"># 重启网络</span>
-sudo gedit /etc/network/interfaces  <span class="c1"># 编辑网络 (不用 gedit 时也可以用 vi 编辑)</span>
-                                    <span class="c1"># 网络配置最基本内容:</span>
-                                    <span class="c1"># # The loopback network interface</span>
-                                    <span class="c1"># auto lo</span>
-                                    <span class="c1"># iface lo inet loopback</span>
-                                    <span class="c1"># </span>
-                                    <span class="c1"># # The primary network interface</span>
-                                    <span class="c1"># auto eth0</span>
-                                    <span class="c1"># iface eth0 inet static</span>
-                                    <span class="c1">#         address 192.168.0.42</span>
-                                    <span class="c1">#         netmask 255.255.255.0</span>
-                                    <span class="c1">#         gateway 192.168.0.1</span>
-                                    <span class="c1">#         network 192.168.0.0</span>
-                                    <span class="c1">#         broadcast 192.168.0.255</span>
-                                    <span class="c1">#         dns-nameservers 114.114.114.114 8.8.8.8</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -616,6 +638,7 @@ sudo gedit /etc/network/interfaces  <span class="c1"># 编辑网络 (不用 gedi
 </span><span class="lnt">63
 </span><span class="lnt">64
 </span><span class="lnt">65
+</span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ..                               <span class="c1"># 退回上一级目录</span>
@@ -624,13 +647,14 @@ sudo gedit /etc/network/interfaces  <span class="c1"># 编辑网络 (不用 gedi
 <span class="nb">cd</span> ./ftp/upload                     <span class="c1"># 进入当前子目录(同上)(平常可以省略[./])</span>
 <span class="nb">cd</span> /usr/local                       <span class="c1"># 进入  绝对目录</span>
                                     <span class="c1"># [../] 表示相对路径(上级目录)</span>
-                                    <span class="c1"># [./]  表示相对路径(下级目录)</span>
+                                    <span class="c1"># [./]  表示相对路径(当前目录)</span>
                                     <span class="c1"># [/]   表示绝对路径</span>
+                                    <span class="c1"># [~]   表示家目录</span>
+<span class="nb">cd</span> ~                                <span class="c1"># 进入当前用户的家目录</span>
 <span class="nb">cd</span> -                                <span class="c1"># 回到之前所在的目录</span>
-<span class="nb">cd</span> ~                                <span class="c1"># 进入当前用户的家目录( ~ 表示家目录)</span>
 <span class="nb">pwd</span>                                 <span class="c1"># 显示当前工作目录的全路径 (print working directory)</span>
 !!                                  <span class="c1"># 显示上一条命令及上一条命令的结果</span>
-./qt-creator-linux-x86.run          <span class="c1"># [./]符表示运行[qt-creator-linux-x86.run]此文件</span>
+./qt-creator-linux-x86.run          <span class="c1"># 运行[qt-creator-linux-x86.run]此文件</span>
 ls                                  <span class="c1"># 查看当前目录下文件</span>
 ls upload                           <span class="c1"># 查看当前目录下[upload]目录下文件</span>
 ls *.o                              <span class="c1"># 查看当前目录下扩展名为[*.o]的相关文件</span>
@@ -644,7 +668,7 @@ ls -l libmad.so.0                   <span class="c1"># 以长格式显示文件�
 ls -l <span class="p">|</span> grep rwxrwxr-               <span class="c1"># 列出当前目录文件(夹),但只显示经过[grep]筛选含有[rwxrwxr-]的内容(grep是独立命令,|是管道命令)</span>
                                     <span class="c1"># 【扩展说明】: </span>
                                     <span class="c1"># 文件属性第一个字符表示是什么? 如: -rwxrwxrwx, drwxrwxrwx, ……</span>
-                                    <span class="c1"># [-] 正规文档(regular file): 纯文本文档(ASCII),二进制文件(binary),数据格式文件(data)</span>
+                                    <span class="c1"># [-] 常规文档(regular file): 纯文本文档(ASCII),二进制文件(binary),数据格式文件(data)</span>
                                     <span class="c1"># [d] 目录(directory)</span>
                                     <span class="c1"># [l] 连接文件(link),就是类似 Windows 系统底下的快捷方式</span>
                                     <span class="c1"># [b] 区块(block)设备文件</span>
@@ -688,7 +712,7 @@ tree -L <span class="m">1</span> -d                        <span class="c1"># �
 </div></details>  
 <details close=""><summary><strong>4、文件(夹) 操作</strong></summary>  
 <blockquote>
-<p><code>mkdir</code> <code>touch</code> <code>cp</code> <code>mv</code> <code>rm</code> <code>find</code> <code>locate</code> <code>ln</code> <code>zip</code> <code>unzip</code> <code>tar</code></p>
+<p><code>mkdir</code> <code>touch</code> <code>cp</code> <code>mv</code> <code>rm</code> <code>find</code> <code>locate</code> <code>ln</code> <code>zip</code> <code>unzip</code> <code>tar</code> <code>7z</code></p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -742,6 +766,9 @@ tree -L <span class="m">1</span> -d                        <span class="c1"># �
 </span><span class="lnt">48
 </span><span class="lnt">49
 </span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir linuxeye                      <span class="c1"># 在当前目录创建[一层目录]:linuxeye</span>
@@ -783,8 +810,8 @@ ln /bin/readme.txt /usr/local/bin/readme.txt          <span class="c1"># 硬链�
 zip -r file.zip ./tmp               <span class="c1"># 压缩[zip    ]文件（-r 递归处理,即所有子目录一并处理）</span>
 unzip -q file.zip                   <span class="c1"># 解压[zip    ]文件（-q 执行时不显示任何信息）</span>
 tar -czvf file.tar.gz ./tmp/abc     <span class="c1"># 压缩[tar.gz ]文件</span>
-tar -xzvf /tmp/a.tar.gz -C /home/ab <span class="c1"># 解压[tar.gz ]文件,指定目录文件到指定目录</span>
-tar -xzvf /tmp/a.tar.gz             <span class="c1"># 解压[tar.gz ]文件,指定目录文件到当前目录</span>
+tar -xzvf /tmp/a.tar.gz -C /home/ab <span class="c1"># 解压[tar.gz ]文件，指定目录文件到指定目录</span>
+tar -xzvf /tmp/a.tar.gz             <span class="c1"># 解压[tar.gz ]文件，指定目录文件到当前目录</span>
 tar -xjvf php-5.tar.bz2             <span class="c1"># 解压[tar.bz2]文件到当前文件夹</span>
                                     <span class="c1"># c 压缩</span>
                                     <span class="c1"># x 解缩</span>
@@ -792,14 +819,17 @@ tar -xjvf php-5.tar.bz2             <span class="c1"># 解压[tar.bz2]文件到�
                                     <span class="c1"># j 使用 bzip2 压缩解压缩。后缀为[.tar.bz2]</span>
                                     <span class="c1"># v 显示过程信息</span>
                                     <span class="c1"># f 基于文件</span>
-                                    <span class="c1"># z在前面必须加-,即-zxvf。要加f参数必须在最后。</span>
+                                    <span class="c1"># 注意：z在前面必须加-,即-zxvf；要加f参数必须在最后。</span>
+
+7z x yourfile.7z                    <span class="c1"># 解压[yourfile.7z]文件到当前目录 （备注：[p7zip]软件包安装 sudo apt-get install p7zip-full）</span>
+7z x yourfile.7z -o ./tmp/abc       <span class="c1"># 解压[yourfile.7z]文件到指定目录</span>
 
 </code></pre></td></tr></table>
 </div>
 </div></details>  
 <details close=""><summary><strong>5、文件内容操作</strong></summary>  
 <blockquote>
-<p><code>cat</code> <code>head</code> <code>tail</code> <code>more</code> <code>grep</code> <code>echo</code> <code>gedit</code> <code>vi</code></p>
+<p><code>cat</code> <code>head</code> <code>tail</code> <code>more</code> <code>column</code> <code>grep</code> <code>echo</code> <code>gedit</code> <code>vi</code></p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -880,6 +910,7 @@ tar -xjvf php-5.tar.bz2             <span class="c1"># 解压[tar.bz2]文件到�
 </span><span class="lnt">75
 </span><span class="lnt">76
 </span><span class="lnt">77
+</span><span class="lnt">78
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cat  -n /home/md.c                  <span class="c1"># 查看 md.c 文件内容  （同时显示行号）</span>
@@ -891,8 +922,9 @@ cat md.c <span class="p">|</span> head -n <span class="m">30</span> <span class=
 cat md.c <span class="p">|</span> tail -n +30 <span class="p">|</span> head -n <span class="m">10</span> <span class="c1"># 查看 md.c   的第30~39行内容（共10行）(操作原理:先截取后部分内容,再截取前部分内容)</span>
 sed <span class="s1">&#39;s/aa/bb/g&#39;</span> md.c                <span class="c1"># 查看 md.c 文件内容,并已将字符[aa]替换为[bb]（只是查看,并没有修改文件）</span>
 more md.c                           <span class="c1"># 查看 md.c 文件内容  （分页方式显示）</span>
-grep <span class="s2">&#34;abc&#34;</span> /home/readme.txt         <span class="c1"># 在文件中搜索符合要求的文本内容[abc],并把匹配的行打印出来</span>
+grep <span class="s2">&#34;abc&#34;</span> /home/readme.txt         <span class="c1"># 在文件中搜索符合要求的文本内容[abc],并把匹配的行打印出来（grep的g-globally-全局,re-regular-正则,p-print-打印）</span>
 grep -i <span class="s2">&#34;abc&#34;</span> readme.txt            <span class="c1"># 在文件中不区分大小搜索文本内容[abc],并把匹配的行打印出来</span>
+ps <span class="p">|</span> column -t                      <span class="c1"># 显示当前shell下的进程,并使用[| column -t]格式化多列显示</span>
 ls -l <span class="p">|</span> grep rwxrwxr-               <span class="c1"># 列出当前目录文件(夹),但只显示经过[grep]筛选含有[rwxrwxr-]的内容(grep是独立命令,|是管道命令)</span>
                                     <span class="c1"># 【扩展说明】:</span>
                                     <span class="c1"># [-i] 筛选不区分大小写</span>
@@ -1148,98 +1180,152 @@ sudo dd <span class="k">if</span><span class="o">=</span>/dev/mem <span class="n
 </div></details>  
 <details close=""><summary><strong>8、系统相关操作</strong></summary>  
 <blockquote>
-<p><code>man</code> <code>cat</code> <code>free</code> <code>top</code> <code>ps</code> <code>kill</code> <code>killall</code> <code>logout</code> <code>reboot</code> <code>shutdown</code> <code>set</code></p>
+<p><code>export</code> <code>source</code> <code>ifconfig</code> <code>apt</code> <code>man</code> <code>cat</code> <code>free</code> <code>top</code> <code>ps</code> <code>kill</code> <code>killall</code> <code>logout</code> <code>reboot</code> <code>shutdown</code> <code>set</code></p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install xxxx           <span class="c1"># 安装软件包的最新版本</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gedit /etc/profile             <span class="c1"># 打开环境变量，在文件最后添加内容：export PATH=$PATH:/usr/local/cgdb/bin</span>
+<span class="nb">source</span> /etc/profile                 <span class="c1"># 使能环境变量。备注：source 可用 . 来表示，注意点后面须要加空格！某案例：. ./export.sh</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/mysql/bin   <span class="c1"># 临时配置环境变量</span>
+                                    <span class="c1"># 更多系统/用户/环境变量知识请查看：linux核心思想/linux 环境变量</span>
+
+ifconfig                            <span class="c1"># 查看网络</span>
+ifconfig eth0 192.168.2.10          <span class="c1"># 临时配置IP地址(是临时配置,没保存!)</span>
+ifconfig eth0 192.168.2.10 netmask 255.255.255.0
+ifconfig eth0 192.168.2.10 netmask 255.255.255.0 broadcast 192.168.2.255
+sudo /etc/init.d/networking restart <span class="c1"># 重启网络</span>
+sudo gedit /etc/network/interfaces  <span class="c1"># 编辑网络 (不用 gedit 时也可以用 vi 编辑)</span>
+                                    <span class="c1"># 网络配置最基本内容:</span>
+                                    <span class="c1"># # The loopback network interface</span>
+                                    <span class="c1"># auto lo</span>
+                                    <span class="c1"># iface lo inet loopback</span>
+                                    <span class="c1"># </span>
+                                    <span class="c1"># # The primary network interface</span>
+                                    <span class="c1"># auto eth0</span>
+                                    <span class="c1"># # iface eth0 inet dhcp ← 如果是自动分配网络IP，否则是下面指定网络IP</span>
+                                    <span class="c1"># iface eth0 inet static</span>
+                                    <span class="c1">#         address 192.168.0.42</span>
+                                    <span class="c1">#         netmask 255.255.255.0</span>
+                                    <span class="c1">#         gateway 192.168.0.1</span>
+                                    <span class="c1">#         network 192.168.0.0</span>
+                                    <span class="c1">#         broadcast 192.168.0.255</span>
+                                    <span class="c1">#         dns-nameservers 114.114.114.114 8.8.8.8</span>
+
+sudo apt-get install xxxx           <span class="c1"># 安装软件包的最新版本（apt 是 Advanced Package Tool（高级软件包工具）简写，apt-get、apt-cache 是 apt 工具的传统命令行接口，apt 现在被推荐为更现代的用法，例如：apt list --installed 列出已安装的软件包）</span>
 sudo apt-get remove  xxxx           <span class="c1"># 从系统中删除指定的软件包</span>
 sudo apt-get update                 <span class="c1"># 检测已安装软件包是否有更新（如果指定软件名则表示指定软件包是否有更新）</span>
 sudo apt-get upgrade xxxx           <span class="c1"># 升级指定的软件包(前提：先运行 update 检测)(而使用 dist-upgrade 则以更聪明的方式来解决更新过程中出现的软件依赖问题)</span>
@@ -1358,7 +1444,7 @@ shutdown -c                         <span class="c1"># 取消按预定时间关�
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
@@ -1367,5 +1453,5 @@ shutdown -c                         <span class="c1"># 取消按预定时间关�
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":200},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
