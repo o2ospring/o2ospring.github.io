@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "其它","wordcount":  10092 ,
+                        }],"genre": "posts","keywords": "其它","wordcount":  11102 ,
         "url": "https:\/\/o2ospring.github.io\/20200315\/","datePublished": "2020-03-15T21:33:41+08:00","dateModified": "2020-03-15T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">行业技术资讯收集</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/other/"><i class="far fa-folder fa-fw"></i>other</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-15">2020-03-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10092 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;<span id="/20200315/" class="leancloud_visitors" data-flag-title="行业技术资讯收集">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-15">2020-03-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 11102 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 23 分钟&nbsp;<span id="/20200315/" class="leancloud_visitors" data-flag-title="行业技术资讯收集">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -549,6 +549,12 @@ D型：有过载保护，没有过流保护。</li>
 </ol>
 </blockquote>
 </details>  
+<details close=""><summary>19、座椅有人坐下传感</summary>  
+<blockquote>
+<p>方案一：压力气囊，有人坐下，气压变大超过阀值。<br>
+方案二：薄膜压力传感器，和我们使用的薄膜按键一样原理。</p>
+</blockquote>
+</details>  
 </details>  
 <h3 id="三生产技术">三、生产技术</h3>
 <details close=""><summary>点击展开内容</summary>  
@@ -671,7 +677,37 @@ D型：有过载保护，没有过流保护。</li>
 </blockquote>
 <ol>
 <li><a href="http://www.goodocom.com" target="_blank" rel="noopener noreffer">深圳顾凯信息技术有限公司</a> 是一家专注蓝牙技术的方案公司，致力于汽车车载应用高可靠、高性价比的蓝牙模块。【<a href="../img/20200315_53.jpg" rel="">卡片</a>】</li>
+<li><a href="https://silion.com.cn" target="_blank" rel="noopener noreffer">北京芯联创展电子技术股份有限公司</a> 是物联网领域的专业 RFID 技术服务商，为客户提供 RFID 模块、读写器、天线。</li>
 </ol>
+<details close=""><summary>1、RFID 基本知识</summary>  
+<details close=""><summary>1.1、EPC 知识</summary>  
+<ol>
+<li>
+<p>EPC 是根据电子商贸协定而编制<br>
+RFID 标签分为低频、高频、超高频标签，带有EPC的一般指的是超高频标签，是按照 ECP Global 标准定义的一系列字符，就像人的名字一样，可以通过 UHF Reader 进行修改；一般标签芯片均有用户自定义区，客户可以根据相关项目及偏好进行自定义。</p>
+</li>
+<li>
+<p>EPC 的大小（RFID 标签）<br>
+PC协议控制字设置为3000h指示EPC长度为6个字，12字节，96bits。<br>
+PC协议控制字设置为4000h指示EPC长度为8个字，16字节，128bits。<br>
+<a href="https://www.duoluodeyu.com/2522.html" target="_blank" rel="noopener noreffer">网文</a></p>
+</li>
+</ol>
+</details>  
+<details close=""><summary>1.2、EPC 分类</summary>  
+<blockquote>
+<p>EPC 标签是电子产品代码的信息载体，主要由天线和芯片组成。EPC 标签中存储的惟一信息是 96 位或者 64 位产品电子代码。为了降低成本，EPC 标签通常是被动式射频标签。根据其功能级别的不同，EPC 标签可分为 5 类，目前所开展的 EPC 测试使用的是 Class l Gen 2 标签。</p>
+</blockquote>
+<ol>
+<li><strong><code>Class OEPC</code> 标签</strong>：满足物流，供应链管理中，比如超市的结账付款、超市货架扫描、集装箱货物识别、货物运输通道以及仓库管理等基本应用功能的标签。Class OEPC 标签的主要功能包括：必须包含EPC代码、24 位自毁代码以及 CRC 代码；可以被读写器读取；可以被重叠读取；可以自毁；存储器不可以由读写器进行写入。</li>
+<li><strong><code>Class l EPC</code> 标签</strong>：又称身份标签，它是一种无源的、后向散射式标签，除了具备 ClassOEPC 标签的所有特征外，还具有一个电子产品代码标识符和一个标签标识符，Class 1 EPC 标签具有自毁功能，能够使得标签永久失效，此外，还有可选的密码保护访问控制和可选的用户内存等特性。</li>
+<li><strong><code>Class 2 EPC</code> 标签</strong>：也是一种无源的、后向散射式标签，它除了具备 Class 1 EPC 标签的所有特征外，还包括扩展的 TID（Tag Identifier，标签标识符）、扩展的用户内存、选择性识读功能。Class 2 EPC 标签在访问控制中加入了身份认证机制，并将定义其他附加功能。</li>
+<li><strong><code>Class 3 EPC</code> 标签</strong>：是一种半有源的、后向散射式标签，它除了具备 Class 2 EPC 标签的所有特征外，还具有完整的电源系统和综合的传感电路，其中片上电源用来为标签芯片提供部分逻辑功能。</li>
+<li><strong><code>Class 4 EPC</code> 标签</strong>：是一种有源的、主动式标签，它除了具备 Class 3 EPC 标签的所有特征外，还具有标签到标签的通信功能、主动式通信功能和特别组网功能。</li>
+</ol>
+</details>  
+</details>  
+<hr>
 </details>  
 <details close=""><summary>4、传感器</summary>  
 <ol>
@@ -721,6 +757,12 @@ D型：有过载保护，没有过流保护。</li>
 </ol>
 <p>目前全世界占领汽车级MCU市场的产商，主要有恩智浦（NXP）、英飞凌（Infineon）、意法半导体（ST）、瑞萨（Renesas）、德州仪器（TI）、微芯（Microchip）等。</p>
 </details>  
+<details close=""><summary>12、电子商城</summary>  
+<ol>
+<li><a href="https://www.szlcsc.com/" target="_blank" rel="noopener noreffer">立创商城</a></li>
+<li><a href="https://www.hqchip.com/" target="_blank" rel="noopener noreffer">华秋商城</a></li>
+</ol>
+</details>  
 </details>  
 <h3 id="七公司">七、公司？？</h3>
 <details close=""><summary>点击展开内容</summary>  
@@ -757,7 +799,7 @@ D型：有过载保护，没有过流保护。</li>
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
