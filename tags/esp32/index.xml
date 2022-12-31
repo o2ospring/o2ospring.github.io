@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ESP32 - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/esp32/</link>
+        <description>ESP32 - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Oct 2025 16:05:00 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/esp32/" rel="self" type="application/rss+xml" /><item>
+    <title>ESP32 工程命令行编译笔记</title>
+    <link>https://o2ospring.github.io/20251025/</link>
+    <pubDate>Sat, 25 Oct 2025 16:05:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251025/</guid>
+    <description><![CDATA[前言 在之前公司某项目开发中，团队选用 ESP32 模块为核心，我主导架构规划与核心模块开发时，需要先攻克工程编译环节，之后才能调试模块和审查相关同事代码]]></description>
+</item></channel>
+</rss>

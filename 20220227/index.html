@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://o2ospring.github.io/20220227/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-27T15:00:00+08:00" />
-<meta property="article:modified_time" content="2022-02-27T15:00:00+08:00" />
+<meta property="article:modified_time" content="2025-11-09T10:00:00+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
@@ -20,7 +20,7 @@
 <meta name="application-name" content="o2ospring">
 <meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220227/" /><link rel="prev" href="https://o2ospring.github.io/20220126/" /><link rel="next" href="https://o2ospring.github.io/20220308/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20220227/" /><link rel="prev" href="https://o2ospring.github.io/20220126/" /><link rel="next" href="https://o2ospring.github.io/20220228/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,8 +34,8 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Cygwin, linux 工具\/应用","wordcount":  2308 ,
-        "url": "https:\/\/o2ospring.github.io\/20220227\/","datePublished": "2022-02-27T15:00:00+08:00","dateModified": "2022-02-27T15:00:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Cygwin, linux 工具\/应用","wordcount":  2499 ,
+        "url": "https:\/\/o2ospring.github.io\/20220227\/","datePublished": "2022-02-27T15:00:00+08:00","dateModified": "2025-11-09T10:00:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">cygwin 之 unix 模拟环境</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-27">2022-02-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2308 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-27">2022-02-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2499 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/20220227/" class="leancloud_visitors" data-flag-title="cygwin 之 unix 模拟环境">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -139,7 +139,7 @@
 </nav></div>
             </div><div class="content" id="content"><h3 id="前言">前言</h3>
 <blockquote>
-<p>有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具）帮忙我们在 windows 系统上完成某项工作（尤其是使用 gnu 工具集在 windows 上进行嵌入式系统开发是非常有用的!）。使用 <a href="http://www.cygwin.com/" target="_blank" rel="noopener noreffer">Cygwin</a> 是非常好的选择，它由 cygnus solutions 公司开发的自由软件，其集成绝大部分的 linux 软件包，只需使用 Cygwin 安装程序（实则是资源管理器）安装（添加）对应软件包即可。</p>
+<p>有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具被封装成 Windows<code>.exe</code>执行文件）帮忙我们在 windows 系统上完成某项工作（尤其是使用 gnu 工具集在 windows 上进行嵌入式系统开发是非常有用的!）。使用 <a href="http://www.cygwin.com/" target="_blank" rel="noopener noreffer">Cygwin</a> /ˈsɪɡwɪn/ 是非常好的选择，它由 cygnus solutions 公司开发的自由软件，其集成绝大部分的 linux 软件包，只需使用 Cygwin 安装程序（实则是资源管理器）安装（添加）对应软件包即可。</p>
 </blockquote>
 <h3 id="安装">安装</h3>
 <details close=""><summary>1、到 Cygwin 官网下载：</summary>  
@@ -149,7 +149,7 @@
 ● <strong>特别说明</strong> ：<br>
 1、注意：<a href="http://www.cygwin.com" target="_blank" rel="noopener noreffer">Cygwin</a> 环境中编译构建的软件在运行时必须依赖<code>cygwin1.dll</code>，如果制作独立软件建议用 <a href="https://www.mingw-w64.org" target="_blank" rel="noopener noreffer">MinGW-w64</a>/<a href="http://tdm-gcc.tdragon.net" target="_blank" rel="noopener noreffer">TDM-GCC</a> 工具链来编译构建软件；<br>
 2、关于：<a href="http://www.cygwin.com" target="_blank" rel="noopener noreffer">Cygwin</a> 和 <a href="http://www.mingw.org" target="_blank" rel="noopener noreffer">MinGW</a> 都是为用户提供在 windows 操作系统使用 GNU 工具的方法，使得原是 linux 写的 c 源代码可以在 windows 上编译及运行（exe 执行文件）。Cygwin 大而全面，提供完整的类 Unix 环境；而 MinGW 小而高效，其主要是编译器，一般只支持编译使用 C/C++ 标准库的程序。<br>
-3、补充：<a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener noreffer">UnxUtils</a> 也是 Windows 下的 Unix Linux 工具集，其集成了 Unix 系统的很多命令，下载解压并把它 usr/local/wbin 文件夹的绝对路径加到 windows 环境变量即可使用。<br>
+3、补充：<a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener noreffer">UnxUtils</a> <a href="https://gitee.com/lzrcm/unxutils" target="_blank" rel="noopener noreffer">②</a> /ʌŋks ˈjuːtɪlz/ 也是 Windows 下的 Unix Linux 工具集，其集成了 Unix 系统的很多命令，下载解压并把它 usr/local/wbin 文件夹的绝对路径加到 windows 环境变量即可使用。<br>
 ● <strong>下载网址</strong> ：<br>
 Cygwin 官网下载：<a href="http://www.cygwin.com" target="_blank" rel="noopener noreffer">http://www.cygwin.com</a></p>
 </blockquote>
@@ -379,9 +379,13 @@ apt-cyg install vim screen wget subversion <span class="se">\
 </details>  
 <details close=""><summary>2、windows 调用 Cygwin 工具：</summary>  
 <blockquote>
-<p>其实 windows 的 cmd 命令窗口可以直接使用 Cygwin 相关软件包工具，方法很简单：只需把软件包所在路径加入系统环境变量里即可。<em>这里不得不说一下 Windows 下的 Unix Linux 工具集 <a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener noreffer">UnxUtils</a>，其集成了 Unix 系统的很多命令，下载解压并把它 usr/local/wbin 文件夹的绝对路径加到 windows 环境变量即可使用</em>。</p>
+<p>其实 windows 的 cmd 命令窗口可以直接使用 Cygwin 相关软件包工具，方法很简单：只需把软件包所在路径加入系统环境变量里即可。<em>这里不得不说一下 Windows 下的 Unix Linux 工具集 <a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener noreffer">UnxUtils</a> <a href="https://gitee.com/lzrcm/unxutils" target="_blank" rel="noopener noreffer">②</a>，其集成了 Unix 系统的很多命令，下载解压并把它 usr/local/wbin 文件夹的绝对路径加到 windows 环境变量即可使用</em>。</p>
 </blockquote>
-<p><strong>2.1、添加 windows 系统环境变量：</strong></p>
+<p><strong>2.1、UnxUtils 核心功能与特性：</strong><br>
+● GNU工具移植‌：包含ls、grep、sed等200+常用命令的Windows编译版本。<br>
+● 轻量化运行‌：无需安装虚拟机或子系统，直接通过环境变量调用命令行工具。‌<br>
+● 兼容性支持‌：适用于Windows XP至Windows 10系统，部分命令支持UTF-8编码处理。</p>
+<p><strong>2.2、添加 windows 系统环境变量：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -396,7 +400,7 @@ apt-cyg install vim screen wget subversion <span class="se">\
 <span class="c1"># D:\cygwin64\bin</span>
 <span class="c1"># D:\cygwin64\sbin</span>
 <span class="c1"># D:\cygwin64\usr\local\bin</span>
-<span class="c1"># 要求使用 ; 分隔各个变量，具体如下：</span>
+<span class="c1"># 注意使用 ; 符分隔各个变量，具体例子如下：</span>
 <span class="p">;</span>D:<span class="se">\c</span>ygwin64<span class="se">\b</span>in<span class="p">;</span>D:<span class="se">\c</span>ygwin64<span class="se">\s</span>bin<span class="p">;</span>D:<span class="se">\c</span>ygwin64<span class="se">\u</span>sr<span class="se">\l</span>ocal<span class="se">\b</span>in
 </code></pre></td></tr></table>
 </div>
@@ -408,8 +412,8 @@ apt-cyg install vim screen wget subversion <span class="se">\
         data-sizes="auto"
         alt="../img/20220227_03_04.jpg"
         title="验证 apt-cyg" /></p>
-<p><strong>2.2、验证 cmd 命令窗调用 linux 命令：</strong></p>
-<p><img
+<p><strong>2.3、验证 cmd 命令窗调用 linux 命令：</strong><br>
+<img
         class="lazyload"
         src="/svg/loading.min.svg"
         data-src="../img/20220227_03_05.jpg"
@@ -422,7 +426,7 @@ apt-cyg install vim screen wget subversion <span class="se">\
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-02-27</span>
+                <span>更新于 2025-11-09</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -442,14 +446,14 @@ apt-cyg install vim screen wget subversion <span class="se">\
     </div>
 
     <div class="post-nav"><a href="/20220126/" class="prev" rel="prev" title="博客生成工具 Hugo"><i class="fas fa-angle-left fa-fw"></i>博客生成工具 Hugo</a>
-            <a href="/20220308/" class="next" rel="next" title="常用开发辅助工具">常用开发辅助工具<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/20220228/" class="next" rel="next" title="UnxUtils 之 unix 模拟工具">UnxUtils 之 unix 模拟工具<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

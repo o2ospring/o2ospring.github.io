@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "hugo, LoveIt, linux 工具\/应用","wordcount":  5091 ,
+                        }],"genre": "posts","keywords": "hugo, LoveIt, linux 工具\/应用","wordcount":  5168 ,
         "url": "https:\/\/o2ospring.github.io\/20220126\/","datePublished": "2022-01-26T21:33:41+08:00","dateModified": "2022-06-07T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">博客生成工具 Hugo</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/blog/"><i class="far fa-folder fa-fw"></i>blog</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-26">2022-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5091 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-26">2022-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5168 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/20220126/" class="leancloud_visitors" data-flag-title="博客生成工具 Hugo">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -204,6 +204,10 @@ hugo version                 <span class="c1">#查看版本,验证安装是否�
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">########建网站########</span>
@@ -218,6 +222,10 @@ hugo new post/first.md      <span class="c1">#新建一篇文章（实际目录�
 
 hugo server -t casper -D    <span class="c1">#指定主题“casper”编译并启动服务器（-t 因为配置文件没绑定主题,所以这里需要指定）（-D 表示草稿也编译）  </span>
                             <span class="c1">#根据提示用浏览器打开网址预览网站：http://localhost:1313/  </span>
+
+<span class="c1">#######日常使用#######</span>
+<span class="c1"># hugo                      #编译网站　　　　　　　　（前提：编译配置文件绑定的主题）</span>
+<span class="c1"># hugo server               #编译及启动本地网站服务器（前提：编译配置文件绑定的主题）</span>
 </code></pre></td></tr></table>
 </div>
 </div></details>  
@@ -417,10 +425,10 @@ a) 首先到 <a href="https://www.algolia.com" target="_blank" rel="noopener nor
 b) 然后在自己的账号里创建<code>应用</code>，具体请看【<a href="../img/20220126_02_03_43.jpg" rel="">图示</a>】<br>
 c) 接着在应用里创建及上传<code>索引</code>，具体请看【<a href="../img/20220126_02_03_44.jpg" rel="">图示</a>】<br>
 d) 最后要配置<code>config.toml</code>文件，具体请看【<a href="../img/20220126_02_03_45.jpg" rel="">图示</a>】<br>
-e) 创建自动上传索引文件命令（避免手工上传重复劳动）：</li>
+e) <strong>创建自动上传索引文件命令（避免手工上传重复劳动）</strong>：</li>
 </ol>
 <ul>
-<li>e1) 安装<code>atomic-algolia</code>包（前提：需要安装 npm 工具，具体请参考笔记《<a href="../20220123" rel="">网站 node 包管理器 npm</a>》）</li>
+<li>e)1) 安装<code>atomic-algolia</code>包（前提：需要安装 npm 工具，具体请参考笔记《<a href="../20220123" rel="">网站 node 包管理器 npm</a>》）</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -431,7 +439,7 @@ e) 创建自动上传索引文件命令（避免手工上传重复劳动）：</
 </code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>e2) 根目录下创建<code>package.json</code>文件，内容如下：</li>
+<li>e)2) 根目录下创建<code>package.json</code>文件，内容如下：</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -452,7 +460,7 @@ e) 创建自动上传索引文件命令（避免手工上传重复劳动）：</
 </code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>e3) 根目录下新建<code>.env</code>文件，内容如下（具体【<a href="../img/20220126_02_03_46.jpg" rel="">图示</a>】）：</li>
+<li>e)3) 根目录下新建<code>.env</code>文件，内容如下（具体【<a href="../img/20220126_02_03_46.jpg" rel="">图示</a>】）：</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -470,7 +478,7 @@ e) 创建自动上传索引文件命令（避免手工上传重复劳动）：</
 </div>
 </div><ul>
 <li>
-<p>e4) 根目录下执行<code>npm run algolia</code>测试上传索引的命令：<br>
+<p>e)4) 根目录下执行<code>npm run algolia</code>测试上传索引的命令：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -481,7 +489,7 @@ e) 创建自动上传索引文件命令（避免手工上传重复劳动）：</
         title="../img/20220126_02_03_47.jpg" /></p>
 </li>
 <li>
-<p>e5) 编写脚本文件自动上传索引+发布博文，具体命令如下：</p>
+<p>e)5) 编写脚本文件自动上传索引+发布博文，具体命令如下：</p>
 </li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -610,7 +618,7 @@ git push -f origin master    <span class="c1">#【推送】本地仓库到【远
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>WSL - 标签 - o2ospring</title>
+        <link>https://o2ospring.github.io/tags/wsl/</link>
+        <description>WSL - 标签 - o2ospring</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Nov 2021 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/wsl/" rel="self" type="application/rss+xml" /><item>
+    <title>WSL 之 unix 模拟工具</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Tue, 09 Nov 2021 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在 Windows 上直接运行完整的 Linux 发行版，无需虚拟机或双系统。 WSL 简介 1、核心特性： 原生集成：与 Windows 系统深度融]]></description>
+</item></channel>
+</rss>

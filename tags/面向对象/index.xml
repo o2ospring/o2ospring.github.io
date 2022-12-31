@@ -3,8 +3,15 @@
         <title>面向对象 - 标签 - o2ospring</title>
         <link>https://o2ospring.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
         <description>面向对象 - 标签 - o2ospring</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Sep 2020 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="self" type="application/rss+xml" /><item>
-    <title>面向对象的 C 语言实现方法</title>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 22 Feb 2023 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>面向对象模块设计的 C 语言实现方法</title>
+    <link>https://o2ospring.github.io/20230222/</link>
+    <pubDate>Wed, 22 Feb 2023 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20230222/</guid>
+    <description><![CDATA[一、前言 网上的面向对象编程文章往往是描述面向对象的思维（看了之后反而是“云里雾里”、很虚的感觉），至于如何使用代码来编写对象基本上没提及。那]]></description>
+</item><item>
+    <title>面向对象思维方式的 C 语言实现方法</title>
     <link>https://o2ospring.github.io/20200913/</link>
     <pubDate>Sun, 13 Sep 2020 21:33:41 &#43;0800</pubDate>
     <author>作者</author>

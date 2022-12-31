@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  3965 ,
+                        }],"genre": "posts","keywords": "Ubuntu, linux 工具\/应用","wordcount":  5370 ,
         "url": "https:\/\/o2ospring.github.io\/20200802\/","datePublished": "2020-08-02T21:33:41+08:00","dateModified": "2022-03-24T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu 系统与工具</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3965 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20200802/" class="leancloud_visitors" data-flag-title="Ubuntu 系统与工具">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-02">2020-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5370 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/20200802/" class="leancloud_visitors" data-flag-title="Ubuntu 系统与工具">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -388,20 +388,43 @@
 </details>  
 </details>  
 <details close=""><summary>4. <strong>Ubuntu 操作界面基础</strong></summary>  
+<details close=""><summary>4.1 操作终端</summary>  
 <blockquote>
-<p>Ubuntu 拥有多个操作终端（使用<code>Ctrl+Alt+F1~F7</code>切换），<code>F7</code>为系统默认启动系统默认加载的操作终端是图形界面，其余都是为命令行界面终端。</p>
+<p>Ubuntu 拥有多个操作终端，使用<code>Ctrl+Alt+F1~F6</code>切换到对应六个命令行终端，<code>Ctrl+Alt+F7</code>切换回图形桌面。</p>
 </blockquote>
 <ul>
-<li>Ctrl+Alt+F1：切换到命令行界面终端。</li>
-<li>Ctrl+Alt+F7：切换到图形界面终端。</li>
-<li>Ctrl+Alt+t： 在<strong>图形界面</strong>下打开命令行终端机。</li>
-<li><code>$</code>命令行前字符，表示用户权限操作。</li>
-<li><code>#</code>命令行首字符，表示管理员权限操作。（root权限）</li>
+<li><code>Ctrl+Alt+F7</code>：切到图形桌面</li>
+<li><code>Ctrl+Alt+F1</code>：切到命令行终端桌面（F1~F6 共 6 个）</li>
+<li><code>Ctrl+Alt+t </code>：打开命令行终端窗口（图形桌面下）</li>
+<li><code>$</code>命令行前字符，表示用户权限操作</li>
+<li><code>#</code>命令行首字符，表示管理员权限操作（root权限）</li>
 </ul>
+</details>  
+<details close=""><summary>4.2 启动器</summary>  
 <blockquote>
-<p>为 Ubuntu 增加<code>显示桌面</code>快捷键：System setting / Keyboard / Navigation / Hide all normal windows 设置即可。<br>
-为 Ubuntu 加<code>显示桌面</code>到启动器：System setting / Appearance / Behavior / Add show desktop icon to the launcher 勾选上即可。</p>
+<ul>
+<li>Ubuntu16.04 加<code>显示桌面</code>的<code>快捷图标</code>：System setting / Keyboard / Navigation / Hide all normal windows 设置即可。</li>
+<li>Ubuntu16.04 加<code>显示桌面</code>到<code>启动器</code>：System setting / Appearance / Behavior / Add show desktop icon to the launcher 勾选上即可。</li>
+<li>Ubuntu20.04 的<code>显示桌面</code>的快捷键<code>Windows键+D</code></li>
+</ul>
 </blockquote>
+</details>  
+<details close=""><summary>4.3 中文界面</summary>  
+<blockquote>
+<p>因 Ubuntu20.04 可视界面下安装中文界面一直失败，改用命令安装：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt install language-pack-zh-hans language-pack-gnome-zh-hans fonts-noto-cjk
+</code></pre></td></tr></table>
+</div>
+</div><p>然后在界面设置：Settings / Region &amp; Language / Language 点击打开语言列表中找到 “Chinese (China)”，勾选它，然后点击 “Select”，最后点击 “Restart&hellip;” 重新登录用户账号即可！</p>
+</details>  
 </details>  
 <details close=""><summary>5. <strong>Ubuntu 版本查看命令</strong></summary>  
 <ul>
@@ -416,12 +439,20 @@
 <blockquote>
 <p>介绍：在 Ubuntu 系统上安装软件，多数情况下都是使用<code>apt-get</code>指令在线安装。如果网络没有配置好（一般情况下系统默认配置为 DHCP），则造成软件（工具）无法安装，相关工作将无法开展。</p>
 </blockquote>
-<ul>
-<li><code>ctrl + alt + t</code>快捷键打开终端机（注：以后不再提及需要打开终端）</li>
-<li><code>sudo gedit /etc/network/interfaces</code>编辑网络参数</li>
-<li><code>sudo /etc/init.d/networking restart</code>重启网络</li>
-</ul>
-<p>某些情况需要静态ip：</p>
+<p>1）编辑网络等操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ctrl + alt + t                      <span class="c1">#快捷键打开终端机 </span>
+sudo gedit /etc/network/interfaces  <span class="c1">#编辑网络参数  </span>
+sudo /etc/init.d/networking restart <span class="c1">#重启网络  </span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2）配置静态ip内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -466,16 +497,56 @@ dns-nameservers 8.8.8.8
 </details>  
 <details close=""><summary>8. <strong>解决系统之间复制粘贴问题</strong></summary>  
 <blockquote>
-<p>介绍：解决 ubuntu16.04 和 windows 电脑之间无法复制粘贴问题。</p>
+<p>一、复制粘贴方式：</p>
 </blockquote>
-<ol>
-<li><code>sudo apt-get autoremove open-vm-tools</code>移除系统原工具</li>
-<li><code>sudo apt-get install open-vm-tools</code>安装开源虚拟机交互工具包</li>
-<li><code>sudo apt-get install open-vm-tools-desktop</code>安装桌面双向复制粘贴工具</li>
-<li><code>sudo apt-get install open-vm-tools-dkms</code>安装文件夹共享工具</li>
-<li>安装过程中，yes 或者 y 一路通过。</li>
-<li>重启 Ubuntu 即可。</li>
-</ol>
+<p>1）<strong>安装工具</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get autoremove open-vm-tools       <span class="c1">#移除系统原工具  </span>
+sudo apt-get install open-vm-tools          <span class="c1">#安装开源虚拟机交互工具包  </span>
+sudo apt-get install open-vm-tools-desktop  <span class="c1">#安装桌面双向复制粘贴工具  </span>
+sudo apt-get install open-vm-tools-dkms     <span class="c1">#安装文件夹共享工具（以上工具安装过程中，一路 yes/y 通过即可）  </span>
+reboot                                      <span class="c1">#重启 Ubuntu 即可。  </span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2）<strong>补充说明</strong>：</p>
+<p>复制粘贴方式实现 ubuntu16.04 和 windows 电脑之间灵活的文件(夹)拷贝操作，但是实际使用中会出现速度变慢、卡顿、卡死等一些不稳定问题，所以只建议用来复制文本内容，至于文件(夹)拷贝则使用下面的文件夹共享方式会更好。</p>
+<blockquote>
+<p>二、文件夹共享方式：</p>
+</blockquote>
+<p>1）<strong>安装工具</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install open-vm-tools-dkms     <span class="c1">#安装文件夹共享工具</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2）<strong>配置工具</strong>：</p>
+<p>在 VMware 虚拟机菜单依次点击→虚拟机→设置→选项→共享文件夹→总是启用→添加目录即可（<a href="../img/20200802_1_05_03.jpg" rel="">如图</a>），在 Unbuntu 系统的访问的共享文件夹在<code>/mnt/hgfs</code>对应目录。</p>
+<p>3）<strong>配置脚本</strong>：</p>
+<p>每次重新开机共享文件夹不能自动挂载，要进行先“已禁用”再“总是启用”操作后才能使用，很是麻烦！解决方法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gedit /etc/fstab   <span class="c1"># 打开配置文件，在其最后面增加一行自动挂载语句：</span>
+                        <span class="c1"># .host:/         /mnt/hgfs       fuse.vmhgfs-fuse allow_other,defaults   0   0</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>三、相关工具简介：</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -494,22 +565,11 @@ dns-nameservers 8.8.8.8
 </tr>
 <tr>
 <td>open-vm-tools-dkms</td>
-<td>实现文件夹共享。在 VMware 虚拟机菜单依次点击→虚拟机→设置→选项→共享文件夹→总是启用→添加目录即可，在 Unbuntu 系统的访问的共享文件夹在<code>/mnt/hgfs</code>对应目录</td>
+<td>实现文件夹共享</td>
 </tr>
 </tbody>
 </table>
-<p>补充：每次重新开机共享文件夹不能自动挂载，要进行先“禁用”再“启动”操作后才能使用，很是麻烦！解决方法如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gedit /etc/fstab   <span class="c1"># 打开配置文件，在其最后面增加一行自动挂载语句：</span>
-                        <span class="c1"># .host:/         /mnt/hgfs       fuse.vmhgfs-fuse allow_other,defaults   0   0</span>
-</code></pre></td></tr></table>
-</div>
-</div><!--  
+<!--  
 https://blog.csdn.net/weixin_50603017/article/details/122309067  
 https://blog.51cto.com/u_15061930/4284241  
 -->  
@@ -518,12 +578,21 @@ https://blog.51cto.com/u_15061930/4284241
 <blockquote>
 <p>介绍：相信很多人在装虚拟机的时候，遇到了窗口过小不能自适应的问题。我在网上查了好多资料，有说安装 Vmware Tools 解决，也有说修改分辨率解决。但 Vmware Tools 官方工具已经不建议用，更提倡开源的 open-vm-tools。</p>
 </blockquote>
-<ol>
-<li><code>sudo apt-get install open-vm-tools</code>安装开源工具包；</li>
-<li><code>sudo apt-get install open-vm*</code>安装一些依赖包；</li>
-<li><code>shutdown -r now</code>重启，完美解决窗口自适应问题。</li>
-<li>还有在 VMware 勾选：查看/自动调节大小/自动适应客户机 和 自动适应窗口。（<a href="../img/20200802_1_05_04.jpg" rel="">如图</a>）</li>
-</ol>
+<p>1）<strong>安装工具</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install open-vm-tools  <span class="c1">#安装开源工具包；  </span>
+sudo apt-get install open-vm*       <span class="c1">#安装一些依赖包；  </span>
+shutdown -r now                     <span class="c1">#重启，完美解决窗口自适应问题。  </span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2）<strong>配置工具</strong>：</p>
+<p>在 VMware 勾选：查看/自动调节大小/自动适应客户机 和 自动适应窗口。（<a href="../img/20200802_1_05_04.jpg" rel="">如图</a>）</p>
 </details>  
 <details close=""><summary>10. <strong>解决打开文本文件乱码问题</strong></summary>  
 <blockquote>
@@ -579,6 +648,134 @@ https://blog.51cto.com/u_15061930/4284241
 <details close=""><summary>11. <strong>安装中文输入法</strong></summary>  
 <p>请阅读：《<a href="../20210617" rel="">中文输入工具 wubi</a>》</p>
 </details>  
+<details close=""><summary>12. <strong>修改用户名称与密码</strong></summary>  
+<p>因为拷贝给其他小伙伴 Ubuntu20 和虚拟机，Desktop 显示的自己的名字，尝试改用户名和密码，改了 2 次结果都登陆不进去了，最后发现了原因如下：</p>
+<blockquote>
+<p>“如果你要修改密码和用户名的话，请先修改密码，重启，再修改用户名，重启。如果你先修改用户名，再修改密码的话，可能会导致你登录不了 Ubuntu。然后重新配置系统，最好再修改重要配置前将设备镜像备份一下！！！”</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#########################################</span>
+
+<span class="c1"># 一、设置root用户密码</span>
+sudo passwd root                        <span class="c1">#启动修改root密码</span>
+New password:                           <span class="c1">#根据指示初次输入新密码</span>
+Retype new password:                    <span class="c1">#根据指示再次输入新密码</span>
+passwd: password updated successfully   <span class="c1">#最后显示设置密码成功</span>
+
+<span class="c1"># 二、修改普通用户密码</span>
+su root                                 <span class="c1">#转为root用户操作</span>
+Password:                               <span class="c1">#根据要求输入root(新)密码进入下一步</span>
+sudo passwd xxxx                        <span class="c1">#启动修改xxxx密码（xxxx是原用户名称）</span>
+New password:                           <span class="c1">#根据指示初次输入新密码</span>
+Retype new password:                    <span class="c1">#根据指示再次输入新密码</span>
+passwd: password updated successfully   <span class="c1">#最后显示设置密码成功</span>
+reboot                                  <span class="c1">#重启系统★★★★★★</span>
+
+<span class="c1">#########################################</span>
+
+<span class="c1"># 三、修改主机名</span>
+sudo vi /etc/hostname                   <span class="c1">#将其中的名字改为自己的名字（vi不方便可改用gedit文本编辑器）</span>
+sudo vi /etc/hosts                      <span class="c1">#将其中的名字改为自己的名字（vi不方便可改用gedit文本编辑器）</span>
+
+<span class="c1"># 四、修改用户名称</span>
+su root                                 <span class="c1">#转为root用户操作</span>
+Password:                               <span class="c1">#根据要求输入root(新)密码进入下一步</span>
+sudo vi /etc/passwd                     <span class="c1">#将其中的名字改为自己的名字（vi不方便可改用gedit文本编辑器）</span>
+sudo vi /etc/shadow                     <span class="c1">#将其中的名字改为自己的名字（vi不方便可改用gedit文本编辑器）</span>
+sudo vi /etc/group                      <span class="c1">#将其中的名字改为自己的名字（vi不方便可改用gedit文本编辑器）</span>
+
+<span class="c1"># 五、更改目录名称</span>
+<span class="nb">cd</span> /home                                <span class="c1">#进入用户家目录</span>
+mv xxxx yyyy                            <span class="c1">#修改家目录下用户文件夹名称（原名称xxxx改为新名称yyyy）</span>
+reboot                                  <span class="c1">#重启系统★★★★★★</span>
+
+<span class="c1">#########################################</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary>13. <strong>VMware 15.5.6 打开 VMware 10 镜像的问题</strong></summary>  
+<p>1、缺失桌面开始菜单、菜单选择项、无移动窗口、无法打开桌面终端等</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install unity            <span class="c1">#安装unity，一切根源由unity异常引起</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2、右键没有打开终端，而且终端是XTerm，非原默认终端</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt update                       <span class="c1">#更新软件包列表</span>
+sudo apt upgrade                      <span class="c1">#升级已安装的软件包</span>
+sudo apt install gnome                <span class="c1">#开始安装 Gnome 桌面环境（选择默认的LightDM）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3、系统配置缺失 Language Support，原中文输入法丢失</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install language-selector-gnome
+                                      <span class="c1">#安装Language Support，之后重新安装输入法操作</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>4、缺失 gedit 文本编辑软件，需要重新安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install gedit            <span class="c1">#安装gedit</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
 <!--  
 配置环境前先坐下普及：  
 Ubuntu 不同目录下 profile 与 bashrc 的区别  
@@ -684,6 +881,64 @@ X-MultipleArgs<span class="o">=</span><span class="nb">false</span>
 </div>
 </div><p>3、最后：在可视窗口里进入 /usr/share/applications 文件夹，点右键菜单复制 Firefox98 Web Browser 桌面快捷启动图标，然后到桌面点右键菜单粘贴，最后点击图标即可在桌面启动 Firefox98 浏览器。</p>
 </details>  
+<details close=""><summary><span id="2_04">4. <strong>Ubuntu 上安装 Python-3.7 教程</strong></span></summary>  
+<p>一、在线版-安装示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update                                            <span class="c1">#更新软件包列表</span>
+sudo apt-get install python3                                   <span class="c1">#安装python3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>二、源码版-安装示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update                                            <span class="c1">#更新软件包列表，下行命令是安装依赖库（询问时自动键入y）</span>
+sudo apt-get install build-essential libncursesw5-dev libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev libssl-dev openssl libffi-dev libbz2-dev -y
+
+wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz  <span class="c1">#下载源代码，所有版本都在 https://www.python.org/ftp/python/</span>
+tar xzvf Python-3.7.1.tgz                                      <span class="c1">#解压源代码</span>
+<span class="nb">cd</span> Python-3.7.1                                                <span class="c1">#进入目录</span>
+./configure                                                    <span class="c1">#自动配置参数</span>
+sudo make <span class="o">&amp;&amp;</span> sudo make install                                 <span class="c1">#编译并且安装</span>
+
+python3.7 --version                                            <span class="c1">#检验是否安装成功</span>
+pip3.7 --version                                               <span class="c1">#检验是否安装成功</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details close=""><summary><span id="2_04">5. <strong>Ubuntu 上其它日常软件</strong></span></summary>  
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">网址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">linuxqq</td>
+<td style="text-align:left"><a href="https://im.qq.com/linuxqq/download.html" target="_blank" rel="noopener noreffer">官网下载</a></td>
+</tr>
+</tbody>
+</table>
+</details>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -715,7 +970,7 @@ X-MultipleArgs<span class="o">=</span><span class="nb">false</span>
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

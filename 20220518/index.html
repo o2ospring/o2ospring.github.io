@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "电路","wordcount":  1418 ,
+                        }],"genre": "posts","keywords": "电路","wordcount":  1862 ,
         "url": "https:\/\/o2ospring.github.io\/20220518\/","datePublished": "2022-05-18T21:33:41+08:00","dateModified": "2022-05-18T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">小电路多学问</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/hardware/"><i class="far fa-folder fa-fw"></i>hardware</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-18">2022-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1418 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/20220518/" class="leancloud_visitors" data-flag-title="小电路多学问">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-18">2022-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1862 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/20220518/" class="leancloud_visitors" data-flag-title="小电路多学问">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -227,7 +227,8 @@ C3 是电源滤波电容，滤除电源高频杂波，同时减轻对电路板�
 <details close=""><summary><strong>5、NPN 继电器驱动电路</strong></summary>  
 <p>待续……</p>
 </details>  
-<details close=""><summary><strong>6、485 总线接口EMC电路</strong></summary>  
+<details close=""><summary><strong>6、CAN/485 总线电路</strong></summary>  
+<p>EMC 电路：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -236,9 +237,66 @@ C3 是电源滤波电容，滤除电源高频杂波，同时减轻对电路板�
         data-sizes="auto"
         alt="../img/20220518_0601.jpg"
         title="电路图" /></p>
+<p><strong>CAN/485 总线异常现象</strong>：</p>
+<p>主要原因：1）带供电总线负载过重，共地压差超限及波动，影响通讯质量甚至烧录收发器；2）防雷管有寄生电容（推荐 TVS-SMBJ15CA，要求总线不要加入电容），接入总线设备越多寄生电容累加变得越大，影响通讯波形（出现“镰刀”波形）；3）总线通讯波形出现尖峰（出现在差分信号电平跳变边沿处），一般是由于信号反射导致，在末端加入 120Ω 终端电阻即可；</p>
+<p><strong>EMC 与 通讯速率</strong>：</p>
+<p>加入 EMC 设计必然会影响数字通讯质量，也就是说 EMC 能提高硬件抗恶劣环境能力，但也会连带对通讯速率和接入节点数量有影响！</p>
+<p><strong>一组推荐的器件参数</strong>：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_0602.jpg"
+        data-srcset="../img/20220518_0602.jpg, ../img/20220518_0602.jpg 1.5x, ../img/20220518_0602.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_0602.jpg"
+        title="电路图" /></p>
+<!--  
+[为何总线“镰刀”波形频频发生?](https://mp.weixin.qq.com/s/us37_xOyQAJiB-QKsRosKg)  
+[485接口EMC电路设计方案！](https://mp.weixin.qq.com/s/ehTduiy9kKuK1vdBmzbJXQ)  
+[单片机常用外围电路设计参考与心得](https://mp.weixin.qq.com/s/0iPN3Sgv4OM_qVjgjwKkHQ)  
+-->  
 <!--  
 PTC 热敏电阻，也是自恢复保险丝  
 -->  
+<p>待续……</p>
+</details>  
+<details close=""><summary><strong>7、一键开关机电路</strong></summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_0701.jpg"
+        data-srcset="../img/20220518_0701.jpg, ../img/20220518_0701.jpg 1.5x, ../img/20220518_0701.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_0701.jpg"
+        title="电路图" /></p>
+<p>开机：SW1 按下，Q1 导通，MCU 开始工作并控制 Q2 导通。<br>
+关机：SW1 按下，GPIO-In 检测到 SW1 按下，MCU 控制 Q2 关闭，则 Q1 关闭，最后电源断电。</p>
+<p>待续……</p>
+</details>  
+<details close=""><summary><strong>8、LED 恒流电路</strong></summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_0801.jpg"
+        data-srcset="../img/20220518_0801.jpg, ../img/20220518_0801.jpg 1.5x, ../img/20220518_0801.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_0801.jpg"
+        title="电路图" /></p>
+<p>注意：三极管 Q1 的功耗是否过高。三极管的功耗 Pc = Vce * Ic，Vce 为集电极与发射极的压差，Ic 为集电极流过的电流，对于 SOT-23 封装的三极管来说，很多只有 200mW！</p>
+<!--  
+[LED恒流电路的电路原理](https://mp.weixin.qq.com/s/qdXts5o2ySLMVondi9Qi0g)  
+-->  
+<p>待续……</p>
+</details>  
+<details close=""><summary><strong>9、单向 IO 电平转换</strong></summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_0901.jpg"
+        data-srcset="../img/20220518_0901.jpg, ../img/20220518_0901.jpg 1.5x, ../img/20220518_0901.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_0901.jpg"
+        title="电路图" /></p>
 <p>待续……</p>
 </details>  
 </div><div class="post-footer" id="post-footer">
@@ -272,7 +330,7 @@ PTC 热敏电阻，也是自恢复保险丝
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

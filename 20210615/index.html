@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "FreeRTOS, RTOS","wordcount":  5415 ,
+                        }],"genre": "posts","keywords": "FreeRTOS, RTOS","wordcount":  5535 ,
         "url": "https:\/\/o2ospring.github.io\/20210615\/","datePublished": "2021-06-15T21:33:41+08:00","dateModified": "2021-06-15T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">FreeRTOS 实时操作系统应用笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a>&nbsp;<a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5415 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/20210615/" class="leancloud_visitors" data-flag-title="FreeRTOS 实时操作系统应用笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5535 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="/20210615/" class="leancloud_visitors" data-flag-title="FreeRTOS 实时操作系统应用笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -203,7 +203,10 @@ FreeRTOS 特点：</p>
 </span><span class="c1"></span><span class="n">FreeRTOSConfig</span><span class="p">.</span><span class="n">h</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><blockquote>
+<p><a href="https://mp.weixin.qq.com/s/orkq9nlvtGSPjXqBNAgJ5Q" target="_blank" rel="noopener noreffer">网文：学 RTOS 从配置文件开始</a></p>
+</blockquote>
+</details>  
 <h3 id="临界中断开关">临界中断开关</h3>
 <details close=""><summary>点击展开内容</summary>  
 <div class="highlight"><div class="chroma">
@@ -231,7 +234,7 @@ FreeRTOS 特点：</p>
 <span class="c1">//中断中调用
 </span><span class="c1"></span><span class="n">UBaseType_t</span> <span class="n">uxSavedInterruptStatus</span><span class="p">;</span>
 <span class="n">uxSavedInterruptStatus</span> <span class="o">=</span> <span class="n">taskENTER_CRITICAL_FROM_ISR</span><span class="p">();</span> <span class="c1">//&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-</span><span class="c1"></span><span class="n">taskEXIT_CRITICAL_FROM_ISR</span><span class="p">(</span><span class="n">status_value</span><span class="p">);</span>               <span class="c1">//&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+</span><span class="c1"></span><span class="n">taskEXIT_CRITICAL_FROM_ISR</span><span class="p">(</span><span class="n">uxSavedInterruptStatus</span><span class="p">);</span>     <span class="c1">//&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
 </span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -426,7 +429,8 @@ FreeRTOS 特点：</p>
 </span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p><a href="https://freertos.blog.csdn.net/article/details/50578159" target="_blank" rel="noopener noreffer">网文：FreeRTOS 任务通知</a></p>
+<p><a href="https://freertos.blog.csdn.net/article/details/50578159" target="_blank" rel="noopener noreffer">网文：FreeRTOS 任务通知</a><br>
+<a href="https://blog.csdn.net/weixin_42066633/article/details/124385353" target="_blank" rel="noopener noreffer">网文：FreeRTOS 快速笔记——信号量（动态/静态）</a></p>
 </blockquote>
 </details>  
 <h3 id="信号量操作">信号量操作</h3>
@@ -459,6 +463,8 @@ FreeRTOS 特点：</p>
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//配置 (FreeRTOSConfig.h)
@@ -475,6 +481,8 @@ FreeRTOS 特点：</p>
 </span><span class="c1"></span><span class="n">BaseType_t</span> <span class="nb">true</span> <span class="cm">/*= pdTRUE*/</span><span class="p">;</span>
 <span class="nb">true</span> <span class="o">=</span> <span class="n">xSemaphoreGive</span><span class="p">(</span><span class="n">Sem_Handle</span><span class="p">);</span>                   <span class="c1">//信号量释放    （线程与线程）
 </span><span class="c1"></span><span class="nb">true</span> <span class="o">=</span> <span class="n">xSemaphoreTake</span><span class="p">(</span><span class="n">Sem_Handle</span><span class="p">,</span> <span class="n">portMAX_DELAY</span><span class="p">);</span>    <span class="c1">//信号量获取    （线程与线程）(非死等必要判断返回值:pdTRUE)
+</span><span class="c1"></span><span class="nb">true</span> <span class="o">=</span> <span class="n">xSemaphoreTake</span><span class="p">(</span><span class="n">Sem_Handle</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>                <span class="c1">//不等待获取    （线程与线程）(非死等必要判断返回值:pdTRUE)
+</span><span class="c1"></span><span class="k">while</span> <span class="p">(</span><span class="n">pdTRUE</span> <span class="o">==</span> <span class="n">xSemaphoreTake</span><span class="p">(</span><span class="n">Sem_Handle</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>     <span class="c1">//信号量重置    （FreeRTOS 没提供信号量重置功能，只能单个死循环清空）
 </span><span class="c1"></span>
 <span class="c1">//在中断里使用
 </span><span class="c1"></span><span class="n">BaseType_t</span> <span class="n">xHigherPriorityTaskWoken</span> <span class="o">=</span> <span class="n">pdFALSE</span><span class="p">;</span>       <span class="c1">//在中断里信号量释放（中断-&gt;中断)或(中断-&gt;线程)
@@ -792,7 +800,7 @@ FreeRTOS 特点：</p>
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

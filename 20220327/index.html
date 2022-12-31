@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Keil MDK","wordcount":  1114 ,
+                        }],"genre": "posts","keywords": "Keil MDK","wordcount":  1581 ,
         "url": "https:\/\/o2ospring.github.io\/20220327\/","datePublished": "2022-03-27T21:33:41+08:00","dateModified": "2022-03-27T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Keil 4 与 Keil 5 的兼容性</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-27">2022-03-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1114 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/20220327/" class="leancloud_visitors" data-flag-title="Keil 4 与 Keil 5 的兼容性">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-27">2022-03-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1581 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/20220327/" class="leancloud_visitors" data-flag-title="Keil 4 与 Keil 5 的兼容性">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -137,12 +137,12 @@
 </nav></div>
             </div><div class="content" id="content"><h3 id="前言">前言</h3>
 <blockquote>
-<p>2013 年 10 月，Keil 公司（被 ARM 公司收购）正式发布 Keil uVision5 IDE，相比 Keil 4 最大的区别是其增加了 Software Packs，可以独立于工具链进行添加更新芯片支持库和软件中间库，并且 SWD 下载速度提升到了 50M。由于 Keil 5 内部架构升级还是比较大，与 Keil 4 存在一些兼容问题，需要我们来解决。补充：Keil 软件资源下载请移步到《<a href="https://zhuanlan.zhihu.com/p/262507061" target="_blank" rel="noopener noreffer">安富莱电子</a>》，J-Link 驱动请移步 《<a href="https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack" target="_blank" rel="noopener noreffer">segger 官网下载</a>》。</p>
+<p>2013 年 10 月，Keil 公司（被 ARM 公司收购）正式发布 Keil uVision5 IDE，相比 Keil 4 最大的区别是其增加了 Software Packs，可以独立于工具链进行添加更新芯片支持库和软件中间库，并且 SWD 下载速度提升到了 50M。由于 Keil 5 内部架构升级还是比较大，与 Keil 4 存在一些兼容问题，需要我们来解决。补充：Keil 软件资源下载请移步到《<a href="https://zhuanlan.zhihu.com/p/262507061" target="_blank" rel="noopener noreffer">安富莱电子</a>》（<a href="https://www.cnblogs.com/armfly/p/12564643.html" target="_blank" rel="noopener noreffer">链接2</a>），J-Link 驱动请移步 《<a href="https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack" target="_blank" rel="noopener noreffer">segger 官网下载</a>》。</p>
 </blockquote>
 <h3 id="方法">方法</h3>
 <details close=""><summary>1、Keil 4, Keil 5 共存安装</summary>  
 <blockquote>
-<p>因为使用 Keil 4 开发已经很长一段时间了，很多工程是 Keil 4 工程格式，暂不想将它们改为 Keil 5 工程格式，怕编译器更改影响编译的目标文件，引发原程序新 BUG 的产生，最好的方法是在同一系统环境里同时安装 Keil 4 和 Keil 5。但由于软件认为是版本的升级，不允许两版本软件共存，需要我们作出特别处理。<strong>不过本人更推荐安装</strong>：官方专用的 keil 5 兼容 keil 4 工程补丁（<a href="https://download.armfly.com/armbbs/bbs/96992/MDKCM%20525.EXE" target="_blank" rel="noopener noreffer">MDKCM 525.EXE - 安富莱电子提供下载</a>）。</p>
+<p>因为使用 Keil 4 开发已经很长一段时间了，很多工程是 Keil 4 工程格式，暂不想将它们改为 Keil 5 工程格式，怕编译器更改影响编译的目标文件，引发原程序新 BUG 的产生，最好的方法是在同一系统环境里同时安装 Keil 4 和 Keil 5。但由于软件认为是版本的升级，不允许两版本软件共存，需要我们作出特别处理。<strong>不过本人更推荐安装</strong>：官方专用的 keil 5 兼容 keil 4 工程补丁（<a href="https://download.armfly.com/armbbs/bbs/96992/MDKCM%20525.EXE" target="_blank" rel="noopener noreffer">MDKCM 525.EXE - 安富莱电子提供下载</a>），安装补丁后 keil 5 可直接打开 Keil 4 工程，此后如果想把 Keil 4 工程改为 Keil 5 工程，直接把 xxx.uvproj、xxx.uvopt 另存在为 xxx.uvprojx、xxx.uvoptx，再使用 Keil 5 打开即可。</p>
 </blockquote>
 <p>1、要先安装 Keil 4，再安装 Keil 5，还要求安装到不同目录：</p>
 <p><img
@@ -236,11 +236,16 @@
         alt="../img/20220327_04_04.jpg"
         title="编译出错处理" /></p>
 </details>  
-<details close=""><summary>4、Keil 5 死锁 J-Link 解决</summary>  
+<details close=""><summary>4、Keil 5 打开 Keil 4 工程</summary>  
+<blockquote>
+<p>为了 Keil 5 能“原汁原味”地打开 Keil 4 工程，我们可以安装兼容包（Arm7、Arm9、Cortex-R 为 MDK79525.EXE，Cortex-M 为 MDKCM 525.EXE）：<a href="https://download.armfly.com/armbbs/bbs/96992/MDKCM%20525.EXE" target="_blank" rel="noopener noreffer">MDKCM 525.EXE - 安富莱电子提供下载</a>）。安装兼容包后 keil 5 可直接打开 Keil 4 工程，此后如果想把 Keil 4 工程改为 Keil 5 工程，直接把 xxx.uvproj、xxx.uvopt 另存在为 xxx.uvprojx、xxx.uvoptx，再使用 Keil 5 打开即可（Keil 5 会自动修正文件相关内容）。</p>
+</blockquote>
+</details>  
+<details close=""><summary>5、Keil 5 死锁 J-Link 解决</summary>  
 <blockquote>
 <p>我的 J-Link 比较旧：固件 V7 版，驱动为 V4.98；安装的 Keil 5 为 V5.33 版。在 Keil 5 中使用 J-Link 调试，会强制要求升级 J-Link 固件，不升级不能用，升级又被死锁。于是从网上搜索一些解决方案，得到两条重要信息：1、Keil V5.23 以及之前版本不检测 J-Link D版；2、使用 J-Link 驱动的 JLinkARM.dll 替换 Keil 5 后就不会提示升级固件（也有网文提到包括 JLink.exe）。有了这两条信息，就有了解决方案：</p>
 </blockquote>
-<p>4.1、Keil V5.14 取代 Keil V5.33 的 Segger 文件夹：</p>
+<p>5.1、Keil V5.14 取代 Keil V5.33 的 Segger 文件夹：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -249,7 +254,7 @@
         data-sizes="auto"
         alt="../img/20220327_05_01.jpg"
         title="取代文件夹" /></p>
-<p>4.2、J-Link V4.98 替换 Keil V5.33 的 JLinkARM.dll 文件：</p>
+<p>5.2、J-Link V4.98 替换 Keil V5.33 的 JLinkARM.dll 文件：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -258,7 +263,7 @@
         data-sizes="auto"
         alt="../img/20220327_05_02.jpg"
         title="替换文件" /></p>
-<p>4.3、成功解决强制升级及死锁问题：</p>
+<p>5.3、成功解决强制升级及死锁问题：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -267,6 +272,11 @@
         data-sizes="auto"
         alt="../img/20220327_05_03.jpg"
         title="成功解决" /></p>
+</details>  
+<details close=""><summary>6、Keil 5 使用的编译器</summary>  
+<blockquote>
+<p>从 MDK 5.37 开始，不再默认安装 Arm Compiler 5（ARMCC）编译器（可以下载独立安装），只集成 Arm Compiler 6（ARMCLAN，基于 LLVM 的 Clang）编译器，也就是说 Arm Compiler 5 以后就要退出舞台了！补充：Keil 软件资源下载请移步到《<a href="https://zhuanlan.zhihu.com/p/262507061" target="_blank" rel="noopener noreffer">安富莱电子</a>》，J-Link 驱动请移步 《<a href="https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack" target="_blank" rel="noopener noreffer">segger 官网下载</a>》。</p>
+</blockquote>
 </details>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -299,7 +309,7 @@
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

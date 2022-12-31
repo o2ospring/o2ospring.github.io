@@ -3,13 +3,27 @@
         <title>linux - 分类 - o2ospring</title>
         <link>https://o2ospring.github.io/categories/linux/</link>
         <description>linux - 分类 - o2ospring</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Sep 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
     <title>【linux 专题文章索引】</title>
     <link>https://o2ospring.github.io/linux/</link>
     <pubDate>Sun, 05 Aug 2018 20:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/linux/</guid>
     <description><![CDATA[前言 记录我学习 linux 基础知识、终端命令的使用、编程编译环境的应用，以及在 linux（Ubuntu）操作系统环境下各类工具软件的安装、配置、使用！]]></description>
+</item><item>
+    <title>linux 纯文本编辑器 nano</title>
+    <link>https://o2ospring.github.io/20251108/</link>
+    <pubDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251108/</guid>
+    <description><![CDATA[前言 nano 是一款轻量级、易用的纯文本编辑器，广泛应用于 Linux 和类 Unix 系统中。它以简单直观的操作方式著称，特别适合新手用户，同时也能满足日常文本编辑需求]]></description>
+</item><item>
+    <title>linux 命令帮助工具 tldr</title>
+    <link>https://o2ospring.github.io/20230215/</link>
+    <pubDate>Wed, 15 Feb 2023 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20230215/</guid>
+    <description><![CDATA[tldr 的简介 tldr（Too Long Didn&rsquo;t Read 太长不看）是开源的命令帮助工具。像本人一样记性不好的同学，经常忘记命令的用法，使用系统自带工具 man 来查看命令帮助]]></description>
 </item><item>
     <title>linux-STM32F开发㈢-在线调试工具CGDB</title>
     <link>https://o2ospring.github.io/20220916/</link>
@@ -46,32 +60,18 @@
     <guid>https://o2ospring.github.io/20220316/</guid>
     <description><![CDATA[Slidev 的简介 Slidev /slʌɪdɪv/ 基于 Node.js、Vue.js 开发，利用它我们可以使用 Markdown 及扩展语法编写 PPT，它支持各种好看的主题、代码高亮、]]></description>
 </item><item>
+    <title>UnxUtils 之 unix 模拟工具</title>
+    <link>https://o2ospring.github.io/20220228/</link>
+    <pubDate>Mon, 28 Feb 2022 15:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220228/</guid>
+    <description><![CDATA[前言 UnxUtils ② /ʌŋks ˈjuːtɪlz/ 是一个针对 Windows 系统的工具集，其核心功能是将一系列常用的 Unix/Linux 命令行工具移植到 Windows 环境中，让 Windows 用户能够在命令提示符]]></description>
+</item><item>
     <title>cygwin 之 unix 模拟环境</title>
     <link>https://o2ospring.github.io/20220227/</link>
     <pubDate>Sun, 27 Feb 2022 15:00:00 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220227/</guid>
-    <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具）帮忙我们在 windows 系统上完成某项工作（尤其是使用 gnu 工具集在 windows 上进行嵌入式系统开发是非]]></description>
-</item><item>
-    <title>博客生成工具 Hugo</title>
-    <link>https://o2ospring.github.io/20220126/</link>
-    <pubDate>Wed, 26 Jan 2022 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20220126/</guid>
-    <description><![CDATA[Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司]]></description>
-</item><item>
-    <title>博客生成工具 Hexo</title>
-    <link>https://o2ospring.github.io/20220125/</link>
-    <pubDate>Tue, 25 Jan 2022 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20220125/</guid>
-    <description><![CDATA[Hexo 的简介 Hexo /'heksoʊ/ 是一个基于 Node.js 的命令行工具。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎]]></description>
-</item><item>
-    <title>电子书制作工具 GitBook</title>
-    <link>https://o2ospring.github.io/20220124/</link>
-    <pubDate>Mon, 24 Jan 2022 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20220124/</guid>
-    <description><![CDATA[GitBook 的简介 GitBook /ɡɪt/bʊk/ 是一个基于 Node.js 的命令行工具，可使用 Github/Git 和 Markdown 来制作精美的电子书（例如：IT 行业技术说明书）。前提需要安装 npm（注：N]]></description>
+    <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具被封装成 Windows.exe执行文件）帮忙我们在 windows 系统上完成某项工作（尤其是使]]></description>
 </item></channel>
 </rss>

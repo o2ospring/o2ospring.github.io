@@ -3,13 +3,27 @@
         <title>software - 分类 - o2ospring</title>
         <link>https://o2ospring.github.io/categories/software/</link>
         <description>software - 分类 - o2ospring</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 27 May 2022 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/software/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 May 2023 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/software/" rel="self" type="application/rss+xml" /><item>
     <title>【software 软件技术索引】</title>
     <link>https://o2ospring.github.io/software/</link>
     <pubDate>Sat, 04 Aug 2018 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/software/</guid>
     <description><![CDATA[前言 软件技术包括：编程语言、编程算法、编程思维、数据处理、开源应用模块的使用、实时操作系统的使用等，涉及 C、Lua、RT-thread、Fr]]></description>
+</item><item>
+    <title>UPDesktop 快捷启动工具</title>
+    <link>https://o2ospring.github.io/20230519/</link>
+    <pubDate>Fri, 19 May 2023 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20230519/</guid>
+    <description><![CDATA[前言 像我们做开发的，要装一大堆的软件/工具，桌面变得杂乱无章。今天为大家介绍一款小众工具 UPDesktop：是一款非常简单易用的桌面快速启动]]></description>
+</item><item>
+    <title>面向对象模块设计的 C 语言实现方法</title>
+    <link>https://o2ospring.github.io/20230222/</link>
+    <pubDate>Wed, 22 Feb 2023 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20230222/</guid>
+    <description><![CDATA[一、前言 网上的面向对象编程文章往往是描述面向对象的思维（看了之后反而是“云里雾里”、很虚的感觉），至于如何使用代码来编写对象基本上没提及。那]]></description>
 </item><item>
     <title>正则表达式</title>
     <link>https://o2ospring.github.io/20220527/</link>
@@ -23,7 +37,7 @@
     <pubDate>Thu, 28 Apr 2022 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220428/</guid>
-    <description><![CDATA[前言 MinGW/MinGW-w64（Minimalist GNU for Windows）是为 windows 系统打造的编译器套件，其主要是把 GNU 的 gcc、make 等编译]]></description>
+    <description><![CDATA[前言 ● MinGW/MinGW-w64（Minimalist GNU for Windows）是为 windows 系统打造的编译器套件，其主要是把 GNU 的 gcc、make 等编]]></description>
 </item><item>
     <title>常用开发辅助工具</title>
     <link>https://o2ospring.github.io/20220308/</link>
@@ -32,12 +46,19 @@
     <guid>https://o2ospring.github.io/20220308/</guid>
     <description><![CDATA[前言 古语有云“工欲善其事，必先利其器”。对于做开发的我们，辅助工具是提高开发效率、提高开发质量的必备工具！有个它，我们就如虎添翼！兄弟们，冲]]></description>
 </item><item>
+    <title>UnxUtils 之 unix 模拟工具</title>
+    <link>https://o2ospring.github.io/20220228/</link>
+    <pubDate>Mon, 28 Feb 2022 15:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20220228/</guid>
+    <description><![CDATA[前言 UnxUtils ② /ʌŋks ˈjuːtɪlz/ 是一个针对 Windows 系统的工具集，其核心功能是将一系列常用的 Unix/Linux 命令行工具移植到 Windows 环境中，让 Windows 用户能够在命令提示符]]></description>
+</item><item>
     <title>cygwin 之 unix 模拟环境</title>
     <link>https://o2ospring.github.io/20220227/</link>
     <pubDate>Sun, 27 Feb 2022 15:00:00 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220227/</guid>
-    <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具）帮忙我们在 windows 系统上完成某项工作（尤其是使用 gnu 工具集在 windows 上进行嵌入式系统开发是非]]></description>
+    <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具被封装成 Windows.exe执行文件）帮忙我们在 windows 系统上完成某项工作（尤其是使]]></description>
 </item><item>
     <title>lua 脚本基本语法</title>
     <link>https://o2ospring.github.io/20211221/</link>
@@ -46,32 +67,11 @@
     <guid>https://o2ospring.github.io/20211221/</guid>
     <description><![CDATA[前言 Lua /'luːə/ 是一个小巧且速度极快的脚本语言，由标准 C 编写而成，几乎在所有操作系统和平台上都可以编译运行，是作为嵌入式脚本的最佳选择。]]></description>
 </item><item>
-    <title>attribute-at 编译属性-指定地址</title>
-    <link>https://o2ospring.github.io/20210627/</link>
-    <pubDate>Sun, 27 Jun 2021 21:33:41 &#43;0800</pubDate>
+    <title>WSL 之 unix 模拟工具</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Tue, 09 Nov 2021 10:00:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://o2ospring.github.io/20210627/</guid>
-    <description><![CDATA[简介 某些情况下的某个数据必须存储到指定地址的空间内，这样我们的程序或硬件才能正确访问（例如：设备的 ID）。对于这类需求，GCC 的编译属性__]]></description>
-</item><item>
-    <title>attribute-un/used 编译属性-未用警告</title>
-    <link>https://o2ospring.github.io/20210626/</link>
-    <pubDate>Sat, 26 Jun 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20210626/</guid>
-    <description><![CDATA[简介 某些情况下的某些变量或函数通过间接方式调用（例如：使用section修饰的数据、操作系统与应用程序分离设计），这些变量或函数必须要保留，]]></description>
-</item><item>
-    <title>attribute-weak 编译属性-弱符号</title>
-    <link>https://o2ospring.github.io/20210625/</link>
-    <pubDate>Fri, 25 Jun 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20210625/</guid>
-    <description><![CDATA[简介 有为公司搭建通用软件工程（开发平台）的同学们都知道，公共代码部分往往需要编写一些默认的处理函数，当用户想使用自己编写的处理函数，只需编写]]></description>
-</item><item>
-    <title>attribute-packed 编译属性-字节对齐</title>
-    <link>https://o2ospring.github.io/20210624/</link>
-    <pubDate>Thu, 24 Jun 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20210624/</guid>
-    <description><![CDATA[简介 对于嵌入式底层二进制通讯数据，往往需要取消处理器默认长度的数据对齐方式（例如：4 字节对齐），而是取用 1 字节对齐方式。对于这类需求，GCC]]></description>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在 Windows 上直接运行完整的 Linux 发行版，无需虚拟机或双系统。 WSL 简介 1、核心特性： 原生集成：与 Windows 系统深度融]]></description>
 </item></channel>
 </rss>
