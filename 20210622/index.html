@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "attribute","wordcount":  3666 ,
+                        }],"genre": "posts","keywords": "attribute","wordcount":  3771 ,
         "url": "https:\/\/o2ospring.github.io\/20210622\/","datePublished": "2021-06-22T21:33:41+08:00","dateModified": "2021-06-22T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">attribute-section 编译属性-数据拼接</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-22">2021-06-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3666 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-22">2021-06-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3771 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/20210622/" class="leancloud_visitors" data-flag-title="attribute-section 编译属性-数据拼接">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -149,7 +149,7 @@
 [网文](https://blog.csdn.net/qq_42370291/article/details/103639349)  
 -->  
 <h3 id="用途">用途</h3>
-<p>数据拼接常用于设备启动时初始化各个模块，其中 linux 的 initcall 机制就是基于此原理实现的。下面对比介绍上电初始化的几种方式：调用方式、列表方式、串表方式。</p>
+<p>数据拼接常用于设备启动时初始化各个模块（自动初始化机制），其中 linux 的 initcall 机制就是基于此原理实现的。下面对比介绍上电初始化的几种方式：调用方式、列表方式、串表方式。</p>
 <details close=""><summary><strong>1、调用方式</strong></summary>  
 <blockquote>
 <p>在<code>main()</code>函数最前在分别调用这些初始化函数，当新增一模块就必须在<code>main()</code>增加代码 ，这种方式与<code>main()</code>过于耦合。试想一下 linux 系统，少则几百多则上千上万个初始化函数放在一起，那是多么恐怖的事，而且 linux 核心源文件是不给程序员随便改动的，否则会影响系统稳定性。也就是说对于中大型工程这种方式不可取。</p>
@@ -248,7 +248,7 @@
 <code>tail</code>   为分段名称后缀，先由它决定数据先后顺序，再由代码编译先后顺序决定。<br>
 <code>used</code>   向编译器说明这段代码即使没使用也不能优化掉，不能产生警告；<br>
 <code>而 unused</code> 则是表示该函数或变量可能不使用，编译器不要产生警告信息。<br>
-<strong>特别说明</strong>：<code>section</code>修饰的数据段会被<strong>编译器</strong>和<strong>链接器</strong>这两道关卡优化掉，需要增加特别语句加以防止！used、unused 只针对<strong>编译器</strong>而言，但对于<strong>链接器</strong>无效，也就是说<strong>链接器</strong>的<code>--gc-sections</code>还是会优化掉没使用的段，除非在链接脚本中使用<code>KEEP</code>语句特别指的段才不会被优化掉！</p>
+<strong>特别说明</strong>：<code>section</code>修饰的数据段会被<strong>编译器</strong>和<strong>链接器</strong>这两道关卡优化掉，需要增加特别语句加以防止！used、unused 只针对<strong>编译器</strong>而言，但对于<strong>链接器</strong>无效，也就是说<strong>链接器</strong>的<code>--gc-sections</code>还是会优化掉没使用的段，除非在链接脚本中使用<code>KEEP</code>语句特别指的段才不会被优化掉！关于链接脚本的更多知识，请移步《<a href="../20220804" rel="">linux-STM32F开发㈠-makefile 构建与使用</a>》</p>
 </blockquote>
 <p>主程序：<code>main.h</code></p>
 <div class="highlight"><div class="chroma">
@@ -417,7 +417,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>二、关于<code>__attribute__(())</code>语句书写位置总体原则：书写到修饰对象名称的后面，但考虑要跨编译平台使用，强烈建议使用宏定义并且按下面规则使用。</p>
+<p>二、关于<code>__attribute__(())</code>语句书写位置总体原则：书写到修饰对象名称的后面（★修饰其左边的单元体(非每个元素)，放到最前面即是修饰整体★），但考虑要跨编译平台使用，强烈建议使用宏定义并且按下面规则使用。</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -484,11 +484,11 @@
 	<span class="kt">uint16_t</span> <span class="n">a</span><span class="p">;</span>
 	<span class="kt">uint8_t</span>  <span class="n">b</span><span class="p">;</span>
 
-<span class="p">}</span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">obj_n_t</span><span class="p">;</span> <span class="c1">//2.用于结构体[组员]类型的【起始地址】和【大小】，也可用于单体结构体！
+<span class="p">}</span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">obj_n_t</span><span class="p">;</span> <span class="c1">//2.用于结构体[组员]类型的【起始地址】和【大小】，也可用于单体结构体！备注：是组员非成员！
 </span><span class="c1"></span>                <span class="c1">//                           　　　　　　　　　　　  　　　　　　　　-┬-
-</span><span class="c1"></span><span class="n">obj_1_t</span> <span class="n">aaaaaa</span><span class="p">;</span> <span class="c1">//1.影响[单体结构体]的起始地址对齐。　　　　　                        ├→ ●只是唯一的特殊个案●
+</span><span class="c1"></span><span class="n">obj_1_t</span> <span class="n">aaaaaa</span><span class="p">;</span> <span class="c1">//1.影响[单体结构体]的起始地址对齐，不能用于数组                      ├→ ●只是唯一的特殊个案●
 </span><span class="c1"></span><span class="n">obj_n_t</span> <span class="n">bbb</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//2.影响结构体[每个组员]的起始地址对齐和大小限制----------------------┘
-</span><span class="c1"></span>                <span class="c1">//3.影响[数组整体]起始地址，但不影响其它组员起始地址和大小！
+</span><span class="c1"></span>                <span class="c1">//3.影响[数组整体]起始地址，但不影响[其它组员]起始地址和大小！
 </span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="k">struct</span> <span class="n">obj_1_</span> <span class="n">ccc</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span> <span class="c1">//←┤
 </span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="k">struct</span> <span class="n">obj_n_</span> <span class="n">ddd</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span> <span class="c1">//←┘
 </span><span class="c1"></span>
@@ -533,7 +533,7 @@
   <span class="p">.............</span>
   
   <span class="p">.</span> <span class="o">=</span> <span class="n">ALIGN</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-  <span class="n">KEEP</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">SORT</span><span class="p">(.</span><span class="n">init</span><span class="p">.</span><span class="o">*</span><span class="p">)))</span>               <span class="cm">/* 使用 KEEP(*(SORT()) 防止被[链接器]优化 */</span>
+  <span class="n">KEEP</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">SORT</span><span class="p">(.</span><span class="n">init</span><span class="p">.</span><span class="o">*</span><span class="p">)))</span>               <span class="cm">/* 使用 KEEP(*(SORT())) 防止被[链接器]优化 */</span>
 
   <span class="p">.</span> <span class="o">=</span> <span class="n">ALIGN</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
   <span class="n">_etext</span> <span class="o">=</span> <span class="p">.;</span>
@@ -743,7 +743,7 @@
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

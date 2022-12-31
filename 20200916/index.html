@@ -355,8 +355,8 @@ tb main                              <span class="c1"># 在gdb里:在main函数�
 r                                    <span class="c1"># 在gdb里:运行程序（如果程序有入口参数，写法如：r ./build/objs/app.exe argv1 argv2）</span>
                                      <span class="c1">#【备注】嵌入式 arm-none-eabi-gdb 不能使用 run 指令来运行程序！改用 c 直接运行程序即可！</span>
 <span class="c1">#########【方式三】#########</span>
-cgdb -d gdb -x gdb.scrip             <span class="c1"># 启动cgdb+gdb,并装载GDB命令脚本文件</span>
-                                     <span class="c1"># gdb.scrip 命令脚本文件内容为：</span>
+cgdb -d gdb -x gdb.script            <span class="c1"># 启动cgdb+gdb,并装载GDB命令脚本文件</span>
+                                     <span class="c1"># gdb.script 命令脚本文件内容为：</span>
                                      <span class="c1"># file ./build/objs/app.exe</span>
                                      <span class="c1"># tb main</span>
                                      <span class="c1"># r</span>
@@ -1349,7 +1349,7 @@ https://blog.csdn.net/sagetom/article/details/9124631
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
