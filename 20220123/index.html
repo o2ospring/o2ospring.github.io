@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "npm, linux 工具\/应用","wordcount":  2787 ,
+                        }],"genre": "posts","keywords": "npm, linux 工具\/应用","wordcount":  2890 ,
         "url": "https:\/\/o2ospring.github.io\/20220123\/","datePublished": "2022-01-23T21:33:41+08:00","dateModified": "2022-05-01T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">网站 node 包管理器 npm</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/blog/"><i class="far fa-folder fa-fw"></i>blog</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-23">2022-01-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2787 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-23">2022-01-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2890 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20220123/" class="leancloud_visitors" data-flag-title="网站 node 包管理器 npm">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -190,7 +190,7 @@ sudo rm -rf /usr/local/node                      <span class="c1">#直接删除�
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>● 由于不同的软件需要使用不同的 npm 版本（例如：使用<code>gitbook</code>制作电子书就是因为不支持新版本，运行命令时提示各种错误），所以建议根据实际安装多个版本的 node（npm），多个版本共存的处理方法如下：</p>
+<p>● 由于不同的软件需要使用不同的 npm 版本，过新或过旧都有可能不支持（例如：使用<code>gitbook</code>制作电子书就是因为不支持新版本，运行命令时提示各种错误），所以建议根据实际安装多个版本的 node（npm）来解决！多个版本共存的处理方法如下：</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -208,20 +208,24 @@ sudo rm -rf /usr/local/node                      <span class="c1">#直接删除�
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">####安装方法####</span>
 <span class="c1">#(1)                                             #安装另一版本同上面介绍一样，只是[node]和[npm]名称不一样，</span>
-                                                 <span class="c1">#例如：文件夹名称为[node-v17.9.0-linux-x64]，软链接名称为[node-17.9.0]和[npm-17.9.0]【具体请看(2)】</span>
+                                                 <span class="c1">#例如：1)文件夹名称为[node-v17.9.0-linux-x64]，2)软链接名称为[node-17.9.0]和[npm-17.9.0]【具体请看(2)】</span>
 <span class="c1">#(2)                                             #需要修改前面安装的[node-v10.24.1-linux-x64] 软链接名称：</span>
 <span class="nb">cd</span> /usr/bin                                      <span class="c1">#切换软链接目录下</span>
-sudo ln -s /usr/local/node/bin/node node-10.24.1 <span class="c1">#添加执行软链接</span>
-sudo ln -s /usr/local/node/bin/npm  npm-10.24.1  <span class="c1">#添加执行软链接 </span>
+sudo ln -s /usr/local/node/bin/node node-10.24.1 <span class="c1">#添加执行软链接（★因默认快捷方式改了名，必须按下面的【共存处理】进行操作）</span>
+sudo ln -s /usr/local/node/bin/npm  npm-10.24.1  <span class="c1">#添加执行软链接（★因默认快捷方式改了名，必须按下面的【共存处理】进行操作）</span>
 
 <span class="c1">####共存处理###</span>
 sudo update-alternatives --install /usr/bin/node node /usr/bin/node-17.9.0  <span class="m">1709</span> --slave /usr/bin/npm npm /usr/bin/npm-17.9.0
 sudo update-alternatives --install /usr/bin/node node /usr/bin/node-10.24.1 <span class="m">1024</span> --slave /usr/bin/npm npm /usr/bin/npm-10.24.1
-                                                 <span class="c1">#备注：上面的 --slave 的 npm 表示的默认版本由 node 配置决定</span>
+                                                 <span class="c1">#备注：上面的 --slave 的 npm 表示的默认版本由 node 配置决定。</span>
+                                                 <span class="c1">#移除：从优先级列表中移除例子</span>
+                                                 <span class="c1">#sudo update-alternatives --remove node /usr/bin/node-17.9.0</span>
 <span class="c1">####选择版本###</span>
 sudo update-alternatives --config node           <span class="c1">#配置默认版本，根据界面提示输入对应数字+回车选择</span>
 </code></pre></td></tr></table>
@@ -380,7 +384,7 @@ cnpm -v                 <span class="c1">#查看版本。（注意：安装完�
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
