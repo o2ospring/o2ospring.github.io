@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "SSH, linux 工具\/应用","wordcount":  2602 ,
+                        }],"genre": "posts","keywords": "SSH, linux 工具\/应用","wordcount":  2618 ,
         "url": "https:\/\/o2ospring.github.io\/20210619\/","datePublished": "2021-06-17T21:33:41+08:00","dateModified": "2021-06-17T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 网络终端工具 ssh</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-17">2021-06-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2602 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-17">2021-06-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2618 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20210619/" class="leancloud_visitors" data-flag-title="linux 网络终端工具 ssh">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -138,8 +138,7 @@
             </div><div class="content" id="content"><h3 id="ssh-的简介">SSH 的简介</h3>
 <blockquote>
 <p>SSH 为 Secure Shell 的缩写，由 IETF 的网络工作小组（Network Working Group）所制定。SSH 为建立在应用层和传输层基础上的安全协议，而传统的网络服务程序（如：FTP、POP 和 Telnet） 则是不安全的。因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。我们调试 ARM 开发板时，常用串口作为调试终端；当使用 SSH 连接时，就是网络调试终端机（开发板为服务端，电脑为客户端），如果开发板有广域网 IP，则可以实现远程网络调试（远程网络终端）。<br>
-网文：<br>
-<a href="https://www.cnblogs.com/linuxAndMcu/p/10766589.html" target="_blank" rel="noopener noreffer">SSH的安装及使用</a></p>
+网文：<a href="https://www.cnblogs.com/linuxAndMcu/p/10766589.html" target="_blank" rel="noopener noreffer">SSH的安装及使用</a></p>
 </blockquote>
 <h3 id="ubuntu-平台">Ubuntu 平台</h3>
 <details close=""><summary><strong>1、ssh 的安装</strong></summary>  
@@ -203,9 +202,7 @@ RSAAuthentication yes                     <span class="c1">#允许RSA登录验�
 <p>SSH 服务端安装后，需要我们手动启动运行，否则客户端无法连接服务端。<br>
 如果开启了系统防火墙（Firewall）将可能影响 SSH 服务，请关闭它（需要重启设备）：<br>
 ● <code>sudo ufw disable</code> #关闭防火墙<br>
-● <code>sudo ufw status</code>  #查看防火墙状态<br>
-<a href="https://www.linuxprobe.com/automatic-running-methods.html" target="_blank" rel="noopener noreffer">Linux系统中设置开机自动运行的两种方法</a><br>
-<a href="https://blog.csdn.net/karchar/article/details/52489572" target="_blank" rel="noopener noreffer">linux设置开机启动项两种方式</a></p>
+● <code>sudo ufw status</code>  #查看防火墙状态</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -243,15 +240,16 @@ sudo gedit /etc/rc.local                  <span class="c1">#打开启动文件�
                                           /etc/init.d/ssh start
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><p>更多开机启动知识：<br>
+1、<a href="https://www.linuxprobe.com/automatic-running-methods.html" target="_blank" rel="noopener noreffer">Linux系统中设置开机自动运行的两种方法</a><br>
+2、<a href="https://blog.csdn.net/karchar/article/details/52489572" target="_blank" rel="noopener noreffer">linux设置开机启动项两种方式</a></p>
+</details>  
 <details close=""><summary><strong>4、ssh 的登录</strong></summary>  
 <blockquote>
 <p>SSH 登录主要有两方式（注：由服务端配置决定），一是使用账号及密码登陆，二是使用秘钥文件登陆。<br>
 关于 SSH 秘钥有两个文件：id_rsa（私钥 private key）和 id_rsa.pub（公钥 public key）。公钥相当于锁，私钥相当于钥匙，要想做到 SSH 免密登录，我们要先将锁装到服务器，然后客户端就可以利用这个钥匙开锁了。即是服务器装锁（公钥），客户端拿钥匙（私钥）。<br>
 在创建秘钥中，先提示存储路径再要求设置私钥密码，此密钥锁码表示在使用私钥时必须输入，这样就可以保护私钥不被盗用。当然，也可以留空，实现无密码登录（注：个人使用一般是无密码登录）。<br>
-在 win 系统下的 SecureCRT 终端机软件如何使用私钥登录 SSH，配置：<code>选项</code> → <code>会话选项</code> → <code>连接</code>/<code>SSH2</code> → 右窗口选择<code>公钥</code> → <code>属性</code>，在打开窗口的<code>使用身份或证书文件</code>加入之前制作的私钥文件（如：D:\Downloads\id_rsa）。（<a href="../img/20210619_02_04.jpg" rel="">如图</a>）<br>
-网文：<br>
-<a href="https://blog.csdn.net/weixin_34191845/article/details/88801200" target="_blank" rel="noopener noreffer">SecureCRT通过密钥进行SSH登录</a></p>
+在 win 系统下的 SecureCRT 终端机软件如何使用私钥登录 SSH，配置：<code>选项</code> → <code>会话选项</code> → <code>连接</code>/<code>SSH2</code> → 右窗口选择<code>公钥</code> → <code>属性</code>，在打开窗口的<code>使用身份或证书文件</code>加入之前制作的私钥文件（如：D:\Downloads\id_rsa）。（<a href="../img/20210619_02_04.jpg" rel="">如图</a>）。</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -295,7 +293,9 @@ chmod <span class="m">700</span> ~/.ssh                          <span class="c1
 ssh -i ~/.ssh/id_rsa xiaomi@192.168.1.20  <span class="c1">#SSH客户端使用秘钥文件登陆（-i 指定秘钥文件）</span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><p>参考网文：<br>
+<a href="https://blog.csdn.net/weixin_34191845/article/details/88801200" target="_blank" rel="noopener noreffer">SecureCRT通过密钥进行SSH登录</a></p>
+</details>  
 <details close=""><summary><strong>5、ssh 的sftp功能</strong></summary>  
 <blockquote>
 <p>sftp 为 SSH 的一部分，我们可以使用它来实现服务端与客户端之间传输文件。与 SSH 一样，使用 sftp 客户端登录服务端（不要在 SSH 客户端里直接使用命令 sftp 登录服务端，否则就是本地与远程设备都是服务端了）。在 win 系统下如何在 SecureCRT 终端机软件打开 sftp 服务？首先使用 SSH 建立连接后，配置：<code>选项</code> → <code>会话选项</code> → <code>连接</code>/<code>SSH2</code>/<code>SFTP标签页</code> → 右窗口配置<code>本地目录</code>与<code>远程目录</code>，然后右键点击 SSH 终端窗口标签 → 连接SFTP标签页，即可打开 SFTP 终端机。（<a href="../img/20210619_02_05.jpg" rel="">如图</a>）</p>
@@ -337,10 +337,12 @@ quit                                      <span class="c1">#sftp客户端登出<
 </div><p>发现问题：</p>
 <ol>
 <li>实际使用中发现<code>get -r</code>下载文件夹出现有些文件多了些回车符，不明是什么原因。</li>
-<li>无法下载隐藏文件(夹)，例如：git 仓库文件夹<code>.git</code><br>
-解决方法：<br>
-目前想到的解决办法，就是使用<code>tar</code>压缩文件夹，再下载压缩文件。</li>
+<li>无法下载隐藏文件(夹)，例如：git 仓库文件夹<code>.git</code></li>
 </ol>
+<p>解决方法：</p>
+<ul>
+<li>目前想到的解决办法，就是使用<code>tar</code>压缩文件夹，再下载压缩文件。</li>
+</ul>
 </details>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -373,7 +375,7 @@ quit                                      <span class="c1">#sftp客户端登出<
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

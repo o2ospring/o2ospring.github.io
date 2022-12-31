@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "编译, GNU, GCC, linux 工具\/应用","wordcount":  31810 ,
+                        }],"genre": "posts","keywords": "编译, GNU, GCC, linux 工具\/应用","wordcount":  31990 ,
         "url": "https:\/\/o2ospring.github.io\/20200915\/","datePublished": "2020-09-15T21:33:41+08:00","dateModified": "2022-07-17T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 编译构建工具</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-15">2020-09-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 31810 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-15">2020-09-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 31990 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 64 分钟&nbsp;<span id="/20200915/" class="leancloud_visitors" data-flag-title="linux 编译构建工具">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -139,7 +139,10 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="前言">前言</h3>
-<p>Linux 下可用的编译器有 GCC、LLVM-clang、EGCS 和 PGCC，其中 GCC 是绝对的老大（不接受反驳）！<a href="http://gcc.gnu.org/" target="_blank" rel="noopener noreffer">GCC</a>（GNU Compiler Collection）是由 <a href="https://www.gnu.org/" target="_blank" rel="noopener noreffer">GNU</a> 开发的编程语言译器套件。GNU 编译器套件包括 C、C++、Objective-C、Fortran、Ada、Go 及 D 语言前端，也包括了这些语言的库（如：libstdc++，libgcj 等）</p>
+<p>Linux 下可用的编译器有 GCC、LLVM-clang、EGCS 和 PGCC，其中 GCC 是绝对的老大！<a href="http://gcc.gnu.org/" target="_blank" rel="noopener noreffer">GCC</a>（GNU Compiler Collection）是由 <a href="https://www.gnu.org/" target="_blank" rel="noopener noreffer">GNU</a> 开发的编程语言译器套件。GNU 编译器套件包括 C、C++、Objective-C、Fortran、Ada、Go 及 D 语言前端，也包括了这些语言的库（如：libstdc++，libgcj 等）</p>
+<!--  
+[gcc、glibc、arm-linux-gcc的那些联系](https://mp.weixin.qq.com/s/htCO4fsSuXSS5bsSFhroww "原文：https://blog.csdn.net/ce123_zhouwei/article/details/8220664")  
+-->  
 <details close=""><summary>1、关于工具链关系</summary>  
 <blockquote>
 <p>●<code>CMake</code>是一种跨平台编译构建工具（也就是项目构建生成工具），其将程序员编写 CMakeLists.txt 文件转化 makefile 文件，最后调用 make 命令执行相关工作。<br>
@@ -344,105 +347,108 @@ gcc    -o hello   hello.o         <span class="c1"># 链接  (链接生成可执
 <details close=""><summary>4、GCC 的编译参数 ●</summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span><span class="lnt">95
-</span><span class="lnt">96
-</span><span class="lnt">97
-</span><span class="lnt">98
-</span><span class="lnt">99
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 一些编译常用选项</span>
@@ -453,7 +459,10 @@ gcc -std<span class="o">=</span>c99 hello.c -o hello     <span class="c1"># 使�
 gcc -static  hello.c -o hello     <span class="c1"># 静态编译生成的可执行文件(优点:独立无依赖,缺点:文件很大)</span>
 gcc -g       hello.c -o hello     <span class="c1"># 在可执行程序中包含标准调试信息</span>
 gcc -O2      hello.c -o hello     <span class="c1"># 用[-O2]优化选项编译生成可执行文件(常用优化级别:-O0,-O1,-O2,-O3)</span>
-                                  <span class="c1"># (扩展:-Og,-Os)(-Og是在O1的基础上去掉那些影响调试的优化,-Os是-O2基本上尽量编译出小体积程序)</span>
+gcc -Og      hello.c -o hello     <span class="c1"># 在[-O1]的基础上去掉那些影响调试的优化息</span>
+gcc -Os      hello.c -o hello     <span class="c1"># 在[-O2]的基本上尽量编译出小体积程序</span>
+gcc -DUSE_DB hello.c -o hello     <span class="c1"># [-DUSE_DB]表示加入全局宏[define USE_DB]</span>
+
 <span class="c1"># GCC警告提示常用选项</span>
 gcc -w        wrong.c -o wrong    <span class="c1"># [-w]        关闭所有警告　　　（w小写）</span>
 gcc -W        wrong.c -o wrong    <span class="c1"># [-W]        开启认为错误的警告（W大写）</span>
@@ -1335,7 +1344,7 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 <details close=""><summary>3、Makefile 的语法+例子 ●</summary>  
 <details close=""><summary>3.1、【<strong>语法</strong>：基本知识】</summary>  
 <blockquote>
-<p><strong>3.1.1</strong>、Makefile 包含五项内容：1、显式规则，2、隐含规则，3、变量定义，4、文件指示，5、注释。</p>
+<p><strong>3.1.1</strong>、Makefile 包含五项内容：1、显性规则，2、隐性规则，3、变量定义，4、文件指示，5、注释。</p>
 </blockquote>
 <table>
 <thead>
@@ -1346,11 +1355,11 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">显式规则</td>
+<td style="text-align:left">显性规则</td>
 <td style="text-align:left">书写者明显指出依赖文件或命令操作等规则</td>
 </tr>
 <tr>
-<td style="text-align:left">隐含规则</td>
+<td style="text-align:left">隐性规则</td>
 <td style="text-align:left">make 自动推导依赖文件或命令操作等规则</td>
 </tr>
 <tr>
@@ -1402,7 +1411,7 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 <tbody>
 <tr>
 <td style="text-align:left">目标与依赖的执行顺序关系</td>
-<td style="text-align:left">先执行最深层的依赖，再逐级往上执行目标！</td>
+<td style="text-align:left">先执行最深层的依赖，再逐级往上执行目标！每对目标与依赖的执行总规则：<a href="#XXXX" rel="">尝试创建或更新目标文件（ include 包含文件同理）</a>！</td>
 </tr>
 <tr>
 <td style="text-align:left">目标与依赖的搜索对象关系</td>
@@ -1418,7 +1427,7 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 </tr>
 <tr>
 <td style="text-align:left">目标与依赖的包含文件关系</td>
-<td style="text-align:left">当使用 include 包含文件时，还会运行固有规则：搜索与包含文件<a href="#XXXX" rel="">同路径同名称</a>的目标并尝试运行规则！具体有如下：只有当【<a href="#XXXX" rel="">包含文件存在</a>】并且【<a href="#XXXX" rel="">没找到对应目标</a> 或者 找到同路径同名称新于规则的实目标(<a href="#XXXX" rel="">实目标新于依赖</a>、<a href="#XXXX" rel="">实目标无依赖</a>)】才放弃运行规则，否则必定运行规则(它优先在用户操作的所有目标前执行，它总是会尝试创建或更新包含文件)。除上面情形外，当出现包含文件不存在、或找不到对应目标都会抛出错误！</td>
+<td style="text-align:left">当使用 include 包含文件时，同时还会运行固有规则：搜索与包含文件<a href="#XXXX" rel="">同路径同名称</a>的目标并尝试运行规则！具体有如下：只有当【<a href="#XXXX" rel="">包含文件存在</a>】并且【<a href="#XXXX" rel="">没找到对应目标</a> 或 <a href="#XXXX" rel="">对应目标无依赖</a> 或 <a href="#XXXX" rel="">对应实目标新于依赖</a>】才放弃运行规则，否则必定运行规则（<a href="#XXXX" rel="">它优先在用户操作的所有目标前执行以下规则：尝试创建或更新包含文件，并执行同路径同名称目标命令</a>）。除上面情形外，当出现包含文件不存在、或找不到对应目标都会抛出错误！</td>
 </tr>
 </tbody>
 </table>
@@ -1442,7 +1451,7 @@ make -f mkf all <span class="c1"># 同`make all`，只是 Makefile 文件名称�
 <td style="text-align:left">3、初始化文件中的变量</td>
 </tr>
 <tr>
-<td style="text-align:left">4、推导隐含规则，并分析所有规则</td>
+<td style="text-align:left">4、推导隐性规则，并分析所有规则</td>
 </tr>
 <tr>
 <td style="text-align:left">5、为所有的目标文件创建依赖关系链</td>
@@ -1687,10 +1696,14 @@ make clean              <span class="c1"># 运行命令，当前文件夹下扩�
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">-include</span> <span class="err">out/a.d</span>             <span class="c"># 包含文件，导入依赖信息。
-</span><span class="c"></span><span class="nv">VPATH</span> <span class="o">=</span> src:hard/board       <span class="c1"># 增加 make 工具搜索目录。</span>
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="err">cd</span> <span class="err">subdir</span> <span class="err">&amp;&amp;</span> <span class="k">$(</span><span class="nv">MAKE</span><span class="k">)</span> <span class="err">tag</span>     <span class="c"># 调用文件，父 makefile 调用子 makefile 文件。具体：进入 subdir 目录，运行`make tag`命令，完成后返回原目录！
+</span><span class="c"></span><span class="err">-include</span> <span class="err">out/a.d</span>             <span class="c"># 包含文件，导入依赖信息。备注：包含文件还会执行规则！
+</span><span class="c"></span><span class="nv">VPATH</span> <span class="o">=</span> src:hard/board       <span class="c1"># 增加 make 文件搜索目录。备注：可用冒号或者空格隔开！</span>
 
 <span class="nv">objs</span> <span class="o">=</span> out/a.o out/b.o       <span class="c1"># 变量定义(赋值)，还有&#34;:=&#34;、&#34;?=&#34;、&#34;+=&#34;，以及修饰符&#34;override&#34;和&#34;export&#34;。</span>
 
@@ -1714,6 +1727,8 @@ make clean              <span class="c1"># 运行命令，当前文件夹下扩�
 <span class="nf">$(objs)</span><span class="o">:</span> <span class="k">$(</span><span class="nv">objs</span>:.<span class="nv">o</span>=.<span class="nv">c</span><span class="k">)</span>       <span class="c"># 多目标多依赖语句，展开后目标与依赖为【一对多】关系！目标为&#34;.o&#34;文件，依赖为&#34;.c&#34;文件。备注：每个目标具有相同的依赖(集)！
 </span><span class="c"></span>
 <span class="k">$(</span><span class="nv">func</span> <span class="nv">arg</span>1,<span class="nv">arg</span>2...<span class="k">)</span>         <span class="c"># 操作函数，&#34;func&#34;为函数，&#34;arg1&#34;第一个参数，&#34;arg2&#34;第二个参数……
+</span><span class="c"></span>
+<span class="k">$(</span><span class="nv">MAKECMDGOALS</span><span class="k">)</span>              <span class="c"># make 命令的输入参数（例如：`make clean`命令，则输入参数为`clean`）
 </span><span class="c"></span>
 </code></pre></td></tr></table>
 </div>
@@ -1828,7 +1843,7 @@ make clean              <span class="c1"># 运行命令，当前文件夹下扩�
 <p>● 陈皓-跟我一起写 Makefile：《<a href="https://seisman.github.io/how-to-write-makefile/index.html" target="_blank" rel="noopener noreffer">网友整理版</a>》、《<a href="https://blog.csdn.net/haoel/article/details/2886" target="_blank" rel="noopener noreffer">原作者博文</a>》、《<a href="https://www.cnblogs.com/wang_yb/articles/3990952.html" target="_blank" rel="noopener noreffer">网友总结</a>》、《<a href="https://www.jb51.net/article/233898.htm" target="_blank" rel="noopener noreffer">网友讲解</a>》。<br>
 ● 李云-驾驭 Makefile：《<a href="https://blog.51cto.com/yunli/195759" target="_blank" rel="noopener noreffer">原作者博文</a>》、《<a href="https://blog.csdn.net/guyongqiangx/article/details/112250355" target="_blank" rel="noopener noreffer">网友网文</a>》、《<a href="https://github.com/guyongqiangx/makefile-study" target="_blank" rel="noopener noreffer">网友仓库</a>》。</p>
 </details>  
-<details close=""><summary>3.2、【<strong>变量</strong>：单个定义】</summary>  
+<details close=""><summary>3.2、【<strong>变量</strong>：单行定义】</summary>  
 <blockquote>
 <p><strong>3.2.1</strong>、Makefile 的自动变量：（更多：<a href="https://blog.csdn.net/weixin_30443075/article/details/98408120" target="_blank" rel="noopener noreffer">网文</a>）</p>
 </blockquote>
@@ -3110,6 +3125,7 @@ src2: a.c b.c c.c        <span class="c1"># 运行结果（Makefile 变量[src2]
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># 注意：include 前【绝不能】用[Tab键]开始
@@ -3119,10 +3135,11 @@ src2: a.c b.c c.c        <span class="c1"># 运行结果（Makefile 变量[src2]
 <span class="err">关于</span> <span class="err">include</span> <span class="err">有两项动作：</span>
 <span class="err">(1)</span> <span class="err">包含：把别的</span> <span class="err">Makefile</span> <span class="err">代码拷贝过来，相当于在自身编写这些代码一样。</span>
 <span class="err">(2)</span> <span class="err">规则：搜索与包含文件同路径同名称的目标并尝试运行规则！具体有如下：</span>
-    <span class="err">只有当【包含文件存在】并且【没找到对应目标</span> <span class="err">或者</span> <span class="err">找到同路径同名称</span>
-    <span class="err">[新于规则的实目标](实目标新于依赖、实目标无依赖)】才放弃运行规则，</span>
-    <span class="err">否则必定尝试运行规则(在用户操作目标前执行尝试创建或更新包含文件)。</span>
-    <span class="err">除上面情形外，当出现包含文件不存在、或找不到对应目标都会抛出错误！</span>
+    <span class="err">只有当【包含文件存在】并且【没找到对应目标</span> <span class="err">或</span> <span class="err">对应目标无依赖</span> <span class="err">或</span> 
+	<span class="err">对应实目标新于依赖】才放弃运行规则，否则必定尝试运行规则(它优先在</span>
+    <span class="err">用户操作的所有目标前执行：尝试创建或更新包含文件，并执行同路径同</span>
+    <span class="err">名称目标命令)。除上面情形外，当出现包含文件不存在、或找不到对应目</span>
+    <span class="err">标都会抛出错误！</span>
 </code></pre></td></tr></table>
 </div>
 </div><details close=""><summary>──点击展开 include 执行固有规则说明──</summary>  
@@ -3271,7 +3288,7 @@ make              <span class="c1"># 运行命令，执行脚本  </span>
 touch a.txt       <span class="c1"># 运行命令，创建 a.txt 文件。  </span>
 make              <span class="c1"># 运行命令，执行脚本  </span>
 <span class="c1">#                 # 运行结果：■■不运行规则■■。  </span>
-<span class="c1"># 1.run all...    # 看到脚本只执行`all`目标，即:【包含文件存在】并且【找到同路径同名称[实目标无依赖]】才放弃运行规则●●●●●  </span>
+<span class="c1"># 1.run all...    # 看到脚本只执行`all`目标，即:【包含文件存在】并且【找到同路径同名称[目标无依赖]】才放弃运行规则●●●●●  </span>
 </code></pre></td></tr></table>
 </div>
 </div></blockquote>
@@ -3347,7 +3364,7 @@ make              <span class="c1"># 运行命令，执行脚本  </span>
 </code></pre></td></tr></table>
 </div>
 </div></blockquote>
-<p>总结：Makefile 包含文件时，不但是把其它 Makefile 代码拷贝过来，还会搜索与包含文件<a href="#XXXX" rel="">同路径同名称</a>的目标并尝试运行规则！具体有如下：只有当【<a href="#XXXX" rel="">包含文件存在</a>】并且【<a href="#XXXX" rel="">没找到对应目标</a> 或者 找到同路径同名称新于规则的实目标(<a href="#XXXX" rel="">实目标新于依赖</a>、<a href="#XXXX" rel="">实目标无依赖</a>)】才放弃运行规则，否则必定运行规则(它优先在用户操作的所有目标前执行，它总是会尝试创建或更新包含文件)。除上面情形外，当出现包含文件不存在、或找不到对应目标都会抛出错误！</p>
+<p>总结：Makefile 包含文件时，不但是把其它 Makefile 代码拷贝过来，还会搜索与包含文件<a href="#XXXX" rel="">同路径同名称</a>的目标并尝试运行规则！具体有如下：只有当【<a href="#XXXX" rel="">包含文件存在</a>】并且【<a href="#XXXX" rel="">没找到对应目标</a> 或 <a href="#XXXX" rel="">对应目标无依赖</a> 或 <a href="#XXXX" rel="">对应实目标新于依赖</a>】才放弃运行规则，否则必定运行规则（它优先在用户操作的所有目标前执行：尝试创建或更新包含文件，并执行同路径同名称目标命令）。除上面情形外，当出现包含文件不存在、或找不到对应目标都会抛出错误！</p>
 <!--  
 https://www.jianshu.com/p/a512424793dc  
 https://blog.csdn.net/qq_29713123/article/details/122469145  
@@ -4604,6 +4621,10 @@ make clean        <span class="c1"># 执行清除操作（同时创建所需文�
 [Makefile ar 用法](https://blog.csdn.net/hyl999/article/details/108642313)  
 [操作前创建文件夹](https://www.orcode.com/question/438856_k2f6e4.html)  
 -->  
+<!--  
+更多编译器：  
+[ARM 主流编译器（armcc、iar、gcc for arm、LLVM(clang)）详细介绍](https://mp.weixin.qq.com/s/t0MKuNfj3vAh8GB6FwC39g)  
+-->  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -4627,7 +4648,7 @@ make clean        <span class="c1"># 执行清除操作（同时创建所需文�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20200913/" class="prev" rel="prev" title="面向对象的 C 语言实现方法"><i class="fas fa-angle-left fa-fw"></i>面向对象的 C 语言实现方法</a>
+    <div class="post-nav"><a href="/20200913/" class="prev" rel="prev" title="面向对象思维方式的 C 语言实现方法"><i class="fas fa-angle-left fa-fw"></i>面向对象思维方式的 C 语言实现方法</a>
             <a href="/20200916/" class="next" rel="next" title="linux 调试仿真工具">linux 调试仿真工具<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
@@ -4635,7 +4656,7 @@ make clean        <span class="c1"># 执行清除操作（同时创建所需文�
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

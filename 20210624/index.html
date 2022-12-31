@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "attribute","wordcount":  2180 ,
+                        }],"genre": "posts","keywords": "attribute","wordcount":  2230 ,
         "url": "https:\/\/o2ospring.github.io\/20210624\/","datePublished": "2021-06-24T21:33:41+08:00","dateModified": "2021-06-24T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">attribute-packed 编译属性-字节对齐</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-24">2021-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2180 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-24">2021-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2230 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/20210624/" class="leancloud_visitors" data-flag-title="attribute-packed 编译属性-字节对齐">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -311,7 +311,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>二、关于<code>__attribute__(())</code>语句书写位置总体原则：书写到修饰对象名称的后面，但考虑要跨编译平台使用，强烈建议使用宏定义并且按下面规则使用。</p>
+<p>二、关于<code>__attribute__(())</code>语句书写位置总体原则：书写到修饰对象名称的后面（★修饰其左边的单元体(非每个元素)，放到最前面即是修饰整体★），但考虑要跨编译平台使用，强烈建议使用宏定义并且按下面规则使用。</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -378,11 +378,11 @@
 	<span class="kt">uint16_t</span> <span class="n">a</span><span class="p">;</span>
 	<span class="kt">uint8_t</span>  <span class="n">b</span><span class="p">;</span>
 
-<span class="p">}</span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">obj_n_t</span><span class="p">;</span> <span class="c1">//2.用于结构体[组员]类型的【起始地址】和【大小】，也可用于单体结构体！
+<span class="p">}</span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">obj_n_t</span><span class="p">;</span> <span class="c1">//2.用于结构体[组员]类型的【起始地址】和【大小】，也可用于单体结构体！备注：是组员非成员！
 </span><span class="c1"></span>                <span class="c1">//                           　　　　　　　　　　　  　　　　　　　　-┬-
-</span><span class="c1"></span><span class="n">obj_1_t</span> <span class="n">aaaaaa</span><span class="p">;</span> <span class="c1">//1.影响[单体结构体]的起始地址对齐。　　　　　                        ├→ ●只是唯一的特殊个案●
+</span><span class="c1"></span><span class="n">obj_1_t</span> <span class="n">aaaaaa</span><span class="p">;</span> <span class="c1">//1.影响[单体结构体]的起始地址对齐，不能用于数组                      ├→ ●只是唯一的特殊个案●
 </span><span class="c1"></span><span class="n">obj_n_t</span> <span class="n">bbb</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//2.影响结构体[每个组员]的起始地址对齐和大小限制----------------------┘
-</span><span class="c1"></span>                <span class="c1">//3.影响[数组整体]起始地址，但不影响其它组员起始地址和大小！
+</span><span class="c1"></span>                <span class="c1">//3.影响[数组整体]起始地址，但不影响[其它组员]起始地址和大小！
 </span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="k">struct</span> <span class="n">obj_1_</span> <span class="n">ccc</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span> <span class="c1">//←┤
 </span><span class="c1"></span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__aligned__</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="k">struct</span> <span class="n">obj_n_</span> <span class="n">ddd</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span> <span class="c1">//←┘
 </span><span class="c1"></span>
@@ -427,7 +427,7 @@
   <span class="p">.............</span>
   
   <span class="p">.</span> <span class="o">=</span> <span class="n">ALIGN</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-  <span class="n">KEEP</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">SORT</span><span class="p">(.</span><span class="n">init</span><span class="p">.</span><span class="o">*</span><span class="p">)))</span>               <span class="cm">/* 使用 KEEP(*(SORT()) 防止被[链接器]优化 */</span>
+  <span class="n">KEEP</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">SORT</span><span class="p">(.</span><span class="n">init</span><span class="p">.</span><span class="o">*</span><span class="p">)))</span>               <span class="cm">/* 使用 KEEP(*(SORT())) 防止被[链接器]优化 */</span>
 
   <span class="p">.</span> <span class="o">=</span> <span class="n">ALIGN</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
   <span class="n">_etext</span> <span class="o">=</span> <span class="p">.;</span>
@@ -466,7 +466,7 @@
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
