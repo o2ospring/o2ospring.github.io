@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "电路","wordcount":  1862 ,
+                        }],"genre": "posts","keywords": "电路","wordcount":  2838 ,
         "url": "https:\/\/o2ospring.github.io\/20220518\/","datePublished": "2022-05-18T21:33:41+08:00","dateModified": "2022-05-18T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">小电路多学问</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/hardware/"><i class="far fa-folder fa-fw"></i>hardware</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-18">2022-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1862 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/20220518/" class="leancloud_visitors" data-flag-title="小电路多学问">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-18">2022-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2838 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/20220518/" class="leancloud_visitors" data-flag-title="小电路多学问">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -288,7 +288,8 @@ PTC 热敏电阻，也是自恢复保险丝
 -->  
 <p>待续……</p>
 </details>  
-<details close=""><summary><strong>9、单向 IO 电平转换</strong></summary>  
+<details close=""><summary><strong>9、单/双向 IO 电平转换</strong></summary>  
+<p>1）单向 IO 电平转换：</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -297,6 +298,207 @@ PTC 热敏电阻，也是自恢复保险丝
         data-sizes="auto"
         alt="../img/20220518_0901.jpg"
         title="电路图" /></p>
+<p>当三极管发射极（e）为低电平时，三极管导通，集电极（c）电平被拉低；反之，集电极通过上拉电阻回升至对应电压，以此实现简易单向电平转换。<br>
+备注：亦可采用二极管实现单向 IO 电平转换，该方案在低电平转换过程中会产生约 0.5V 的压降！</p>
+<p>2）双向 IO 电平转换：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_0902.jpg"
+        data-srcset="../img/20220518_0902.jpg, ../img/20220518_0902.jpg 1.5x, ../img/20220518_0902.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_0902.jpg"
+        title="电路图" /></p>
+<p>3）专用芯片方案：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_0903.jpg"
+        data-srcset="../img/20220518_0903.jpg, ../img/20220518_0903.jpg 1.5x, ../img/20220518_0903.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_0903.jpg"
+        title="电路图" /></p>
+</details>  
+<details close=""><summary><strong>10、电子开关与理想二极管</strong></summary>  
+<p>1）电子开关：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类别 1</th>
+<th style="text-align:center">类别 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1001.jpg"
+        data-srcset="../img/20220518_1001.jpg, ../img/20220518_1001.jpg 1.5x, ../img/20220518_1001.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1001.jpg"
+        title="../img/20220518_1001.jpg" /><br>NPN 三极管             <br>【<strong>电流</strong>控制型】（小于1mA）</td>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1002.jpg"
+        data-srcset="../img/20220518_1002.jpg, ../img/20220518_1002.jpg 1.5x, ../img/20220518_1002.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1002.jpg"
+        title="../img/20220518_1002.jpg" /><br>PNP 三极管                      <br>【<strong>电流</strong>控制型】（小于1mA）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1003.jpg"
+        data-srcset="../img/20220518_1003.jpg, ../img/20220518_1003.jpg 1.5x, ../img/20220518_1003.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1003.jpg"
+        title="../img/20220518_1003.jpg" /><br>N 沟道 MOS 管（MOSFET）<br>【<strong>电压</strong>控制型】（2~4V，10V完全导通）</td>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1004.jpg"
+        data-srcset="../img/20220518_1004.jpg, ../img/20220518_1004.jpg 1.5x, ../img/20220518_1004.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1004.jpg"
+        title="../img/20220518_1004.jpg" /><br>P 沟道 MOS 管（MOSFET）<br>【<strong>电压</strong>控制型】（2~4V，10V完全导通）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>主要区别：<br>
+1、三极管是<strong>电流</strong>控制型，MOS管/可控硅是<strong>电压</strong>控制型；<br>
+2、MOS管控制<strong>超高频(MHZ)</strong>，而可控硅控制<strong>高频(KHZ)</strong>；</p>
+</blockquote>
+<p>备注：<a href="../img/20220518_1005.jpg" rel="">MOS管工作原理</a>，<a href="../img/20220518_1006.jpg" rel="">MOS管主要参数</a>，<a href="../img/20220518_1011.jpg" rel="">MOS管更多类型</a></p>
+<p>2）理想二极管：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类别 1</th>
+<th style="text-align:center">类别 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1007.jpg"
+        data-srcset="../img/20220518_1007.jpg, ../img/20220518_1007.jpg 1.5x, ../img/20220518_1007.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1007.jpg"
+        title="../img/20220518_1007.jpg" /><br>P 沟道 MOS 管<br>实现的“理想二极管”<br>电源输入防反接+防短接</td>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1008.jpg"
+        data-srcset="../img/20220518_1008.jpg, ../img/20220518_1008.jpg 1.5x, ../img/20220518_1008.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1008.jpg"
+        title="../img/20220518_1008.jpg" /><br>N 沟道 MOS 管<br>实现的“理想二极管”<br>电源输入防反接+防短接</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1009.jpg"
+        data-srcset="../img/20220518_1009.jpg, ../img/20220518_1009.jpg 1.5x, ../img/20220518_1009.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1009.jpg"
+        title="../img/20220518_1009.jpg" /><br>二极管实现的单向导电性<br>存在 0.7V 压降<br>电源输入防反接+防短接+防倒灌</td>
+<td style="text-align:center"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1010.jpg"
+        data-srcset="../img/20220518_1010.jpg, ../img/20220518_1010.jpg 1.5x, ../img/20220518_1010.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1010.jpg"
+        title="../img/20220518_1010.jpg" /><br>AP74500Q + N 沟道 MOS 管<br>实现的“理想二极管”<br>电源输入防反接+防短接+防倒灌</td>
+</tr>
+</tbody>
+</table>
+<p>备注：<a href="https://bbs.21ic.com/icview-3462140-1-1.html" target="_blank" rel="noopener noreffer">理想二极管的方案</a></p>
+<p><strong>为什么不用可控硅（晶闸管）实现“理想二极管”</strong>： </p>
+<table>
+<thead>
+<tr>
+<th>核心需求</th>
+<th>理想二极管要求</th>
+<th>SCR适配性</th>
+<th>MOS管适配性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主动关断能力</td>
+<td>随时阻断反向电流</td>
+<td>完全不满足（仅过零关断）</td>
+<td>完全满足（栅极全控）</td>
+</tr>
+<tr>
+<td>正向压降</td>
+<td>趋近0V，低损耗</td>
+<td>不满足（1V左右固定压降）</td>
+<td>满足（Rds(on) 毫欧级）</td>
+</tr>
+<tr>
+<td>开关频率</td>
+<td>kHz~MHz级高频</td>
+<td>不满足（微秒级开关速度）</td>
+<td>满足（纳秒级开关速度）</td>
+</tr>
+<tr>
+<td>低压场景</td>
+<td>3.3V/5V/12V低压应用</td>
+<td>不满足（触发门槛高）</td>
+<td>满足（低压栅极驱动即可）</td>
+</tr>
+<tr>
+<td>控制精度</td>
+<td>精准通断，无误导通</td>
+<td>不满足（易受干扰误触发）</td>
+<td>满足（电压控制稳定性高）</td>
+</tr>
+</tbody>
+</table>
+<p>3）防倒灌电路：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20220518_1012.jpg"
+        data-srcset="../img/20220518_1012.jpg, ../img/20220518_1012.jpg 1.5x, ../img/20220518_1012.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20220518_1012.jpg"
+        title="电路图" /></p>
+<p>备注：一旦两个 MOS 管关断，上图中的电路连接将形成由两者体内二极管构成的反向串联结构，因此任一电流方向均无法导通，以此实现防倒灌功能。</p>
+</details>  
+<details close=""><summary><strong>11、电池充放电+开关机管理</strong></summary>  
+<p>待续……</p>
+</details>  
+<details close=""><summary><strong>12、运放电路基本知识</strong></summary>  
+<blockquote>
+<p>关于正反相输入的电压，理想运放满足<strong>虚短</strong>：V+ = V-（同相端电压 = 反相端电压）</p>
+</blockquote>
+<p><strong>1）电压跟随器/同相放大器</strong><br>
+　 同相端接输入 Vin，则：<br>
+　 V- = Vin<br>
+<strong>2）反相放大器（最经典电路）</strong><br>
+　 同相端直接接地：V+ = 0V<br>
+　 由虚短得：V- = 0V，这个点也叫虚地。<br>
+<strong>3）差分放大器/减法器</strong><br>
+　 设同相端电压 V+，则：<br>
+　 V- = V+</p>
 <p>待续……</p>
 </details>  
 </div><div class="post-footer" id="post-footer">
@@ -330,7 +532,7 @@ PTC 热敏电阻，也是自恢复保险丝
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

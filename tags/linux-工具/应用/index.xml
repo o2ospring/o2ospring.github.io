@@ -4,12 +4,26 @@
         <link>https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/</link>
         <description>linux 工具/应用 - 标签 - o2ospring</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>Termux 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251117/</link>
+    <pubDate>Mon, 17 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251117/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 Termux /ˈtɜːrmʌks/ 是一款在 Android 设备上运行]]></description>
+</item><item>
+    <title>WSL 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Sun, 09 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在]]></description>
+</item><item>
     <title>linux 纯文本编辑器 nano</title>
     <link>https://o2ospring.github.io/20251108/</link>
     <pubDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20251108/</guid>
-    <description><![CDATA[前言 nano 是一款轻量级、易用的纯文本编辑器，广泛应用于 Linux 和类 Unix 系统中。它以简单直观的操作方式著称，特别适合新手用户，同时也能满足日常文本编辑需求]]></description>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 nano 是一款轻量级、易用的纯文本编辑器，广泛应用]]></description>
 </item><item>
     <title>linux 命令帮助工具 tldr</title>
     <link>https://o2ospring.github.io/20230215/</link>
@@ -44,7 +58,7 @@
     <pubDate>Wed, 26 Jan 2022 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220126/</guid>
-    <description><![CDATA[Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司]]></description>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写]]></description>
 </item><item>
     <title>博客生成工具 Hexo</title>
     <link>https://o2ospring.github.io/20220125/</link>
@@ -59,19 +73,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220124/</guid>
     <description><![CDATA[GitBook 的简介 GitBook /ɡɪt/bʊk/ 是一个基于 Node.js 的命令行工具，可使用 Github/Git 和 Markdown 来制作精美的电子书（例如：IT 行业技术说明书）。前提需要安装 npm（注：N]]></description>
-</item><item>
-    <title>网站 node 包管理器 npm</title>
-    <link>https://o2ospring.github.io/20220123/</link>
-    <pubDate>Sun, 23 Jan 2022 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20220123/</guid>
-    <description><![CDATA[NPM 的简介 npm（Node Package Manager）是 node 的包管理器，随同 NodeJS 一起安装的包管理和分发工具，它很方便让 JavaScript 开发者下载、安装、上传以及管理已经安]]></description>
-</item><item>
-    <title>lua 脚本基本语法</title>
-    <link>https://o2ospring.github.io/20211221/</link>
-    <pubDate>Tue, 21 Dec 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20211221/</guid>
-    <description><![CDATA[前言 Lua /'luːə/ 是一个小巧且速度极快的脚本语言，由标准 C 编写而成，几乎在所有操作系统和平台上都可以编译运行，是作为嵌入式脚本的最佳选择。]]></description>
 </item></channel>
 </rss>

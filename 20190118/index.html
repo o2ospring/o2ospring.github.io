@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>git 应用总结与提高 - o2ospring</title><meta name="Description" content="git 应用总结与提高"><meta property="og:title" content="git 应用总结与提高" />
+<meta property="og:description" content="git 应用总结与提高" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://o2ospring.github.io/20190118/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-01-18T21:33:41+08:00" />
+<meta property="article:modified_time" content="2025-12-02T20:00:00+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
+
+<meta name="twitter:title" content="git 应用总结与提高"/>
+<meta name="twitter:description" content="git 应用总结与提高"/>
+<meta name="application-name" content="o2ospring">
+<meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20190118/" /><link rel="prev" href="https://o2ospring.github.io/20181210/" /><link rel="next" href="https://o2ospring.github.io/20190119/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "git 应用总结与提高",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/o2ospring.github.io\/20190118\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "工具, git","wordcount":  18597 ,
+        "url": "https:\/\/o2ospring.github.io\/20190118\/","datePublished": "2019-01-18T21:33:41+08:00","dateModified": "2025-12-02T20:00:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/o2ospring.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "o2ospring"
+            },"description": "git 应用总结与提高"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="o2ospring"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>o2ospring&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/o2ospring" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">git 应用总结与提高</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/software/"><i class="far fa-folder fa-fw"></i>software</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-01-18">2019-01-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 18597 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 38 分钟&nbsp;<span id="/20190118/" class="leancloud_visitors" data-flag-title="git 应用总结与提高">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#使用">使用</a>
+          <ul>
+            <li><a href="#一标准协作流程以集中式分支规范为例">一、标准协作流程（以“集中式+分支规范”为例）</a>
+              <ul>
+                <li><a href="#1-分支规范git-flow-为例">1. 分支规范（Git Flow 为例）</a></li>
+                <li><a href="#2-完整协作流程以开发新功能为例">2. 完整协作流程（以开发新功能为例）</a></li>
+              </ul>
+            </li>
+            <li><a href="#二关键协作工具与实践">二、关键协作工具与实践</a>
+              <ul>
+                <li><a href="#1-代码审查code-review">1. 代码审查（Code Review）</a></li>
+                <li><a href="#2-冲突解决">2. 冲突解决</a></li>
+                <li><a href="#3-持续集成持续部署cicd">3. 持续集成/持续部署（CI/CD）</a></li>
+                <li><a href="#4-提交规范">4. 提交规范</a></li>
+              </ul>
+            </li>
+            <li><a href="#三团队协作注意事项">三、团队协作注意事项</a></li>
+            <li><a href="#git-分布式协作典型案例跨团队开源项目协作">Git 分布式协作典型案例：跨团队开源项目协作</a></li>
+            <li><a href="#一案例背景">一、案例背景</a></li>
+            <li><a href="#二完整协作流程分角色操作">二、完整协作流程（分角色操作）</a>
+              <ul>
+                <li><a href="#阶段-1准备工作贡献者-c">阶段 1：准备工作（贡献者 C）</a>
+                  <ul>
+                    <li><a href="#1-复制中央仓库到个人仓库fork">1. 复制中央仓库到个人仓库（Fork）</a></li>
+                    <li><a href="#2-克隆个人仓库到本地">2. 克隆个人仓库到本地</a></li>
+                    <li><a href="#3-添加中央仓库为上游upstream">3. 添加中央仓库为上游（Upstream）</a></li>
+                  </ul>
+                </li>
+                <li><a href="#阶段-2本地开发贡献者-c">阶段 2：本地开发（贡献者 C）</a>
+                  <ul>
+                    <li><a href="#1-同步中央仓库最新代码">1. 同步中央仓库最新代码</a></li>
+                    <li><a href="#2-创建功能分支开发">2. 创建功能分支开发</a></li>
+                    <li><a href="#3-本地开发与提交">3. 本地开发与提交</a></li>
+                    <li><a href="#4-再次同步中央仓库代码">4. 再次同步中央仓库代码</a></li>
+                  </ul>
+                </li>
+                <li><a href="#阶段-3推送代码到个人仓库贡献者-c">阶段 3：推送代码到个人仓库（贡献者 C）</a></li>
+                <li><a href="#阶段-4发起合并请求pr贡献者-c">阶段 4：发起合并请求（PR）（贡献者 C）</a></li>
+                <li><a href="#阶段-5代码审查与修改核心团队--贡献者-c">阶段 5：代码审查与修改（核心团队 + 贡献者 C）</a>
+                  <ul>
+                    <li><a href="#1-核心团队审核a-和-b">1. 核心团队审核（A 和 B）</a></li>
+                    <li><a href="#2-贡献者-c-响应修改">2. 贡献者 C 响应修改</a></li>
+                    <li><a href="#3-重复审查与修改">3. 重复审查与修改</a></li>
+                  </ul>
+                </li>
+                <li><a href="#阶段-6合并代码到中央仓库核心维护者-a">阶段 6：合并代码到中央仓库（核心维护者 A）</a></li>
+                <li><a href="#阶段-7同步中央仓库最新代码贡献者-c">阶段 7：同步中央仓库最新代码（贡献者 C）</a></li>
+              </ul>
+            </li>
+            <li><a href="#三分布式协作的核心优势案例体现">三、分布式协作的核心优势（案例体现）</a></li>
+            <li><a href="#四关键注意事项">四、关键注意事项</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#总结-1">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><style>  
+    /* 一键按钮悬浮左下角样式 */  
+    #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; }  
+    #toggleAll:hover { background: #eee; }  
+</style>  
+<p><button id="toggleAll">一键展开全部</button></p>
+<h3 id="前言">前言</h3>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener noreffer">Git</a> 是一款由 Linus Torvalds（Linux 内核创始人）于 2005 年开发的 <strong>分布式版本控制系统</strong>（Version Control System，VCS），核心目标是高效管理代码的版本迭代与多人协作开发，现已成为全球最流行的代码管理工具（广泛搭配 GitHub、GitLab、Gitee 等远程仓库平台使用）。</p>
+<h3 id="安装">安装</h3>
+<details class="collapsible" close=""><summary><strong>1、安装 Git </strong></summary>  
+<blockquote>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener noreffer">Git</a> 是一款开源分布式版本控制系统，核心特性为分布式架构与版本全量追踪，支持本地独立完成开发工作，仅需在同步协作时联网。直接访问 <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener noreffer">Git 官方下载页面</a>，下载对应系统版本的安装包，双击运行一路默认安装即可。</p>
+</blockquote>
+<p>Git 的打开步骤（先右键点击文件区空白处）：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_001.jpg"
+        data-srcset="../img/20190118_001.jpg, ../img/20190118_001.jpg 1.5x, ../img/20190118_001.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_001.jpg"
+        title="Git打开界面" /></p>
+<details class="collapsible" close=""><summary><strong>点击展开内容【常见的代码托管网站】</strong></summary>  
+<p>1）<strong>国际主流平台</strong> </p>
+<table>
+<thead>
+<tr>
+<th>网站名称</th>
+<th>网址</th>
+<th>核心特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com" target="_blank" rel="noopener noreffer">https://github.com</a></td>
+<td>全球最大的代码托管与开源协作平台，支持 Git 版本控制，托管了海量开源项目。免费版可创建私有和公有仓库，适合个人开发者、开源社区及企业，仅国内访问偶尔不稳定。</td>
+</tr>
+<tr>
+<td>GitLab</td>
+<td><a href="https://gitlab.com" target="_blank" rel="noopener noreffer">https://gitlab.com</a></td>
+<td>开源的代码托管平台，支持 DevOps 全生命周期流程。免费版可创建无限个私有和公有仓库，每月提供 400 分钟 CI/CD 构建时长，还支持企业搭建私有部署版本，适配大型团队协作。</td>
+</tr>
+<tr>
+<td>SourceForge</td>
+<td><a href="https://sourceforge.net" target="_blank" rel="noopener noreffer">https://sourceforge.net</a></td>
+<td>老牌开源项目托管平台，历史悠久。除了 Git，也支持 SVN 和 Mercurial。提供文件下载、项目统计等传统功能。</td>
+</tr>
+<tr>
+<td>Bitbucket</td>
+<td><a href="https://bitbucket.org" target="_blank" rel="noopener noreffer">https://bitbucket.org</a></td>
+<td>支持 Git 和 Mercurial 两种版本控制工具。免费版适合小型团队，支持 5 人以内团队创建无限私有仓库，功能上与 GitHub 相近，侧重团队协作中的代码托管和基础协作需求。</td>
+</tr>
+<tr>
+<td>Codeberg</td>
+<td><a href="https://codeberg.org" target="_blank" rel="noopener noreffer">https://codeberg.org</a></td>
+<td>由欧盟开发者维护，基于 Gitea 搭建，注重隐私保护和开源精神。平台免费且无广告，适合追求数据安全和轻量化代码托管的用户，国内访问速度尚可。</td>
+</tr>
+<tr>
+<td>Framagit</td>
+<td><a href="https://framagit.org" target="_blank" rel="noopener noreffer">https://framagit.org</a></td>
+<td>法国公司运营，基于 GitLab 搭建，服务器位于德国。支持代码托管和基础协作功能，适合对欧洲服务器访问需求较高的开发者，整体访问稳定性较好。</td>
+</tr>
+</tbody>
+</table>
+<p>2） <strong>国内主流平台</strong> </p>
+<table>
+<thead>
+<tr>
+<th>网站名称</th>
+<th>网址</th>
+<th>核心特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>码云<br>Gitee</td>
+<td><a href="https://gitee.com" target="_blank" rel="noopener noreffer">https://gitee.com</a></td>
+<td>国内最常用的代码托管平台，服务器在国内，访问速度快、稳定性高。免费版支持无限个私有和公有仓库，单个团队限 5 名成员，适合个人、小团队及国内企业的项目托管，还提供代码迁移、在线编辑等适配国内开发者的功能。</td>
+</tr>
+<tr>
+<td>阿里云效<br>Codeup</td>
+<td><a href="https://codeup.aliyun.com" target="_blank" rel="noopener noreffer">https://codeup.aliyun.com</a></td>
+<td>阿里云推出的企业级代码管理平台，是阿里老版 Code 的升级版本。免费版不限人数，提供 100GB 托管总容量，支持代码评审、质量检测、CI/CD 等 DevOps 功能，适配企业级研发协作场景。</td>
+</tr>
+<tr>
+<td>CODING</td>
+<td><a href="https://coding.net" target="_blank" rel="noopener noreffer">https://coding.net</a></td>
+<td>侧重研发协作的代码托管平台，免费版提供 100GB 总仓库容量，不限团队人数。除代码托管外，还集成了项目协同、制品库、流水线等功能，能满足中小团队到企业级的研发全流程需求。</td>
+</tr>
+<tr>
+<td>腾讯工蜂</td>
+<td><a href="https://git.code.tencent.com" target="_blank" rel="noopener noreffer">https://git.code.tencent.com</a></td>
+<td>腾讯推出的纯代码托管平台，支持 Git 版本控制，不限用户数和组织个数，适合腾讯生态内的开发者及企业，侧重代码的基础托管和团队协同管理。</td>
+</tr>
+<tr>
+<td>极狐<br>JihuLab</td>
+<td><a href="https://jihulab.com" target="_blank" rel="noopener noreffer">https://jihulab.com</a></td>
+<td>GitLab 的中国版，功能与 GitLab 对齐。免费版支持无限私有和公有仓库，每月 400 分钟 CI/CD 流水线时间，每个项目仓库容量 2GB，适配国内企业的 DevOps 协作需求，访问速度和稳定性更贴合国内网络环境。</td>
+</tr>
+</tbody>
+</table>
+</details>  
+　 　  
+</details>  
+<details class="collapsible" close=""><summary><strong>2、安装可视化辅助工具</strong></summary>  
+<blockquote>
+<p><a href="https://tortoisegit.org/" target="_blank" rel="noopener noreffer">TortoiseGit</a> 是一款开源版本控制客户端，其源代码托管于 <a href="https://gitlab.com/tortoisegit/tortoisegit" target="_blank" rel="noopener noreffer">GitLab</a>。你可以直接访问 <a href="https://tortoisegit.org/download/" target="_blank" rel="noopener noreffer">TortoiseGit 官方下载页面</a>，获取对应版本的软件安装包与语言包：例如 64 位系统适配的 <a href="https://download.tortoisegit.org/tgit/2.13.0.0/TortoiseGit-2.13.0.1-64bit.msi" target="_blank" rel="noopener noreffer">TortoiseGit-2.13.0.1-64bit.msi</a> 主程序，以及配套的 <a href="https://download.tortoisegit.org/tgit/2.13.0.0/TortoiseGit-LanguagePack-2.13.0.0-64bit-zh_CN.msi" target="_blank" rel="noopener noreffer">TortoiseGit-LanguagePack-2.13.0.0-64bit-zh_CN.msi</a> 中文语言包。<strong>安装时请先运行软件包，再安装语言包</strong>，以确保语言配置生效。</p>
+</blockquote>
+<p>TortoiseGit 中文界面设置步骤（先右键点击文件区空白处）：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_002.jpg"
+        data-srcset="../img/20190118_002.jpg, ../img/20190118_002.jpg 1.5x, ../img/20190118_002.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_002.jpg"
+        title="配置为中文界面" /></p>
+<p>TortoiseGit 支持为文件及文件夹配置图标叠加标记，帮助开发者快速识别代码的变更情况：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_003.jpg"
+        data-srcset="../img/20190118_003.jpg, ../img/20190118_003.jpg 1.5x, ../img/20190118_003.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_003.jpg"
+        title="文件状态小图标" /></p>
+<p>PS：借助 TortoiseGit 可视化工具开展代码对比工作，既能显著提升操作效率与比对准确性，又可直观查看工作区的代码修改情况，大幅降低人工比对的成本与误差。</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>3、设置邮箱地址和用户名</strong></summary>  
+<blockquote>
+<p>第一次安装 Git 后，通常需要做的第一件事就是设置邮箱地址和用户名，它们是你在 Git 世界里的 “身份证”。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------设置全局邮箱地址和用户名-------</span>
+git config --global user.email <span class="s2">&#34;o2o@qq.com&#34;</span>  <span class="c1">#【重置】全局邮箱地址（--global 表示设置全局参数。当不加此选项时，表示对象是当前所在仓库参数）</span>
+git config --global user.name <span class="s2">&#34;o2ospring&#34;</span>    <span class="c1">#【重置】全局用户名　（--global 表示设置全局参数。当不加此选项时，表示对象是当前所在仓库参数）</span>
+
+<span class="c1">#git config --global user.email              #【查看】全局邮箱地址（--global 表示设置全局参数。当不加此选项时，表示对象是当前所在仓库参数）</span>
+<span class="c1">#git config --global user.name               #【查看】全局用户名　（--global 表示设置全局参数。当不加此选项时，表示对象是当前所在仓库参数）</span>
+<span class="c1">#git config --global -l                      #【查看】全局配置参数（--global 表示设置全局参数。当不加此选项时，表示对象是当前所在仓库参数）</span>
+<span class="c1">#git config --global --edit                  #【编辑】全局配置参数（--global 表示设置全局参数。当不加此选项时，表示对象是当前所在仓库参数）</span>
+<span class="c1">#git config --global credential.helper cache #【缓存】用户名和密码（当频繁通过 HTTPS 操作远程仓库，可避免每次重复输入凭证，除非凭证过期或终端关闭）</span>
+<span class="c1">#git config --global credential.helper &#39;cache --timeout=1800&#39;</span>
+                                             <span class="c1">#【修改】缓存有效期为 30 分钟（默认缓存 15 分钟）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：<code>--global</code>配置的参数存在 Windows 的 <code>C:\Users\你的用户名\.gitconfig</code> 或 macOS/Linux 的 <code>~/.gitconfig</code> 文件中。</p>
+</details>  
+<h3 id="使用">使用</h3>
+<details class="collapsible" close=""><summary><strong>01、假设克隆仓库</strong></summary>  
+<blockquote>
+<p>若仅需对现有工程进行修改，可直接从远程仓库克隆代码至本地；完成本地环境配置与远程仓库关联后，即可按需开展代码修改、调试、提交及推送更新等操作。</p>
+</blockquote>
+<p>1.1、克隆所有分支</p>
+<blockquote>
+<p>当项目仓库包含发布分支（如 release/*）、开发分支（如 develop）等多分支结构时，需克隆完整仓库以支持全流程开发、分支切换与版本迭代。此方式会同步下载所有分支的历史提交记录，会占用更多本地存储空间。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------克隆所有分支-------</span>
+                                  <span class="c1">#【方式一】克隆远程仓库所有分支（SSH 方式）（注意：使用 SSH 克隆之前先要添加 SSH key，具体操作后面再介绍，所以暂不推荐这种方式）</span>
+git clone git@github.com:espressif/esp-idf.git
+                                  <span class="c1">#【方式二】克隆远程仓库所有分支（http方式）（如果忘记拉取子模块，则可以使用 git submodule update --init --recursive 命令补救）</span>
+git clone https://github.com/espressif/esp-idf.git
+                                  <span class="c1">#〖情形二〗当远程仓库有嵌套仓库时，克隆所有分支的同时，同步拉取嵌套仓库</span>
+git clone --recursive https://github.com/espressif/esp-idf.git
+                                  <span class="c1">#〖情形三〗同上，并且将本地工作区自动切换到`release/v5.1`分支（备注：`release/v5.1`是分支名称，`/`仅作为名称字符的一部分）</span>
+git clone --recursive -b release/v5.1 https://github.com/espressif/esp-idf.git
+
+<span class="c1">#git checkout -b aaaa origin/aaaa # 基于【远程跟踪分支】创建并切换到新的本地分支，同时建立跟踪关系（注：不会从远程仓库拉取数据）（貌似 git checkout aaaa 也会自动处理）</span>
+                                  <span class="c1">#【远程跟踪分支】：是已从远程仓库同步到本地的分支。例如：克隆整个远程仓库，除当前分支外，其它分支还处于隐藏状态，需要通过上行命令检出</span>
+</code></pre></td></tr></table>
+</div>
+</div><details class="collapsible" close=""><summary><strong>点击展开内容【SSH 密钥添加】</strong></summary>  
+<blockquote>
+<p>SSH 密钥分公钥和私钥，公钥是 “锁”，私钥是 “钥匙”。客户端生成这对密钥后，把公钥（锁）装到服务器上，之后客户端用私钥（钥匙）就能直接免密登录服务器了。</p>
+</blockquote>
+<p>1）【生成】SSH 加密密钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -C <span class="s2">&#34;o2o@qq.com&#34;</span> <span class="c1">#【生成】SSH 加密密钥（过程提示【输入文件名】和【输入两次密码】，全部按回车即表示使用默认文件名和不需要密码）</span>
+                                  <span class="c1"># -t 指定密钥类型，默认是 rsa，可以省略。</span>
+                                  <span class="c1"># -C 设置注释文字，比如邮箱。 </span>
+                                  <span class="c1"># 生成的密钥（id_rsa 私钥文件、id_rsa.pub 公钥文件）存在 Windows 的 `C:\Users\你的用户名\.ssh\` 或 macOS/Linux 的 `~/.ssh/` 目录中</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2）【添加】SSH key 到托管网站</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_008.jpg"
+        data-srcset="../img/20190118_008.jpg, ../img/20190118_008.jpg 1.5x, ../img/20190118_008.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_008.jpg"
+        title="添加 SSH key" /></p>
+<p>PS：GitHub 支持添加多个 SSH Key。如果你需要在多台设备（比如公司电脑和家用电脑）上提交代码，只需将每台设备的 SSH Key 都配置到 GitHub 账号中，就能在任意设备上直接向远程仓库推送代码了。</p>
+</details>  
+　 　  
+<p>1.2、克隆单个分支</p>
+<blockquote>
+<p>当项目仓库需针对特定功能模块或指定发布版本进行开发，建议直接克隆对应功能分支 / 版本分支，基于该分支迭代开发。此方式可避免拉取全量仓库历史数据，显著降低本地存储占用，同时确保开发环境与目标版本的一致性。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------克隆单个分支-------</span>
+                                  <span class="c1">#〖情形一〗仅克隆远程仓库中指定的`release/v5.1`分支，不会下载其他任何分支（备注：`release/v5.1`是分支名称，`/`仅作为名称字符的一部分）</span>
+git clone --single-branch -b release/v5.1 https://github.com/espressif/esp-idf.git
+                                  <span class="c1">#〖情形二〗同上，当远程仓库有嵌套仓库时，克隆指定分支的同时，同步拉取嵌套仓库</span>
+git clone --recursive --single-branch -b release/v5.1 https://github.com/espressif/esp-idf.git
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：关于<code>--recursive</code>与<code>--recurse-submodules</code>的区别：<br>
+　1）<code>--recursive</code><del>作用对象是【嵌套仓库】（目录下有 .git 的独立仓库）</del>；<br>
+　2）<code>--recurse-submodules</code><del>作用对象是【子模块】（通过 .gitmodules 配置的依赖）</del>。<br>
+　3）目前掌握到信息，两者应该是一样的，但推荐：<br>
+　 　<code>--recurse-submodules</code> 用于 git clone, git pull, git fetch 等命令，表示&quot;在执行此操作时递归处理子模块&quot;；<br>
+　 　<code>--recursive</code> 只用于 git submodule 命令本身，表示&quot;递归执行这个子模块操作&quot;。</p>
+<p>1.3、设置邮箱地址和用户名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------设置当前仓库的邮箱地址和用户名-------</span>
+git config user.email <span class="s2">&#34;xxx@qq.com&#34;</span><span class="c1">#【设置】当前仓库的邮箱地址（备注：当不单独设置时，将默认使用全局配置的邮箱地址和用户名）</span>
+git config user.name <span class="s2">&#34;xiaoming&#34;</span>   <span class="c1">#【设置】当前仓库的用户名　（备注：当不单独设置时，将默认使用全局配置的邮箱地址和用户名）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：建议为此仓库单独设置专属邮箱地址及用户名（未单独设置时，将默认使用全局配置的邮箱地址和用户名），为开发工作做好前置准备！</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>02、假设新建仓库</strong></summary>  
+<blockquote>
+<p>若需自行新建工程，需先在远程代码仓库（如 GitHub/GitLab/Gitee）与本地环境分别创建对应仓库，后续再进行代码初始化、分支配置及远程关联操作。</p>
+</blockquote>
+<p>2.1、远程新建</p>
+<blockquote>
+<p>首先在指定平台创建共享远程仓库，为团队成员后续的代码推送、同步及协作开发提供统一的版本管理中心。</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_004.jpg"
+        data-srcset="../img/20190118_004.jpg, ../img/20190118_004.jpg 1.5x, ../img/20190118_004.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_004.jpg"
+        title="新建远程仓库" /></p>
+<p>2.2、本地新建</p>
+<blockquote>
+<p>当远程仓库尚未创建，或已创建但为空白仓库，可先在本地初始化 Git 仓库并完成项目代码编写 / 提交，随后通过关联远程仓库地址、设置上游分支，最终执行推送操作将本地代码同步至远程仓库。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------本地新建仓库-------</span>
+git init --initial-branch<span class="o">=</span>main    <span class="c1">#【新建】一个空的全新的本地仓库。（git init 不指定名称时，可能是 master，因其有种族歧视性，所以很多厂家改用 main）</span>
+git config user.email <span class="s2">&#34;xxx@qq.com&#34;</span><span class="c1">#【设置】当前仓库的邮箱地址（备注：当不单独设置时，将默认使用全局配置的邮箱地址和用户名）</span>
+git config user.name <span class="s2">&#34;xiaoming&#34;</span>   <span class="c1">#【设置】当前仓库的用户名　（备注：当不单独设置时，将默认使用全局配置的邮箱地址和用户名）</span>
+touch README.md                   <span class="c1">#【添加】一个读我文件（一般情况下仓库都应有一个&lt;README.md&gt;文件作为工程的介绍）</span>
+git add .                         <span class="c1">#【添加】工作区文件到【暂存区】。（可以重复添加多次，也可以添加一个或多个指定文件，如：git add test.c 添加指定文件）</span>
+git commit -m <span class="s2">&#34;first commit&#34;</span>      <span class="c1">#【提交】暂存区文件到【本地库】。（first commit 是提交的文字说明）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2.3、添加过滤</p>
+<blockquote>
+<p>在实际工程场景中，部分文件无需纳入版本管理（尤其各类中间编辑文件，如编译生成的临时文件、编辑器缓存等），通过配置版本控制工具的忽略规则（.gitignore 等）可自动排除这类文件，既能避免冗余数据占用仓库存储空间、减缓仓库拉取 / 推送速度，也能减少版本控制的无效操作，提升协作效率。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------添加过滤规则-------</span>
+touch .gitignore                  <span class="c1">#【创建】一个忽略规则文件</span>
+                                  <span class="c1"># 使用文本编辑工作添加需要忽略的文件(夹)，例如：</span>
+                                  <span class="c1"># *.o               #忽略 *.o 文件。即 git 不管理当前目录及其下面所有层级的 *.o 文件</span>
+                                  <span class="c1"># output2/          #忽略 output2 目录。即 git 不管理 output2 这个文件夹，意味着其里面所有内容也被忽略，同时表明它下面文件(夹)不能使用`!`来指定某些文件(夹)解除忽略</span>
+                                  <span class="c1"># output/*          #忽略 output 目录下的所有文件和目录 -----------\</span>
+                                  <span class="c1"># !output/abc/      #但是，不要忽略 output/abc/ 这个目录 ----------|--&gt; 配合使用</span>
+                                  <span class="c1"># !output/abc/**/*  #并且，不要忽略 output/abc/ 目录下的所有内容 --/</span>
+                                  <span class="c1">#                   #其中，** 表示递归所有子目录，例如包括孙目录。</span>
+                                  <span class="c1"># 如果不使用文本编辑工具，可以使用命令初始添加忽略规则内容，例如：</span>
+<span class="c1">#echo -e &#34;*/build/*\n*JLinkLog.txt\n*.o\n*.d\n*.a\n*.i\n*.map\n*.elf\n*.bin\n*.hex\n*.axf\n*.crf\n*.bak\n*.dep\n*.rar\n*.zip\n*.7z&#34; &gt;&gt; .gitignore</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2.4、工程构建</p>
+<blockquote>
+<p>在构建规范化工程时，通常会包含若干【标准通用模块】。这类模块可独立抽离至单独仓库进行管理，后续可通过仓库关联机制将这些子仓库整合至工程父仓库中，实现模块复用与统一管控。若此类模块已提前部署至远程仓库，可关联或整合到父仓库，方法如下：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#=======【方式一】关联子仓库〖版本链接〗=======</span>
+                                  <span class="c1">#【添加】子模块【指定分支】到【指定目录】src/cjson/（会自动创建目录）</span>
+git submodule add -b master https://github.com/DaveGamble/cJSON.git src/cjson    <span class="c1">#【备注】紧接着可以进入子模块目录执行 git checkout &lt;指定版本&gt;，如 v1.7.16 或 commit ID</span>
+git commit -m <span class="s2">&#34;add submodule&#34;</span>     <span class="c1">#【提交】父仓库的子模块引用变更（必须及时提交，中途不能做其它操作）</span>
+<span class="c1">#cat .gitmodules                  #〖查看〗子模块列表　　　　　　（用于验证是否成功添加）</span>
+<span class="c1">#cat .git/config                  #〖查看〗父仓库配置及子模块列表（用于验证是否成功添加）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：克隆父仓库的同时，同步拉取子模块的方法，例如：<br>
+<code>git clone --recurse-submodules https://github.com/your-username/my-project.git</code><br>
+PS：如果克隆父仓库时忘记拉取子模块，或者父仓库切换分支，都可以通过下面命令手动初始化和更新子模块：<br>
+<code>git submodule update --init --recursive</code><br>
+PS：采用子模块（submodule）模式能显著提升父仓库与子仓库的独立性（父仓库只记录子模块的来源、版本、本地位置），但存在分支切换时的操作限制：父仓库切换分支后，需手动删除原有子模块，并重新拉取对应分支的子仓库代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#=======【方式二】整合子仓库〖版本代码〗=======</span>
+                                  <span class="c1">#【添加】子树【指定分支】到【指定目录】src/cjson/（会自动创建目录）（--prefix= 本地路径，简写&#34;-P &#34;；--squash 压缩成一个提交）</span>
+git subtree add --prefix<span class="o">=</span>src/cjson https://github.com/DaveGamble/cJSON.git master --squash  <span class="c1">#本命令会自动整合并提交</span>
+                                  <span class="c1">#【如何】指定子树版本？将 &#34;分支名&#34;（如 master）直接替换为 &#34;标签&#34;（Tag，如 v1.7.18）或 &#34;提交哈希&#34;（SHA，如 a1b2c3d）即可</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：不建议直接在父仓库中修改子仓库代码，否则易导致版本依赖冲突、代码同步错乱；建议通过子仓库独立维护、提交 PR/MR 的方式迭代，避免依赖关系混乱。</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>03、关联远程仓库</strong></summary>  
+<blockquote>
+<p>为实现本地代码与远程代码库的同步协作（包括代码推送、拉取、分支管理等操作），首要步骤需完成本地仓库与目标远程仓库的关联配置。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------关联远程仓库-------</span>
+                                  <span class="c1">#【关联】远程仓库（实际是为网址起个别名，即 origin（系统默认别名）代表 https://github.com/espressif/esp-idf.git 这个网址）</span>
+git remote add origin https://github.com/espressif/esp-idf.git
+<span class="c1">#git remote add gitee https://gitee.com/espressif/esp-idf.git  #可以关联多个远程仓库，别名叫 gitee</span>
+
+<span class="c1">#-------后续维护：常规操作-------</span>
+<span class="c1">#git remote -v                    #【查看】所有远程仓库别名与网址</span>
+<span class="c1">#git remote rm origin             #【移除】远程仓库（移除 origin 对应的网址）</span>
+<span class="c1">#git remote add origin https://gitee.com/espressif/esp-idf.git </span>
+                                  <span class="c1">#【关联】远程仓库（前面先移除，后面新关联，即是实现更改远程仓库关联。当然也可用下面 set-url 更改）</span>
+<span class="c1">#git git remote set-url origin https://gitee.com/espressif/esp-idf.git </span>
+                                  <span class="c1">#【更改】远程仓库（更改 origin 对应的网址）（也可使用 git config -e 直接更改里面的URL）</span>
+<span class="c1">#git remote add origin git@gitee.com:espressif/esp-idf.git </span>
+                                  <span class="c1">#【关联】远程仓库（使用 SSH 协议方式）</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details class="collapsible" close=""><summary><strong>04、版本状态查看</strong></summary>  
+<blockquote>
+<p>执行 Git 关键操作（如分支合并、版本回滚、历史提交修改等）前，建议先通过 git status、git log 等命令核查代码状态与版本上下文，待全面确认无异常后再推进操作，避免因信息缺失引发异常。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------查看提交历史-------</span>
+git log                           <span class="c1">#【查看】提交历史（如果很多信息时，按 f/b 键表示向前/向后翻页， 按 j/k 键表示向前/向后翻行，按 q 键后退出查看）</span>
+<span class="c1">#git log --oneline                #【查看】提交历史，并且以“一个版本一行”的精简方式显示。</span>
+<span class="c1">#git log origin/main              #【查看】远程跟踪分支的提交信息</span>
+<span class="c1">#git log develop..origin/develop  #【查看】远程跟踪分支比当前指定分支多出的提交信息（待合并的变更）</span>
+git reflog                        <span class="c1">#【查看】操作历史（例如：分支改名、提交代码等）, 核心用途分析一些人为误操作。（默认保留 90 天，过期后会被清理）</span>
+<span class="c1">#git reflog --date=iso            #【查看】操作历史，并且显示时间戳（当紧接在 reflog 后面加 show master 表示查看指定分支 master）</span>
+git status                        <span class="c1">#【查看】当前分支的【暂存区+工作区】的文件(夹)状态（与本地仓库（HEAD 指针指向的提交）的状态差异比较）</span>
+                                  <span class="c1"># staged  (已暂存) &lt;- 暂存区的文件状态</span>
+                                  <span class="c1"># untrack (未跟踪) &lt;- 工作区的文件状态</span>
+                                  <span class="c1"># modified(已修改) &lt;- 工作区的文件状态</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>  
+<details class="collapsible" close=""><summary><strong>05、版本提交推送</strong></summary>  
+<blockquote>
+<p>创建工程或修改代码后，日常需执行代码版本保存、提交记录与远程仓库推送操作，形成标准化开发闭环。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------当远程仓库为刚新建时-------</span>
+git push -u origin main           <span class="c1">#【推送】本地仓库到【远程仓库】（-u 选项仅在首次向新创建的远程仓库或新分支推送代码时才添加，-u 是 --set-upstream 简写）</span>
+                                  <span class="c1"># 如果推送所有分支，则 main 改为 --all 即可。如果还有标签，则 git push -u origin --tags 推送所有标签</span>
+<span class="c1">#-------当本地进行修改代码时-------</span>
+git add .                         <span class="c1">#【添加】工作区文件到【暂存区】（. 表示当前目录及其下级所有文件(夹)，当然也可以添加指定文件，例如：git add README.md）</span>
+git commit <span class="s2">&#34;fixed bug&#34;</span>            <span class="c1">#【提交】暂存区文件到【本地库】（fixed bug 是提交的文字说明）</span>
+git pull origin main              <span class="c1">#【拉取+合并】自远程仓库最新代码（合并远程仓库和本地仓库两者的最新代码，为推送到远程仓库准备）</span>
+git push origin main              <span class="c1">#【推送】到远程仓库（推送 main 分支）</span>
+
+<span class="c1">#-------临时缓存用户名和密码-------</span>
+git config --global credential.helper cache  <span class="c1">#【缓存】用户名和密码（当频繁通过 HTTPS 操作远程仓库，可避免每次重复输入凭证，除非凭证过期或终端关闭）</span>
+<span class="c1">#git config --global credential.helper &#39;cache --timeout=1800&#39; #【修改】缓存有效期为 30 分钟（默认缓存 15 分钟）</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>技术开发过程中难免存在疏漏，即便在执行 Git 等版本控制命令时，也可能因指令输入失误等操作问题，导致需要对已提交的版本进行调整或修复。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------当发现提交内容有误时-------</span>
+git commit --amend                <span class="c1">#〖情形一〗当你刚提交就发现描述内容有误，此时可运行本命令修改描述内容（备注：版本号将重新生成并覆盖原有ID）</span>
+
+git add .                         <span class="c1">#〖情形二〗当你刚提交就发现代码内容有误，修改后即可重新添加并提交代码（备注：版本号将重新生成并覆盖原有ID）</span>
+git commit --amend --no-edit
+
+sudo gedit .gitignore             <span class="c1">#〖情形三〗当你发现一些文件(夹)漏了忽略，则先用文本编辑工具增加忽略规则，再执行下面命令移除追踪并提交新版本记录</span>
+git rm --cached *.o               <span class="c1"># 从 git 的数据库中删除对于【该类文件】的追踪记录</span>
+git rm --cached -r output/        <span class="c1"># 从 git 的数据库中删除对于【该文件夹】的追踪记录</span>
+git add --all                     <span class="c1"># 添加修改（git add --all 表示整个仓库，git add . 表示当前目录及其下级所有文件(夹)）</span>
+git commit -m <span class="s2">&#34;new ignore rule&#34;</span>   <span class="c1"># 提交修改</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：<code>git commit</code>是版本控制标志性的核心操作，作用是将工作区修改固化为本地版本库的正式提交记录。未执行 commit 时（本地修改仅停留在工作区或暂存区，未纳入版本追踪），是导致后续分支合并、代码推送、版本回滚等关键操作失败的主要原因之一！</p>
+<details class="collapsible" close=""><summary><strong>点击展开内容【Github 的 token 身份验证】</strong></summary>  
+<blockquote>
+<p>自 2021 年 8 月 13 日起，GitHub 不再支持使用账户密码进行 Git 操作身份验证，转而要求采用基于令牌（token）的验证方式 —— 向 GitHub 提交代码时，输入账号后需填写 token 作为验证凭证。</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_009.jpg"
+        data-srcset="../img/20190118_009.jpg, ../img/20190118_009.jpg 1.5x, ../img/20190118_009.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_009.jpg"
+        title="开发者设置" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_010.jpg"
+        data-srcset="../img/20190118_010.jpg, ../img/20190118_010.jpg 1.5x, ../img/20190118_010.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_010.jpg"
+        title="生成 token" /></p>
+</details>  
+　 　  
+</details>  
+<details class="collapsible" close=""><summary><strong>06、历史版本回退</strong></summary>  
+<blockquote>
+<p>当需重新测试旧版本代码或恢复历史配置时，可通过版本回滚（或回退）操作还原旧版本环境；需重点注意：数据无价，所有回退类操作必须谨慎执行，建议提前备份关键数据。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------【回滚】到指定的某个版本-------</span>
+git revert 7dcbadaaa6ad25c       <span class="c1">#【回滚】到指定某个旧版本（其之后的新版本会保留下来），然后在弹出窗口编辑提交注释。（7dcbadaaa6ad25c 是版本id，在确保唯一的前提下输入前面7-8位即可）</span>
+<span class="c1">#git revert HEAD^^               #【回滚】到当前上上一个旧版本（其之后的新版本会保留下来），然后在弹出窗口编辑提交注释。</span>
+<span class="c1">#git revert -n HEAD~3            #【回滚】到当前倒数第3个旧版本（其之后的新版本会保留下来），但不自动提交到本地仓库，需要手动提交一次。</span>
+                                 <span class="c1"># -n 表示不自动提交到本地仓库，需要手动 git commit -m &#34;文字说明&#34; 提交一次。</span>
+
+<span class="c1">#-------【回退】到指定的某个版本-------</span>
+git reset --hard f69c801587af44f <span class="c1">#【回退】到指定某个旧版本（其之后的新版本被永久删除），数据无价操作必须要谨慎！（f69c801587af44f 是版本id，在确保唯一的前提下输入前面7-8位即可）</span>
+<span class="c1">#git reset --hard                #【回退】到最后旧版本（主要目的是为清除【暂存区】和【工作区】没提交的内容。如果清除不彻底，可接着运行 git clean -dfx 删除未跟踪目录和文件（并含 .gitignore 忽略的内容））</span>
+<span class="c1">#git reset --hard HEAD^          #【回退】到当前上一个旧版本（其之后的新版本被永久删除）。</span>
+<span class="c1">#git reset --hard HEAD^^         #【回退】到当前上上一个旧版本（其之后的新版本被永久删除）。</span>
+<span class="c1">#git reset --hard HEAD~20        #【回退】到当前倒数第20个旧版本（其之后的新版本被永久删除）。</span>
+<span class="c1">#git reset HEAD                  #【清除】当前【暂存区】add 的内容。</span>
+<span class="c1">#git reset HEAD -- test.c        #【清除】当前【暂存区】add 的某个文件。</span>
+                                 <span class="c1"># --soft  修改 HEAD 指针指向，【缓存区】内容【不变】，【工作区】内容【不变】；</span>
+                                 <span class="c1"># --mixed 修改 HEAD 指针指向，【暂存区】内容【丢失】，【工作区】内容【不变】； &lt;- 默认选项,可不写出来</span>
+                                 <span class="c1"># --hard  修改 HEAD 指针指向，【暂存区】内容【丢失】，【工作区】内容【恢复】；</span>
+<span class="c1">#git push -f origin main         #【回退】操作后需要【推送】到远程仓库时，必须加 -f 强制推送，否则会被拒绝（备注：同时托管网站有一个配置开关--是否允许强制推送，例如[gitlab]托管网站解除保护[Setting → Protected Branches → Unprotect]）</span>
+                                 <span class="c1">#【如果】你仅仅是用旧版本代码进行测试，正确做法是先创建并切换到临时分支，再回退到旧版本！</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：所谓的【回滚】表示将【旧版本】提取出来进行一次【新提交】，即表示【不会】删除任何版本代码！而【回退】则是表示删除节点之后的所有新版本，意味着数据不可恢复，必须谨慎操作！<br>
+PS：若仅需基于旧版本代码开展测试，规范操作流程为：先创建并切换到临时分支，再回退至目标旧版本进行验证；<strong>严禁直接修改或操作原始代码分支</strong>！数据安全至关重要，技术操作需秉持严谨审慎原则，避免因误操作导致不可逆损失。</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>07、分支操作</strong></summary>  
+<blockquote>
+<p>在实际开发规范中，main/master 主分支禁止直接提交代码，仅允许通过其他分支（通常为 develop 分支）合并接入。因此，我们会按规范创建各类功能分支，并在对应分支上开展开发工作。以下是分支管理的常规操作(流程)：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------分支的【查看-改名】操作-------</span>
+git branch                       <span class="c1">#【查看】所处分支（列表中带&#34;*&#34;表示当前所处分支）</span>
+git branch -a                    <span class="c1">#【查看】全部分支（包括当前分支和【远程跟踪分支】，例如：隐藏的【远程跟踪分支】 origin/abc，显示为红色的 remotes/origin/abc）</span>
+git branch -v                    <span class="c1">#【查看】所处分支（较细节信息）</span>
+git branch -vv                   <span class="c1">#【查看】所处分支（更细节信息）</span>
+git branch -m bbbb cccc          <span class="c1">#【修改】分支名称（将名称 bbbb 改为 cccc）</span>
+git branch -m cccc               <span class="c1">#【修改】分支名称（将当前分支改名为 cccc）</span>
+
+<span class="c1">#-------分支的【创建-删除】操作-------</span>
+git branch aaaa                  <span class="c1">#【创建】新的分支（名称为 aaaa）（注：只支持一级分支，但名称可以用&#34;/&#34;字符，例如：release/v5.1)</span>
+git branch -d aaaa               <span class="c1">#【删除】指定分支（如果 -D 表示强制删除）</span>
+git push origin -d aaaa          <span class="c1">#【删除】远程分支（注意是【远程分支】）</span>
+<span class="c1">#git checkout -b bbbb            #【创建并跳到】新的分支（名称为 bbbb）</span>
+
+<span class="c1">#-------分支的【切换-合并】操作-------</span>
+<span class="c1">#git clean -dfx                  #【删除】未跟踪目录和文件（并含 .gitignore 忽略的内容），为彻底切换分支准备。（注意：删除的数据不可恢复，必须谨慎操作!）</span>
+git checkout develop             <span class="c1">#【切换】到指定仓库（名称为 develop）（因某些操作引起 checkout 也未必完全检出全部代码，此时可以使用 git reset --hard 重置代码）</span>
+<span class="c1">#git checkout f9f86bdd3aafd      #【切换】到指定版本（git checkout 可以切换到指定【分支】【标签】【版本】）</span>
+git merge aaaa                   <span class="c1">#【合并】指分支到当前分支（将 aaaa 合并到 develop）（merge 后面可加 --no-ff 和 -m &#34;自定义描述说明&#34;，其中 --no-ff 表示禁用 Fast forward）</span>
+<span class="c1">#git merge --squash aaaa         #【合并】指分支到当前分支，并整合提交信息</span>
+
+<span class="c1">#-------分支的【拉取-合并】操作-------</span>
+git fetch origin develop         <span class="c1">#【获取】远程分支代码和历史</span>
+<span class="c1">#git log origin/main             #【查看】远程跟踪分支的提交信息</span>
+<span class="c1">#git log develop..origin/develop #【查看】远程跟踪分支比当前指定分支多出的提交信息（待合并的变更）</span>
+<span class="c1">#git diff origin/develop         #【比较】远程跟踪分支与当前分支差别（先人工解决冲突，为合并顺利进行准备）（建议使用【小乌龟】可视界面比较）</span>
+git merge origin/develop         <span class="c1">#【合并】远程跟踪分支到当前分支（origin/develop 合并到 develop）</span>
+<span class="c1">#git pull origin develop         #【拉取+合并】远程分支到当前分支（git pull 相当于 git fetch + git merge 的默认操作）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：手动执行 git fetch + git merge 替代 git pull，核心价值是 “先看后合”—— 通过 git diff 提前了解远程变更，让合并过程更可控，尤其适合多人协作、远程变更频繁的场景。步骤虽多两步，但能有效减少冲突风险和误操作，是更规范的协作实践。<br>
+PS：关于使用 git diff 分析版本差异，个人更建议使用【小乌龟】的可视界面来协助分析，提高效率：<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_005.jpg"
+        data-srcset="../img/20190118_005.jpg, ../img/20190118_005.jpg 1.5x, ../img/20190118_005.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_005.jpg"
+        title="版本比较" /></p>
+</details>  
+<details class="collapsible" close=""><summary><strong>08、标签操作</strong></summary>  
+<blockquote>
+<p>当发布一个里程碑版本时，我们通常先在版本库中打一个标签，方便后续快速定位和切换到该版本（比分支更适合标记固定版本）。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照（注：<code>checkout</code>标签的源代码只能查看不能修改！）。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------标签的【查看-改名】操作-------</span>
+git ls-remote --tags origin            <span class="c1">#【列出】远程所有标签</span>
+git tag                                <span class="c1">#【列出】当前仓库的所有标签</span>
+git tag -n                             <span class="c1">#【列出】当前仓库的所有标签及说明</span>
+git tag -l v1.0.*                      <span class="c1">#【列出】当前仓库的相关标签（支持指定标签、支持通配符*过滤）</span>
+git show v1.0.1                        <span class="c1">#【查看】指定标签信息（可查到commit的版本id，可用于回退操作）</span>
+git checkout v1.0.0                    <span class="c1">#【切换】到指定标签的代码（只能用于查看代码），提示当前处于 “detached HEAD&#34; 状态，因 tag 相当于一个快照，是不能更改的！</span>
+git checkout -b fix-v1.0.0-bug v1.0.0  <span class="c1">#【基于】指定标签创建分支（可用于修复老版本）（基于 v1.0.0 标签创建一个 fix-v1.0.0-bug 分支）</span>
+
+<span class="c1">#-------标签的【创建-删除】操作-------</span>
+git tag -a v1.0.1 -m <span class="s2">&#34;测试版&#34;</span>          <span class="c1">#【创建】标签：标签名为&#34;v1.0.1&#34;，描述为&#34;测试版&#34;</span>
+<span class="c1">#git tag v1.0.1                        #【创建】标签：标签名为&#34;v1.0.1&#34;</span>
+git tag -a v1.1.0 -m <span class="s2">&#34;正式版&#34;</span> 1a2b3c4  <span class="c1">#【创建】标签：基于&#34;1a2b3c4&#34;版本创建，标签名为&#34;v1.0.1&#34;，描述为&#34;正式版&#34;</span>
+<span class="c1">#git tag v1.1.0-beta 1a2b3c4           #【创建】标签：基于&#34;1a2b3c4&#34;版本创建，标签名为&#34;v1.0.1&#34;</span>
+git tag -d v1.0.0-beta                 <span class="c1">#【删除】本地标签（需先删本地，再推送到远程）─┐</span>
+git push origin -d v1.0.0-beta         <span class="c1">#【删除】远程标签（需先删本地，再推送到远程）←┘</span>
+
+<span class="c1">#-------标签的【推送-拉取】操作-------</span>
+git push origin v1.0.0                 <span class="c1">#【推送】指定标签到远程仓库（推送 v1.0.0 标签到远程仓库）</span>
+<span class="c1">#git push origin --tags                #【推送】所有本地标签到远程仓库</span>
+git fetch origin v1.0.0                <span class="c1">#【获取】指定远程标签（从远程仓库获取 v1.0.0 标签）</span>
+<span class="c1">#git fetch origin --tags               #【获取】远程所有标签（同时拉取分支更新）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：标签可理解为一个 “固定不变的游离分支”—— 它本质是指向特定提交节点的静态引用（不随代码提交推进），因此其相关命令操作（如创建、推送、删除等）与分支命令的使用逻辑高度相似。</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>09、子模块操作</strong></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------新增操作：关联子模块〖版本链接〗-------</span>
+                                  <span class="c1">#【添加】子模块【指定分支】到【指定目录】src/cjson/（会自动创建目录）</span>
+git submodule add -b master https://github.com/DaveGamble/cJSON.git src/cjson    <span class="c1">#【备注】紧接着可以进入子模块目录执行 git checkout &lt;指定版本&gt;，如 v1.7.16 或 commit ID</span>
+git commit -m <span class="s2">&#34;add submodule&#34;</span>     <span class="c1">#【提交】父仓库的子模块引用变更（必须及时提交，中途不能做其它操作）</span>
+<span class="c1">#cat .gitmodules                  #〖查看〗子模块列表　　　　　　（用于验证是否成功添加）</span>
+<span class="c1">#cat .git/config                  #〖查看〗父仓库配置及子模块列表（用于验证是否成功添加）</span>
+
+<span class="c1">#-------后续维护：更新子模块-------</span>
+<span class="nb">cd</span> src/cjson                      <span class="c1">#【进入】子模块目录</span>
+git pull origin master            <span class="c1">#【拉取】子模块远程最新代码（假设子模块分支是 master）（当然也可以 git checkout &lt;指定版本&gt;，如 v1.7.16 或 commit ID）</span>
+<span class="nb">cd</span> ../..                          <span class="c1">#【回到】父仓库根目录（git submodule update --recursive 更新所有子模块，还包括孙模块等，但实际工程子模块不一定都需要最新版本）</span>
+git add .                         <span class="c1">#【添加】更新代码（. 表示当前目录及其下级所有文件(夹)）</span>
+git commit -m <span class="s2">&#34;update submodule&#34;</span>  <span class="c1">#【提交】父仓库的子模块引用变更（必须及时提交，中途不能做其它操作）</span>
+git push origin main              <span class="c1">#【推送】到远程父仓库　　　　　（必须及时推送，中途不能做其它操作）</span>
+
+<span class="c1">#-------后续维护：删除子模块-------</span>
+git submodule deinit src/cjson    <span class="c1">#【删除】子模块相关配置信息（当然也可以直接删除 .gitmodules 和 .git/config 里面子模块相关内容）</span>
+rm -rf src/cjson                  <span class="c1">#【删除】【工作区】子模块文件夹（注意：删除后不可恢复）</span>
+rm -rf .git/modules/src/cjson     <span class="c1">#【删除】【仓库区】子模块文件夹（注意：删除后不可恢复）（此步可选，当不执行时数据仍可留在父仓库中）</span>
+git rm --cached src/cjson         <span class="c1">#【删除】仓库对于该文件夹的追踪记录</span>
+git add .                         <span class="c1">#【添加】更新代码（. 表示当前目录及其下级所有文件(夹)）</span>
+git commit -m <span class="s2">&#34;remove submodule&#34;</span>  <span class="c1">#【提交】父仓库的子模块引用变更（必须及时提交，中途不能做其它操作）</span>
+git push origin main              <span class="c1">#【推送】到远程父仓库　　　　　（必须及时推送，中途不能做其它操作）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：克隆父仓库的同时，同步拉取子模块的方法，例如：<br>
+<code>git clone --recurse-submodules https://github.com/your-username/my-project.git</code><br>
+PS：如果克隆父仓库时忘记拉取子模块，或者父仓库切换分支，都可以通过下面命令手动初始化和更新子模块：<br>
+<code>git submodule update --init --recursive</code><br>
+PS：采用子模块（submodule）模式能显著提升父仓库与子仓库的独立性（父仓库只记录子模块的来源、版本、本地位置），但存在分支切换时的操作限制：父仓库切换分支后，需手动删除原有子模块，并重新拉取对应分支的子仓库代码。</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>10、子树操作</strong></summary>  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#-------新增操作：整合子树〖版本代码〗-------</span>
+                                  <span class="c1">#【添加】子树【指定分支】到【指定目录】src/cjson/（会自动创建目录）（--prefix= 本地路径，简写&#34;-P &#34;；--squash 压缩成一个提交）</span>
+git subtree add --prefix<span class="o">=</span>src/cjson https://github.com/DaveGamble/cJSON.git master --squash  <span class="c1">#本命令会自动整合并提交</span>
+                                  <span class="c1">#【如何】指定子树版本？将 &#34;分支名&#34;（如 master）直接替换为 &#34;标签&#34;（Tag，如 v1.7.18）或 &#34;提交哈希&#34;（SHA，如 a1b2c3d）即可</span>
+<span class="c1">#-------后续维护：更新子树-------</span>
+git subtree pull --prefix<span class="o">=</span>src/cjson https://github.com/DaveGamble/cJSON.git master --squash        <span class="c1"># ←────────────────────────────┐</span>
+git push origin main              <span class="c1">#【更新】子树到最新版本（如果因一些特别原因无法更新，建议先〖删除子树〗再重新〖添加子树〗即可） ─┘</span>
+                                  <span class="c1">#【推送】到远程父仓库　（必须及时推送，中途不能做其它操作）</span>
+<span class="c1">#-------后续维护：查看子树-------</span>
+git subtree split --prefix<span class="o">=</span>src/cjson --branch<span class="o">=</span>cjson <span class="c1">#【基于】子树创建分支</span>
+git checkout cjson                <span class="c1">#【切换】到新建分支　　（基于子树创建的分支）</span>
+git log                           <span class="c1">#【查看】此分支提交记录（查看子树的提交记录）</span>
+git checkout main                 <span class="c1">#【切换】回到主分支</span>
+git branch -D cjson               <span class="c1">#【删除】刚才新建的分支（查看完后删除即可）（-D 表强制删除）</span>
+
+<span class="c1">#-------后续维护：删除子树-------</span>
+rm -rf src/cjson                  <span class="c1">#【删除】此模块</span>
+git add .                         <span class="c1">#【添加】更新代码（. 表示当前目录及其下级所有文件(夹)）</span>
+git commit -m <span class="s2">&#34;remove subtree&#34;</span>    <span class="c1">#【提交】父仓库的子树引用变更（必须及时提交，中途不能做其它操作）</span>
+git push origin main              <span class="c1">#【推送】到远程父仓库　　　　（必须及时推送，中途不能做其它操作）</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>PS：不建议直接在父仓库中修改子仓库代码，否则易导致版本依赖冲突、代码同步错乱；建议通过子仓库独立维护、提交 PR/MR 的方式迭代，避免依赖关系混乱。</p>
+</details>  
+<details class="collapsible" close=""><summary><strong>11、团队开发协同</strong></summary>  
+<blockquote>
+<p>多人协作开发时，先按职责分工明确代码文件归属：每人仅负责自身业务相关文件的开发与修改，尽量避免多人同时操作同一文件，否则推送或合并时必定出现冲突，严重时可能导致文件内容损坏！</p>
+</blockquote>
+<p>11.1、集中式协作</p>
+<blockquote>
+<p>核心特点：有一个中央仓库（如 GitHub/GitLab 上的主仓库），所有成员直接向中央仓库提交代码，依赖中央仓库的分支管理。<br>
+适用场景：小团队（10 人以内）、项目复杂度低、迭代速度快。</p>
+</blockquote>
+<details class="collapsible" close=""><summary><strong>点击展开内容：</strong></summary>  
+<h4 id="一标准协作流程以集中式分支规范为例">一、标准协作流程（以“集中式+分支规范”为例）</h4>
+<p>无论哪种模式，团队通常会遵循 <strong>“分支管理规范”</strong> 来保障协作秩序，最常用的是 <strong>Git Flow</strong> 或简化版的 <strong>GitHub Flow</strong>。</p>
+<h5 id="1-分支规范git-flow-为例">1. 分支规范（Git Flow 为例）</h5>
+<ul>
+<li><strong>主分支（长期存在）</strong>：
+<ul>
+<li><code>main/master</code>：生产环境代码，仅通过合并其他分支更新，不允许直接提交；</li>
+<li><code>develop</code>：开发环境代码，包含最新的开发功能，作为 feature 分支的合并目标。</li>
+</ul>
+</li>
+<li><strong>辅助分支（临时存在）</strong>：
+<ul>
+<li><code>feature/*</code>：新功能分支，从 <code>develop</code> 分支创建，开发完成后合并回 <code>develop</code>；</li>
+<li><code>bugfix/*</code>：bug 修复分支，从 <code>develop</code> 分支创建，修复后合并回 <code>develop</code>；</li>
+<li><code>release/*</code>：发布分支，从 <code>develop</code> 分支创建，用于版本发布前的测试和修复，完成后合并到 <code>main</code> 和 <code>develop</code>；</li>
+<li><code>hotfix/*</code>：紧急修复分支，从 <code>main</code> 分支创建，修复生产环境 bug，完成后合并到 <code>main</code> 和 <code>develop</code>。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-完整协作流程以开发新功能为例">2. 完整协作流程（以开发新功能为例）</h5>
+<ol>
+<li>
+<p><strong>创建分支</strong>：<br>
+从 <code>develop</code> 分支创建 feature 分支：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git checkout develop  
+git pull origin develop  <span class="c1"># 拉取最新开发代码  </span>
+git checkout -b feature/user-login  <span class="c1"># 创建并切换到功能分支  </span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>本地开发与提交</strong>：<br>
+开发过程中定期提交代码，写清晰的提交信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git add .  <span class="c1"># 暂存修改  </span>
+git commit -m <span class="s2">&#34;feat: 实现用户登录功能（账号密码校验）&#34;</span>  <span class="c1"># 提交  </span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>定期同步中央仓库</strong>：<br>
+避免分支落后于 <code>develop</code> 导致冲突，定期拉取 <code>develop</code> 分支的更新：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git checkout develop  
+git pull origin develop  
+git checkout feature/user-login  
+git merge develop  <span class="c1"># 合并 develop 的最新代码，解决冲突  </span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>推送分支到中央仓库</strong>：<br>
+开发完成后，将 feature 分支推送到中央仓库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git push origin feature/user-login  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>发起合并请求（MR/PR）</strong>：<br>
+在 GitHub/GitLab 上发起 <strong>Merge Request（MR）</strong> 或 <strong>Pull Request（PR）</strong>，将 <code>feature/user-login</code> 合并到 <code>develop</code> 分支，同时指定团队成员进行代码审查。</p>
+</li>
+<li>
+<p><strong>代码审查与合并</strong>：</p>
+<ul>
+<li>审查者检查代码质量、逻辑正确性、是否符合规范；</li>
+<li>若有问题，开发者根据反馈修改并提交（修改记录会自动同步到 MR/PR）；</li>
+<li>审查通过后，由项目负责人合并分支，删除临时的 feature 分支。</li>
+</ul>
+</li>
+<li>
+<p><strong>发布与部署</strong>：<br>
+当 <code>develop</code> 分支积累足够多的功能后，创建 <code>release</code> 分支进行测试，测试通过后合并到 <code>main</code> 分支，打版本标签（<code>git tag v1.0.0</code>），并部署到生产环境。</p>
+</li>
+</ol>
+<h4 id="二关键协作工具与实践">二、关键协作工具与实践</h4>
+<h5 id="1-代码审查code-review">1. 代码审查（Code Review）</h5>
+<ul>
+<li><strong>工具</strong>：GitHub/GitLab 的 MR/PR 功能、Gerrit（开源项目常用）；</li>
+<li><strong>目的</strong>：发现代码 bug、优化代码结构、保障团队代码规范一致；</li>
+<li><strong>实践</strong>：
+<ul>
+<li>每个 MR/PR 至少 1 名审查者批准后才能合并；</li>
+<li>审查重点：逻辑正确性、代码可读性、性能优化、测试覆盖率。</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-冲突解决">2. 冲突解决</h5>
+<ul>
+<li><strong>预防冲突</strong>：
+<ul>
+<li>小步提交、频繁同步（定期拉取中央仓库代码）；</li>
+<li>功能模块化，避免多人同时修改同一文件的同一部分；</li>
+</ul>
+</li>
+<li><strong>解决冲突</strong>：
+<ul>
+<li>本地合并时冲突：<code>git merge</code> 后会提示冲突文件，手动修改冲突部分，然后 <code>git add</code> + <code>git commit</code>；</li>
+<li>MR/PR 冲突：在 GitHub/GitLab 上直接编辑冲突文件，或本地解决后推送。</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-持续集成持续部署cicd">3. 持续集成/持续部署（CI/CD）</h5>
+<ul>
+<li><strong>工具</strong>：GitHub Actions、GitLab CI、Jenkins；</li>
+<li><strong>作用</strong>：自动化测试、构建、部署，减少手动操作，保障代码质量；</li>
+<li><strong>实践</strong>：
+<ul>
+<li>每个 MR/PR 触发自动化测试（单元测试、集成测试），测试通过才能合并；</li>
+<li>合并到 <code>main</code> 分支后，自动构建并部署到测试/生产环境。</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-提交规范">4. 提交规范</h5>
+<ul>
+<li><strong>目的</strong>：统一提交信息格式，便于后续追溯和自动化生成版本日志；</li>
+<li><strong>规范（以 Conventional Commits 为例）</strong>：
+<ul>
+<li>格式：<code>类型( scope ): 描述</code>，如 <code>feat( login ): 新增验证码登录功能</code>；</li>
+<li>类型：<code>feat</code>（新功能）、<code>fix</code>（bug 修复）、<code>docs</code>（文档修改）、<code>style</code>（代码格式调整）、<code>refactor</code>（代码重构）等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="三团队协作注意事项">三、团队协作注意事项</h4>
+<ol>
+<li><strong>避免直接提交主分支</strong>：主分支（<code>main</code>/<code>develop</code>）仅通过合并更新，防止误提交导致代码混乱；</li>
+<li><strong>及时沟通</strong>：开发前明确任务分工，避免多人同时修改同一功能；遇到问题及时同步，避免冲突积累；</li>
+<li><strong>定期清理分支</strong>：合并后的临时分支（feature/bugfix）及时删除，保持仓库整洁；</li>
+<li><strong>备份代码</strong>：虽然 Git 是分布式的，但重要分支（如 <code>main</code>/<code>develop</code>）建议定期备份，避免意外丢失；</li>
+<li><strong>新手引导</strong>：团队新成员需熟悉分支规范和协作流程，可通过文档或导师指导快速上手。</li>
+</ol>
+</details>  
+<hr>
+<p>11.2、多人在多个分支开发</p>
+<blockquote>
+<p>核心特点：每个成员都有完整的本地仓库，中央仓库仅作为 “代码共享中心”，成员间可直接协作（如跨团队贡献）。<br>
+适用场景：大团队、开源项目、跨部门协作。</p>
+</blockquote>
+<details class="collapsible" close=""><summary><strong>点击展开内容：</strong></summary>  
+<h4 id="git-分布式协作典型案例跨团队开源项目协作">Git 分布式协作典型案例：跨团队开源项目协作</h4>
+<p>以下以 <strong>开源项目（如一个智能家居设备控制 SDK）</strong> 为例，完整展示 Git 分布式协作的全流程。该场景中，核心团队维护中央仓库，外部贡献者（跨公司/跨地域）通过分布式模式提交代码，无需直接操作中央仓库，兼顾协作灵活性和代码安全性。</p>
+<h4 id="一案例背景">一、案例背景</h4>
+<ul>
+<li><strong>项目</strong>：开源智能家居 SDK（仓库地址：<code>https://github.com/smarthome/sdk.git</code>），核心团队（3人）负责维护，支持外部开发者贡献功能/修复 Bug。</li>
+<li><strong>角色</strong>：
+<ul>
+<li>核心维护者（A）：管理中央仓库，审核 PR，合并代码；</li>
+<li>核心开发者（B）：参与核心功能开发，协助审查代码；</li>
+<li>外部贡献者（C）：来自另一家公司，希望为 SDK 新增“蓝牙设备适配”功能。</li>
+</ul>
+</li>
+<li><strong>协作目标</strong>：贡献者 C 无需加入核心团队，通过分布式协作将代码合并到中央仓库，同时保证代码质量。</li>
+</ul>
+<h4 id="二完整协作流程分角色操作">二、完整协作流程（分角色操作）</h4>
+<h5 id="阶段-1准备工作贡献者-c">阶段 1：准备工作（贡献者 C）</h5>
+<h6 id="1-复制中央仓库到个人仓库fork">1. 复制中央仓库到个人仓库（Fork）</h6>
+<p>分布式协作的核心是“个人仓库作为中间层”，贡献者先将中央仓库 Fork 到自己的 GitHub 账号下（相当于创建中央仓库的副本）：</p>
+<ul>
+<li>访问中央仓库地址 <code>https://github.com/smarthome/sdk.git</code>；</li>
+<li>点击右上角「Fork」按钮，等待复制完成，得到个人仓库：<code>https://github.com/contributor-c/sdk.git</code>。</li>
+</ul>
+<h6 id="2-克隆个人仓库到本地">2. 克隆个人仓库到本地</h6>
+<p>贡献者 C 在本地克隆自己的仓库（而非中央仓库），进行开发：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 克隆个人仓库到本地</span>
+git clone https://github.com/contributor-c/sdk.git
+<span class="nb">cd</span> sdk
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="3-添加中央仓库为上游upstream">3. 添加中央仓库为上游（Upstream）</h6>
+<p>为了同步中央仓库的最新代码（避免开发时分支落后），将中央仓库设置为本地仓库的“上游仓库”：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 添加上游仓库（中央仓库），命名为 upstream（自定义名称）</span>
+git remote add upstream https://github.com/smarthome/sdk.git
+
+<span class="c1"># 验证远程仓库配置（此时有 origin：个人仓库，upstream：中央仓库）</span>
+git remote -v
+<span class="c1"># 输出如下：</span>
+<span class="c1"># origin    https://github.com/contributor-c/sdk.git (fetch)</span>
+<span class="c1"># origin    https://github.com/contributor-c/sdk.git (push)</span>
+<span class="c1"># upstream  https://github.com/smarthome/sdk.git (fetch)</span>
+<span class="c1"># upstream  https://github.com/smarthome/sdk.git (push)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="阶段-2本地开发贡献者-c">阶段 2：本地开发（贡献者 C）</h5>
+<h6 id="1-同步中央仓库最新代码">1. 同步中央仓库最新代码</h6>
+<p>开发前先拉取中央仓库 <code>develop</code> 分支（开发分支）的最新代码，避免冲突：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 拉取上游仓库（中央）的所有分支信息</span>
+git fetch upstream
+
+<span class="c1"># 切换到本地 develop 分支（若不存在则创建）</span>
+git checkout develop <span class="o">||</span> git checkout -b develop
+
+<span class="c1"># 合并上游 develop 分支的最新代码到本地 develop</span>
+git merge upstream/develop
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2-创建功能分支开发">2. 创建功能分支开发</h6>
+<p>遵循分支规范，从 <code>develop</code> 分支创建功能分支：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git checkout -b feature/bluetooth-adapter
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="3-本地开发与提交">3. 本地开发与提交</h6>
+<p>开发“蓝牙设备适配”功能，定期提交代码（提交信息遵循规范）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 暂存修改</span>
+git add .
+
+<span class="c1"># 提交（遵循 Conventional Commits 规范）</span>
+git commit -m <span class="s2">&#34;feat(bluetooth): 新增蓝牙设备适配功能，支持 BLE 协议&#34;</span>
+
+<span class="c1"># 若需多次提交，重复上述步骤</span>
+git commit -m <span class="s2">&#34;fix(bluetooth): 修复蓝牙连接超时问题&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="4-再次同步中央仓库代码">4. 再次同步中央仓库代码</h6>
+<p>开发过程中，中央仓库可能有其他贡献者的代码合并，需再次同步避免冲突：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 拉取上游 develop 最新代码</span>
+git fetch upstream
+
+<span class="c1"># 合并到当前功能分支</span>
+git merge upstream/develop
+
+<span class="c1"># 若有冲突，手动修改冲突文件，然后提交</span>
+git add .
+git commit -m <span class="s2">&#34;merge: 解决与上游 develop 分支的冲突&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="阶段-3推送代码到个人仓库贡献者-c">阶段 3：推送代码到个人仓库（贡献者 C）</h5>
+<p>开发完成后，将功能分支推送到自己的个人仓库（而非中央仓库）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 推送 feature/bluetooth-adapter 分支到个人仓库（origin）</span>
+git push origin feature/bluetooth-adapter
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="阶段-4发起合并请求pr贡献者-c">阶段 4：发起合并请求（PR）（贡献者 C）</h5>
+<p>通过 GitHub 界面发起“从个人仓库到中央仓库”的 Pull Request，请求核心团队审核：</p>
+<ol>
+<li>访问个人仓库 <code>https://github.com/contributor-c/sdk.git</code>；</li>
+<li>切换到 <code>feature/bluetooth-adapter</code> 分支；</li>
+<li>点击「Compare &amp; pull request」按钮；</li>
+<li>选择目标仓库：<code>smarthome/sdk</code>（中央仓库），目标分支：<code>develop</code>；</li>
+<li>填写 PR 描述：功能说明、测试方式、相关文档等；</li>
+<li>点击「Create pull request」提交。</li>
+</ol>
+<h5 id="阶段-5代码审查与修改核心团队--贡献者-c">阶段 5：代码审查与修改（核心团队 + 贡献者 C）</h5>
+<h6 id="1-核心团队审核a-和-b">1. 核心团队审核（A 和 B）</h6>
+<ul>
+<li>核心维护者 A 收到 PR 通知，查看代码：逻辑正确性、是否符合 SDK 规范、测试覆盖率；</li>
+<li>核心开发者 B 协助审查，提出修改意见（如“补充蓝牙设备断开重连逻辑”“优化日志输出”）。</li>
+</ul>
+<h6 id="2-贡献者-c-响应修改">2. 贡献者 C 响应修改</h6>
+<p>根据审查意见在本地修改代码，修改后推送到个人仓库，PR 会自动同步更新：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 本地修改代码后提交</span>
+git add .
+git commit -m <span class="s2">&#34;refactor(bluetooth): 补充断开重连逻辑，优化日志格式&#34;</span>
+
+<span class="c1"># 推送修改到个人仓库的功能分支（PR 自动更新）</span>
+git push origin feature/bluetooth-adapter
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="3-重复审查与修改">3. 重复审查与修改</h6>
+<p>直到核心团队确认代码符合要求，审核通过。</p>
+<h5 id="阶段-6合并代码到中央仓库核心维护者-a">阶段 6：合并代码到中央仓库（核心维护者 A）</h5>
+<p>审核通过后，核心维护者 A 将 PR 合并到中央仓库的 <code>develop</code> 分支：</p>
+<ol>
+<li>在 GitHub PR 页面点击「Merge pull request」；</li>
+<li>选择合并方式（如「Squash and merge」：将所有提交压缩为一个，保持中央仓库历史整洁）；</li>
+<li>填写合并信息，点击「Confirm squash and merge」；</li>
+<li>合并完成后，删除中央仓库的临时分支（<code>feature/bluetooth-adapter</code>）。</li>
+</ol>
+<h5 id="阶段-7同步中央仓库最新代码贡献者-c">阶段 7：同步中央仓库最新代码（贡献者 C）</h5>
+<p>合并完成后，贡献者 C 可将中央仓库的合并结果同步到自己的仓库，便于后续继续贡献：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 拉取上游 develop 分支的最新代码（包含刚合并的自己的功能）</span>
+git fetch upstream
+git checkout develop
+git merge upstream/develop
+
+<span class="c1"># 推送同步后的 develop 分支到个人仓库</span>
+git push origin develop
+
+<span class="c1"># （可选）删除本地功能分支</span>
+git branch -d feature/bluetooth-adapter
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="三分布式协作的核心优势案例体现">三、分布式协作的核心优势（案例体现）</h4>
+<ol>
+<li><strong>无需核心权限</strong>：贡献者 C 无需中央仓库的写权限，通过 Fork + PR 即可贡献代码，保障中央仓库安全；</li>
+<li><strong>本地完整仓库</strong>：贡献者 C 本地有完整的仓库，可离线开发、自由提交，仅在需要同步时连接网络；</li>
+<li><strong>跨团队无壁垒</strong>：核心团队与外部贡献者无需统一账号、无需线下沟通，通过 PR 流程即可完成协作；</li>
+<li><strong>代码审查可控</strong>：所有外部代码必须经过核心团队审核才能合并，保证项目质量。</li>
+</ol>
+<h4 id="四关键注意事项">四、关键注意事项</h4>
+<ol>
+<li><strong>定期同步上游代码</strong>：避免功能分支落后于中央仓库，减少冲突概率；</li>
+<li><strong>遵循分支与提交规范</strong>：统一的分支命名（<code>feature/*</code>）和提交信息规范，便于核心团队审核和追溯；</li>
+<li><strong>PR 描述清晰</strong>：详细说明功能用途、测试方式，降低审核成本；</li>
+<li><strong>冲突及时沟通</strong>：若合并时出现复杂冲突，可在 PR 评论区与核心团队沟通解决。</li>
+</ol>
+<h4 id="总结">总结</h4>
+<p>该案例完整展示了 Git 分布式协作的核心流程：<strong>Fork 中央仓库 → 本地开发 → 推送个人仓库 → 发起 PR → 审核修改 → 合并中央仓库</strong>。这种模式适合开源项目、跨团队协作场景，既保证了中央仓库的稳定性，又能灵活吸纳外部贡献，是 Git 最具代表性的协作方式之一。</p>
+</details>  
+<hr>
+</details>  
+<h3 id="总结-1">总结</h3>
+<details class="collapsible" close=""><summary><strong>1、操作关系 </strong></summary>  
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>远程仓库</strong><br>(Remote Repository)</td>
+<td><ul><li>位于远程服务器上的代码仓库</li><li>常见的托管平台：GitHub、GitLab、Gitee</li><li>用于团队协作和代码备份</li></ul></td>
+</tr>
+<tr>
+<td><strong>远程分支</strong><br>(Remote Branch)</td>
+<td><ul><li>远程仓库中的实际分支</li><li>团队共享的分支状态</li></ul></td>
+</tr>
+<tr>
+<td><strong>本地仓库</strong><br>(Local Repository)</td>
+<td><ul><li>位于 <code>.git</code> 目录中的完整版本库</li><li>包含完整的提交历史、分支、标签等元数据</li><li>通过 <code>git commit</code> 将暂存区内容保存到本地仓库</li></ul></td>
+</tr>
+<tr>
+<td><strong>远程跟踪分支</strong><br>(Remote Tracking Branch)</td>
+<td><ul><li>本地仓库中远程分支的引用【副本】</li><li>命名格式：<code>origin/branch-name</code></li><li>通过 <code>git fetch</code> 更新，但不自动合并</li><li>只读（不能直接提交）</li></ul></td>
+</tr>
+<tr>
+<td><strong>本地分支</strong><br>(Local Branch)</td>
+<td><ul><li>本地仓库中的分支引用</li><li>如：<code>main</code>、<code>develop</code>、<code>feature/login</code></li><li>指向特定提交的指针</li></ul></td>
+</tr>
+<tr>
+<td><strong>暂存区</strong><br>(Staging Area/Index)</td>
+<td><ul><li>准备提交的更改的中间区域</li><li>通过 <code>git add</code> 将工作区的更改添加到暂存区</li></ul></td>
+</tr>
+<tr>
+<td><strong>工作区</strong><br>(Working Directory)</td>
+<td><ul><li>本地文件系统中实际可见和编辑的文件目录</li><li>存在尚未被 Git 跟踪或已修改但未暂存的文件</li></ul></td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_006.jpg"
+        data-srcset="../img/20190118_006.jpg, ../img/20190118_006.jpg 1.5x, ../img/20190118_006.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_006.jpg"
+        title="操作关系" /></p>
+</details>  
+<details class="collapsible" close=""><summary><strong>2、命令概览 </strong></summary>  
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../img/20190118_007.jpg"
+        data-srcset="../img/20190118_007.jpg, ../img/20190118_007.jpg 1.5x, ../img/20190118_007.jpg 2x"
+        data-sizes="auto"
+        alt="../img/20190118_007.jpg"
+        title="命令概览" /></p>
+</details>  
+<details class="collapsible" close=""><summary><strong>3、命令选项 </strong></summary>  
+<p>一、<strong>常用选项表</strong> </p>
+<table>
+<thead>
+<tr>
+<th>选项语法</th>
+<th>音标</th>
+<th>英文释义</th>
+<th>中文释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--all</code></td>
+<td>[ɔːl]</td>
+<td>all</td>
+<td>全部，用于推送所有分支、清理所有未跟踪内容</td>
+</tr>
+<tr>
+<td><code>--amend</code></td>
+<td>[əˈmend]</td>
+<td>amend</td>
+<td>修改提交，修正最近一次提交的信息或文件</td>
+</tr>
+<tr>
+<td><code>--no-edit</code></td>
+<td>—</td>
+<td>no edit</td>
+<td>不更改提交信息，合并/变基时跳过编辑步骤</td>
+</tr>
+<tr>
+<td><code>--no-ff</code></td>
+<td>—</td>
+<td>no fast forward</td>
+<td>禁用快速合并，强制生成合并提交记录</td>
+</tr>
+<tr>
+<td><code>--hard</code></td>
+<td>[hɑːd]</td>
+<td>hard</td>
+<td>硬重置，覆盖 HEAD、暂存区、工作区的所有修改</td>
+</tr>
+<tr>
+<td><code>--mixed</code></td>
+<td>[mɪkst]</td>
+<td>mixed</td>
+<td>混合重置，默认模式，仅重置 HEAD 和暂存区</td>
+</tr>
+<tr>
+<td><code>--soft</code></td>
+<td>[sɒft]</td>
+<td>soft</td>
+<td>软重置，仅移动 HEAD 指针，保留暂存区和工作区</td>
+</tr>
+<tr>
+<td><code>--cached</code></td>
+<td>[kæʃt]</td>
+<td>cached</td>
+<td>缓存，针对暂存区操作（如移除已暂存文件不删除本地）</td>
+</tr>
+<tr>
+<td><code>--recursive</code></td>
+<td>[rɪˈkɜːsɪv]</td>
+<td>recursive</td>
+<td>递归，克隆时拉取所有嵌套子模块</td>
+</tr>
+<tr>
+<td><code>--recurse</code></td>
+<td>[rɪˈkɜːs]</td>
+<td>recurse</td>
+<td>递归，用于子模块相关的递归操作</td>
+</tr>
+<tr>
+<td><code>--global</code></td>
+<td>[ˈɡləʊbl]</td>
+<td>global</td>
+<td>全局，配置 Git 全局参数（如用户名、邮箱）</td>
+</tr>
+<tr>
+<td><code>--prefix</code></td>
+<td>[ˈpriːfɪks]</td>
+<td>prefix</td>
+<td>前缀，为克隆/操作添加路径前缀</td>
+</tr>
+<tr>
+<td><code>--squash</code></td>
+<td>[ˈskwɒʃ]</td>
+<td>squash</td>
+<td>挤塞，整合时压缩成一个提交</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td>[ˈmesɪdʒ]</td>
+<td>message</td>
+<td>注释信息，指定提交或标签的说明文本</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>[nəʊ]</td>
+<td>no</td>
+<td>不执行操作，仅预览命令执行效果</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td>[brɑːntʃ]</td>
+<td>branch</td>
+<td>分支，创建并切换新分支</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>[dɪˈliːt]</td>
+<td>delete</td>
+<td>删除，删除本地分支或标签</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>[vjuː]</td>
+<td>view/verbose</td>
+<td>查看/详细输出，显示命令执行的详细信息</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>[fɔːs]</td>
+<td>force</td>
+<td>强制操作，强制推送、覆盖标签等</td>
+</tr>
+<tr>
+<td><code>HEAD</code></td>
+<td>[hed]</td>
+<td>head</td>
+<td>当前指针，指向当前所在的分支或提交</td>
+</tr>
+</tbody>
+</table>
+<p>二、<strong>常用单词表</strong> </p>
+<table>
+<thead>
+<tr>
+<th>单词语法</th>
+<th>音标</th>
+<th>英文释义</th>
+<th>中文释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>init</code></td>
+<td>[ɪˈnɪt]</td>
+<td>initialization</td>
+<td>初始化本地仓库，创建 Git 管理目录</td>
+</tr>
+<tr>
+<td><code>add</code></td>
+<td>[æd]</td>
+<td>add</td>
+<td>添加文件到暂存区，标记待提交的修改</td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>[rɪˈmuːv]</td>
+<td>remove</td>
+<td>移除文件，删除跟踪或暂存的文件</td>
+</tr>
+<tr>
+<td><code>commit</code></td>
+<td>[kəˈmɪt]</td>
+<td>commit</td>
+<td>提交暂存区到本地仓库，生成版本记录</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>[ˈsteɪtəs]</td>
+<td>status</td>
+<td>查看工作区/暂存区状态，确认文件变更情况</td>
+</tr>
+<tr>
+<td><code>reset</code></td>
+<td>[riːˈset]</td>
+<td>reset</td>
+<td>重置版本指针，回退到指定历史版本</td>
+</tr>
+<tr>
+<td><code>revert</code></td>
+<td>[rɪˈvɜːt]</td>
+<td>revert</td>
+<td>回滚指定提交，生成反向提交抵消变更</td>
+</tr>
+<tr>
+<td><code>branch</code></td>
+<td>[brɑːntʃ]</td>
+<td>branch</td>
+<td>分支管理，创建、查看、删除分支</td>
+</tr>
+<tr>
+<td><code>checkout</code></td>
+<td>[ˈtʃekaʊt]</td>
+<td>checkout</td>
+<td>检出分支/恢复文件，切换分支或还原文件</td>
+</tr>
+<tr>
+<td><code>merge</code></td>
+<td>[mɜːdʒ]</td>
+<td>merge</td>
+<td>合并分支，将目标分支代码合并到当前分支</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>[tæɡ]</td>
+<td>tag</td>
+<td>标记版本标签，为重要提交打版本快照</td>
+</tr>
+<tr>
+<td><code>remote</code></td>
+<td>[rɪˈməʊt]</td>
+<td>remote</td>
+<td>远程仓库管理，添加、查看、修改远程地址</td>
+</tr>
+<tr>
+<td><code>push</code></td>
+<td>[pʊʃ]</td>
+<td>push</td>
+<td>推送本地内容到远程，同步本地提交到服务器</td>
+</tr>
+<tr>
+<td><code>pull</code></td>
+<td>[pʊl]</td>
+<td>pull</td>
+<td>拉取并合并远程更新，等价于 fetch+merge</td>
+</tr>
+<tr>
+<td><code>fetch</code></td>
+<td>[fetʃ]</td>
+<td>fetch</td>
+<td>拉取远程更新，仅同步远程跟踪分支不合并</td>
+</tr>
+<tr>
+<td><code>clone</code></td>
+<td>[kləʊn]</td>
+<td>clone</td>
+<td>克隆远程仓库到本地，下载完整代码和历史</td>
+</tr>
+<tr>
+<td><code>ignore</code></td>
+<td>[ɪɡˈnɔː(r)]</td>
+<td>ignore</td>
+<td>忽略指定文件，配置不被 Git 跟踪的文件</td>
+</tr>
+<tr>
+<td><code>submodule</code></td>
+<td>[ˌsʌbˈmɒdjuːl]</td>
+<td>submodule</td>
+<td>子模块管理，嵌套管理其他 Git 仓库</td>
+</tr>
+<tr>
+<td><code>foreach</code></td>
+<td>[fəˈriːtʃ]</td>
+<td>foreach</td>
+<td>遍历执行命令，对所有分支/子模块批量操作</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>[ˈɒrɪdʒɪn]</td>
+<td>origin</td>
+<td>默认远程仓库别名，指代克隆的源仓库地址</td>
+</tr>
+</tbody>
+</table>
+</details>  
+<script>  
+	// 获取按钮和所有折叠段落  
+	const toggleBtn = document.getElementById('toggleAll');  
+	const collapsibles = document.querySelectorAll('.collapsible');  
+	let isAllOpen = false; // 初始状态：全部展开  
+	// 一键切换逻辑  
+	toggleBtn.addEventListener('click', () => {  
+		isAllOpen = !isAllOpen;  
+		collapsibles.forEach(detail => {  
+			detail.open = isAllOpen; // 控制所有details的open属性  
+		});  
+		// 更新按钮文字  
+		toggleBtn.textContent = isAllOpen ? '一键折叠全部' : '一键展开全部';  
+	});  
+</script>  
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-12-02</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20190118/" data-title="git 应用总结与提高" data-hashtags="工具,git"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20190118/" data-hashtag="工具"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20190118/" data-title="git 应用总结与提高"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20190118/" data-title="git 应用总结与提高"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20190118/" data-title="git 应用总结与提高"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>,&nbsp;<a href="/tags/git/">git</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20181210/" class="prev" rel="prev" title="C 语言总结与提高"><i class="fas fa-angle-left fa-fw"></i>C 语言总结与提高</a>
+            <a href="/20190119/" class="next" rel="next" title="J-link 调试器日志打印工具-RTT">J-link 调试器日志打印工具-RTT<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"valine":{"appId":"7V3yo7ajOCbagfd7KIdmkAiw-gzGzoHsz","appKey":"IpKMeGrJVzTvAAkTiXEMiElK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-cn","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"AU15Z1TOUX","algoliaIndex":"o2ospring_blog_index","algoliaSearchKey":"79710701e46d916e0897c7b7dfe0a497","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

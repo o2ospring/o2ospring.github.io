@@ -9,6 +9,6 @@
     <pubDate>Thu, 01 Nov 2018 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20181101/</guid>
-    <description><![CDATA[一、前言 Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML]]></description>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 一、前言 Markdown 是一种轻量级标记语言，创始人为约翰·格]]></description>
 </item></channel>
 </rss>

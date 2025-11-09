@@ -3,13 +3,27 @@
         <title>software - 分类 - o2ospring</title>
         <link>https://o2ospring.github.io/categories/software/</link>
         <description>software - 分类 - o2ospring</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 May 2023 21:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/software/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 17 Nov 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/software/" rel="self" type="application/rss+xml" /><item>
     <title>【software 软件技术索引】</title>
     <link>https://o2ospring.github.io/software/</link>
     <pubDate>Sat, 04 Aug 2018 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/software/</guid>
     <description><![CDATA[前言 软件技术包括：编程语言、编程算法、编程思维、数据处理、开源应用模块的使用、实时操作系统的使用等，涉及 C、Lua、RT-thread、Fr]]></description>
+</item><item>
+    <title>Termux 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251117/</link>
+    <pubDate>Mon, 17 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251117/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 Termux /ˈtɜːrmʌks/ 是一款在 Android 设备上运行]]></description>
+</item><item>
+    <title>WSL 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Sun, 09 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在]]></description>
 </item><item>
     <title>UPDesktop 快捷启动工具</title>
     <link>https://o2ospring.github.io/20230519/</link>
@@ -59,19 +73,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220227/</guid>
     <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具被封装成 Windows.exe执行文件）帮忙我们在 windows 系统上完成某项工作（尤其是使]]></description>
-</item><item>
-    <title>lua 脚本基本语法</title>
-    <link>https://o2ospring.github.io/20211221/</link>
-    <pubDate>Tue, 21 Dec 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20211221/</guid>
-    <description><![CDATA[前言 Lua /'luːə/ 是一个小巧且速度极快的脚本语言，由标准 C 编写而成，几乎在所有操作系统和平台上都可以编译运行，是作为嵌入式脚本的最佳选择。]]></description>
-</item><item>
-    <title>WSL 之 unix 模拟工具</title>
-    <link>https://o2ospring.github.io/20251109/</link>
-    <pubDate>Tue, 09 Nov 2021 10:00:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20251109/</guid>
-    <description><![CDATA[前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在 Windows 上直接运行完整的 Linux 发行版，无需虚拟机或双系统。 WSL 简介 1、核心特性： 原生集成：与 Windows 系统深度融]]></description>
 </item></channel>
 </rss>
