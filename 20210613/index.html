@@ -34,7 +34,7 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  15570 ,
+                        }],"genre": "posts","keywords": "命令, linux 工具\/应用","wordcount":  15892 ,
         "url": "https:\/\/o2ospring.github.io\/20210613\/","datePublished": "2021-06-13T21:33:41+08:00","dateModified": "2021-06-13T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 基本命令使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15570 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-13">2021-06-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15892 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 32 分钟&nbsp;<span id="/20210613/" class="leancloud_visitors" data-flag-title="linux 基本命令使用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -531,6 +531,11 @@ sudo update-alternatives --config node               <span class="c1"># 选择�
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo su                             <span class="c1"># su 仅仅取得 root 权限【Permission】，工作环境不变。</span>
@@ -557,16 +562,22 @@ sudo chmod <span class="nv">ug</span><span class="o">=</span>rw /srv/ftp/upload/
                                     <span class="c1"># [a] 表示全部用户  |                    |           </span>
 sudo chown root /var/run/httpd.pid  <span class="c1"># 改变 /var/run/httpd.pid 文件的拥有者为 root</span>
 sudo chown runoob:runoobgroup f.txt <span class="c1"># 改变 f.txt   文件的拥有者为 runoob，用户组为 runoobgroup </span>
-sudo chown xiaomin 123.txt          <span class="c1"># 改变 123.txt 文件的拥有者为 xiaomin</span>
-sudo chown -R xiaomin /home/abc/    <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的拥有者为 xiaomin（拥有者owner /&#39;əʊnə(r)/）</span>
-sudo chgrp -R xiaomin /home/abc/    <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的用户组为 xiaomin（用户组group /ɡruːp/）</span>
+sudo chown :runoobgroup f.txt       <span class="c1"># 改变 f.txt   文件的用户组为 runoobgroup </span>
+sudo chown xiaoming 123.txt         <span class="c1"># 改变 123.txt 文件的拥有者为 xiaoming</span>
+sudo chown -R xiaoming /home/abc/   <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的拥有者为 xiaoming（拥有者owner /&#39;əʊnə(r)/）</span>
+sudo chgrp -R xiaoming /home/abc/   <span class="c1"># 改变 /home/abc/ 目录及其下面所有文件(夹)的用户组为 xiaoming（用户组group /ɡruːp/）</span>
                                     <span class="c1"># 【权限总结】：</span>
                                     <span class="c1"># 1.文件(夹)的拥有者（用户/用户组）</span>
                                     <span class="c1"># 2.拥有者的操作权限（读/写/执行）</span>
+                                    <span class="c1"># 3.新建用户时，系统会自动创建一个与用户名同名的私有组（称为 “主组”），该用户默认属于这个组。</span>
+                                    <span class="c1"># 查看所有用户：cat /etc/passwd（系统用户通常 UID &lt; 1000，自建用户 UID ≥ 1000）。</span>
+                                    <span class="c1"># 查看所有组　：cat /etc/group</span>
+                                    <span class="c1"># 查看某个用户所属的组：groups &lt;用户名&gt;</span>
 
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><p><strong>备注</strong>：-R 大写一般用在权限命令这里（还有<code>ls</code>），-r 小写一般用在其它命令那里。</p>
+</details>  
 <details close=""><summary><strong>3、根与目录操作</strong></summary>  
 <blockquote>
 <p><code>cd</code> <code>./</code> <code>../</code> <code>pwd</code> <code>ls</code> <code>ll</code> <code>!!</code> <code>tree</code></p>
@@ -769,6 +780,8 @@ tree -L <span class="m">1</span> -d                        <span class="c1"># �
 </span><span class="lnt">51
 </span><span class="lnt">52
 </span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir linuxeye                      <span class="c1"># 在当前目录创建[一层目录]:linuxeye</span>
@@ -794,7 +807,7 @@ rm -rf upload                       <span class="c1"># 递归强制删除文件�
                                     <span class="c1"># [-r] 递归。对文件夹递归操作(删除/复制)。也说是操作对象为文件夹，而非文件!!!!!</span>
                                     <span class="c1"># [-u] 差异。有文件差异才操作(覆盖)。复制:目标文件与源文件有差异时才会复制；移动:源文件比目标文件新才会覆盖。</span>
 find /home -name readme.txt         <span class="c1"># 从 /home 目录开始搜索文件 readme.txt</span>
-find /home -user xiaomin            <span class="c1"># 从 /home 目录开始搜索属于 xiaomin 用户的文件(夹)</span>
+find /home -user xiaoming           <span class="c1"># 从 /home 目录开始搜索属于 xiaoming 用户的文件(夹)</span>
 find /usr/bin -type f -atime +100   <span class="c1"># 搜索【超过100天】未被使用过的【执行文件】</span>
 find /usr/bin -type f -mtime -10    <span class="c1"># 搜索【 10天以内】被创建或者修改过的文件</span>
 locate readme.txt　                 <span class="c1"># 快速查找 readme.txt 文件(最新变动文件可能搜索不到,用 updatedb 命令更新数据库(索引))</span>
@@ -810,15 +823,17 @@ ln /bin/readme.txt /usr/local/bin/readme.txt          <span class="c1"># 硬链�
 zip -r file.zip ./tmp               <span class="c1"># 压缩[zip    ]文件（-r 递归处理,即所有子目录一并处理）</span>
 unzip -q file.zip                   <span class="c1"># 解压[zip    ]文件（-q 执行时不显示任何信息）</span>
 tar -czvf file.tar.gz ./tmp/abc     <span class="c1"># 压缩[tar.gz ]文件</span>
-tar -xzvf /tmp/a.tar.gz -C /home/ab <span class="c1"># 解压[tar.gz ]文件，指定目录文件到指定目录</span>
+tar -xzvf /tmp/a.tar.gz -C /home/ab <span class="c1"># 解压[tar.gz ]文件，指定目录文件到指定目录，-C 表示指定【解压】路径</span>
 tar -xzvf /tmp/a.tar.gz             <span class="c1"># 解压[tar.gz ]文件，指定目录文件到当前目录</span>
 tar -xjvf php-5.tar.bz2             <span class="c1"># 解压[tar.bz2]文件到当前文件夹</span>
-                                    <span class="c1"># c 压缩</span>
-                                    <span class="c1"># x 解缩</span>
-                                    <span class="c1"># z 使用 gzip  压缩解压缩。后缀为[.tar.gz ]</span>
-                                    <span class="c1"># j 使用 bzip2 压缩解压缩。后缀为[.tar.bz2]</span>
-                                    <span class="c1"># v 显示过程信息</span>
-                                    <span class="c1"># f 基于文件</span>
+                                    <span class="c1"># -C 指定【解压】路径</span>
+                                    <span class="c1"># -c 压缩</span>
+                                    <span class="c1"># -x 解缩</span>
+                                    <span class="c1"># -z 使用 gzip  算法压缩解压。后缀为[.tar.gz ] 或 [.tgz]</span>
+                                    <span class="c1"># -j 使用 bzip2 算法压缩解压。后缀为[.tar.bz2]</span>
+                                    <span class="c1"># -J 使用 xz    算法压缩解压。后缀为[.tar.xz ]</span>
+                                    <span class="c1"># -v 显示过程信息</span>
+                                    <span class="c1"># -f 指定压缩包的文件名称（必须放在选项最后，紧跟文件名）</span>
                                     <span class="c1"># 注意：z在前面必须加-,即-zxvf；要加f参数必须在最后。</span>
 
 7z x yourfile.7z                    <span class="c1"># 解压[yourfile.7z]文件到当前目录 （备注：[p7zip]软件包安装 sudo apt-get install p7zip-full）</span>
@@ -826,7 +841,9 @@ tar -xjvf php-5.tar.bz2             <span class="c1"># 解压[tar.bz2]文件到�
 
 </code></pre></td></tr></table>
 </div>
-</div></details>  
+</div><p><strong>备注</strong>：mv 命令不分文件和文件夹，不用 -r 选项。<br>
+<strong>备注</strong>：tar -f 参数指定【文件名】-C 参数指定【路径】，也不用 -r 选项。</p>
+</details>  
 <details close=""><summary><strong>5、文件内容操作</strong></summary>  
 <blockquote>
 <p><code>cat</code> <code>head</code> <code>tail</code> <code>more</code> <code>column</code> <code>grep</code> <code>echo</code> <code>gedit</code> <code>vi</code></p>
@@ -1080,7 +1097,7 @@ umount /mnt/nfs                                       <span class="c1"># 挂载�
 telnet 192.168.1.20                                   <span class="c1"># 使用telnet远程登录.</span>
 
 ssh root@192.168.1.20                                 <span class="c1"># 使用SSH远程登录,[root]为用户名, [@]的后面为远程主机IP，登录后就可以像本地操作shell一样操作</span>
-sftp -oPort<span class="o">=</span><span class="m">22</span> xiaomin@192.168.1.20                   <span class="c1"># sftp客户端登录服务端（端口:22, 账号:xiaomin, IP:192.168.1.20），登录后可用 put、get、ls、lls、cd、lcd 等基本命令操作</span>
+sftp -oPort<span class="o">=</span><span class="m">22</span> xiaoming@192.168.1.20                  <span class="c1"># sftp客户端登录服务端（端口:22, 账号:xiaoming, IP:192.168.1.20），登录后可用 put、get、ls、lls、cd、lcd 等基本命令操作</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -1372,20 +1389,20 @@ top -u liao                         <span class="c1"># 显示liao用户进程信
                                     <span class="c1"># --------------------------------------------------</span>
                                     <span class="c1">#『交互命令』(在打印信息界面中,直接按下面按键)</span>
                                     <span class="c1"># h 显示帮助画面</span>
-                                    <span class="c1"># s 改变两次刷新之间的延迟时间(单位:秒),可有小数点，默认值是5秒</span>
+                                    <span class="c1"># P 根据CPU使用百分比大小进行排序</span>
+                                    <span class="c1"># M 根据驻留内存大小进行排序</span>
+                                    <span class="c1"># k 终止一个进程</span>
                                     <span class="c1"># q 退出程序</span>
-                                    <span class="c1"># k 终止一个进程。</span>
+                                    <span class="c1"># s 改变两次刷新之间的延迟时间(单位:秒),可有小数点，默认值是5秒</span>
                                     <span class="c1"># r 重新安排一个进程的优先级别</span>
                                     <span class="c1"># c 切换显示命令名称和完整命令行</span>
-                                    <span class="c1"># i 忽略闲置和僵死进程。这是一个开关式命令。</span>
-                                    <span class="c1"># P 根据CPU使用百分比大小进行排序</span>
+                                    <span class="c1"># i 忽略闲置和僵死进程。这是一个开关式命令</span>
                                     <span class="c1"># S 切换到累计模式</span>
-                                    <span class="c1"># f或者F 从当前显示中添加或者删除项目</span>
-                                    <span class="c1"># o或者O 改变显示项目的顺序</span>
+                                    <span class="c1"># f/F 从当前显示中添加或者删除项目</span>
+                                    <span class="c1"># o/O 改变显示项目的顺序</span>
                                     <span class="c1"># l 切换显示平均负载和启动时间信息</span>
                                     <span class="c1"># m 切换显示内存信息</span>
                                     <span class="c1"># t 切换显示进程和CPU状态信息</span>
-                                    <span class="c1"># M 根据驻留内存大小进行排序</span>
                                     <span class="c1"># T 根据时间/累计时间进行排序</span>
                                     <span class="c1"># W 将当前设置写入~/.toprc文件中 </span>
 ps                                  <span class="c1"># 显示当前shell下的进程</span>
@@ -1462,7 +1479,7 @@ shutdown -c                         <span class="c1"># 取消按预定时间关�
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

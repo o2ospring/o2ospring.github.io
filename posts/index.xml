@@ -3,7 +3,7 @@
         <title>所有文章 - o2ospring</title>
         <link>https://o2ospring.github.io/posts/</link>
         <description>所有文章 | o2ospring</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Dec 2025 10:30:00 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>【MCU 专题文章索引】</title>
     <link>https://o2ospring.github.io/mcu/</link>
     <pubDate>Mon, 06 Aug 2018 20:33:41 &#43;0800</pubDate>
@@ -39,39 +39,39 @@
     <guid>https://o2ospring.github.io/blog/</guid>
     <description><![CDATA[前言 本人不是搞网站开发的，对建站一窍不通，本专题只是记录我搭建个人博客过程的笔记，希望这些笔记能帮助那些像我一样的小白们！本专题的内容包含了]]></description>
 </item><item>
+    <title>冬季皮肤干痒的解决之道</title>
+    <link>https://o2ospring.github.io/20251205/</link>
+    <pubDate>Fri, 05 Dec 2025 10:30:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251205/</guid>
+    <description><![CDATA[前言 每到冬天，皮肤干痒就成了我的“深夜噩梦”——即便涂了补水润肤露或锁水凡士林，依旧会痒到深夜惊醒，严重影响睡眠。后来通过 AI 查询结合自身情况]]></description>
+</item><item>
+    <title>Termux 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251117/</link>
+    <pubDate>Mon, 17 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251117/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 Termux /ˈtɜːrmʌks/ 是一款在 Android 设备上运行]]></description>
+</item><item>
+    <title>WSL 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Sun, 09 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在]]></description>
+</item><item>
     <title>linux 纯文本编辑器 nano</title>
     <link>https://o2ospring.github.io/20251108/</link>
     <pubDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20251108/</guid>
-    <description><![CDATA[前言 nano 是一款轻量级、易用的纯文本编辑器，广泛应用于 Linux 和类 Unix 系统中。它以简单直观的操作方式著称，特别适合新手用户，同时也能满足日常文本编辑需求]]></description>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 nano 是一款轻量级、易用的纯文本编辑器，广泛应用]]></description>
 </item><item>
-    <title>ESP32 工程命令行编译笔记</title>
+    <title>linux-ESP32编译-工程命令行编译笔记</title>
     <link>https://o2ospring.github.io/20251025/</link>
     <pubDate>Sat, 25 Oct 2025 16:05:00 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20251025/</guid>
-    <description><![CDATA[前言 在之前公司某项目开发中，团队选用 ESP32 模块为核心，我主导架构规划与核心模块开发时，需要先攻克工程编译环节，之后才能调试模块和审查相关同事代码]]></description>
-</item><item>
-    <title>关于软硬兼修二人组电控团队的看法</title>
-    <link>https://o2ospring.github.io/20251024/</link>
-    <pubDate>Fri, 24 Oct 2025 15:30:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20251024/</guid>
-    <description><![CDATA[今日面试一家餐饮自动化设备企业（商业奶茶机等，很看好这类行业），得知其电控组仅师徒两人，且需兼顾软硬件工作。结合行业经验，我想聊聊这种架构的]]></description>
-</item><item>
-    <title>UPDesktop 快捷启动工具</title>
-    <link>https://o2ospring.github.io/20230519/</link>
-    <pubDate>Fri, 19 May 2023 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20230519/</guid>
-    <description><![CDATA[前言 像我们做开发的，要装一大堆的软件/工具，桌面变得杂乱无章。今天为大家介绍一款小众工具 UPDesktop：是一款非常简单易用的桌面快速启动]]></description>
-</item><item>
-    <title>面向对象模块设计的 C 语言实现方法</title>
-    <link>https://o2ospring.github.io/20230222/</link>
-    <pubDate>Wed, 22 Feb 2023 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20230222/</guid>
-    <description><![CDATA[一、前言 网上的面向对象编程文章往往是描述面向对象的思维（看了之后反而是“云里雾里”、很虚的感觉），至于如何使用代码来编写对象基本上没提及。那]]></description>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 在之前公司某项目开发中，团队选用 ESP32 模块为核心]]></description>
 </item></channel>
 </rss>

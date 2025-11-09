@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://o2ospring.github.io/20251108/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-11-08T08:33:41+08:00" />
-<meta property="article:modified_time" content="2025-11-08T10:58:00+08:00" />
+<meta property="article:modified_time" content="2025-11-17T09:04:00+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
@@ -20,7 +20,7 @@
 <meta name="application-name" content="o2ospring">
 <meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20251108/" /><link rel="prev" href="https://o2ospring.github.io/20251025/" /><link rel="next" href="https://o2ospring.github.io/blog/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://o2ospring.github.io/20251108/" /><link rel="prev" href="https://o2ospring.github.io/20251025/" /><link rel="next" href="https://o2ospring.github.io/20251109/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,8 +34,8 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "nano, linux 工具\/应用","wordcount":  703 ,
-        "url": "https:\/\/o2ospring.github.io\/20251108\/","datePublished": "2025-11-08T08:33:41+08:00","dateModified": "2025-11-08T10:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "nano, linux 工具\/应用","wordcount":  855 ,
+        "url": "https:\/\/o2ospring.github.io\/20251108\/","datePublished": "2025-11-08T08:33:41+08:00","dateModified": "2025-11-17T09:04:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -116,7 +116,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux 纯文本编辑器 nano</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-11-08">2025-11-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 703 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-11-08">2025-11-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 855 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/20251108/" class="leancloud_visitors" data-flag-title="linux 纯文本编辑器 nano">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -136,12 +136,18 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="前言">前言</h3>
+            </div><div class="content" id="content"><style>  
+    /* 一键按钮悬浮左下角样式 */  
+    #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; }  
+    #toggleAll:hover { background: #eee; }  
+</style>  
+<p><button id="toggleAll">一键展开全部</button></p>
+<h3 id="前言">前言</h3>
 <blockquote>
 <p><a href="https://www.nano-editor.org/" target="_blank" rel="noopener noreffer">nano</a> 是一款轻量级、易用的纯文本编辑器，广泛应用于 Linux 和类 Unix 系统中。它以简单直观的操作方式著称，特别适合新手用户，同时也能满足日常文本编辑需求。</p>
 </blockquote>
 <h3 id="简介">简介</h3>
-<details close=""><summary><strong>nano 核心特点</strong></summary>  
+<details class="collapsible" close=""><summary><strong>nano 核心特点</strong></summary>  
 <p>1、<strong>轻量小巧</strong>：安装包体积小，启动速度快，对系统资源占用极低，适合在服务器、嵌入式设备等资源有限的环境中使用。<br>
 2、<strong>操作简单</strong>：无需记忆复杂的快捷键组合（与 Vim 相比），界面底部会直接显示常用操作的快捷键提示，降低学习成本。<br>
 3、<strong>功能实用</strong>：支持基本的文本编辑功能（如复制、粘贴、查找替换、行号显示等），同时也包含一些进阶特性（如语法高亮、自动缩进、多文件编辑等）。<br>
@@ -149,7 +155,7 @@
 <p>PS：nano 虽不如 Vim 或 Emacs 功能强大，但胜在简洁易用，是 Linux 终端中处理文本编辑任务的高效工具。</p>
 </details>  
 <h3 id="使用">使用</h3>
-<details close=""><summary><strong>nano 打开文本</strong></summary>  
+<details class="collapsible" close=""><summary><strong>nano 打开文本</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -167,7 +173,7 @@ nano -t test.txt  <span class="c1"># 编辑完成后自动保存并退出（适�
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>nano 编辑文本</strong></summary>  
+<details class="collapsible" close=""><summary><strong>nano 编辑文本</strong></summary>  
 <ul>
 <li><code>Ctrl + O</code>：保存当前文件（按 Enter 确认文件名）</li>
 <li><code>Ctrl + X</code>：退出 nano（若文件未保存，会提示是否保存）</li>
@@ -184,7 +190,7 @@ nano -t test.txt  <span class="c1"># 编辑完成后自动保存并退出（适�
 <p><code>Shift + Home/End</code>：选择光标前面/后面一行文本</p>
 </li>
 <li>
-<p><code>Ctrl + K</code> ：剪切当前行文本/选择文本</p>
+<p><code>Ctrl + K</code> ：剪切当前行文本/剪切选中文本</p>
 </li>
 <li>
 <p><code>Ctrl + U</code> ：粘贴已剪切的内容。</p>
@@ -204,11 +210,26 @@ nano -t test.txt  <span class="c1"># 编辑完成后自动保存并退出（适�
 <li><code>Ctrl + G</code>：打开帮助文档（查看所有快捷键）</li>
 </ul>
 </details>  
+<script>  
+	// 获取按钮和所有折叠段落  
+	const toggleBtn = document.getElementById('toggleAll');  
+	const collapsibles = document.querySelectorAll('.collapsible');  
+	let isAllOpen = false; // 初始状态：全部展开  
+	// 一键切换逻辑  
+	toggleBtn.addEventListener('click', () => {  
+		isAllOpen = !isAllOpen;  
+		collapsibles.forEach(detail => {  
+			detail.open = isAllOpen; // 控制所有details的open属性  
+		});  
+		// 更新按钮文字  
+		toggleBtn.textContent = isAllOpen ? '一键折叠全部' : '一键展开全部';  
+	});  
+</script>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2025-11-08</span>
+                <span>更新于 2025-11-17</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -227,15 +248,15 @@ nano -t test.txt  <span class="c1"># 编辑完成后自动保存并退出（适�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20251025/" class="prev" rel="prev" title="ESP32 工程命令行编译笔记"><i class="fas fa-angle-left fa-fw"></i>ESP32 工程命令行编译笔记</a>
-            <a href="/blog/" class="next" rel="next" title="【blog 搭建知识索引】">【blog 搭建知识索引】<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/20251025/" class="prev" rel="prev" title="linux-ESP32编译-工程命令行编译笔记"><i class="fas fa-angle-left fa-fw"></i>linux-ESP32编译-工程命令行编译笔记</a>
+            <a href="/20251109/" class="next" rel="next" title="WSL 之 unix 模拟环境">WSL 之 unix 模拟环境<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

@@ -10,5 +10,12 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20210609/</guid>
     <description><![CDATA[前言 代码编写规范应该在建立一个工程项目之前，并且贯穿整个项目的始终，以保证代码的一致性。采用标准的代码编写惯例，可以大大简化项目的维护负担，]]></description>
+</item><item>
+    <title>C 语言总结与提高</title>
+    <link>https://o2ospring.github.io/20181210/</link>
+    <pubDate>Mon, 10 Dec 2018 21:33:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20181210/</guid>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 前言 C 语言是兼具高效与灵活的结构化编程语言，诞生]]></description>
 </item></channel>
 </rss>

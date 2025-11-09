@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://o2ospring.github.io/20220126/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-26T21:33:41+08:00" />
-<meta property="article:modified_time" content="2022-06-07T22:58:00+08:00" />
+<meta property="article:modified_time" content="2025-11-17T13:30:00+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
@@ -34,8 +34,8 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "hugo, LoveIt, linux 工具\/应用","wordcount":  5168 ,
-        "url": "https:\/\/o2ospring.github.io\/20220126\/","datePublished": "2022-01-26T21:33:41+08:00","dateModified": "2022-06-07T22:58:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "hugo, LoveIt, linux 工具\/应用","wordcount":  5529 ,
+        "url": "https:\/\/o2ospring.github.io\/20220126\/","datePublished": "2022-01-26T21:33:41+08:00","dateModified": "2025-11-17T13:30:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -116,8 +116,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">博客生成工具 Hugo</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/blog/"><i class="far fa-folder fa-fw"></i>blog</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-26">2022-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5168 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/20220126/" class="leancloud_visitors" data-flag-title="博客生成工具 Hugo">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-26">2022-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5529 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="/20220126/" class="leancloud_visitors" data-flag-title="博客生成工具 Hugo">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -135,14 +135,20 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="hugo-的简介">Hugo 的简介</h3>
+            </div><div class="content" id="content"><style>  
+    /* 一键按钮悬浮左下角样式 */  
+    #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; }  
+    #toggleAll:hover { background: #eee; }  
+</style>  
+<p><button id="toggleAll">一键展开全部</button></p>
+<h3 id="hugo-的简介">Hugo 的简介</h3>
 <blockquote>
 <p>Hugo <code>/'hjuːgəʊ/</code> 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司站点构建。Hugo 的特点：简单、易用、高效、易扩展、快速部署，其中最大的优点就是超级快！<br>
 <a href="https://www.gohugo.org/" target="_blank" rel="noopener noreffer">中文官网</a><br>
 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer">英文官网</a></p>
 </blockquote>
 <h3 id="ubuntu-平台">Ubuntu 平台</h3>
-<details close=""><summary><strong>1、Hugo 的安装</strong></summary>  
+<details class="collapsible" close=""><summary><strong>1、Hugo 的安装</strong></summary>  
 <blockquote>
 <p>Hugo 官方为我们编译好各种平台<a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">二进制文件</a>，安装时不需要安装任何依赖软件，直接下载使用即可。建议安装最新版本的 Hugo，因为你可以直接在官网下载最新主题，快速熟悉 Hugo 的基本使用（搭建本地的博客先能跑起来），之后再找一个中文主题，有中文说明，方便我们更深入了解 Hugo 使用与配置。<br>
 在您的电脑上安装<code>Hugo</code>执行文件，更详尽可参考 <a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener noreffer">Hugo</a> 官方的部署文档；<br>
@@ -178,8 +184,67 @@ hugo version                 <span class="c1">#查看版本,验证安装是否�
 <span class="c1">#go version                  #查看版本,验证安装是否成功  </span>
 </code></pre></td></tr></table>
 </div>
-</div></details>  
-<details close=""><summary><strong>2、Hugo 的使用</strong></summary>  
+</div><details class="collapsible" close=""><summary><strong>PS：</strong>在 Android 运行 Hugo（点击展开）</summary>  
+<ul>
+<li>通过 Termux 模拟 Linux 环境运行，在安卓上安装 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreffer">Termux</a>（<a href="https://termux.dev/cn/index.html" target="_blank" rel="noopener noreffer">中文官网</a>）；</li>
+<li>打开 Termux 后，先更新包管理器（需要较长时间）：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pkg update <span class="o">&amp;&amp;</span> pkg upgrade -y  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>安装必要的依赖（如 wget 用于下载文件）：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pkg install wget -y  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>从 Hugo 官网的 <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">Release 页面</a> 下载适用于 <strong>Linux ARM 架构</strong> 的二进制包（注意安卓设备的 CPU 架构，多数是 arm64，对应文件名含 <code>arm64</code> 或 <code>aarch64</code>）。例如：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/gohugoio/hugo/releases/download/v0.92.0/hugo_0.92.0_Linux-ARM64.tar.gz  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>解压文件并将 <code>hugo</code> 二进制文件移动到 Termux 的环境变量目录：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir tmp  
+tar -zxvf hugo_0.92.0_Linux-ARM64.tar.gz -C tmp/  
+mv tmp/hugo /data/data/com.termux/files/usr/bin/  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>验证是否可用：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo version  
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</details>  
+</details>  
+<details class="collapsible" close=""><summary><strong>2、Hugo 的使用</strong></summary>  
 <blockquote>
 <p>操作<code>hugo</code>命令时，必须在网站根目录里操作。在官网挑选一个最新主题（例如：<a href="https://github.com/vjeantet/hugo-theme-casper" target="_blank" rel="noopener noreffer">casper</a> 主题），确保与最新 Hugo 相匹配，避免因版本出现各种兼容问题。当使用官方最新主题搭建本地的博客能顺利跑起来后，再使用 <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank" rel="noopener noreffer">中文主题-Maupassant</a> 编译制作，因为其有中文说明而且超简洁，方便我们快速了解 Hugo 配置。<br>
 <a href="https://themes.gohugo.io/" target="_blank" rel="noopener noreffer">官方主题下载</a><br>
@@ -229,7 +294,7 @@ hugo server -t casper -D    <span class="c1">#指定主题“casper”编译并�
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>3、LoveIt 主题</strong></summary>  
+<details class="collapsible" close=""><summary><strong>3、LoveIt 主题</strong></summary>  
 <blockquote>
 <p>第一步：先把(LoveIt)主题示范网站运行起来</p>
 </blockquote>
@@ -511,7 +576,7 @@ git push -f origin master    <span class="c1">#【推送】本地仓库到【远
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>4、Hugo 的发布</strong></summary>  
+<details class="collapsible" close=""><summary><strong>4、Hugo 的发布</strong></summary>  
 <blockquote>
 <p>将基于 <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer">LoveIt</a> 主题（我使用的主题）制作的博客，发布到 <a href="https://pages.github.com" target="_blank" rel="noopener noreffer">Github Pages</a> 上。关于 Github Pages，是 <a href="https://github.com" target="_blank" rel="noopener noreffer">GitHub</a> 的一个功能，其允许用户在 GitHub 仓库托管你的个人、组织或项目的静态页面（自动识别 html、css、javascript），也就是专门为个人或组织提供静态站点托管服务(器)。<br>
 <strong>前提：</strong><br>
@@ -565,7 +630,7 @@ git push -f origin master    <span class="c1">#【推送】本地仓库到【远
 </div>
 </div><p>现在可以打开 <a href="https://o2ospring.github.io" target="_blank" rel="noopener noreffer">https://o2ospring.github.io</a> 网址浏览我的博客了。</p>
 </details>  
-<details close=""><summary><strong>5、使用时踩坑记</strong></summary>  
+<details class="collapsible" close=""><summary><strong>5、使用时踩坑记</strong></summary>  
 <p>1、使用 LoveIt 主题执行<code>hugo server</code>编译出错，具体请看【<a href="../img/20220126_02_05_01.jpg" rel="">图示</a>】<br>
 2、修改 LoveIt 主题为单中文界面后出现错乱问题，具体请看【<a href="../img/20220126_02_05_02.jpg" rel="">图示</a>】<br>
 3、使用 github 发布 LoveIt 主题示例后 build 出错，打开主页显示 404，具体请看【<a href="../img/20220126_02_05_03.jpg" rel="">图示</a>】<br>
@@ -573,7 +638,7 @@ git push -f origin master    <span class="c1">#【推送】本地仓库到【远
 5、发现 LoveIt 主题网页打开慢且图片无法装载出来（2022 年 5 月底开始），经查是 CDN 出了问题，临时解决【<a href="../img/20220126_02_05_05.jpg" rel="">图示</a>】<br>
 6、发现 Valine 评论系统要求绑定的个人域名要备案（2022 年 5 月底开始），否则评论及阅读计数用不了，先要有国内服务商的个人域名，再以身份证所在省份进行备案。</p>
 </details>  
-<details close=""><summary><strong>6、相关参考网文</strong></summary>  
+<details class="collapsible" close=""><summary><strong>6、相关参考网文</strong></summary>  
 <p><a href="https://zhuanlan.zhihu.com/p/57361697" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/57361697</a><br>
 <a href="https://www.modb.pro/db/247070" target="_blank" rel="noopener noreffer">https://www.modb.pro/db/247070</a><br>
 <a href="https://blog.csdn.net/azl397985856/article/details/110848517" target="_blank" rel="noopener noreffer">https://blog.csdn.net/azl397985856/article/details/110848517</a><br>
@@ -587,11 +652,26 @@ git push -f origin master    <span class="c1">#【推送】本地仓库到【远
 <a href="https://hbs-cn.razonyang.com/zh-cn" target="_blank" rel="noopener noreffer">https://hbs-cn.razonyang.com/zh-cn</a><br>
 <a href="https://juejin.cn/post/6871101738431021064" target="_blank" rel="noopener noreffer">https://juejin.cn/post/6871101738431021064</a></p>
 </details>  
+<script>  
+	// 获取按钮和所有折叠段落  
+	const toggleBtn = document.getElementById('toggleAll');  
+	const collapsibles = document.querySelectorAll('.collapsible');  
+	let isAllOpen = false; // 初始状态：全部展开  
+	// 一键切换逻辑  
+	toggleBtn.addEventListener('click', () => {  
+		isAllOpen = !isAllOpen;  
+		collapsibles.forEach(detail => {  
+			detail.open = isAllOpen; // 控制所有details的open属性  
+		});  
+		// 更新按钮文字  
+		toggleBtn.textContent = isAllOpen ? '一键折叠全部' : '一键展开全部';  
+	});  
+</script>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-06-07</span>
+                <span>更新于 2025-11-17</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -618,7 +698,7 @@ git push -f origin master    <span class="c1">#【推送】本地仓库到【远
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

@@ -5,17 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>ESP32 工程命令行编译笔记 - o2ospring</title><meta name="Description" content="ESP32 工程在 linux 和 Windows 命令窗口下的编译笔记"><meta property="og:title" content="ESP32 工程命令行编译笔记" />
+        <title>linux-ESP32编译-工程命令行编译笔记 - o2ospring</title><meta name="Description" content="ESP32 工程在 linux 和 Windows 命令窗口下的编译笔记"><meta property="og:title" content="linux-ESP32编译-工程命令行编译笔记" />
 <meta property="og:description" content="ESP32 工程在 linux 和 Windows 命令窗口下的编译笔记" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://o2ospring.github.io/20251025/" /><meta property="og:image" content="https://o2ospring.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-10-25T16:05:00+08:00" />
-<meta property="article:modified_time" content="2025-11-05T10:15:00+08:00" />
+<meta property="article:modified_time" content="2025-11-17T09:03:00+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://o2ospring.github.io/logo.png"/>
 
-<meta name="twitter:title" content="ESP32 工程命令行编译笔记"/>
+<meta name="twitter:title" content="linux-ESP32编译-工程命令行编译笔记"/>
 <meta name="twitter:description" content="ESP32 工程在 linux 和 Windows 命令窗口下的编译笔记"/>
 <meta name="application-name" content="o2ospring">
 <meta name="apple-mobile-web-app-title" content="o2ospring"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,7 +24,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "ESP32 工程命令行编译笔记",
+        "headline": "linux-ESP32编译-工程命令行编译笔记",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -34,8 +34,8 @@
                             "url": "https:\/\/o2ospring.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "ESP32","wordcount":  8022 ,
-        "url": "https:\/\/o2ospring.github.io\/20251025\/","datePublished": "2025-10-25T16:05:00+08:00","dateModified": "2025-11-05T10:15:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "ESP32","wordcount":  9021 ,
+        "url": "https:\/\/o2ospring.github.io\/20251025\/","datePublished": "2025-10-25T16:05:00+08:00","dateModified": "2025-11-17T09:03:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -114,10 +114,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">ESP32 工程命令行编译笔记</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">linux-ESP32编译-工程命令行编译笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/o2ospring" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>o2ospring</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mcu/"><i class="far fa-folder fa-fw"></i>MCU</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-10-25">2025-10-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8022 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;<span id="/20251025/" class="leancloud_visitors" data-flag-title="ESP32 工程命令行编译笔记">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-10-25">2025-10-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9021 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;<span id="/20251025/" class="leancloud_visitors" data-flag-title="linux-ESP32编译-工程命令行编译笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -140,16 +140,23 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="前言">前言</h3>
+            </div><div class="content" id="content"><style>  
+    /* 一键按钮悬浮左下角样式 */  
+    #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; }  
+    #toggleAll:hover { background: #eee; }  
+</style>  
+<p><button id="toggleAll">一键展开全部</button></p>
+<h3 id="前言">前言</h3>
 <p>在之前公司某项目开发中，团队选用 ESP32 模块为核心，我主导架构规划与核心模块开发时，需要先攻克工程编译环节，之后才能调试模块和审查相关同事代码。研读【<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html" target="_blank" rel="noopener noreffer">ESP32 官方教程</a>】发现，其内容虽全面但排布零散，对急需上手的开发者而言易陷入信息冗余的困扰。<br>
 我一贯主张“先落地应用，再深研细节”，这与校园“先学理论再实践”的模式不同。项目中开发者更需快速打通编译流程的实操方案，因此我结合本次开发经验，整理出这份聚焦实操的快速应用笔记。笔记省略冗余理论，直击编译关键步骤与技巧，助力读者快速实现工程编译，后续再逐步深挖技术细节。</p>
 <h3 id="一工程文件夹概况">一、工程文件夹概况</h3>
 <p>假设工程根目录为：<code>esp32_xxx</code><br>
 假设新建用户工程：<code>esp32_xxx/projs/aaa/</code><br>
 假设复制案例工程：<code>esp32_xxx/projs/hello_world/</code><br>
-<a href="https://github.com/espressif/esp-idf" target="_blank" rel="noopener noreffer">官方仓库</a>工程平台：<code>esp32_xxx/esp-idf-v5.1/</code></p>
+<a href="https://github.com/espressif/esp-idf" target="_blank" rel="noopener noreffer">官方仓库</a>工程平台：<code>esp32_xxx/esp-idf-v5.1/</code><br>
+<strong>备注</strong>：“官方工程平台” 在电脑中应当只有一份，不建议在每个用户工程文件夹里都放一份！</p>
 <h3 id="二esp32-工程的新建与复制ubuntu-20041-ltshttpmirrors163comubuntu-releases-下操作">二、ESP32 工程的新建与复制（<a href="http://mirrors.163.com/ubuntu-releases/" target="_blank" rel="noopener noreffer">Ubuntu 20.04.1 LTS</a> 下操作）</h3>
-<details close=""><summary><strong>1、装工具和拉取仓库</strong></summary>  
+<details class="collapsible" close=""><summary><strong>1、装工具和拉取仓库</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -162,9 +169,11 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update              <span class="c1">#准备安装所需软件包</span>
+sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
                                  <span class="c1">#安装全部所需软件包（具体过程这里不细述）（备注：无论系统还是工具都需要较新的版本，如：ESP-IDF 需要 CMake 3.16 或以上版本）</span>
 mkdir esp32_xxx                  <span class="c1">#新建【esp32_xxx】文件夹</span>
 <span class="nb">cd</span> esp32_xxx                     <span class="c1">#进入【esp32_xxx】文件夹</span>
@@ -177,7 +186,7 @@ mkdir projs                      <span class="c1">#新建【projs】文件夹</s
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>2、假设新建用户工程</strong></summary>  
+<details class="collapsible" close=""><summary><strong>2、假设新建用户工程</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -196,6 +205,8 @@ mkdir projs                      <span class="c1">#新建【projs】文件夹</s
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#sudo chmod -R 777 ../esp32_xxx  #强置【esp32_xxx】目录内所有文件具备【可读+写+执行】权限（防止因权限导致异常问题，★只需设置一次即可★）</span>
@@ -203,7 +214,9 @@ mkdir projs                      <span class="c1">#新建【projs】文件夹</s
 
 <span class="nb">export</span> <span class="nv">IDF_GITHUB_ASSETS</span><span class="o">=</span><span class="s2">&#34;dl.espressif.cn/github_assets&#34;</span>  <span class="c1">#设置临时环境变量，为运行`install.sh`安装工具时优先选择乐鑫【国内】下载服务器（因国外服务缓慢，所以临时修改。备注：国外服务器为 &#34;dl.espressif.com/github_assets&#34;）</span>
 ./install.sh esp32,esp32c2       <span class="c1">#安装两目标芯片工具（安装在 $HOME/.espressif/）（安装所有：./install.sh all）（可使用 idf.py --list-targets 可查看支持的所有目标芯片）</span>
-                                 <span class="c1">#如果更换了官方工程版本，需要删除 $HOME/.espressif/ 和用户工程 build/，再执行上面两行命令重新【安装两目标芯片工具】！</span>
+                                 <span class="c1">#〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓</span>
+                                 <span class="c1">#〓如果更换了官方工程的版本或路径，需要执行上面两行命令重新【安装两目标芯片工具】！极端情况下可能要【先】删除 $HOME/.espressif/ 和用户工程 build/</span>
+                                 <span class="c1">#〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓</span>
 . ./export.sh                    <span class="c1">#通过脚本设置当前环境变量，为运行`idf.py`准备（注意：最前面的`. `表示将环境变量导出到当前 shell 中，否则脚本所设置的环境在其运行完后就会消失）</span>
 <span class="nb">cd</span> ../projs/                     <span class="c1">#进入用户自定义目录（目录为 esp32_xxx/projs/）</span>
 idf.py create-project aaa        <span class="c1">#新建工程（将得到应用工程为 esp32_xxx/projs/aaa/）</span>
@@ -217,7 +230,7 @@ idf.py reconfigure               <span class="c1">#重新运行 CMake【当从�
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>3、假设复制案例工程</strong></summary>  
+<details class="collapsible" close=""><summary><strong>3、假设复制案例工程</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -235,6 +248,8 @@ idf.py reconfigure               <span class="c1">#重新运行 CMake【当从�
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#sudo chmod -R 777 ../esp32_xxx  #强置【esp32_xxx】目录内所有文件具备【可读+写+执行】权限（防止因权限导致异常问题，★只需设置一次即可★）</span>
@@ -242,7 +257,9 @@ idf.py reconfigure               <span class="c1">#重新运行 CMake【当从�
 
 <span class="nb">export</span> <span class="nv">IDF_GITHUB_ASSETS</span><span class="o">=</span><span class="s2">&#34;dl.espressif.cn/github_assets&#34;</span>  <span class="c1">#设置临时环境变量，为运行`install.sh`安装工具时优先选择乐鑫【国内】下载服务器（因国外服务缓慢，所以临时修改。备注：国外服务器为 &#34;dl.espressif.com/github_assets&#34;）</span>
 ./install.sh esp32,esp32c2       <span class="c1">#安装两目标芯片工具（安装在 $HOME/.espressif/）（安装所有：./install.sh all）（可使用 idf.py --list-targets 可查看支持的所有目标芯片）</span>
-                                 <span class="c1">#如果更换了官方工程版本，需要删除 $HOME/.espressif/ 和用户工程 build/，再执行上面两行命令重新【安装两目标芯片工具】！</span>
+                                 <span class="c1">#〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓</span>
+                                 <span class="c1">#〓如果更换了官方工程的版本或路径，需要执行上面两行命令重新【安装两目标芯片工具】！极端情况下可能要【先】删除 $HOME/.espressif/ 和用户工程 build/</span>
+                                 <span class="c1">#〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓</span>
 cp -r examples/get-started/hello_world ../projs/  <span class="c1">#直接复制示例工程(文件夹)（目录为 esp32_xxx/esp-idf-v5.1/examples/）</span>
 <span class="nb">cd</span> ../projs/hello_world          <span class="c1">#进入用户工程（即工程目录为 esp32_xxx/projs/hello_world/），此时可发现包括 main 目录（默认源文件存放处）、CMakeLists.txt 等核心配置文件，可直接基于此结构进行代码开发</span>
 . ../../esp-idf-v5.1/export.sh   <span class="c1">#通过脚本设置当前环境变量，为运行`idf.py`准备（注意：最前面的`. `表示将环境变量导出到当前 shell 中，否则脚本所设置的环境在其运行完后就会消失）</span>
@@ -255,32 +272,40 @@ idf.py reconfigure               <span class="c1">#重新运行 CMake【当从�
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>4、其它</strong></summary>  
-<details close=""><summary>PS：<a href="https://github.com/espressif/esp-idf" target="_blank">ESP32 官方仓库</a></summary> </details>  
-<details close=""><summary>PS：<a href="https://www.espressif.com.cn" target="_blank">乐鑫官网</a></summary> </details>  
+<details class="collapsible" close=""><summary><strong>4、其它</strong></summary>  
+<details class="collapsible" close=""><summary>PS：<a href="https://github.com/espressif/esp-idf" target="_blank">ESP32 官方仓库</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://www.espressif.com.cn" target="_blank">乐鑫官网</a></summary> </details>  
 </details>  
 <h3 id="三esp32-工程的编译与烧录ubuntu-20041-ltshttpmirrors163comubuntu-releases-下操作">三、ESP32 工程的编译与烧录（<a href="http://mirrors.163.com/ubuntu-releases/" target="_blank" rel="noopener noreffer">Ubuntu 20.04.1 LTS</a> 下操作）</h3>
-<details close=""><summary><strong>1、安装工具</strong></summary>  
+<details class="collapsible" close=""><summary><strong>1、安装工具</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#sudo apt-get update             #准备安装所需软件包（之前已安装，★这里不用重复操作★）</span>
+<span class="c1">#sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0</span>
                                  <span class="c1">#安装全部所需软件包（之前已安装，★这里不用重复操作★）（备注：无论操作系统还是工具都需要较新的版本，如：ESP-IDF 需要 CMake 3.16 或以上版本）</span>
 
+<span class="c1">#cd esp32_xxx/esp-idf-v5.1/      #进入【ESP-IDF】工具目录（目录为 esp32_xxx/esp-idf-v5.1/）</span>
 <span class="c1">#export IDF_GITHUB_ASSETS=&#34;dl.espressif.cn/github_assets&#34;  #设置临时环境变量，为运行`install.sh`安装工具时优先选择乐鑫【国内】下载服务器（因国外服务缓慢，所以临时修改。备注：国外服务器为 &#34;dl.espressif.com/github_assets&#34;）</span>
 <span class="c1">#./install.sh esp32,esp32c2      #安装两目标芯片工具（之前已安装，★这里不用重复操作★）（安装在 $HOME/.espressif/）（安装所有：./install.sh all）（可使用 idf.py --list-targets 可查看支持的所有目标芯片）</span>
-                                 <span class="c1">#如果更换了官方工程版本，需要删除 $HOME/.espressif/ 和用户工程 build/，再执行上面两行命令重新【安装两目标芯片工具】！</span>
+                                 <span class="c1">#〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓</span>
+                                 <span class="c1">#〓如果更换了官方工程的版本或路径，需要执行上面两行命令重新【安装两目标芯片工具】！极端情况下可能要【先】删除 $HOME/.espressif/ 和用户工程 build/</span>
+                                 <span class="c1">#〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓</span>
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>2、编译代码</strong></summary>  
+<details class="collapsible" close=""><summary><strong>2、编译代码</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -310,7 +335,7 @@ idf.py build                     <span class="c1">#编译工程并且输出固�
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>3、烧录固件</strong></summary>  
+<details class="collapsible" close=""><summary><strong>3、烧录固件</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -328,8 +353,8 @@ idf.py -p /dev/ttyUSB0 monitor    <span class="c1">#通过串口监控调试（C
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><span id="jump02"><strong>4、其它</strong></span></summary>  
-<details close=""><summary>PS：关于 dependencies.lock 引起的错误（点击展开）</summary>  
+<details class="collapsible" close=""><summary><span id="jump02"><strong>4、其它</strong></span></summary>  
+<details class="collapsible" close=""><summary>PS：关于 dependencies.lock 引起的错误（点击展开）</summary>  
 <p>因<code>dependencies.lock</code>配置文件会锁定组件的路径，若您修改了工程文件夹的<strong>名称</strong>或<strong>路径</strong>，则在执行编译时会出现错误。此时需将该文件中所有<code>path:</code>设置的组件路径更新为当前路径（原因：此前执行<code>idf.py build</code>会将组件路径记录为绝对路径）。解决方法示例如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -357,7 +382,7 @@ idf.py fullclean
 </div>
 </div><p><strong>备注</strong>：《方法一》只是说明错误产生原因，实际操作请使用《方法二》</p>
 </details>  
-<details close=""><summary>PS：<strong>全编译成功最后面提示信息</strong>（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：<strong>全编译成功最后面提示信息</strong>（点击展开）</summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -406,7 +431,7 @@ or run <span class="s1">&#39;idf.py -p (PORT) flash&#39;</span>
 <li><code>idf.py</code>命令适合调试烧录。</li>
 </ol>
 </details>  
-<details close=""><summary>PS：<strong>重编译成功最后面提示信息</strong>（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：<strong>重编译成功最后面提示信息</strong>（点击展开）</summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -437,12 +462,12 @@ or run <span class="s1">&#39;idf.py -p (PORT) flash&#39;</span>
 <li><code>idf.py</code>命令适合调试烧录。</li>
 </ol>
 </details>  
-<details close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/linux-macos-setup.html" target="_blank">Linux 和 macOS 平台工具链的标准设置</a></summary> </details>  
-<details close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/tools/idf-py.html" target="_blank">idf.py 前端工具</a></summary> </details>  
-<details close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html" target="_blank">快速入门</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/linux-macos-setup.html" target="_blank">Linux 和 macOS 平台工具链的标准设置</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/tools/idf-py.html" target="_blank">idf.py 前端工具</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html" target="_blank">快速入门</a></summary> </details>  
 </details>  
 <h3 id="四esp32-工程的编译与烧录windows-10-下操作">四、ESP32 工程的编译与烧录（Windows 10 下操作）</h3>
-<details close=""><summary><strong>1、安装工具</strong></summary>  
+<details class="collapsible" close=""><summary><strong>1、安装工具</strong></summary>  
 <blockquote>
 <p>1、直接打开【<a href="https://dl.espressif.com/dl/esp-idf/?idf=4.4" target="_blank" rel="noopener noreffer">ESP-IDF 工具安装器</a>】下载在线安装版；或者下移网页，在《Download links to available releases and mirrors.》表单里下载离线版本，例如【<a href="https://github.com/espressif/idf-installer/releases/download/offline-5.1/esp-idf-tools-setup-offline-5.1.exe" target="_blank" rel="noopener noreffer">Offline Installer v5.1</a>】。<br>
 2、点击安装文件（强烈建议使用默认安装路径），其中在《安装前系统检查》界面中如出现提示请点击〈应用修复〉，在《选择组件》界面中根据实际勾选组件（不清楚可全选）。<br>
@@ -450,7 +475,7 @@ or run <span class="s1">&#39;idf.py -p (PORT) flash&#39;</span>
 4、正常情况下，两命令窗口会提示“您现在可以编译 ESP-IDF 项目，转到项目目录并运行<code>idf.py build</code>编译代码”。</p>
 </blockquote>
 </details>  
-<details close=""><summary><strong>2、编译代码</strong></summary>  
+<details class="collapsible" close=""><summary><strong>2、编译代码</strong></summary>  
 <blockquote>
 <p>1、在桌面上复制粘贴【ESP-IDF 5.1 PowerShell】命令窗口快捷图标，再“右击/属性/快捷方式/起始位置”填写用户工程目录，例如【C:\Users\pc\Desktop\esp32_xxx\projs\aaa】，最后点“确定”保存退出。<br>
 2、双击刚才创建的命令窗口快捷图标，接着运行下面命令：</p>
@@ -480,7 +505,7 @@ idf.py build                     <span class="c1">#编译工程并且输出固�
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>3、烧录固件</strong></summary>  
+<details class="collapsible" close=""><summary><strong>3、烧录固件</strong></summary>  
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -494,8 +519,8 @@ idf.py -p COM3 monitor           <span class="c1">#通过串口监控调试（Ct
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary><strong>4、其它</strong></summary>  
-<details close=""><summary>PS：关于 dependencies.lock 引起的错误（点击展开）</summary>  
+<details class="collapsible" close=""><summary><strong>4、其它</strong></summary>  
+<details class="collapsible" close=""><summary>PS：关于 dependencies.lock 引起的错误（点击展开）</summary>  
 <p>因<code>dependencies.lock</code>配置文件会锁定组件的路径，若您修改了工程文件夹的<strong>名称</strong>或<strong>路径</strong>，则在执行编译时会出现错误。此时需将该文件中所有<code>path:</code>设置的组件路径更新为当前路径（原因：此前执行<code>idf.py build</code>会将组件路径记录为绝对路径）。直接执行下面命令解决：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -508,18 +533,18 @@ idf.py fullclean
 </code></pre></td></tr></table>
 </div>
 </div></details>  
-<details close=""><summary>PS：在 Windows 系统下编译的时长和问题（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：在 Windows 系统下编译的时长和问题（点击展开）</summary>  
 <ul>
 <li>在 Windows 系统下全编译有时耗时超过 30 分钟，因涉及版本和不稳定问题，建议在 Linux 下编译代码</li>
 <li>命令窗口有时运行过程中会卡往不动，可能是稳定性问题引起，只能重新运行命令重试</li>
 </ul>
 </details>  
-<details close=""><summary>PS：关于 ESP-IDF 工具的路径长度问题（点击展开） </summary>  
+<details class="collapsible" close=""><summary>PS：关于 ESP-IDF 工具的路径长度问题（点击展开） </summary>  
 <ul>
 <li>ESP-IDF 工具的路径不能超过 90 个字符，路径过长可能会导致构建失败！所以无论上面安装或用户项目工程的工具，都不能过长或有空格、特殊字符之类！</li>
 </ul>
 </details>  
-<details close=""><summary>PS：安装 ESP-IDF 工具会安装以下组件（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：安装 ESP-IDF 工具会安装以下组件（点击展开）</summary>  
 <ol>
 <li>内置的 Python</li>
 <li>交叉编译器</li>
@@ -528,12 +553,12 @@ idf.py fullclean
 <li>ESP-IDF</li>
 </ol>
 </details>  
-<details close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/windows-setup.html" target="_blank">Windows 平台工具链的标准设置</a></summary> </details>  
-<details close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/tools/idf-py.html" target="_blank">idf.py 前端工具</a></summary> </details>  
-<details close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html" target="_blank">快速入门</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/windows-setup.html" target="_blank">Windows 平台工具链的标准设置</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/tools/idf-py.html" target="_blank">idf.py 前端工具</a></summary> </details>  
+<details class="collapsible" close=""><summary>PS：<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html" target="_blank">快速入门</a></summary> </details>  
 </details>  
 <h3 id="五esp32-固件量产烧录方法windows-10-下操作">五、ESP32 固件量产烧录方法（Windows 10 下操作）</h3>
-<details close=""><summary><span id="jump01"><strong>1、量产烧录</strong></span></summary>  
+<details class="collapsible" close=""><summary><span id="jump01"><strong>1、量产烧录</strong></span></summary>  
 <blockquote>
 <p>编译完成后（<a href="#jump02" rel="">编译信息</a>），提示可使用 <code>esptool.py</code> 命令烧录固件，该方法适用于量产场景。用户可将 <code>esptool.py</code> 封装为 <code>esptool.exe</code> 可执行文件，并配合编译信息编写自动化烧录脚本，以提升操作效率。您可下载并解压【<a href="https://pan.baidu.com/s/18GfnwLrkWHsZBlGPOn6NQQ?pwd=3i52" target="_blank" rel="noopener noreffer">ESP32固件烧录演示.zip</a>】案例文件，查看在 Windows 环境下的具体烧录流程。其中，<code>Download_COM22.bat</code> 脚本及其参数说明如下：</p>
 </blockquote>
@@ -559,7 +584,7 @@ pause
 <p><strong>操作方法很简单</strong>：使用文本编辑工具打开<code>Download_COM22.bat</code>文件，将其中的<code>COM22</code>修改为电脑检测到的实际串口号，保存后双击<code>Download_COM22.bat</code>脚本即可执行烧录操作。</p>
 </blockquote>
 </details>  
-<details close=""><summary><strong>2、参数解释</strong></summary>  
+<details class="collapsible" close=""><summary><strong>2、参数解释</strong></summary>  
 <blockquote>
 <p><strong>基础参数</strong></p>
 <ul>
@@ -591,42 +616,61 @@ pause
 <p>这些地址按照 ESP32 官方规定的标准烧录位置（配置文件：esp32_xxx/projs/aaa/partitions.csv），一般情况下不要随意更改，否则可能导致设备无法启动或功能异常。</p>
 </details>  
 <h3 id="六工程重要文件解释">六、工程重要文件解释</h3>
-<details close=""><summary>PS：sdkconfig（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：.espressif（点击展开）</summary>  
+<p><code>.espressif</code>是一个 由 ESP-IDF 工具链自动创建的隐藏文件夹，主要用于存储 ESP32 开发所需的工具链、SDK 组件、缓存文件及配置信息，是 ESP-IDF 开发环境的核心依赖目录。<br>
+<strong>备注</strong>：通过【install.sh】会自动生成<code>.espressif</code>文件夹及下载并配置所需文件。默认位于用户主目录下：Windows：<code>C:\Users\&lt;用户名&gt;\.espressif</code>；Linux/macOS：<code>/home/&lt;用户名&gt;/.espressif</code>。</p>
+</details>  
+<details class="collapsible" close=""><summary>PS：sdkconfig（点击展开）</summary>  
 <p><code>sdkconfig</code>文件是项目的核心配置文件，用于存储 ESP-IDF（Espressif IoT Development Framework）的编译选项和参数。它决定了 ESP32 芯片的功能特性、外设配置、内存分配以及应用程序的行为。<br>
 <strong>备注</strong>：运行【idf.py set-target】命令将清除 build 目录，并重新生成<code>sdkconfig</code>文件，原来的 sdkconfig 文件保存为<code>sdkconfig.old</code>。此命令主要影响与芯片强相关的配置，其他配置会尽量保留，不会完全恢复到 “全新工程” 的默认状态。如果需要彻底重置配置，可以手动删除工程目录下的<code>sdkconfig</code>文件（该文件保存了所有配置项），之后重新执行【idf.py menuconfig】会生成全新的默认配置。</p>
 </details>  
-<details close=""><summary>PS：CMakeLists.txt（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：CMakeLists.txt（点击展开）</summary>  
 <p><code>CMakeLists.txt</code>文件是用于指导 CMake 构建系统如何编译和链接项目代码（如：头文件搜索路径、源文件路径列表、项目名称等），在 ESP32 工程中会包含多个 CMakeLists.txt 文件。</p>
 </details>  
-<details close=""><summary>PS：linker.lf（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：linker.lf（点击展开）</summary>  
 <p><code>linker.lf</code>（.ld后缀的文件）是链接脚本（Linker Script），用于指导链接器（如 GCC 的 ld）如何将编译后的目标文件（.o）和库文件组合成最终的可执行文件或固件。链接脚本的核心作用是定义内存布局和指定代码 / 数据段的放置位置。</p>
 </details>  
-<details close=""><summary>PS：idf_component.yml（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：idf_component.yml（点击展开）</summary>  
 <p><code>idf_component.yml</code>是一个关键配置文件，用于定义和管理 ESP-IDF（Espressif IoT Development Framework）组件的元数据、依赖关系及构建参数。它是 ESP-IDF v4.0 及后续版本中组件管理系统的核心组成部分，替代了早期版本使用的 component.mk 和 Kconfig 文件的部分功能。</p>
 </details>  
-<details close=""><summary>PS：dependencies.lock（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：dependencies.lock（点击展开）</summary>  
 <p><code>dependencies.lock</code>文件是用于锁定项目依赖组件版本和配置的重要文件，它确保项目在不同环境中构建时依赖的组件版本和来源保持一致，避免因依赖更新导致的兼容性问题。<br>
 <strong>备注</strong>：当<code>dependencies.lock</code>文件不存在时，执行【idf.py build】编译代码时会重新生成！</p>
 </details>  
-<details close=""><summary>PS：partitions.csv（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：partitions.csv（点击展开）</summary>  
 <p><code>partitions.csv</code>是一个关键配置文件，用于定义 flash 存储器的分区表。ESP32 的 flash 空间需要被划分为多个区域，分别存储程序代码、文件系统、OTA 更新数据、校准数据等。<br>
 <strong>备注</strong>：运行【idf.py build】过程中会调用【parttool.py】读取<code>partitions.csv</code>相关参数！</p>
 </details>  
-<details close=""><summary>PS：Kconfig.projbuild（点击展开）</summary>  
+<details class="collapsible" close=""><summary>PS：Kconfig.projbuild（点击展开）</summary>  
 <p><code>Kconfig.projbuild</code>是一个关键的配置文件，用于定义项目级别的编译选项和配置项。它基于 Kconfig 系统，允许开发者通过菜单驱动的界面（如 idf.py menuconfig）交互式地配置项目参数，并将配置结果保存到<code>sdkconfig</code>文件中。</p>
 </details>  
+<script>  
+	// 获取按钮和所有折叠段落  
+	const toggleBtn = document.getElementById('toggleAll');  
+	const collapsibles = document.querySelectorAll('.collapsible');  
+	let isAllOpen = false; // 初始状态：全部展开  
+	// 一键切换逻辑  
+	toggleBtn.addEventListener('click', () => {  
+		isAllOpen = !isAllOpen;  
+		collapsibles.forEach(detail => {  
+			detail.open = isAllOpen; // 控制所有details的open属性  
+		});  
+		// 更新按钮文字  
+		toggleBtn.textContent = isAllOpen ? '一键折叠全部' : '一键展开全部';  
+	});  
+</script>  
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2025-11-05</span>
+                <span>更新于 2025-11-17</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20251025/" data-title="ESP32 工程命令行编译笔记" data-hashtags="ESP32"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20251025/" data-hashtag="ESP32"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20251025/" data-title="ESP32 工程命令行编译笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20251025/" data-title="ESP32 工程命令行编译笔记"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20251025/" data-title="ESP32 工程命令行编译笔记"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://o2ospring.github.io/20251025/" data-title="linux-ESP32编译-工程命令行编译笔记" data-hashtags="ESP32"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://o2ospring.github.io/20251025/" data-hashtag="ESP32"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://o2ospring.github.io/20251025/" data-title="linux-ESP32编译-工程命令行编译笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://o2ospring.github.io/20251025/" data-title="linux-ESP32编译-工程命令行编译笔记"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://o2ospring.github.io/20251025/" data-title="linux-ESP32编译-工程命令行编译笔记"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -646,7 +690,7 @@ pause
             </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">o2ospring</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
