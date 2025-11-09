@@ -4,6 +4,13 @@
         <link>https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/</link>
         <description>linux 工具/应用 - 标签 - o2ospring</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://o2ospring.github.io/tags/linux-%E5%B7%A5%E5%85%B7/%E5%BA%94%E7%94%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>WSL 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Sun, 09 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在 Windows 上直接运行完整的 Linux 发行版，无需虚拟机或双系统。（官方帮助文档：WSL 文档） WSL 简介 1、核心特]]></description>
+</item><item>
     <title>linux 纯文本编辑器 nano</title>
     <link>https://o2ospring.github.io/20251108/</link>
     <pubDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</pubDate>
@@ -66,12 +73,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220123/</guid>
     <description><![CDATA[NPM 的简介 npm（Node Package Manager）是 node 的包管理器，随同 NodeJS 一起安装的包管理和分发工具，它很方便让 JavaScript 开发者下载、安装、上传以及管理已经安]]></description>
-</item><item>
-    <title>lua 脚本基本语法</title>
-    <link>https://o2ospring.github.io/20211221/</link>
-    <pubDate>Tue, 21 Dec 2021 21:33:41 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20211221/</guid>
-    <description><![CDATA[前言 Lua /'luːə/ 是一个小巧且速度极快的脚本语言，由标准 C 编写而成，几乎在所有操作系统和平台上都可以编译运行，是作为嵌入式脚本的最佳选择。]]></description>
 </item></channel>
 </rss>

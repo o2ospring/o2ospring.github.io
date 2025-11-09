@@ -3,13 +3,20 @@
         <title>linux - 分类 - o2ospring</title>
         <link>https://o2ospring.github.io/categories/linux/</link>
         <description>linux - 分类 - o2ospring</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Nov 2025 08:33:41 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Nov 2025 10:00:00 &#43;0800</lastBuildDate><atom:link href="https://o2ospring.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
     <title>【linux 专题文章索引】</title>
     <link>https://o2ospring.github.io/linux/</link>
     <pubDate>Sun, 05 Aug 2018 20:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/linux/</guid>
     <description><![CDATA[前言 记录我学习 linux 基础知识、终端命令的使用、编程编译环境的应用，以及在 linux（Ubuntu）操作系统环境下各类工具软件的安装、配置、使用！]]></description>
+</item><item>
+    <title>WSL 之 unix 模拟环境</title>
+    <link>https://o2ospring.github.io/20251109/</link>
+    <pubDate>Sun, 09 Nov 2025 10:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://o2ospring.github.io/20251109/</guid>
+    <description><![CDATA[前言 Windows Subsystem for Linux (WSL) 是微软开发的 Windows 系统组件，能让用户在 Windows 上直接运行完整的 Linux 发行版，无需虚拟机或双系统。（官方帮助文档：WSL 文档） WSL 简介 1、核心特]]></description>
 </item><item>
     <title>linux 纯文本编辑器 nano</title>
     <link>https://o2ospring.github.io/20251108/</link>
@@ -66,12 +73,5 @@
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220228/</guid>
     <description><![CDATA[前言 UnxUtils ② /ʌŋks ˈjuːtɪlz/ 是一个针对 Windows 系统的工具集，其核心功能是将一系列常用的 Unix/Linux 命令行工具移植到 Windows 环境中，让 Windows 用户能够在命令提示符]]></description>
-</item><item>
-    <title>cygwin 之 unix 模拟环境</title>
-    <link>https://o2ospring.github.io/20220227/</link>
-    <pubDate>Sun, 27 Feb 2022 15:00:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://o2ospring.github.io/20220227/</guid>
-    <description><![CDATA[前言 有时候想利用 linux 的资源开发 windows 软件，或者是利用 linux 的资源（工具被封装成 Windows.exe执行文件）帮忙我们在 windows 系统上完成某项工作（尤其是使]]></description>
 </item></channel>
 </rss>
