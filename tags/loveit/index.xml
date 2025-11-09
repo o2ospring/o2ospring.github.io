@@ -9,6 +9,6 @@
     <pubDate>Wed, 26 Jan 2022 21:33:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://o2ospring.github.io/20220126/</guid>
-    <description><![CDATA[Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写的静态网站生成器，旨在让网站创建再次变得简单有趣。其主要用于个人 Blog、项目文档、初创公司]]></description>
+    <description><![CDATA[/* 一键按钮悬浮左下角样式 */ #toggleAll { font-size: 10px; position: fixed; left: 15px; bottom: 15px; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background 0.3s ease; } #toggleAll:hover { background: #eee; } 一键展开全部 Hugo 的简介 Hugo /'hjuːgəʊ/ 是一种用 Go 语言编写]]></description>
 </item></channel>
 </rss>
